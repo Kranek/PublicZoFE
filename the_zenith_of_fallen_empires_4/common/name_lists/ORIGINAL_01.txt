@@ -1,0 +1,207 @@
+﻿### ORIGINAL Name Lists
+#Inspired by Biblical names
+
+
+ORIGINAL_01 = {
+	selectable = { has_zofe_sandbox = yes }
+	randomized = no
+	should_name_home_system_planets = no
+	
+	ship_names = {
+		generic = {
+			ORIGINAL_01_SHIP_Arakiel ORIGINAL_01_SHIP_Adriel ORIGINAL_01_SHIP_Ariel ORIGINAL_01_SHIP_Armoniel ORIGINAL_01_SHIP_Azrael ORIGINAL_01_SHIP_Arariel
+			ORIGINAL_01_SHIP_Barachiel ORIGINAL_01_SHIP_Barbiel ORIGINAL_01_SHIP_Baraqiel ORIGINAL_01_SHIP_Bezaliel
+			ORIGINAL_01_SHIP_Camael ORIGINAL_01_SHIP_Chazaqiel ORIGINAL_01_SHIP_Cambiel
+			ORIGINAL_01_SHIP_Daniel
+			ORIGINAL_01_SHIP_Gadriel ORIGINAL_01_SHIP_Gabriel ORIGINAL_01_SHIP_Gamaliel
+			ORIGINAL_01_SHIP_Hahasiah ORIGINAL_01_SHIP_Hamaliel ORIGINAL_01_SHIP_Haniel ORIGINAL_01_SHIP_Hashmal ORIGINAL_01_SHIP_Hofniel
+			ORIGINAL_01_SHIP_Imamiah
+			ORIGINAL_01_SHIP_Jehoel ORIGINAL_01_SHIP_Jerahmeel ORIGINAL_01_SHIP_Jophiel
+			ORIGINAL_01_SHIP_Kokabiel ORIGINAL_01_SHIP_Kushiel ORIGINAL_01_SHIP_Kundaliel ORIGINAL_01_SHIP_Kepharel
+			ORIGINAL_01_SHIP_Mastema ORIGINAL_01_SHIP_Mebahiah ORIGINAL_01_SHIP_Mitzrael ORIGINAL_01_SHIP_Michael
+			ORIGINAL_01_SHIP_Nanael ORIGINAL_01_SHIP_Netzach ORIGINAL_01_SHIP_Nithael ORIGINAL_01_SHIP_Nuriel
+			ORIGINAL_01_SHIP_Ophaniel
+			ORIGINAL_01_SHIP_Penemue ORIGINAL_01_SHIP_Phanuel ORIGINAL_01_SHIP_Poyel ORIGINAL_01_SHIP_Puriel
+			ORIGINAL_01_SHIP_Remiel ORIGINAL_01_SHIP_Rikbiel ORIGINAL_01_SHIP_Raphael ORIGINAL_01_SHIP_Raziel
+			ORIGINAL_01_SHIP_Samael ORIGINAL_01_SHIP_Seraphiel ORIGINAL_01_SHIP_Shamsiel ORIGINAL_01_SHIP_Sabriel ORIGINAL_01_SHIP_Sahaquiel ORIGINAL_01_SHIP_Sidriel
+			ORIGINAL_01_SHIP_Tamiel ORIGINAL_01_SHIP_Turiel
+			ORIGINAL_01_SHIP_Uriel ORIGINAL_01_SHIP_Uziel
+			ORIGINAL_01_SHIP_Verchiel
+			ORIGINAL_01_SHIP_Yomiel
+			ORIGINAL_01_SHIP_Zadkiel ORIGINAL_01_SHIP_Zaphkiel ORIGINAL_01_SHIP_Zaqiel ORIGINAL_01_SHIP_Zuriel
+		}
+	}
+
+	fleet_names = {
+		sequential_name = ORIGINAL_01_FLEET_ORD
+	}
+	
+	army_names = {
+		defense_army = {
+			sequential_name = ORIGINAL_01_DEFENCE_ARMY_ORD
+		}
+			
+		assault_army = {
+			sequential_name = ORIGINAL_01_ASSAULT_ARMY_ORD
+		}
+	}
+		
+
+	### PLANETS
+
+	planet_names = {
+		generic = {
+			names = {
+				ORIGINAL_01_PLANET_Temple_of_Tenacity
+				ORIGINAL_01_PLANET_Temple_of_Purity
+				ORIGINAL_01_PLANET_Temple_of_Chastity
+				ORIGINAL_01_PLANET_Temple_of_Healing
+				ORIGINAL_01_PLANET_Temple_of_Triumph
+				ORIGINAL_01_PLANET_Temple_of_Serenity
+				ORIGINAL_01_PLANET_Temple_of_Wisdom
+				ORIGINAL_01_PLANET_Temple_of_Light
+				ORIGINAL_01_PLANET_Temple_of_Beauty
+				ORIGINAL_01_PLANET_Temple_of_Harmony
+				
+				ORIGINAL_01_PLANET_Bastion_of_Strength
+				ORIGINAL_01_PLANET_Bastion_of_Courage
+				ORIGINAL_01_PLANET_Bastion_of_Justice
+				ORIGINAL_01_PLANET_Bastion_of_Patience
+				ORIGINAL_01_PLANET_Bastion_of_Discipline
+				ORIGINAL_01_PLANET_Bastion_of_Light
+				ORIGINAL_01_PLANET_Bastion_of_Beauty
+				
+				ORIGINAL_01_PLANET_Throne_of_Tenacity
+				ORIGINAL_01_PLANET_Throne_of_Purity
+				ORIGINAL_01_PLANET_Throne_of_Courage
+				ORIGINAL_01_PLANET_Throne_of_Justice
+				ORIGINAL_01_PLANET_Throne_of_Triumph
+				ORIGINAL_01_PLANET_Throne_of_Serenity
+				ORIGINAL_01_PLANET_Throne_of_Wisdom
+				ORIGINAL_01_PLANET_Throne_of_Beauty
+				ORIGINAL_01_PLANET_Throne_of_Harmony
+				
+				ORIGINAL_01_PLANET_Garden_of_Purity
+				ORIGINAL_01_PLANET_Garden_of_Chastity
+				ORIGINAL_01_PLANET_Garden_of_Healing
+				ORIGINAL_01_PLANET_Garden_of_Wisdom
+				ORIGINAL_01_PLANET_Garden_of_Light
+				ORIGINAL_01_PLANET_Garden_of_Beauty
+				ORIGINAL_01_PLANET_Garden_of_Harmony
+				
+				ORIGINAL_01_PLANET_Silver_City
+				ORIGINAL_01_PLANET_Diamond_City
+				ORIGINAL_01_PLANET_Emerald_City
+				ORIGINAL_01_PLANET_Eternal_City
+				ORIGINAL_01_PLANET_Holy_City
+				
+				ORIGINAL_01_PLANET_City_of_Light
+				ORIGINAL_01_PLANET_City_of_Beauty
+				ORIGINAL_01_PLANET_City_of_Grace
+				ORIGINAL_01_PLANET_City_of_Harmony
+				ORIGINAL_01_PLANET_City_of_Music
+				ORIGINAL_01_PLANET_City_of_Angels
+			}
+		}
+	}
+
+	character_names = {
+		default = {
+			first_names_male = {
+				ORIGINAL_01_CHR_Abel ORIGINAL_01_CHR_Asher ORIGINAL_01_CHR_Azariah ORIGINAL_01_CHR_Azaliah ORIGINAL_01_CHR_Adam ORIGINAL_01_CHR_Abram ORIGINAL_01_CHR_Amariah ORIGINAL_01_CHR_Asriel
+				ORIGINAL_01_CHR_Daniel ORIGINAL_01_CHR_David
+				ORIGINAL_01_CHR_Elijah ORIGINAL_01_CHR_Elias ORIGINAL_01_CHR_Ezra ORIGINAL_01_CHR_Ezekiel ORIGINAL_01_CHR_Emmanuel
+				ORIGINAL_01_CHR_Gabriel
+				ORIGINAL_01_CHR_Hezekiah ORIGINAL_01_CHR_Hazaiah
+				ORIGINAL_01_CHR_Ishmael ORIGINAL_01_CHR_Ismaiah ORIGINAL_01_CHR_Issac
+				ORIGINAL_01_CHR_Jericho ORIGINAL_01_CHR_Jeremiah ORIGINAL_01_CHR_Joshua ORIGINAL_01_CHR_Japheth ORIGINAL_01_CHR_Judah ORIGINAL_01_CHR_Joseph ORIGINAL_01_CHR_Jonah
+				ORIGINAL_01_CHR_Micaiah ORIGINAL_01_CHR_Moses
+				ORIGINAL_01_CHR_Nathanael ORIGINAL_01_CHR_Noah ORIGINAL_01_CHR_Neriah
+				ORIGINAL_01_CHR_Omar				
+				ORIGINAL_01_CHR_Raphael
+				ORIGINAL_01_CHR_Samuel ORIGINAL_01_CHR_Samson ORIGINAL_01_CHR_Saul ORIGINAL_01_CHR_Solomon
+				ORIGINAL_01_CHR_Uzziah ORIGINAL_01_CHR_Uriah
+			}
+			first_names_female = {
+				ORIGINAL_01_CHR_Abigail ORIGINAL_01_CHR_Atarah ORIGINAL_01_CHR_Adina ORIGINAL_01_CHR_Azubah 
+				ORIGINAL_01_CHR_Dinah ORIGINAL_01_CHR_Delilah
+				ORIGINAL_01_CHR_Esther ORIGINAL_01_CHR_Eve
+				ORIGINAL_01_CHR_Hannah ORIGINAL_01_CHR_Hephzibah
+				ORIGINAL_01_CHR_Jael ORIGINAL_01_CHR_Jerusha
+				ORIGINAL_01_CHR_Ketsiah
+				ORIGINAL_01_CHR_Leah ORIGINAL_01_CHR_Lo-Ruhamah
+				ORIGINAL_01_CHR_Mehetabel
+				ORIGINAL_01_CHR_Naamah ORIGINAL_01_CHR_Neah
+				ORIGINAL_01_CHR_Rebekah
+				ORIGINAL_01_CHR_Sara ORIGINAL_01_CHR_Sheerah
+				ORIGINAL_01_CHR_Tirzah ORIGINAL_01_CHR_Tamar
+				ORIGINAL_01_CHR_Zilpah
+			}
+			second_names_male = {
+				ORIGINAL_01_CHR_son_Abel ORIGINAL_01_CHR_son_Asher ORIGINAL_01_CHR_son_Azariah ORIGINAL_01_CHR_son_Azaliah ORIGINAL_01_CHR_son_Adam ORIGINAL_01_CHR_son_Abram ORIGINAL_01_CHR_son_Amariah ORIGINAL_01_CHR_son_Asriel
+				ORIGINAL_01_CHR_son_Daniel ORIGINAL_01_CHR_son_David
+				ORIGINAL_01_CHR_son_Elijah ORIGINAL_01_CHR_son_Elias ORIGINAL_01_CHR_son_Ezra ORIGINAL_01_CHR_son_Ezekiel ORIGINAL_01_CHR_son_Emmanuel
+				ORIGINAL_01_CHR_son_Gabriel
+				ORIGINAL_01_CHR_son_Hezekiah ORIGINAL_01_CHR_son_Hazaiah
+				ORIGINAL_01_CHR_son_Ishmael ORIGINAL_01_CHR_son_Ismaiah ORIGINAL_01_CHR_son_Issac
+				ORIGINAL_01_CHR_son_Jericho ORIGINAL_01_CHR_son_Jeremiah ORIGINAL_01_CHR_son_Joshua ORIGINAL_01_CHR_son_Japheth ORIGINAL_01_CHR_son_Judah ORIGINAL_01_CHR_son_Joseph ORIGINAL_01_CHR_son_Jonah
+				ORIGINAL_01_CHR_son_Micaiah ORIGINAL_01_CHR_son_Moses
+				ORIGINAL_01_CHR_son_Nathanael ORIGINAL_01_CHR_son_Noah ORIGINAL_01_CHR_son_Neriah
+				ORIGINAL_01_CHR_son_Omar				
+				ORIGINAL_01_CHR_son_Raphael
+				ORIGINAL_01_CHR_son_Samuel ORIGINAL_01_CHR_son_Samson ORIGINAL_01_CHR_son_Saul ORIGINAL_01_CHR_son_Solomon
+				ORIGINAL_01_CHR_son_Uzziah ORIGINAL_01_CHR_son_Uriah
+			}
+			
+			second_names_female = {
+				ORIGINAL_01_CHR_daughter_Abel ORIGINAL_01_CHR_daughter_Asher ORIGINAL_01_CHR_daughter_Azariah ORIGINAL_01_CHR_daughter_Azaliah ORIGINAL_01_CHR_daughter_Adam ORIGINAL_01_CHR_daughter_Abram ORIGINAL_01_CHR_daughter_Amariah ORIGINAL_01_CHR_daughter_Asriel
+				ORIGINAL_01_CHR_daughter_Daniel ORIGINAL_01_CHR_daughter_David
+				ORIGINAL_01_CHR_daughter_Elijah ORIGINAL_01_CHR_daughter_Elias ORIGINAL_01_CHR_daughter_Ezra ORIGINAL_01_CHR_daughter_Ezekiel ORIGINAL_01_CHR_daughter_Emmanuel
+				ORIGINAL_01_CHR_daughter_Gabriel
+				ORIGINAL_01_CHR_daughter_Hezekiah ORIGINAL_01_CHR_daughter_Hazaiah
+				ORIGINAL_01_CHR_daughter_Ishmael ORIGINAL_01_CHR_daughter_Ismaiah ORIGINAL_01_CHR_daughter_Issac
+				ORIGINAL_01_CHR_daughter_Jericho ORIGINAL_01_CHR_daughter_Jeremiah ORIGINAL_01_CHR_daughter_Joshua ORIGINAL_01_CHR_daughter_Japheth ORIGINAL_01_CHR_daughter_Judah ORIGINAL_01_CHR_daughter_Joseph ORIGINAL_01_CHR_daughter_Jonah
+				ORIGINAL_01_CHR_daughter_Micaiah ORIGINAL_01_CHR_daughter_Moses
+				ORIGINAL_01_CHR_daughter_Nathanael ORIGINAL_01_CHR_daughter_Noah ORIGINAL_01_CHR_daughter_Neriah
+				ORIGINAL_01_CHR_daughter_Omar				
+				ORIGINAL_01_CHR_daughter_Raphael
+				ORIGINAL_01_CHR_daughter_Samuel ORIGINAL_01_CHR_daughter_Samson ORIGINAL_01_CHR_daughter_Saul ORIGINAL_01_CHR_daughter_Solomon
+				ORIGINAL_01_CHR_daughter_Uzziah ORIGINAL_01_CHR_daughter_Uriah
+			}
+			
+			regnal_first_names_male = {
+				ORIGINAL_01_CHR_Abel ORIGINAL_01_CHR_Asher ORIGINAL_01_CHR_Azariah ORIGINAL_01_CHR_Azaliah ORIGINAL_01_CHR_Adam ORIGINAL_01_CHR_Abram ORIGINAL_01_CHR_Amariah ORIGINAL_01_CHR_Asriel
+				ORIGINAL_01_CHR_Daniel ORIGINAL_01_CHR_David
+				ORIGINAL_01_CHR_Elijah ORIGINAL_01_CHR_Elias ORIGINAL_01_CHR_Ezra ORIGINAL_01_CHR_Ezekiel ORIGINAL_01_CHR_Emmanuel
+				ORIGINAL_01_CHR_Gabriel
+				ORIGINAL_01_CHR_Hezekiah ORIGINAL_01_CHR_Hazaiah
+				ORIGINAL_01_CHR_Ishmael ORIGINAL_01_CHR_Ismaiah ORIGINAL_01_CHR_Issac
+				ORIGINAL_01_CHR_Jericho ORIGINAL_01_CHR_Jeremiah ORIGINAL_01_CHR_Joshua ORIGINAL_01_CHR_Japheth ORIGINAL_01_CHR_Judah ORIGINAL_01_CHR_Joseph ORIGINAL_01_CHR_Jonah
+				ORIGINAL_01_CHR_Micaiah ORIGINAL_01_CHR_Moses
+				ORIGINAL_01_CHR_Nathanael ORIGINAL_01_CHR_Noah ORIGINAL_01_CHR_Neriah
+				ORIGINAL_01_CHR_Omar				
+				ORIGINAL_01_CHR_Raphael
+				ORIGINAL_01_CHR_Samuel ORIGINAL_01_CHR_Samson ORIGINAL_01_CHR_Saul ORIGINAL_01_CHR_Solomon
+				ORIGINAL_01_CHR_Uzziah ORIGINAL_01_CHR_Uriah
+			}
+			regnal_first_names_female = {
+				ORIGINAL_01_CHR_Abigail ORIGINAL_01_CHR_Atarah ORIGINAL_01_CHR_Adina ORIGINAL_01_CHR_Azubah 
+				ORIGINAL_01_CHR_Dinah ORIGINAL_01_CHR_Delilah
+				ORIGINAL_01_CHR_Esther ORIGINAL_01_CHR_Eve
+				ORIGINAL_01_CHR_Hannah ORIGINAL_01_CHR_Hephzibah
+				ORIGINAL_01_CHR_Jael ORIGINAL_01_CHR_Jerusha
+				ORIGINAL_01_CHR_Ketsiah
+				ORIGINAL_01_CHR_Leah ORIGINAL_01_CHR_Lo-Ruhamah
+				ORIGINAL_01_CHR_Mehetabel
+				ORIGINAL_01_CHR_Naamah ORIGINAL_01_CHR_Neah
+				ORIGINAL_01_CHR_Rebekah
+				ORIGINAL_01_CHR_Sara ORIGINAL_01_CHR_Sheerah
+				ORIGINAL_01_CHR_Tirzah ORIGINAL_01_CHR_Tamar
+				ORIGINAL_01_CHR_Zilpah
+			}
+			regnal_second_names = {
+				ORIGINAL_01_CHR_the_wise ORIGINAL_01_CHR_the_chosen ORIGINAL_01_CHR_the_mighty ORIGINAL_01_CHR_the_pure ORIGINAL_01_CHR_the_furious ORIGINAL_01_CHR_the_just ORIGINAL_01_CHR_the_peacekeeper
+			}
+		}
+	}
+}

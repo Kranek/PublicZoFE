@@ -1,0 +1,133 @@
+on_game_start = {
+	events = {
+		zofe_action.1 #Flag the Base Mod being Active.
+		fallen_weaponry.1
+	}
+}
+
+on_game_start_country = {
+	events = {
+		zofe_menu.0 #Menu Trigger
+	}
+}
+
+on_single_player_save_game_load = {
+	events = {
+		fallen_weaponry.1
+		zofe_menu.2
+	}
+}
+
+# this = country
+on_monthly_pulse_country = {
+	events = {
+		zofe.14
+		lost_empire.2
+		lost_empire.5
+		original_people.100
+		original_people.200
+		original_people.300
+		original_people.400
+		fallen_weaponry.100
+		fallen_weaponry.200
+		fallen_weaponry.300
+		fallen_weaponry.400
+		fallen_weaponry.500
+		fallen_weaponry.600
+		fallen_weaponry.9
+		original_technologies.1001
+		original_technologies.1002
+		original_technologies.1003
+		original_technologies.1004
+		original_technologies.1005
+		societal_ascendance.1
+		zofe_awakening.104
+		zofe_awakening.204
+		zofe_awakening.304
+		
+	}
+}
+
+# this = country
+on_yearly_pulse_country = {
+	events = {
+		zofe.16
+		zofe.17
+		lost_empire.1
+		lost_empire.100
+		original_people.2
+		zofe_crisis.1002
+		zofe_crisis.1007
+		zofe_crisis.1011
+		zofe_crisis.1013
+		zofe_crisis.1016
+		zofe_crisis.1023
+		zofe_crisis.1024
+		zofe_crisis.1027
+		fallen_weaponry.810
+		fallen_weaponry.820
+		fallen_weaponry.830
+		fallen_weaponry.840
+		fallen_weaponry.850
+		fallen_weaponry.860
+		zofe_awakening.1
+		zofe_awakening.2
+		zofe_awakening.3
+		zofe_awakening.4
+	}
+}
+
+on_five_year_pulse_country = {
+	events = {
+		zofe_crisis.1018
+		fallen_weaponry.700
+		zofe_awakening.101
+		zofe_awakening.201
+		zofe_awakening.301
+		zofe_awakening.401
+	 }
+}
+
+# this = country
+on_decade_pulse_country = {
+	events = {
+		fallen_technologies.3
+		lost_technologies.310
+		lost_empire.9
+		ascended_empires_subject.1
+		ascended_empires_subject.4
+		ascended_empires_subject.7
+		ascended_empires_subject.10
+		ascended_empires_subject.13
+		ascended_empires_subject.16
+		ascended_empires_subject.19
+		fallen_weaponry.902
+	}
+}
+
+on_tech_increased = {
+	events = {
+		zofe_cosmogenesis.7275 # FE research upsets FEs
+	}
+}
+
+# A war is beginning, executed for every country in the war.
+# Root = Country
+# From = War
+on_war_beginning = {
+	events = {
+		lost_empire.12 #Ascended Empire subjects join war event
+	}
+}
+
+# on_war_ended = {
+# 	events = {
+# 		lost_empire.19
+# 	}
+# }
+
+# on_war_lost = {
+# 	events = {
+		
+# 	}
+# }

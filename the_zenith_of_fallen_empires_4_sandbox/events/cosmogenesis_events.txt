@@ -1,0 +1,20 @@
+namespace = zofe_cosmogenesis
+
+country_event = {
+	id = zofe_cosmogenesis.1
+	title = "zofe_cosmogenesis.1.name"
+	desc = zofe_cosmogenesis.1.desc
+	picture = GFX_evt_fallen_empire_awakes
+	show_sound = event_criminal_activity
+	is_triggered_only = yes
+
+	option = {
+		name = zofe_cosmogenesis.1.a
+	}
+	after = {
+		start_situation = {
+			type = situation_zofe_lost_empire
+			target = capital_scope
+		}
+	}
+}

@@ -1,0 +1,7 @@
+original = {
+	name = ORIGINAL
+
+	sets = {
+		original
+	}
+}

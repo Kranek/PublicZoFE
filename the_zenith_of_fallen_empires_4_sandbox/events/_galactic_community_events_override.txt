@@ -1,0 +1,118 @@
+################################
+#
+# Galactic Community Events
+#
+###############################
+
+namespace = galcom
+
+# Killed Matriarch in Violation of Act
+country_event = {
+	id = galcom.110
+	title = "galcom.107.name"
+	desc = "galcom.110.desc"
+	picture = GFX_evt_civil_action
+	show_sound = event_assembly_fight
+
+	is_triggered_only = yes
+
+	trigger = {
+		is_playable_country = yes
+		is_galactic_community_formed = yes
+		is_galactic_community_member = yes
+		is_active_resolution = resolution_tiyanki_conservation_act
+	}
+
+	immediate = {
+		set_timed_country_flag = { flag = resolution_breached_killed_tiyanki days = 3600 }
+	}
+
+	option = {
+		name = galcom.110.a
+		trigger = {
+			is_xenophile = no
+			is_xenophobe = no
+		}
+		add_resource = { energy = -5000 }
+	}
+	option = {
+		name = galcom.110.b
+		trigger = {
+			is_xenophile = yes
+		}
+		add_resource = { energy = -5000 }
+	}
+	option = {
+		name = galcom.110.c
+		trigger = {
+			is_xenophobe = yes
+		}
+		add_resource = { energy = -5000 }
+	}
+}
+
+# Appoint the next host for the Galactic Market
+# this = global country | from = proposing country
+country_event = {
+	id = galcom.66
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		remove_global_flag = ongoing_market_relocation_nomination
+		# If at least one planet was nominated, choose a host planet...
+		if = {
+			limit = {
+				any_galaxy_planet = {
+					is_market_nominee_planet = yes
+					exists = owner
+					owner = {
+						is_playable_country = yes
+						has_country_flag = market_nomination_eligible # i.e. they are or were a GalCom member
+					}
+				}
+			}
+			# Destroy old station, remove modifier & event chains
+			event_target:galactic_market_station = {
+				destroy_ambient_object = this
+			}
+			if = {
+				limit = { exists = event_target:market_founder }
+				event_target:market_founder = {
+					remove_modifier = galactic_market_founder
+				}
+			}
+			every_playable_country = {
+				limit = { has_event_chain = market_relocation_chain }
+				end_event_chain = market_relocation_chain
+			}
+			# Choose a new host
+			choose_galactic_market_host = yes
+			# Start the process of informing the new founder
+			event_target:market_founder = {
+				country_event = { id = galcom.68 }
+			}
+			every_playable_country = {
+				limit = {
+					has_country_flag = market_nomination_eligible
+				}
+				remove_galactic_market_modifiers = yes
+			}
+		}
+		# ... else inform the galaxy that nominations were not forthcoming, and resume status quo. NOTE: so long as the Galactic Market founder is prevented from proposing 'resolution_galactic_market_relocate', they will not require special handling for the following events.
+		else = {
+			from = {
+				country_event = { id = galcom.69 } # Relocation failed
+			}
+			every_playable_country = {
+				limit = {
+					NOT = {
+						is_same_value = from
+					}
+					has_event_chain = market_relocation_chain
+				}
+				country_event = { id = galcom.70 } # Relocation failed
+			}
+		}
+	}
+}

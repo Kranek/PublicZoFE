@@ -1,0 +1,8 @@
+spriteTypes = {
+
+	spriteType = {
+		name = "GFX_council_agenda_icon_agenda_zofe_ascension_theory"
+		texturefile = "gfx/interface/icons/agenda_icons/agenda_evolving_society.dds"
+	}
+	
+}

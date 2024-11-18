@@ -1,0 +1,56 @@
+@hit2 = 5
+@hit3 = 10
+@hit4 = 15
+
+@cost1 = 2
+@cost2 = 4
+@cost3 = 6
+@cost4 = 8
+
+@power1 = -5
+@power2 = -10
+@power3 = -15
+@power4 = -20
+
+@sensor1 = 1
+@sensor2 = 2
+@sensor3 = 3
+@sensor4 = 4
+
+@hyperlane1 = 2
+@hyperlane2 = 3
+@hyperlane3 = 4
+@hyperlane4 = 5
+
+
+
+utility_component_template = {
+	key = "SENSOR_4"
+	size = medium
+	icon = "GFX_ship_part_sensor_4"
+	icon_frame = 1
+	power = @power4
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @cost4
+		}
+	}
+	sensor_range = @sensor4
+	hyperlane_range = @hyperlane4
+
+	ship_modifier = {
+		ship_tracking_add = @hit4
+	}
+
+	prerequisites = { "tech_sensors_4" }
+	component_set = "sensor_components"
+	upgrades_to = "DARK_ENERGY_SENSORS"
+
+	ai_weight = {
+		weight = 1000
+	}
+}
+
+
+

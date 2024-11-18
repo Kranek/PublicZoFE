@@ -1,0 +1,133 @@
+########################
+# Dragon Armor
+########################
+
+utility_component_template = {
+	key = "MEDIUM_DRAGON_ARMOR"
+	size = medium
+	icon = "GFX_ship_part_dragon_armor"
+	icon_frame = 1
+	power = 0
+	modifier = {
+		ship_armor_add = @armor_M6
+	}
+
+	prerequisites = { "tech_dragon_armor" }
+	component_set = "DRAGON_ARMOR"
+	upgrades_to = "MEDIUM_TITAN_ARMOR"
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @m_t6_cost
+		}
+		upkeep = {
+			energy = @m_t6_upkeep_energy
+			alloys = @m_t6_upkeep_alloys
+		}
+	}
+	
+	ai_weight = {
+		weight = @T6_weight
+		inline_script = {
+			script = ship_components/weights/roles_stealth
+			MULT = 2
+		}
+	}
+}
+
+utility_component_template = {
+	key = "LARGE_DRAGON_ARMOR"
+	size = large
+	icon = "GFX_ship_part_dragon_armor"
+	icon_frame = 1
+	power = 0
+	modifier = {
+		ship_armor_add = @armor_L6
+	}
+
+	prerequisites = { "tech_dragon_armor" }
+	component_set = "DRAGON_ARMOR"
+	upgrades_to = "LARGE_TITAN_ARMOR"
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @l_t6_cost
+		}
+		upkeep = {
+			energy = @l_t6_upkeep_energy
+			alloys = @l_t6_upkeep_alloys
+		}
+	}
+	
+	ai_weight = {
+		weight = @T6_weight
+		inline_script = {
+			script = ship_components/weights/roles_stealth
+			MULT = 2
+		}
+	}
+}
+
+####################
+# Crystal Plating #
+####################
+
+utility_component_template = {
+	key = "MEDIUM_CRYSTAL_ARMOR_2"
+	size = medium
+	icon = "GFX_ship_part_crystal_armor_2"
+	icon_frame = 1
+	power = 0
+	resources = {
+		category = ship_components
+		cost = {
+			rare_crystals = 0.65
+		}
+	}
+
+	prerequisites = { "tech_crystal_armor_2" }
+	component_set = "CRYSTAL_ARMOR_2"
+	upgrades_to = "MEDIUM_TITAN_PLATING"
+
+	modifier = {
+		ship_hull_add = @hull_M4
+	}
+
+	ai_weight = {
+		weight = 1
+		modifier = {
+			factor = 0.0
+			no_resource_for_component = { RESOURCE = rare_crystals }
+		}
+	}
+}
+
+utility_component_template = {
+	key = "LARGE_CRYSTAL_ARMOR_2"
+	size = large
+	icon = "GFX_ship_part_crystal_armor_2"
+	icon_frame = 1
+	power = 0
+	resources = {
+		category = ship_components
+		cost = {
+			rare_crystals = 1.30
+		}
+	}
+
+	prerequisites = { "tech_crystal_armor_2" }
+	component_set = "CRYSTAL_ARMOR_2"
+	upgrades_to = "LARGE_TITAN_PLATING"
+
+	modifier = {
+		ship_hull_add = @hull_L4
+	}
+
+	ai_weight = {
+		weight = 1
+		modifier = {
+			factor = 0.0
+			no_resource_for_component = { RESOURCE = rare_crystals }
+		}
+	}
+}

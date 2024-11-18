@@ -1,0 +1,231 @@
+# ## Gauss Cannons
+weapon_component_template = {
+	type = instant
+
+	key = "SMALL_MASS_DRIVER_5"
+	size = small
+
+	icon = "GFX_ship_part_mass_driver_5"
+	icon_frame = 1
+
+	prerequisites = { "tech_mass_drivers_5" }
+	component_set = "MASS_DRIVER_5"
+	projectile_gfx = "gauss_cannon_s"
+	tags = { weapon_type_kinetic }
+	ai_tags = { weapon_role_anti_shield brawler brawler_stealth gunship }
+	upgrades_to = "DARK_CANNON_S"
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @s_t5_cost
+			volatile_motes = @s_t5_rare
+		}
+		upkeep = {
+			energy = @s_t5_upkeep_energy
+			alloys = @s_t5_upkeep_alloys
+		}
+	}
+
+	ai_weight = {
+		weight = 1
+		modifier = {
+			factor = 0.0
+			no_resource_for_component = { RESOURCE = volatile_motes }
+		}
+	}
+}
+
+weapon_component_template = {
+	type = instant
+
+	key = "MEDIUM_MASS_DRIVER_5"
+	size = medium
+
+	icon = "GFX_ship_part_mass_driver_5"
+	icon_frame = 1
+
+	prerequisites = { "tech_mass_drivers_5" }
+	component_set = "MASS_DRIVER_5"
+	projectile_gfx = "gauss_cannon_m"
+	tags = { weapon_type_kinetic }
+	ai_tags = { weapon_role_anti_shield gunship}
+	upgrades_to = "DARK_CANNON_M"
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @m_t5_cost
+			volatile_motes = @m_t5_rare
+		}
+		upkeep = {
+			energy = @m_t5_upkeep_energy
+			alloys = @m_t5_upkeep_alloys
+		}
+	}
+
+	ai_weight = {
+		weight = 1
+		modifier = {
+			factor = 0.0
+			no_resource_for_component = { RESOURCE = volatile_motes }
+		}
+	}
+}
+
+weapon_component_template = {
+	type = instant
+
+	key = "LARGE_MASS_DRIVER_5"
+	size = large
+
+	icon = "GFX_ship_part_mass_driver_5"
+	icon_frame = 1
+
+	min_range = 45.0
+
+	prerequisites = { "tech_mass_drivers_5" }
+	component_set = "MASS_DRIVER_5"
+	projectile_gfx = "gauss_cannon_l"
+	tags = { weapon_type_kinetic }
+	ai_tags = { weapon_role_anti_shield gunship }
+	upgrades_to = "DARK_CANNON_L"
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @l_t5_cost
+			volatile_motes = @l_t5_rare
+		}
+		upkeep = {
+			energy = @l_t5_upkeep_energy
+			alloys = @l_t5_upkeep_alloys
+		}
+	}
+
+	ai_weight = {
+		weight = 1
+		modifier = {
+			factor = 0.0
+			no_resource_for_component = { RESOURCE = volatile_motes }
+		}
+	}
+}
+
+# ## Autocannons 4
+weapon_component_template = {
+	type = instant
+
+	key = "SMALL_AUTOCANNON_4"
+	size = small
+
+	icon = "GFX_ship_part_autocannon_4"
+	icon_frame = 1
+
+	prerequisites = { "tech_nanite_autocannon" }
+	component_set = "AUTOCANNON_4"
+	projectile_gfx = "stormfire_auto_cannons_s"
+	tags = { weapon_type_kinetic }
+	ai_tags = { weapon_role_anti_shield brawler brawler_stealth }
+	upgrades_to = "DARKFIRE_AUTOCANNON_S"
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @s_t6_cost
+			nanites = @s_t6_rare
+		}
+		upkeep = {
+			energy = @s_t6_upkeep_energy
+			alloys = @s_t6_upkeep_alloys
+		}
+	}
+
+	ai_weight = {
+		weight = 1
+		modifier = {
+			factor = 0.0
+			no_resource_for_component = { RESOURCE = nanites }
+		}
+		modifier = {
+			factor = 0.0
+			is_ai = yes
+		}
+	}
+}
+
+weapon_component_template = {
+	type = instant
+
+	key = "MEDIUM_AUTOCANNON_4"
+	size = medium
+
+	icon = "GFX_ship_part_autocannon_4"
+	icon_frame = 1
+
+	prerequisites = { "tech_nanite_autocannon" }
+	component_set = "AUTOCANNON_4"
+	projectile_gfx = "stormfire_auto_cannons_m"
+	tags = { weapon_type_kinetic }
+	ai_tags = { weapon_role_anti_shield brawler brawler_stealth }
+	upgrades_to = "DARKFIRE_AUTOCANNON_M"
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @m_t6_cost
+			nanites = @m_t6_rare
+		}
+		upkeep = {
+			energy = @m_t6_upkeep_energy
+			alloys = @m_t6_upkeep_alloys
+		}
+	}
+
+	ai_weight = {
+		weight = 1
+		modifier = {
+			factor = 0.0
+			no_resource_for_component = { RESOURCE = nanites }
+		}
+		modifier = {
+			factor = 0.0
+			is_ai = yes
+		}
+	}
+}
+
+weapon_component_template = {
+	type = instant
+
+	key = "LARGE_AUTOCANNON_4"
+	size = large
+
+	icon = "GFX_ship_part_autocannon_4"
+	icon_frame = 1
+
+	prerequisites = { "tech_nanite_autocannon" }
+	component_set = "AUTOCANNON_4"
+	projectile_gfx = "stormfire_auto_cannons_l"
+	tags = { weapon_type_kinetic }
+	ai_tags = { weapon_role_anti_shield brawler brawler_stealth }
+	upgrades_to = "DARKFIRE_AUTOCANNON_L"
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @l_t6_cost
+			nanites = @l_t6_rare
+		}
+		upkeep = {
+			energy = @l_t6_upkeep_energy
+			alloys = @l_t6_upkeep_alloys
+		}
+	}
+
+	ai_weight = {
+		weight = 1
+		modifier = {
+			factor = 0.0
+			no_resource_for_component = { RESOURCE = nanites }
+		}
+		modifier = {
+			factor = 0.0
+			is_ai = yes
+		}
+	}
+}

@@ -1,0 +1,14 @@
+
+default_site_visible_trigger = {
+	is_playable_country = yes
+	OR = {
+		intel_level = {
+			level >= low
+			system = from.solar_system
+		}
+		AND = {
+			exists = from 
+			from.planet = { is_within_borders_of = root }
+		}
+	}
+}

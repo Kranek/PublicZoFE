@@ -1,0 +1,184 @@
+war_name_parts_list = {
+	key = "le_demilitarise_war_names"
+	parts = {
+		Intervention = 1
+		Pacification = 1
+	}
+}
+
+### FALLEN EMPIRE HUMILIATION WARS ###
+
+# Fallen Empire Humiliation - No Federations #
+war_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 999
+			using_war_goal = {
+				type = wg_le_punishment
+				owner = attacker
+			}
+			attacker = {
+				has_federation = no
+			}
+			defender = {
+				has_federation = no
+			}
+		}
+	}
+	format = "{war_vs_adjectives {[This.MainAttacker.GetAdj] [This.MainDefender.GetAdj] <fe_humiliation_war_names>}}"
+}
+
+# Fallen Empire Humiliation - Defender Federation #
+war_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 999
+			using_war_goal = {
+				type = wg_le_punishment
+				owner = attacker
+			}
+			attacker = {
+				has_federation = no
+			}
+			defender = {
+				has_federation = yes
+			}
+		}
+	}
+	format = "{war_adj_vs_name {[This.MainAttacker.GetAdj] [This.MainDefender.GetAllianceName] <fe_humiliation_war_names>}}"
+}
+
+### FALLEN EMPIRE STOP ATROCITIES WARS
+
+# Fallen Empire Stop Atrocities - No Federations #
+war_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 999
+			using_war_goal = {
+				type = wg_le_stop_atrocities
+				owner = attacker
+			}
+			attacker = {
+				has_federation = no
+			}
+			defender = {
+				has_federation = no
+			}
+		}
+	}
+	format = "{war_vs_adjectives {[This.MainAttacker.GetAdj] [This.MainDefender.GetAdj] <fe_stop_atrocities_war_names>}}"
+}
+
+# Fallen Empire Stop Atrocities - Defender Federation
+war_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 999
+			using_war_goal = {
+				type = wg_le_stop_atrocities
+				owner = attacker
+			}
+			attacker = {
+				has_federation = no
+			}
+			defender = {
+				has_federation = yes
+			}
+		}
+	}
+	format = "{war_adj_vs_name {[This.MainAttacker.GetAdj] [This.MainDefender.GetAllianceName] <fe_stop_atrocities_war_names>}}"
+}
+
+
+### FALLEN EMPIRE DE-MILITARISE WARS ###
+
+# Fallen Empire De-militarise - No Federations #
+war_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 999
+			using_war_goal = {
+				type = wg_le_demilitarise
+				owner = attacker
+			}
+			attacker = {
+				has_federation = no
+			}
+			defender = {
+				has_federation = no
+			}
+		}
+	}
+	format = "{war_vs_adjectives {[This.MainAttacker.GetAdj] [This.MainDefender.GetAdj] <le_demilitarise_war_names>}}"
+}
+
+# Fallen Empire De-militarise - Defender Federation #
+war_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 999
+			using_war_goal = {
+				type = wg_le_demilitarise
+				owner = attacker
+			}
+			attacker = {
+				has_federation = no
+			}
+			defender = {
+				has_federation = yes
+			}
+		}
+	}
+	format = "{war_adj_vs_name {[This.MainAttacker.GetAdj] [This.MainDefender.GetAllianceName] <le_demilitarise_war_names>}}"
+}
+
+### FALLEN EMPIRE CLEANSE BORDER WORLDS WARS
+
+# Fallen Empire Cleanse Border Worlds - No Federations
+war_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 999
+			using_war_goal = {
+				type = wg_le_cleanse_border_worlds
+				owner = attacker
+			}
+			attacker = {
+				has_federation = no
+			}
+			defender = {
+				has_federation = no
+			}
+		}
+	}
+	format = "{war_vs_adjectives {[This.MainAttacker.GetAdj] [This.MainDefender.GetAdj] <fe_cleanse_border_worlds_war_names>}}"
+}
+
+# Fallen Empire Cleanse Border Worlds - Defender Federation
+war_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 999
+			using_war_goal = {
+				type = wg_le_cleanse_border_worlds
+				owner = attacker
+			}
+			attacker = {
+				has_federation = no
+			}
+			defender = {
+				has_federation = yes
+			}
+		}
+	}
+	format = "{war_adj_vs_name {[This.MainAttacker.GetAdj] [This.MainDefender.GetAllianceName] <fe_cleanse_border_worlds_war_names>}}"
+}

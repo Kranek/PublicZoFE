@@ -1,0 +1,18 @@
+4.1.0 Patch Notes
+
+*Fixes to localizations.
+*Fixed archaeology sites disappearing after ascending.
+*Updated omni weapons tech icons, made by Savitar.
+*Fixed not being able to build automated buildings on habitats.
+*Fixed duplicate Archaeotech Focus leader trait
+*Updated clothing of Original people.
+*Females of Original phenotype were banned from using men's clothing.
+*Fixed Crisis events not firing.
+*Fixed incorrect shield hardening given by the Chalice component.
+*Updated ZoFE to be compatible with 3.12.*
+*Made several adjustments to ZoFE buildings and tech added some new ones based on vanilla buildings.
+*Updated difficulty settings: Changed Marauder difficulty to Midgame crises.
+*Adjusted power values for Dark Matter Reactor for ZoFE ships as well as updated component slots.
+*Updated predefined ZoFE ship designs.
+*Original Empire will be unhindered by Synthetic Queen nano swarm.
+*Removed Lost Tech Weapon bonus from one of the admiral traits due to trait overriding issues.

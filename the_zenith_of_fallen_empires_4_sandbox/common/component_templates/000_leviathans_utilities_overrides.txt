@@ -1,0 +1,68 @@
+utility_component_template = {
+	key = "ENIGMATIC_DECODER"
+	size = aux
+	icon = "GFX_ship_part_enigmatic_decoder"
+	icon_frame = 1
+	power = -20
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = 20
+		}
+	}
+
+	prerequisites = { tech_enigmatic_decoder }
+	component_set = "ENIGMATIC_DECODER"
+	upgrades_to = "INFINITY_DECODER"
+
+	ship_modifier = {
+		ship_tracking_add = 5
+		ship_accuracy_add = 5
+	}
+
+	ai_weight = {
+		weight = 10
+		modifier = {
+			factor = 2
+			OR = {
+				is_preferred_weapons = weapon_type_energy
+				is_preferred_weapons = weapon_type_kinetic
+			}
+		}
+	}
+}
+
+utility_component_template = {
+	key = "ENIGMATIC_ENCODER"
+	size = aux
+	icon = "GFX_ship_part_enigmatic_encoder"
+	icon_frame = 1
+	power = -20
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = 20
+		}
+	}
+
+	prerequisites = { tech_enigmatic_encoder }
+	component_set = "ENIGMATIC_ENCODER"
+	upgrades_to = "INFINITY_ENCODER"
+
+	ship_modifier = {
+		ship_disengage_opportunities_add = 1
+	}
+
+	ai_weight = {
+		weight = 10
+		modifier = {
+			factor = 0 # Don't use this if you might use No Retreat.
+			OR = {
+				has_ethic = ethic_militarist
+				has_ethic = ethic_fanatic_militarist
+				has_ethic = ethic_gestalt_consciousness
+				has_civic = civic_fanatic_purifiers
+			}
+		}
+	}
+}

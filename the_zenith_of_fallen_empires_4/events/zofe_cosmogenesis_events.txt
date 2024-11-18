@@ -1,0 +1,65 @@
+###########################################
+#           Cosmogenesis events
+###########################################
+
+namespace = zofe_cosmogenesis
+
+country_event = {
+	id = zofe_cosmogenesis.1
+	title = "zofe_cosmogenesis.1.name"
+	desc = zofe_cosmogenesis.1.desc
+	picture = GFX_evt_fallen_empire_awakes
+	show_sound = event_criminal_activity
+	is_triggered_only = yes
+	trigger = {
+		
+	}
+	option = {
+		name = zofe_cosmogenesis.1.a
+	}
+	after = {
+		start_situation = {
+			type = situation_zofe_lost_empire
+			target = capital_scope	
+		}
+	}
+}
+
+# Has Researched a Fallen Empire tech. FEs are displeased. (unless Scion)
+country_event = {
+	id = zofe_cosmogenesis.7275 #counterpart to crisis.7275
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_ascension_perk = ap_cosmogenesis
+		just_researched_zofe_fe_tech = yes
+		NOT = {
+			has_origin = origin_scion
+		}
+	}
+
+	immediate = {
+		every_country = {
+			limit = {
+				OR = {
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
+				}
+			}
+			if = {
+				limit = { has_ai_personality = fallen_empire_materialist }
+				add_opinion_modifier = { 
+					modifier = opinion_fallen_wannabe_materialist
+					who = root
+				}
+			}
+			else = {
+				add_opinion_modifier = { 
+					modifier = opinion_fallen_wannabe
+					who = root
+				}
+			}
+		}
+	}
+}

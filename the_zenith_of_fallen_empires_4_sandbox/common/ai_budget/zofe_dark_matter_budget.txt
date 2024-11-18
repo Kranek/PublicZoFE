@@ -1,0 +1,63 @@
+dark_matter_expenditure_ships = {
+	resource = sr_dark_matter
+	type = expenditure
+	category = ships
+
+	potential = {
+		always = yes
+	}
+
+	weight = {
+		weight = 0.1
+		modifier = {
+			factor = 10
+			has_ascension_perk = ap_become_the_crisis
+			has_crisis_level = crisis_level_5
+			NOT = {
+				count_controlled_fleet = {
+					count >= 1
+					limit = {
+						is_ship_size = star_eater
+					}
+				}
+			}
+		}
+	}
+	desired_min = {
+		base = 0
+		modifier = {
+			add = 10000
+			has_ascension_perk = ap_become_the_crisis
+			NOT = {
+				count_controlled_fleet = {
+					count >= 1
+					limit = {
+						is_ship_size = star_eater
+					}
+				}
+			}
+		}
+		modifier = {
+			add = 10000
+			is_zofe_country = yes
+		}
+	}
+}
+
+dark_matter_upkeep_ships = {
+	resource = sr_dark_matter
+	type = upkeep
+	category = ships
+
+	potential = {
+		always = yes
+	}
+
+	weight = {
+		weight = 0.1
+		modifier = {
+			factor = 10
+			is_zofe_country = yes
+		}
+	}
+}

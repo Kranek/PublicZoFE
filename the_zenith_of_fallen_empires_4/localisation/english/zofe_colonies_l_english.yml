@@ -1,0 +1,62 @@
+﻿l_english:
+
+#################
+## Colony Type ##
+#################
+
+ col_ae_capital:0 "Ascended Empire Capital"
+ col_ae_capital_desc:0 "The Capital planet of an Ascended Empire is a vast complex of government buildings, bureaus and agency headquarters."
+ col_ae_capital_machine:0 "Machine Capital"
+ col_ae_capital_machine_desc:1 "The Capital planet of an Ascended Machine Intelligence is the primary locus of its central networked consciousness, from where all units and drones are tasked, controlled, and administered."
+ col_ae_capital_hive:0 "Hive Capital"
+ col_ae_capital_hive_desc:1 "The Capital planet of an Ascended Hive Mind is the primary seat of the Mind, from where the collective's thoughts and actions spring."
+ col_le_capital:0 "Fallen Empire Capital"
+ col_le_capital_desc:1 "Though its empire may be in decline, the level of technological advancement on this world is astounding."
+ col_le_capital_machine:0 "Machine Capital"
+ col_le_capital_machine_desc:1 "Though its central processing may be decrepit, the amount of calculations on this world is astounding."
+ col_le_capital_hive:0 "Hive Capital"
+ col_le_capital_hive_desc:1 "Though its mind may be slumbering, the complexity of the collective consciousness here is astounding."
+
+ col_ae_colony:0 "Ascended Empire Colony"
+ col_ae_colony_desc:0 "The Colony planet of an Ascended Empire, the pinnacle of evolutionary technologies bestows wonders to its citizens."
+ col_lost_empire:0 "Fallen Empire Colony"
+ col_lost_empire_desc:0 "Though its empire may be in decline, the pinnacle revolution of technological advancement on this world is astounding."
+ col_lost_empire_origin:0 "Lost Empire Colony"
+ col_lost_empire_origin_desc:0 "Though its empire may be in decline, the technological advancement on this world is astounding."
+ col_banished_empire:0 "Lost Empire Colony"
+ col_banished_empire_desc:0 "Though its empire is in decline, the citizens are disillusioned despite their technological advancements."
+ col_ae_machine_colony:0 "Ascended Machine Colony"
+ col_ae_machine_colony_desc:0 "The Colony planet of an Ascended Machine Empire, simple central networks commands the drones and units here for whatever the consciousness needs."
+ col_ae_hive_colony:0 "Ascended Hive Colony"
+ col_ae_hive_colony_desc:0 "The Colony planet of an Ascended Hive Empire, the collective thoughts patrols the drones in this colony for whatever the mind needs."
+ col_ascended_research:0 "Knowledge World"
+ col_ascended_research_desc:0 "This world is a center of knowledge for an Ascendancy, the marvels of technology are ever advance on this world."
+ col_ascended_industrial:0 "Industrial Hub"
+ col_ascended_industrial_desc:0 "This world is a hub for industries for an Ascendancy, the technology advancement is astonishing for this world."
+
+ col_ae_colony_original:0 "Ascended Original Empire Colony"
+ col_ae_colony_original_desc:0 "The Colony planet of an Ascended Original Empire, the pinnacle of evolutionary technologies bestows wonders to its citizens."
+ col_original_empire_colony:0 "Original Empire Colony"
+ col_original_empire_colony_desc:0 "The Colony planet of an Original Empire, frontier spirit and daring colonists of the Original Empire are bestowed wonders by its new foundation."
+
+### Utopian Worlds
+
+ col_utopian_colony:0 "Utopian World"
+ col_utopian_colony_desc:0 "A Utopian World. Perfection, beauty and revolutionary technology inspire awe to those that live here."
+ col_utopian_entertainment:0 "Paradise Island"
+ col_utopian_entertainment_desc:0 "A bread basket of entertainment, the districts are cluttered with Holo-Theatres, Casinos and Night Clubs - the true home of Hedonism."
+ col_utopian_trade:0 "Utopian Trade Hub"
+ col_utopian_trade_desc:0 "A sprawling network of Corporate Warehouses and Facilities, countless adverts and thousands of Corporate Superchains. This planet is highly involved in galactic commerce."
+ col_utopian_research:0 "Research Hub"
+ col_utopian_research_desc:0 "Home to the most enthusiasts in the scientific world, districts are filled with research labs and experimenter alike."
+
+
+ col_utopian_living_metal:0 "Living Metal Central"
+ col_utopian_living_metal_desc:0 "A Utopian World filled with the masterminds of the Living Metal architecture, the world is always reshaped constantly to show their mastery."
+ col_utopian_darkmatter:0 "Dark Matter Centrum"
+ col_utopian_darkmatter_desc:0 "A network of laboratories for Dark Matter Technicians and Scientists alike, caution is advised."
+ 
+
+
+
+

@@ -1,0 +1,486 @@
+# See wg_example.txt for an explanation
+
+wg_fe_humiliation = {
+	casus_belli = cb_fe_punishment
+	hide_if_no_cb = yes
+
+	galactic_empire_joins_defender = {
+		from = { is_galactic_emperor = yes }
+		imperial_authority >= 100
+	}
+
+	allowed_peace_offers = {
+		status_quo
+		surrender
+		demand_surrender
+	}
+
+	potential = {
+		always = yes
+	}
+	possible = {
+		always = yes
+	}
+	on_accept = {
+		custom_tooltip = wg_humiliation_fe_accept
+		save_event_target_as = fallen_empire_humiliator
+		from = {
+			fallen_empire_humiliate_effect = yes
+		}
+	}
+
+	ai_weight = {
+		weight = 5
+	}
+}
+
+wg_fe_stop_atrocities = {
+	casus_belli = cb_fe_punishment
+	hide_if_no_cb = yes
+
+	galactic_empire_joins_defender = {
+		from = { is_galactic_emperor = yes }
+		imperial_authority >= 100
+	}
+
+	allowed_peace_offers = {
+		status_quo
+		surrender
+		demand_surrender
+	}
+
+	potential = {
+		always = yes
+	}
+	possible = {
+		OR = {
+			AND = {
+				has_ethic = ethic_fanatic_xenophile
+				is_country_type = fallen_empire
+			}
+			is_country_type = lost_empire
+		}
+		from = { is_valid_target_fe_stop_atrocities = yes }
+	}
+	on_accept = {
+		custom_tooltip = wg_humiliation_fe_accept
+		save_event_target_as = fallen_empire_humiliator
+		from = {
+			fallen_empire_stop_atrocities_effect = yes
+			fallen_empire_humiliate_effect = yes
+		}
+	}
+
+	ai_weight = {
+		weight = 10
+	}
+}
+
+wg_fe_stop_ai = {
+	casus_belli = cb_fe_punishment
+	hide_if_no_cb = yes
+
+	galactic_empire_joins_defender = {
+		from = { is_galactic_emperor = yes }
+		imperial_authority >= 100
+	}
+
+	allowed_peace_offers = {
+		status_quo
+		surrender
+		demand_surrender
+	}
+
+	potential = {
+		always = yes
+	}
+	possible = {
+		OR = {
+			AND = {
+				has_ethic = ethic_fanatic_spiritualist
+				is_country_type = fallen_empire
+			}
+			is_country_type = lost_empire
+		}
+		from = { is_valid_target_fe_stop_ai = yes }
+	}
+	on_accept = {
+		custom_tooltip = wg_humiliation_fe_accept
+		save_event_target_as = fallen_empire_humiliator
+		from = {
+			fallen_empire_stop_ai_effect = yes
+			fallen_empire_humiliate_effect = yes
+		}
+	}
+
+	ai_weight = {
+		weight = 10
+	}
+}
+
+wg_fe_cleanse_holy_worlds = {
+	casus_belli = cb_fe_punishment
+	hide_if_no_cb = yes
+
+	galactic_empire_joins_defender = {
+		from = { is_galactic_emperor = yes }
+		imperial_authority >= 100
+	}
+
+	allowed_peace_offers = {
+		status_quo
+		surrender
+		demand_surrender
+	}
+
+	potential = {
+		always = yes
+	}
+	possible = {
+		has_ai_personality_behaviour = holy_planets
+		from = { is_valid_target_fe_cleanse_holy_worlds = yes }
+	}
+	on_accept = {
+		custom_tooltip = wg_humiliation_fe_accept
+		save_event_target_as = fallen_empire_humiliator
+		from = {
+			fallen_empire_cleanse_holy_worlds_effect = yes
+			fallen_empire_humiliate_effect = yes
+		}
+	}
+
+	ai_weight = {
+		weight = 20
+	}
+}
+
+wg_fe_cleanse_border_worlds = {
+	casus_belli = cb_fe_punishment
+	hide_if_no_cb = yes
+
+	galactic_empire_joins_defender = {
+		from = { is_galactic_emperor = yes }
+		imperial_authority >= 100
+	}
+
+	allowed_peace_offers = {
+		status_quo
+		surrender
+		demand_surrender
+	}
+
+	potential = {
+		always = yes
+	}
+	possible = {
+		OR = {
+			has_ai_personality_behaviour = demands_clear_borders
+			has_policy_flag = demand_clear_borders
+		}
+		is_neighbor_of = from
+	}
+	on_accept = {
+		custom_tooltip = wg_humiliation_fe_accept
+		save_event_target_as = fallen_empire_humiliator
+		from = {
+			fallen_empire_cleanse_border_worlds_effect = yes
+			fallen_empire_humiliate_effect = yes
+		}
+	}
+
+	ai_weight = {
+		weight = 20
+	}
+}
+
+wg_ae_domination = {
+	casus_belli = cb_subjugation
+	set_defender_wargoal = wg_end_threat
+	hide_if_no_cb = no
+	# total_war = yes
+
+	release_occupied_systems_on_status_quo = yes
+	show_agreement_terms = no
+
+	galactic_empire_joins_defender = {
+		from = { is_galactic_emperor = yes }
+		imperial_authority >= 100
+	}
+
+	allowed_peace_offers = {
+		demand_surrender
+		status_quo
+		surrender
+	}
+
+	potential = {
+		is_megacorp = no
+		is_subject = no
+		NOT = { has_valid_civic = civic_inwards_perfection }
+		OR = {
+			is_country_type = ascended_empire
+			AND = {
+				is_country_type = awakened_fallen_empire
+				NOT = { has_ethic = ethic_gestalt_consciousness }
+			}
+		}
+		
+	}
+	possible = {
+		always = yes
+	}
+	on_accept = {
+		if = {
+			limit = { is_country_type = ascended_empire }
+			if = {
+				limit = { from = { has_been_declared_crisis = yes } }
+				# do nothing;
+				# FEs may go to war against BtC empires, just not vassalize them
+			}
+			else_if = {
+				limit = {
+					has_ethic = ethic_fanatic_spiritualist
+				}
+				from = {
+					set_subject_of = {
+						who = root
+						preset = preset_fe_dominion
+					}
+					shift_ethic = ethic_fanatic_spiritualist
+				}
+			}
+			else_if = {
+				limit = {
+					has_ethic = ethic_fanatic_materialist
+				}
+				from = {
+					set_subject_of = {
+						who = root
+						preset = preset_fe_satellite
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					has_ethic = ethic_fanatic_xenophile
+				}
+				from = {
+					set_subject_of = {
+						who = root
+						preset = preset_fe_signatory
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					has_ethic = ethic_fanatic_xenophobe
+				}
+				from = {
+					set_subject_of = {
+						who = root
+						preset = preset_fe_thrall
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					has_ethic = ethic_fanatic_militarist
+				}
+				from = {
+					set_subject_of = {
+						who = root
+						preset = preset_fe_clan_member
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					has_ethic = ethic_fanatic_pacifist
+				}
+				from = {
+					set_subject_of = {
+						who = root
+						preset = preset_fe_demilitarized_state
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					has_ethic = ethic_fanatic_authoritarian
+				}
+				from = {
+					set_subject_of = {
+						who = root
+						preset = preset_fe_puppet_state
+					}
+					shift_ethic = ethic_fanatic_authoritarian
+				}
+			}
+			else_if = {
+				limit = {
+					has_ethic = ethic_fanatic_egalitarian
+				}
+				from = {
+					set_subject_of = {
+						who = root
+						preset = preset_fe_union_state
+					}
+					shift_ethic = ethic_fanatic_egalitarian
+				}
+			}
+			else_if = {
+				limit = {
+					has_valid_civic = civic_barbaric_despoilers
+				}
+				from = {
+					set_subject_of = {
+						who = root
+						preset = preset_fe_satrapy
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					is_hive_empire = yes
+				}
+				from = {
+					set_subject_of = {
+						who = root
+						preset = preset_fe_symbiote
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					is_machine_empire = yes
+				}
+				from = {
+					set_subject_of = {
+						who = root
+						preset = preset_fe_auxiliary
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					NOR = {
+						has_ethic = ethic_fanatic_spiritualist
+						has_ethic = ethic_fanatic_materialist
+						has_ethic = ethic_fanatic_xenophile
+						has_ethic = ethic_fanatic_xenophobe
+						has_ethic = ethic_fanatic_militarist
+						has_ethic = ethic_fanatic_pacifist
+						has_ethic = ethic_fanatic_authoritarian
+						has_ethic = ethic_fanatic_egalitarian
+						has_valid_civic = civic_barbaric_despoilers
+						is_hive_empire = yes
+						is_machine_empire = yes
+					}
+				}
+				from = {
+					set_subject_of = {
+						who = root
+						preset = preset_vassal
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = { is_country_type = awakened_fallen_empire }
+			if = {
+				limit = { from = { has_been_declared_crisis = yes } }
+				break = yes
+				# do nothing;
+				# FEs may go to war against BtC empires, just not vassalize them
+			}
+			else_if = {
+				limit = {
+					is_xenophile = yes
+				}
+				from = {
+					set_subject_of = {
+						who = root
+						preset = preset_signatory
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					is_xenophobe = yes
+				}
+				from = {
+					set_subject_of = {
+						who = root
+						preset = preset_thrall
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					is_spiritualist = yes
+				}
+				from = {
+					set_subject_of = {
+						who = root
+						preset = preset_dominion
+					}
+					if = {
+						limit = {
+							is_gestalt = no
+						}
+						shift_ethic = ethic_fanatic_spiritualist
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					is_materialist = yes
+				}
+				from = {
+					set_subject_of = {
+						who = root
+						preset = preset_satellite
+					}
+				}
+			}
+		}
+	}
+
+	ai_weight = {
+		weight = 100
+	}
+}
+
+wg_end_threat_ae = {
+	casus_belli = cb_containment
+
+	hide_if_no_cb = yes
+	total_war = yes
+	# set_defender_wargoal = wg_ae_domination
+
+	allowed_peace_offers = {
+		surrender
+		# status_quo
+		demand_surrender
+	}
+
+	surrender_acceptance = -1000
+
+	potential = {
+		is_country_type = default
+		from = {
+			OR = {
+				is_country_type = awakened_fallen_empire
+				is_country_type = awakened_original_empire
+				is_country_type = ascended_empire
+			}
+		}
+	}
+	possible = {
+		always = yes
+	}
+
+	ai_weight = {
+		weight = 100
+	}
+}

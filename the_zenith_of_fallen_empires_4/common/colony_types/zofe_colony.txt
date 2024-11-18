@@ -1,0 +1,258 @@
+# Capital Planet
+col_ae_capital = {
+	icon = GFX_colony_type_capital
+
+	potential = {
+		is_capital = yes
+		exists = owner
+		owner = { 
+			is_country_type = ascended_empire
+			is_gestalt = no
+		}
+	}
+	
+	planet_modifier = {
+		planet_stability_add = 5
+		planet_amenities_add = 10
+		pop_government_ethic_attraction = 1
+		planet_jobs_produces_mult = 0.1
+		planet_resettlement_unemployed_destination_mult = 0.1
+	}
+
+	triggered_planet_modifier = {
+		potential = { uses_district_set = ring_world }
+		pop_growth_speed = 0.1
+		planet_pop_assembly_mult = 0.1
+		planet_pop_assembly_organic_mult = 0.1
+	}
+
+	weight_modifier = {
+		base = 20000
+	}
+}
+
+col_ae_colony = {
+	icon = GFX_colony_type_normal_colony
+
+	potential = {
+		is_capital = no
+		exists = owner
+		owner = {
+			is_ascended_empire = yes
+			is_gestalt = no
+		}
+		is_special_colony_type = no
+	}
+
+	planet_modifier = {
+		planet_stability_add = 5
+		planet_amenities_mult = 0.1
+		pop_happiness = 0.1
+	}
+
+	weight_modifier = {
+		base = 100
+	}
+}
+
+# Capital Planet - Hive Mind
+col_ae_capital_hive = {
+	icon = GFX_colony_type_urban
+
+	potential = {
+		is_capital = yes
+		exists = owner
+		owner = { 
+			is_country_type = ascended_empire
+			is_hive_empire = yes
+		}
+	}
+	
+	planet_modifier = {
+		planet_stability_add = 5
+		planet_amenities_no_happiness_add = 10
+		planet_crime_no_happiness_add = -20
+		planet_jobs_produces_mult = 0.1
+		planet_resettlement_unemployed_destination_mult = 0.1
+	}
+
+	triggered_planet_modifier = {
+		potential = { uses_district_set = ring_world }
+		pop_growth_speed = 0.1
+		planet_pop_assembly_mult = 0.1
+		planet_pop_assembly_organic_mult = 0.1
+	}
+
+	weight_modifier = {
+		base = 20000
+	}
+}
+
+col_ae_hive_colony = {
+	icon = GFX_colony_type_normal_colony
+
+	potential = {
+		is_capital = no
+		exists = owner
+		owner = {
+			is_country_type = ascended_empire
+			is_hive_empire = yes
+		}
+		is_special_colony_type = no
+	}
+
+	planet_modifier = {
+		planet_stability_add = 5
+		planet_amenities_add = 5
+		planet_crime_add = -10
+	}
+
+	weight_modifier = {
+		base = 100
+	}
+}
+
+# Capital Planet - Machine Empire
+col_ae_capital_machine = {
+	icon = GFX_colony_type_capital
+
+	potential = {
+		is_capital = yes
+		exists = owner
+		owner = { 
+			is_country_type = ascended_empire
+			is_machine_empire = yes 
+		}
+	}
+	
+	planet_modifier = {
+		planet_stability_add = 5
+		planet_amenities_no_happiness_add = 10
+		planet_crime_no_happiness_add = -20
+		planet_jobs_produces_mult = 0.15
+		planet_resettlement_unemployed_destination_mult = 0.1
+	}
+
+	triggered_planet_modifier = {
+		potential = { uses_district_set = ring_world }
+		pop_growth_speed = 0.1
+		planet_pop_assembly_mult = 0.1
+		planet_pop_assembly_organic_mult = 0.1
+	}
+
+	weight_modifier = {
+		base = 20000
+	}
+}
+
+col_ae_machine_colony = {
+	icon = GFX_colony_type_normal_colony
+
+	potential = {
+		is_capital = no
+		exists = owner
+		owner = {
+			is_ascended_empire = yes
+			is_machine_empire = yes
+		}
+		is_special_colony_type = no
+	}
+
+	planet_modifier = {
+		planet_stability_add = 5
+		planet_amenities_add = 5
+		planet_crime_add = -10
+	}
+
+	weight_modifier = {
+		base = 100
+	}
+}
+
+# Capital Planet Lost Empire
+col_le_capital = {
+	icon = GFX_colony_type_capital
+
+	potential = {
+		is_capital = yes
+		exists = owner
+		owner = { 
+			is_country_type = lost_empire
+			is_gestalt = no
+		}
+	}
+	
+	planet_modifier = {
+		planet_stability_add = 20
+	}
+
+	weight_modifier = {
+		base = 20000
+	}
+}
+
+col_lost_empire = {
+	icon = GFX_colony_type_normal_colony
+
+		potential = {
+			is_capital = no
+			exists = owner
+			owner = {
+				is_country_type = lost_empire
+				is_gestalt = no
+			}
+		is_special_colony_type = no
+	}
+
+	planet_modifier = {
+		planet_stability_add = 10
+		planet_amenities_mult = 0.1
+		pop_happiness = 0.1
+	}
+
+	weight_modifier = {
+		base = 100
+	}
+}
+
+col_le_capital_machine = {
+	icon = GFX_colony_type_capital
+
+	potential = {
+		is_capital = yes
+		exists = owner
+		owner = { 
+			is_country_type = lost_empire
+			is_machine_empire = yes
+		}
+	}
+	
+	planet_modifier = {
+		planet_stability_add = 20
+	}
+
+	weight_modifier = {
+		base = 20000
+	}
+}
+
+col_le_capital_hive = {
+	icon = GFX_colony_type_capital
+
+	potential = {
+		is_capital = yes
+		exists = owner
+		owner = { 
+			is_country_type = lost_empire
+			is_hive_empire = yes
+		}
+	}
+	
+	planet_modifier = {
+		planet_stability_add = 20
+	}
+
+	weight_modifier = {
+		base = 20000
+	}
+}

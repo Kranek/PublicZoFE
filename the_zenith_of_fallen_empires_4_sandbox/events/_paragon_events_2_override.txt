@@ -1,0 +1,106 @@
+#####################################################
+#                                          			#
+#  Events for leader traits in Galactic Paragons.   #
+#  Written by: Xuanming "XM" Zhou          			#
+#                                   	   			#
+#####################################################
+
+namespace = paragon_2
+
+first_contact_event = { #Special Tech giver
+	id = paragon_2.2100
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_paragon_dlc = yes
+		owner = { is_playable_country = yes }
+		from = { is_playable_country = yes }
+		OR = {
+			owner = {
+				is_homicidal = no
+				is_gestalt = no
+				NOT = { has_technology = tech_xeno_linguistics }
+			}
+			from = {
+				is_homicidal = no
+				is_gestalt = no
+				NOT = { has_technology = tech_xeno_linguistics }
+			}
+		}
+	}
+
+	immediate = {
+		owner = {
+			if = {
+				limit = {
+					is_homicidal = no
+					is_gestalt = no
+					NOT = { has_technology = tech_xeno_linguistics }
+				}
+				add_tech_progress = {
+					tech = tech_xeno_linguistics
+					progress = 0.25
+				}
+			}
+		}
+		from = {
+			if = {
+				limit = {
+					is_homicidal = no
+					is_gestalt = no
+					NOT = { has_technology = tech_xeno_linguistics }
+				}
+				add_tech_progress = {
+					tech = tech_xeno_linguistics
+					progress = 0.25
+				}
+			}
+		}
+	}
+}
+
+country_event = { # Set "Pending Negative Traits" for Leaders when created.
+	id = paragon_2.2200
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		NOT = { has_country_flag = spawning_renowned_leader }
+		is_playable_country = yes
+	}
+
+	immediate = {
+		FROM = {
+			if = {
+				limit = { has_paragon_dlc = yes }
+				random_list = {
+					1 = { set_variable = { which = leader_pending_negative_traits_unmodified value = 0 } }
+					4 = { set_variable = { which = leader_pending_negative_traits_unmodified value = 1 } }
+					20 = { set_variable = { which = leader_pending_negative_traits_unmodified value = 2 } }
+					55 = { set_variable = { which = leader_pending_negative_traits_unmodified value = 3 } }
+					20 = { set_variable = { which = leader_pending_negative_traits_unmodified value = 4 } }
+				}
+			}
+			else = {
+				# No Galactic Paragons DLC, fewer traits in total.
+				random_list = {
+					1 = { set_variable = { which = leader_pending_negative_traits_unmodified value = 0 } }
+					2 = { set_variable = { which = leader_pending_negative_traits_unmodified value = 1 } }
+					4 = { set_variable = { which = leader_pending_negative_traits_unmodified value = 2 } }
+				}
+			}
+			# If leader already got a Negative trait, typically from "action.406", reduce pending negative traits by 1.
+			if = {
+				limit = {
+					num_leader_traits = {
+						value > 0
+						negative = yes
+					}
+				}
+				subtract_variable = { which = leader_pending_negative_traits_unmodified value = 1 }
+			}
+		}
+	}
+}

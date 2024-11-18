@@ -1,0 +1,523 @@
+##########################################
+# EVENTS - Cosmic Storms - 0000 to 1500 ##
+####### By BHVR Rotterdam et al. #########
+##########################################
+
+namespace = cstorms
+
+country_event = {
+	id = cstorms.1
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		is_playable_country = yes
+		num_cosmic_storms_encountered < 1 # First time encountering a storm
+		from = { NOT = { has_storm_flag = first_storm_met_by_@root } }
+	}
+
+	immediate = {
+		from = { set_storm_flag = first_storm_met_by_@root }
+	}
+}
+
+### Stormbound
+
+#Stormbound Event 1: Omen Rises
+system_event = {
+	id = cstorms.1310
+	title = cstorms.1310.name
+	desc = cstorms.1310.desc
+	picture = GFX_evt_cosmic_storms_stormbound
+	show_sound = event_mysterious_signal
+	is_triggered_only = yes
+	fire_only_once = yes
+	location = this
+
+	trigger = {
+		exists = owner
+		owner = {
+			is_playable_country = yes
+			is_ai = no
+		}
+
+		has_cosmic_storms_dlc = yes
+	}
+
+	option = {
+		name = INTRIGUING
+		owner = {
+			begin_event_chain = {
+				event_chain = cs_stormbound_chain
+				target = this
+			}
+
+			add_monthly_resource_mult = {
+				resource = physics_research
+				value = @tier2researchreward
+				min = @tier2researchmin
+				max = @tier2researchmax
+			}
+
+			hidden_effect = {
+				country_event = { id = cstorms.1311 days = 800 }
+			}
+		}
+	}
+}
+
+#############################
+# Magnetized Planetary Core #
+#############################
+
+system_event = {
+	id = cstorms.1700
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		from = { is_storm_type = magnetic_storm }
+		exists = owner
+		owner = {
+			is_playable_country = yes
+			NOT = { has_country_flag = triggered_magnetized_planetary_core }
+		}
+		any_system_planet = {
+			is_colony = yes
+			is_artificial = no
+			NOT = { has_modifier = weak_magnetic_field }
+			NOT = { has_planet_flag = afflicted_by_storm_event }
+		}
+	}
+
+	immediate = {
+		random_list = {
+			75 = {}
+			25 = {
+				modifier = {
+					factor = 2
+					has_modifier = strong_magnetic_field
+				}
+				random_system_planet = {
+					limit = {
+						is_colony = yes
+						is_artificial = no
+						NOT = { has_modifier = weak_magnetic_field }
+						NOT = { has_planet_flag = afflicted_by_storm_event }
+					}
+					planet_event = {
+						id = cstorms.1705
+						days = 90
+						scopes = { from = owner }
+					}
+				}
+			}
+		}
+	}
+}
+
+######################
+# Electrified Oceans #
+######################
+
+system_event = {
+	id = cstorms.1710
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		from = { is_storm_type = electric_storm }
+		exists = owner
+		owner = {
+			is_playable_country = yes
+			NOT = { has_country_flag = triggered_electrified_oceans }
+		}
+		any_system_planet = {
+			is_colony = yes
+			NOT = { has_planet_flag = afflicted_by_storm_event }
+			OR = {
+				is_wet = yes
+				is_cold = yes
+			}
+		}
+	}
+
+	immediate = {
+		random_list = {
+			75 = {}
+			25 = {
+				random_system_planet = {
+					limit = {
+						is_colony = yes
+						NOT = { has_planet_flag = afflicted_by_storm_event }
+						OR = {
+							is_wet = yes
+							is_cold = yes
+						}
+					}
+					planet_event = {
+						id = cstorms.1715
+						days = 90
+						scopes = { from = owner }
+					}
+				}
+			}
+		}
+	}
+}
+
+#######################
+# Ghostly Apparitions #
+#######################
+
+system_event = {
+	id = cstorms.1720
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		from = { is_storm_type = shroud_storm }
+		exists = owner
+		owner = {
+			is_playable_country = yes
+			is_machine_empire = no
+			is_individual_machine = no
+			NOT = { has_country_flag = triggered_ghostly_apparitions }
+		}
+		any_system_planet = {
+			is_colony = yes
+			NOT = { has_planet_flag = afflicted_by_storm_event }
+			is_artificial = no
+		}
+	}
+
+	immediate = {
+		random_list = {
+			25 = {}
+			75 = {
+				random_system_planet = {
+					limit = {
+						is_colony = yes
+						NOT = { has_planet_flag = afflicted_by_storm_event }
+						is_artificial = no
+					}
+					planet_event = {
+						id = cstorms.1725
+						days = 90
+						scopes = { from = owner }
+					}
+				}
+			}
+		}
+	}
+}
+
+#######################
+# Volcanic Inactivity #
+#######################
+
+system_event = {
+	id = cstorms.1730
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		exists = owner
+		owner = {
+			is_playable_country = yes
+			NOT = { has_country_flag = triggered_volcanic_inactivity }
+		}
+		any_system_planet = {
+			is_colony = yes
+			NOT = { has_planet_flag = afflicted_by_storm_event }
+			has_deposit = d_active_volcano
+		}
+	}
+
+	immediate = {
+		random_system_planet = {
+			limit = {
+				is_colony = yes
+				NOT = { has_planet_flag = afflicted_by_storm_event }
+				has_deposit = d_active_volcano
+			}
+			add_storm_type_flag = { SCOPE_TYPE = planet STORM_SCOPE = from }
+			planet_event = {
+				id = cstorms.1731
+				days = 360
+				scopes = { from = owner }
+			}
+		}
+	}
+}
+
+#######################
+# Mountain in the Sky #
+#######################
+
+system_event = {
+	id = cstorms.1740
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		from = { is_storm_type = gravity_storm }
+		exists = owner
+		owner = {
+			is_playable_country = yes
+			NOT = { has_country_flag = triggered_sky_mountain }
+		}
+		any_system_planet = {
+			is_colony = yes
+			NOT = { has_planet_flag = afflicted_by_storm_event }
+			is_artificial = no
+		}
+	}
+
+	immediate = {
+		random_list = {
+			1 = {}
+			1 = {
+				random_system_planet = {
+					limit = {
+						is_colony = yes
+						NOT = { has_planet_flag = afflicted_by_storm_event }
+						is_artificial = no
+					}
+					planet_event = {
+						id = cstorms.1745
+						days = 30
+						scopes = { from = owner }
+					}
+				}
+			}
+		}
+	}
+}
+
+####################
+# Melting Glaciers #
+####################
+
+system_event = {
+	id = cstorms.1750
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		from = {
+			OR = {
+				is_storm_type = electric_storm
+				is_storm_type = particle_storm
+				is_storm_type = gravity_storm
+				is_storm_type = magnetic_storm
+				is_storm_type = solar_storm
+				is_storm_type = celestial_storm
+			}
+		}
+		exists = owner
+		owner = {
+			is_playable_country = yes
+			NOT = { has_country_flag = triggered_melting_glaciers }
+		}
+		any_system_planet = {
+			is_colony = yes
+			NOT = { has_planet_flag = afflicted_by_storm_event }
+			is_artificial = no
+			is_cold = yes
+		}
+	}
+
+	immediate = {
+		random_system_planet = {
+			limit = {
+				is_colony = yes
+				NOT = { has_planet_flag = afflicted_by_storm_event }
+				is_artificial = no
+				is_cold = yes
+			}
+			add_storm_type_flag = { SCOPE_TYPE = planet STORM_SCOPE = from }
+			planet_event = {
+				id = cstorms.1751
+				days = 90
+				scopes = { from = owner }
+			}
+		}
+	}
+}
+
+###############
+# Dusty Drink #
+###############
+
+system_event = {
+	id = cstorms.1760
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		from = { is_storm_type = celestial_storm }
+		exists = owner
+		owner = {
+			is_playable_country = yes
+			is_robotic_species = no
+			NOT = { has_country_flag = triggered_dusty_drink }
+		}
+		any_system_planet = {
+			is_colony = yes
+			NOT = { has_planet_flag = afflicted_by_storm_event }
+			is_artificial = no
+		}
+	}
+
+	immediate = {
+		random_system_planet = {
+			limit = {
+				is_colony = yes
+				NOT = { has_planet_flag = afflicted_by_storm_event }
+				is_artificial = no
+			}
+			planet_event = {
+				id = cstorms.1761
+				days = 90
+				scopes = { from = owner }
+			}
+		}
+	}
+}
+
+####################
+# Flightless Fauna #
+####################
+
+system_event = {
+	id = cstorms.1770
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		from = { is_storm_type = gravity_storm }
+		exists = owner
+		owner = {
+			is_playable_country = yes
+			NOT = { has_country_flag = triggered_flightless_fauna }
+		}
+		any_system_planet = {
+			is_colony = yes
+			exists = owner
+			NOT = { has_planet_flag = afflicted_by_storm_event }
+			is_artificial = no
+		}
+	}
+
+	immediate = {
+		random_system_planet = {
+			limit = {
+				is_colony = yes
+				exists = owner
+				NOT = { has_planet_flag = afflicted_by_storm_event }
+				is_artificial = no
+			}
+			planet_event = {
+				id = cstorms.1771
+				days = 90
+				scopes = { from = owner }
+			}
+		}
+	}
+}
+
+####################
+# Eye of the Storm #
+####################
+
+system_event = {
+	id = cstorms.1800
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		exists = owner
+		owner = {
+			is_playable_country = yes
+			NOT = { has_country_flag = triggered_eye_of_the_storm }
+		}
+		exists = from
+		from = {
+			NOT = { has_storm_flag = storm_stormfall }
+		}
+	}
+
+	immediate = {
+		from = { lock_storm_in_place = yes }
+		owner = {
+			set_country_flag = triggered_eye_of_the_storm
+			country_event = {
+				id = cstorms.1801
+				scopes = {
+					from = prev
+					fromfrom = from
+				}
+			}
+		}
+	}
+}
+
+##################
+# Storm in a Box #
+##################
+
+country_event = {
+	id = cstorms.1810
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		is_playable_country = yes
+		NOT = { has_country_flag = triggered_storm_in_a_box }
+		from = { has_storm_flag = first_storm_met_by_@root }
+	}
+
+	immediate = {
+		set_country_flag = triggered_eye_of_the_storm
+		country_event = {
+			id = cstorms.1815
+			days = 1800
+		}
+	}
+}
+
+##########################
+# Aftermath Opportunists #
+##########################
+
+system_event = {
+	id = cstorms.1830
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_megacorp = yes
+		exists = owner
+		exists = event_target:caravaneer_fleet3_country
+		owner = {
+			is_playable_country = yes
+			is_unfriendly = no
+			has_communications = event_target:caravaneer_fleet3_country
+			NOR = {
+				has_country_flag = triggered_aftermath_opportunists
+				has_technology = tech_storm_prediction_2
+				is_hostile_to = event_target:caravaneer_fleet3_country
+				is_unfriendly_to = event_target:caravaneer_fleet3_country
+				is_at_war_with = event_target:caravaneer_fleet3_country
+			}
+		}
+	}
+
+	immediate = {
+		owner = {
+			set_country_flag = triggered_aftermath_opportunists
+			country_event = { id = cstorms.1835 }
+		}
+	}
+}

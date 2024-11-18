@@ -1,0 +1,137 @@
+# ## Energy Lance 2
+weapon_component_template = {
+	key = "ENERGY_LANCE_2"
+	size = extra_large
+	type = instant
+
+	icon = "GFX_ship_part_energy_lance_2"
+	icon_frame = 1
+
+	firing_arc = 25.0
+	use_ship_kill_target = no
+
+	prerequisites = { "tech_energy_lance_2" }
+	component_set = "ENERGY_LANCE_2"
+	projectile_gfx = "tachyon_lance"
+	tags = { weapon_type_energy }
+	ai_tags = { weapon_role_artillery artillery }
+	ai_tag_weight = 0
+	upgrades_to = "DARK_MATTER_LANCE"
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @xl_t6_cost
+			rare_crystals = @xl_t6_rare
+		}
+		upkeep = {
+			energy = @xl_t6_upkeep_energy
+			alloys = @xl_t6_upkeep_alloys
+		}
+	}
+
+	target_weights = {
+		titan = 3
+		battleship = 2
+	}
+
+	ai_weight = {
+		weight = 1
+		modifier = {
+			factor = 0.0
+			no_resource_for_component = { RESOURCE = rare_crystals }
+		}
+	}
+}
+
+# ## Arc Emitter 2
+weapon_component_template = {
+	key = "ARC_EMITTER_2"
+	size = extra_large
+	type = instant
+
+	icon = "GFX_ship_part_arc_emitter_2"
+	icon_frame = 1
+
+	firing_arc = 35.0
+	min_range = 10.0
+	use_ship_kill_target = no
+
+	prerequisites = { "tech_arc_emitter_2" }
+	component_set = "ARC_EMITTER_2"
+	projectile_gfx = "focused_arc_emitter"
+	tags = { weapon_type_energy }
+	ai_tags = { weapon_role_artillery artillery }
+	ai_tag_weight = 0
+	upgrades_to = "DARK_MATTER_EMITTER"
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @xl_t6_cost
+			rare_crystals = @xl_t6_rare
+		}
+		upkeep = {
+			energy = @xl_t6_upkeep_energy
+			alloys = @xl_t6_upkeep_alloys
+		}
+	}
+
+	target_weights = {
+		titan = 3
+		battleship = 2
+	}
+
+	ai_weight = {
+		weight = 1
+		modifier = {
+			factor = 0.0
+			no_resource_for_component = { RESOURCE = rare_crystals }
+		}
+	}
+}
+
+# ## Mass Accelerator 2
+weapon_component_template = {
+	type = instant
+
+	key = "MASS_ACCELERATOR_2"
+	size = extra_large
+
+	icon = "GFX_ship_part_mass_accelerator_2"
+	icon_frame = 1
+
+	firing_arc = 25.0
+	min_range = 45.0
+	use_ship_kill_target = no
+
+	prerequisites = { "tech_mass_accelerator_2" }
+	component_set = "MASS_ACCELERATOR_2"
+	projectile_gfx = "adv_kinetic_artillery"
+	tags = { weapon_type_kinetic }
+	ai_tags = { weapon_role_artillery artillery }
+	ai_tag_weight = 0
+	upgrades_to = "TERA_CANNON"
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @xl_t6_cost
+			volatile_motes = @xl_t6_rare
+		}
+		upkeep = {
+			energy = @xl_t6_upkeep_energy
+			alloys = @xl_t6_upkeep_alloys
+		}
+	}
+
+	target_weights = {
+		titan = 3
+		battleship = 2
+	}
+
+	ai_weight = {
+		weight = 1
+		modifier = {
+			factor = 0.0
+			no_resource_for_component = { RESOURCE = volatile_motes }
+		}
+	}
+}

@@ -1,0 +1,1461 @@
+namespace = cara
+
+@ai_min_energy = 10000
+@ai_max_coinz = 50000
+
+# Home - Main menu, cara.100
+country_event = {
+	id = cara.100
+	title = cara_home_main.title
+	custom_gui = "enclave_caravaneer_window"
+
+	# Clicked on tradestation/Chor's Compass shield
+	desc = {
+		text = "cara_home_direct1"
+		trigger = {
+			from = { is_country_type = caravaneer_home }
+		}
+	}
+	desc = {
+		text = "cara_home_direct2"
+		trigger = {
+			from = { is_country_type = caravaneer_home }
+		}
+	}
+	desc = {
+		text = "cara_home_direct3"
+		trigger = {
+			from = { is_country_type = caravaneer_home }
+		}
+	}
+
+	# Clicked on fleet shield
+	desc = {
+		text = cara_home_redirect1
+		trigger = {
+			from = {
+				is_country_type = caravaneer_fleet
+				has_country_flag = caravaneer_fleet1_country
+			}
+		}
+	}
+	desc = {
+		text = cara_home_redirect2
+		trigger = {
+			from = {
+				is_country_type = caravaneer_fleet
+				has_country_flag = caravaneer_fleet2_country
+			}
+		}
+	}
+	desc = {
+		text = cara_home_redirect3
+		trigger = {
+			from = {
+				is_country_type = caravaneer_fleet
+				has_country_flag = caravaneer_fleet3_country
+			}
+		}
+	}
+
+	# Looping back from another menu
+	desc = {
+		text = "cara_home_menureturn1"
+		trigger = {
+			from = { is_playable_country = yes }
+		}
+	}
+	desc = {
+		text = "cara_home_menureturn2"
+		trigger = {
+			from = { is_playable_country = yes }
+		}
+	}
+	desc = {
+		text = "cara_home_menureturn3"
+		trigger = {
+			from = { is_playable_country = yes }
+		}
+	}
+
+	diplomatic = yes
+	is_triggered_only = yes
+
+	picture_event_data = {
+		portrait = event_target:caravaneer_home_country
+		room = caravaneer_home_room
+		planet_background = pc_barren_cold
+	}
+	location = event_target:caravaneer_home_system
+
+	trigger = {
+		exists = event_target:caravaneer_home_country
+		event_target:caravaneer_home_country = {
+			NOT = { is_hostile = root }
+		}
+		OR = {
+			AND = {
+				is_ai = no
+				OR = { # prevents diplo duplication
+					caravaneer_base_active_diplo = no # no open windows
+					from = { is_same_value = root } # returning from open sub-menu
+				}
+				OR = {
+					AND = { # new diplo opened from base or fleet
+						from = {
+							OR = {
+								is_country_type = caravaneer_home
+								is_country_type = caravaneer_fleet
+							}
+						}
+					}
+					AND = { # returned from menu
+						from = { is_same_value = root }
+					}
+				}
+			}
+			AND = {
+				is_ai = yes
+				is_playable_country = yes
+				from = {
+					is_country_type = caravaneer_home
+				}
+			}
+		}
+	}
+
+	immediate = {
+		random_country = {
+			limit = { is_country_type = caravaneer_home }
+			save_event_target_as = caravaneer_home_country
+		}
+	}
+
+	option = {
+		custom_gui = "enclave_caravaneer_option"
+		name = cara_home_slots
+		hidden_effect = { country_event = { id = cara.200 } }
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 0
+				check_variable = {
+					which = owned_cc_var
+					value < 3000
+				}
+			}
+		}
+	}
+
+	option = {
+		custom_gui = "enclave_caravaneer_option"
+		name = cara_home_lootbox
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 0
+				OR = {
+					check_variable = {
+						which = owned_cc_var
+						value < 7000
+					}
+					has_country_flag = buying_boxes #Lets stop the AI from funneling its entire economy into boxes
+				}
+			}
+		}
+		allow = {
+			custom_tooltip = {
+				fail_text = too_recently_lootboxed
+				NOT = { has_country_flag = lootboxed_recently }
+			}
+		}
+		hidden_effect = {
+			country_event = { id = cara.300 }
+		}
+	}
+
+	option = {
+		custom_gui = "enclave_caravaneer_option"
+		name = cara_home_ccoinz
+		hidden_effect = { country_event = { id = cara.150 } }
+		ai_chance = {
+			factor = 5
+			modifier = {
+				factor = 0
+				NOR = {
+					has_resource = {
+						type = energy
+						amount >= @ai_min_energy
+					}
+					check_variable = {
+						which = owned_cc_var
+						value < @ai_max_coinz
+					}
+				}
+			}
+		}
+	}
+
+	option = {
+		name = cara_home_about_fleet1
+		ai_chance = {
+			factor = 0
+		}
+		trigger = {
+			from = {
+				is_country_type = caravaneer_fleet
+				has_country_flag = caravaneer_fleet1_country
+			}
+		}
+		custom_gui = "enclave_caravaneer_option"
+		is_dialog_only = yes
+		response_text = cara_home_about_fleet1.reply
+	}
+
+	option = {
+		name = cara_home_about_fleet2
+		ai_chance = {
+			factor = 0
+		}
+		trigger = {
+			from = {
+				is_country_type = caravaneer_fleet
+				has_country_flag = caravaneer_fleet2_country
+			}
+		}
+		custom_gui = "enclave_caravaneer_option"
+		is_dialog_only = yes
+		response_text = cara_home_about_fleet2.reply
+	}
+
+	option = {
+		name = cara_home_about_fleet3
+		ai_chance = {
+			factor = 0
+		}
+		trigger = {
+			from = {
+				is_country_type = caravaneer_fleet
+				has_country_flag = caravaneer_fleet3_country
+			}
+		}
+		custom_gui = "enclave_caravaneer_option"
+		is_dialog_only = yes
+		response_text = cara_home_about_fleet3.reply
+	}
+
+	option = {
+		custom_gui = "enclave_caravaneer_option"
+		name = cara_home_exit
+		default_hide_option = yes
+	}
+
+	option = {
+		custom_gui = "enclave_caravaneer_option"
+		name = cara_homicide_exit
+		exclusive_trigger = { is_homicidal = yes }
+	}
+}
+
+# Fleet 1 - Evade when attacked by non-Default countries, cara.1001
+fleet_event = {
+	id = cara.1001
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_fleet_flag = cara_fleet1
+		from = {
+			exists = owner
+			owner = { NOT = { is_playable_country = yes } }
+		}
+	}
+
+	immediate = {
+		# randomize escape jump distance
+		random_list = {
+			1 = {
+				solar_system = {
+					closest_system = {
+						min_steps = 2
+						limit = { NOT = { has_star_flag = hostile_system } }
+						root = {
+							set_location = prev.star
+						}
+					}
+				}
+			}
+			1 = {
+				solar_system = {
+					closest_system = {
+						min_steps = 4
+						limit = { NOT = { has_star_flag = hostile_system } }
+						root = {
+							set_location = prev.star
+						}
+					}
+				}
+			}
+			1 = {
+				solar_system = {
+					closest_system = {
+						min_steps = 6
+						limit = { NOT = { has_star_flag = hostile_system } }
+						root = {
+							set_location = prev.star
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+# Fleet 1 - Destroyed by Default country, cara.1002
+country_event = {
+	id = cara.1002
+	title = cara.1002.title
+	desc = cara.1002.desc
+	picture = GFX_evt_caravaneers
+	show_sound = event_ship_thrusters
+	location = fromfrom
+
+	is_triggered_only = yes
+
+	trigger = {
+		from = {
+			is_country_type = caravaneer_fleet
+			has_country_flag = caravaneer_fleet1_country
+		}
+		is_playable_country = yes
+	}
+
+	immediate = {
+		fromfrom = {
+			solar_system = {
+				save_event_target_as = destroyed_fleet_location
+			}
+		}
+		every_playable_country = {
+			limit = {
+				has_communications = root.from
+				NOT = { is_same_value = root }
+			}
+			country_event = { id = cara.1003 } # notification
+		}
+	}
+
+	option = {
+		name = EXCELLENT
+		add_resource = {
+			energy = 2000
+			minerals = 2000
+		}
+		if = { limit = { fromfrom = { exists = leader } }
+			fromfrom.leader = { add_trait = leader_trait_caravan_counter }
+		}
+	}
+}
+
+# Fleet 1 - Entering Borders, cara.1010
+fleet_event = {
+	# on_crossing_border
+	# Scope = Fleet
+	# From = Origin System
+	# FromFrom = Destination System
+	id = cara.1010
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		exists = event_target:caravaneer_fleet1_fleet
+		is_same_value = event_target:caravaneer_fleet1_fleet
+		fromfrom = {
+			exists = space_owner
+			space_owner = {
+				is_playable_country = yes
+				NOT = { has_country_flag = recent_cara_1010 }
+			}
+		}
+		from = {
+			OR = {
+				NOT = { exists = space_owner }
+				AND = {
+					exists = space_owner
+					space_owner = { NOT = { is_same_value = root.fromfrom.space_owner } }
+					# technically redundant
+				}
+			}
+		}
+	}
+
+	immediate = {
+#		log = "fleet 1 entered system"
+		fromfrom.space_owner = {
+			set_timed_country_flag = {
+				flag = recent_cara_1010
+				days = 540
+			}
+		}
+		# Return message
+		if = {
+			limit = {
+				fromfrom.space_owner = {
+					has_communications = root.owner
+					is_homicidal = no
+					caravaneer_fleet1_active_diplo = no
+				}
+			}
+			fromfrom.space_owner = {
+				country_event = { id = cara.1100 }
+			}
+		}
+	}
+}
+
+# Fleet 1 - Port to re-offer deal, cara.1250
+fleet_event = {
+	id = cara.1250
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		exists = event_target:caravaneer_fleet1_fleet
+		owner = { is_country_type = caravaneer_fleet }
+		is_same_value = event_target:caravaneer_fleet1_fleet
+		from = {
+			exists = space_owner
+			space_owner = {
+				is_playable_country = yes
+				has_country_flag = cara_fleet1_getback
+			}
+		}
+		fromfrom = {
+			OR = {
+				NOT = { exists = space_owner }
+				AND = {
+					exists = space_owner
+					space_owner = {
+						NOT = { is_same_value = root.from.space_owner }
+					}
+				}
+			}
+		}
+	}
+
+	immediate = {
+		from.space_owner = {
+			set_timed_country_flag = {
+				flag = recent_cara_1010
+				days = 360
+			}
+			country_event = { id = cara.1251 }
+		}
+	}
+}
+
+# Fleet 2 - Evade when attacked by non-Default countries, cara.2001
+fleet_event = {
+	id = cara.2001
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_fleet_flag = cara_fleet2
+		from = {
+			exists = owner
+			owner = { NOT = { is_playable_country = yes } }
+		}
+	}
+
+	immediate = {
+		# randomize escape jump distance
+		random_list = {
+			1 = {
+				solar_system = {
+					closest_system = {
+						min_steps = 2
+						limit = { NOT = { has_star_flag = hostile_system } }
+						root = {
+							set_location = prev.star
+						}
+					}
+				}
+			}
+			1 = {
+				solar_system = {
+					closest_system = {
+						min_steps = 4
+						limit = { NOT = { has_star_flag = hostile_system } }
+						root = {
+							set_location = prev.star
+						}
+					}
+				}
+			}
+			1 = {
+				solar_system = {
+					closest_system = {
+						min_steps = 6
+						limit = { NOT = { has_star_flag = hostile_system } }
+						root = {
+							set_location = prev.star
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+# Fleet 2 - Destroyed by Default country, cara.2002
+country_event = {
+	# This = owner of fleet 1 (combatant)
+	# From = owner of fleet 2 (destroyed)
+	# FromFrom = fleet 1
+	# FromFromFrom = fleet 2
+	# on_fleet_destroyed_perp = {
+	id = cara.2002
+	title = cara.2002.title
+	desc = cara.2002.desc
+	picture = GFX_evt_caravaneers
+	show_sound = event_ship_thrusters
+	location = fromfrom
+
+	is_triggered_only = yes
+
+	trigger = {
+		from = {
+			is_country_type = caravaneer_fleet
+			has_country_flag = caravaneer_fleet2_country
+		}
+		is_playable_country = yes
+	}
+
+	immediate = {
+		every_playable_country = {
+			limit = {
+				has_communications = root.from
+				NOT = { is_same_value = root }
+			}
+			country_event = { id = cara.2003 } # notification
+		}
+	}
+
+	option = {
+		name = EXCELLENT
+		add_resource = {
+			energy = 2000
+			minerals = 2000
+		}
+		if = { limit = { fromfrom = { exists = leader } }
+			fromfrom.leader = { add_trait = leader_trait_caravan_counter }
+		}
+	}
+}
+
+# Fleet 2 - Entering Borders, cara.2010
+fleet_event = {
+	# on_crossing_border
+	# Scope = Fleet
+	# From = Origin System
+	# FromFrom = Destination System
+	id = cara.2010
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		exists = event_target:caravaneer_fleet2_fleet
+		is_same_value = event_target:caravaneer_fleet2_fleet
+		fromfrom = {
+			exists = space_owner
+			space_owner = {
+				is_playable_country = yes
+				NOT = { has_country_flag = recent_cara_2010 }
+			}
+		}
+		from = {
+			OR = {
+				NOT = { exists = space_owner }
+				AND = {
+					exists = space_owner
+					space_owner = { NOT = { is_same_value = root.fromfrom.space_owner } }
+				}
+			}
+		}
+	}
+
+	immediate = {
+		fromfrom.space_owner = {
+			set_timed_country_flag = {
+				flag = recent_cara_2010
+				days = 540
+			}
+		}
+		# Return message
+		if = {
+			limit = {
+				fromfrom.space_owner = {
+					has_communications = root.owner
+					is_homicidal = no
+					caravaneer_fleet2_active_diplo = no
+				}
+			}
+			fromfrom.space_owner = {
+				country_event = { id = cara.2100 }
+			}
+		}
+	}
+}
+
+# Fleet 2 - Port to re-offer deal, cara.2250
+fleet_event = {
+	id = cara.2250
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		exists = event_target:caravaneer_fleet2_fleet
+		owner = { is_country_type = caravaneer_fleet }
+		is_same_value = event_target:caravaneer_fleet2_fleet
+		from = {
+			exists = space_owner
+			space_owner = {
+				is_playable_country = yes
+				has_country_flag = cara_fleet2_getback
+			}
+		}
+		fromfrom = {
+			OR = {
+				NOT = { exists = space_owner }
+				AND = {
+					exists = space_owner
+					space_owner = {
+						NOT = { is_same_value = root.from.space_owner }
+					}
+				}
+			}
+		}
+	}
+
+	immediate = {
+		from.space_owner = {
+			set_timed_country_flag = {
+				flag = recent_cara_2010
+				days = 360
+			}
+			country_event = { id = cara.2251 }
+		}
+	}
+}
+
+# Fleet 1 - Evade when attacked by non-Default countries, cara.3001
+fleet_event = {
+	id = cara.3001
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_fleet_flag = cara_fleet3
+		from = {
+			exists = owner
+			owner = { NOT = { is_playable_country = yes } }
+		}
+	}
+
+	immediate = {
+		# randomize escape jump distance
+		random_list = {
+			1 = {
+				solar_system = {
+					closest_system = {
+						min_steps = 2
+						limit = { NOT = { has_star_flag = hostile_system } }
+						root = {
+							set_location = prev.star
+						}
+					}
+				}
+			}
+			1 = {
+				solar_system = {
+					closest_system = {
+						min_steps = 4
+						limit = { NOT = { has_star_flag = hostile_system } }
+						root = {
+							set_location = prev.star
+						}
+					}
+				}
+			}
+			1 = {
+				solar_system = {
+					closest_system = {
+						min_steps = 6
+						limit = { NOT = { has_star_flag = hostile_system } }
+						root = {
+							set_location = prev.star
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+# Fleet 3 - Destroyed by Default country, cara.3002
+country_event = {
+	# This = owner of fleet 1 (combatant)
+	# From = owner of fleet 2 (destroyed)
+	# FromFrom = fleet 1
+	# FromFromFrom = fleet 2
+	# on_fleet_destroyed_perp = {
+	id = cara.3002
+	title = cara.3002.title
+	desc = cara.3002.desc
+	picture = GFX_evt_caravaneers
+	show_sound = event_ship_thrusters
+	location = fromfrom
+
+	is_triggered_only = yes
+
+	trigger = {
+		from = {
+			is_country_type = caravaneer_fleet
+			has_country_flag = caravaneer_fleet3_country
+		}
+		is_playable_country = yes
+	}
+
+	immediate = {
+		every_playable_country = {
+			limit = {
+				has_communications = root.from
+				NOT = { is_same_value = root }
+			}
+			country_event = { id = cara.3003 } # notification
+		}
+	}
+
+	option = {
+		name = EXCELLENT
+		add_resource = {
+			energy = 2000
+			minerals = 2000
+		}
+		if = { limit = { fromfrom = { exists = leader } }
+			fromfrom.leader = { add_trait = leader_trait_caravan_counter }
+		}
+	}
+}
+
+# Fleet 3 - Entering Borders, cara.3010
+fleet_event = {
+	# on_crossing_border
+	# Scope = Fleet
+	# From = Origin System
+	# FromFrom = Destination System
+	id = cara.3010
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		exists = event_target:caravaneer_fleet3_fleet
+		is_same_value = event_target:caravaneer_fleet3_fleet
+		fromfrom = {
+			exists = space_owner
+			space_owner = {
+				is_playable_country = yes
+				NOT = { has_country_flag = recent_cara_3010 }
+			}
+		}
+		from = {
+			OR = {
+				NOT = { exists = space_owner }
+				AND = {
+					exists = space_owner
+					space_owner = { NOT = { is_same_value = root.fromfrom.space_owner } }
+				}
+			}
+		}
+	}
+
+	immediate = {
+		fromfrom.space_owner = {
+			set_timed_country_flag = {
+				flag = recent_cara_3010
+				days = 540
+			}
+		}
+		# Return message
+		if = {
+			limit = {
+				fromfrom.space_owner = {
+					has_communications = root.owner
+					is_homicidal = no
+					caravaneer_fleet3_active_diplo = no
+				}
+			}
+			fromfrom.space_owner = {
+				country_event = { id = cara.3100 }
+			}
+		}
+	}
+}
+
+# Fleet 3 - Intro, cara.3100
+country_event = {
+	id = cara.3100
+	title = cara_fleet3_main.title
+	desc = fleet3hewwo1
+	desc = fleet3hewwo2
+	desc = fleet3hewwo3
+	desc = {
+		trigger = {
+			any_country = {
+				is_playable_country = yes
+				has_communications = event_target:caravaneer_fleet3_country
+				NOT = { is_country = root }
+			}
+		}
+		text = "fleet3hewwo4"
+	}
+	desc = fleet3hewwo5
+	desc = fleet3hewwo6
+	desc = {
+		trigger = {
+			exists = event_target:ratling_species
+			any_country = {
+				any_owned_pop = {
+					is_same_species = event_target:ratling_species
+				}
+			}
+		}
+		text = "fleet3hewwo7"
+	}
+	desc = fleet3hewwo8
+
+	diplomatic = yes
+	is_triggered_only = yes
+	custom_gui = "enclave_caravaneer_window"
+
+	picture_event_data = {
+		portrait = event_target:caravaneer_fleet3_country
+		room = ethic_spaceship_room
+	}
+
+	immediate = {
+		#Generate 'scammer' country for fleet3hewwo4
+		if = {
+			limit = {
+				any_country = {
+					is_playable_country = yes
+					has_communications = event_target:caravaneer_fleet3_country
+					NOT = { is_country = root }
+				}
+			}
+			random_country = {
+				limit = {
+					is_playable_country = yes
+					has_communications = event_target:caravaneer_fleet3_country
+					NOT = { is_country = root }
+				}
+				save_event_target_as = scammer_country
+			}
+		}
+	}
+
+	option = {
+		name = cara_fleet3_deal
+		hidden_effect = { country_event = { id = cara.3200 } }
+		custom_gui = "enclave_caravaneer_option"
+	}
+
+	option = {
+		name = cara_fleet3_exit
+		default_hide_option = yes
+		custom_gui = "enclave_caravaneer_option"
+	}
+
+	option = {
+		name = cara_homicide_exit
+		exclusive_trigger = { is_homicidal = yes }
+		custom_gui = "enclave_caravaneer_option"
+	}
+}
+
+# Fleet 3 - Port to re-offer deal, cara.3250
+fleet_event = {
+	id = cara.3250
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		exists = event_target:caravaneer_fleet3_fleet
+		owner = { is_country_type = caravaneer_fleet }
+		is_same_value = event_target:caravaneer_fleet3_fleet
+		from = {
+			exists = space_owner
+			space_owner = {
+				is_playable_country = yes
+				has_country_flag = cara_fleet3_getback
+			}
+		}
+		fromfrom = {
+			OR = {
+				NOT = { exists = space_owner }
+				AND = {
+					exists = space_owner
+					space_owner = {
+						NOT = { is_same_value = root.from.space_owner }
+					}
+				}
+			}
+		}
+	}
+
+	immediate = {
+		from.space_owner = {
+			set_timed_country_flag = {
+				flag = recent_cara_3010
+				days = 360
+			}
+			country_event = { id = cara.3251 }
+		}
+	}
+}
+
+# Tradestation destroyed and Caravan asks to establish a new one, cara.900
+country_event = {
+	id = cara.900
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		is_country_type = caravaneer_home
+		fromfrom = { has_ship_flag = cara_home_tradestation }
+	}
+
+	immediate = {
+		# clear home system and star event targets
+		clear_global_event_target = caravaneer_home_system
+		clear_global_event_target = caravaneer_home_star
+		# they will be re-saved when/if station is reestablished
+		fromfrom.solar_system = { save_event_target_as = old_tradestation_system }
+		from = {
+			country_event = { id = cara.910 } # notification for destroyer
+		}
+
+		every_playable_country = {
+			limit = {
+				has_communications = root
+				NOT = { is_same_value = root.from }
+			}
+			country_event = { id = cara.920 } # notification for others
+		}
+
+		# find new location
+		event_target:old_tradestation_system = {
+			closest_system = {
+				limit = {
+					exists = space_owner
+					NOT = {
+						any_system_planet = {
+							habitable_planet = yes
+						}
+					}
+					space_owner = {
+						is_playable_country = yes
+						has_communications = event_target:caravaneer_home_country
+						is_at_war = no
+						NOT = { is_hostile = root }
+						if = {
+							limit = { exists = event_target:caravaneer_fleet1_country }
+							NOT = { is_hostile = event_target:caravaneer_fleet1_country }
+						}
+						if = {
+							limit = { exists = event_target:caravaneer_fleet2_country }
+							NOT = { is_hostile = event_target:caravaneer_fleet2_country }
+						}
+						if = {
+							limit = { exists = event_target:caravaneer_fleet3_country }
+							NOT = { is_hostile = event_target:caravaneer_fleet3_country }
+						}
+					}
+				}
+				save_event_target_as = cara_home_new_location
+				space_owner = {
+					country_event = { id = cara.930 days = 60 }
+				}
+			}
+		}
+	}
+}
+
+# Destruction notification for attacker, cara.910
+country_event = {
+	id = cara.910
+	title = cara.910.name
+	desc = cara.910.desc
+	picture = GFX_evt_space_debris
+	location = fromfromfrom.solar_system
+	show_sound = event_ship_bridge
+
+	is_triggered_only = yes
+
+	immediate = {
+		set_country_flag = destroyed_caravaneer_home
+		every_playable_country = {
+			limit = {
+				is_playable_country = yes
+				has_communications = from
+				NOT = {
+					is_same_value = root
+				}
+				OR = {
+					AND = {
+						is_capitalist = yes
+						is_xenophobe = no
+					}
+					is_xenophile = yes
+					is_pacifist = yes
+				}
+			}
+			add_opinion_modifier = {
+				who = root
+				modifier = opinion_upset_destroyed_caravaneer_home
+			}
+		}
+		every_playable_country = {
+			limit = {
+				is_playable_country = yes
+				has_communications = from
+				NOT = {
+					is_same_value = root
+				}
+				is_xenophobe = yes
+				NOR = {
+					has_valid_civic = civic_fanatic_purifiers
+					is_pacifist = yes
+				}
+			}
+			add_opinion_modifier = {
+				who = root
+				modifier = opinion_destroyed_caravaneer_home
+			}
+		}
+	}
+
+	option = {
+		name = EXCELLENT
+		add_resource = {
+			energy = 2000
+			minerals = 2000
+		}
+	}
+}
+
+# Contact to reestablish station, cara.930
+country_event = {
+	id = cara.930
+	title = cara.930.name
+	desc = cara.930.desc
+	diplomatic = yes
+	is_triggered_only = yes
+	custom_gui = "enclave_caravaneer_window"
+
+	picture_event_data = {
+		portrait = event_target:caravaneer_home_country
+		room = ethic_spaceship_room
+	}
+
+	trigger = { # check that they still own the system
+		event_target:cara_home_new_location = {
+			exists = space_owner
+			space_owner = { is_same_value = root }
+		}
+		# a caravan fleet still exists
+		OR = {
+			exists = event_target:caravaneer_fleet1_country
+			exists = event_target:caravaneer_fleet2_country
+			exists = event_target:caravaneer_fleet3_country
+		}
+	}
+
+	option = { # Accept
+		name = cara.930.a
+		custom_tooltip = cara.930.a.tooltip
+		hidden_effect = {
+			event_target:cara_home_new_location = {
+			# replacing starbase so it can be destroyed rather than flipped
+				if = {
+					limit = { exists = starbase }
+					starbase = {
+						fleet = { destroy_fleet = this }
+					}
+				}
+				create_starbase = {
+					size = "starbase_caravaneer"
+					owner = event_target:caravaneer_home_country
+				}
+				save_global_event_target_as = caravaneer_home_system
+				star = {
+					save_global_event_target_as = caravaneer_home_star
+				}
+			}
+			event_target:caravaneer_home_country = {
+				create_fleet = {
+					name = "NAME_Caravaneer_Coalition_Base"
+					settings = { spawn_debris = no }
+					effect = {
+						set_owner = prev
+						create_ship = {
+							name = random
+							design = "NAME_Tradestation_Tungle"
+							graphical_culture = prev
+							effect = {
+								set_ship_flag = cara_home_tradestation
+							}
+						}
+						set_location = {
+							target = event_target:cara_home_new_location.star
+							angle = random
+							distance = 40
+						}
+						save_global_event_target_as = CaravaneerCustomCapital
+						prev = {
+							set_custom_capital_location = event_target:CaravaneerCustomCapital
+						}
+					}
+				}
+				every_playable_country = {
+					limit = {
+						has_communications = prev
+						NOT = { is_same_value = root }
+					}
+					country_event = { id = cara.940 } # Reestablishment notification
+				}
+			}
+			add_modifier = {
+				modifier = caravaneer_trade_secrets
+				days = -1
+			}
+			tooltip = {
+				add_modifier = {
+					modifier = caravaneer_trade_secrets
+					days = -1
+				}
+			}
+		}
+		custom_gui = "enclave_caravaneer_option"
+	}
+
+	option = { # Reject
+		name = cara.930.b
+		response_text = cara.940.b.reply
+		trigger = {
+			is_xenophobe = no
+		}
+		hidden_effect = { # find other empire
+			if = {
+				limit = {
+					event_target:caravaneer_home_country = {
+						NOT = { has_country_flag = reestablishment_rejected }
+					}
+				}
+				event_target:caravaneer_home_country = {
+					set_country_flag = reestablishment_rejected
+				}
+				event_target:old_tradestation_system = {
+					closest_system = {
+						limit = {
+							exists = space_owner
+							NOT = {
+								any_system_planet = {
+									habitable_planet = yes
+								}
+							}
+							space_owner = {
+								is_playable_country = yes
+								is_at_war = no
+								has_communications = event_target:caravaneer_home_country
+								NOR = {
+									is_same_value = root
+									AND = {
+										exists = event_target:caravaneer_home_country
+										is_hostile = event_target:caravaneer_home_country
+									}
+									AND = {
+										exists = event_target:caravaneer_fleet1_country
+										is_hostile = event_target:caravaneer_fleet1_country
+									}
+									AND = {
+										exists = event_target:caravaneer_fleet2_country
+										is_hostile = event_target:caravaneer_fleet2_country
+									}
+									AND = {
+										exists = event_target:caravaneer_fleet3_country
+										is_hostile = event_target:caravaneer_fleet3_country
+									}
+								}
+							}
+						}
+						save_event_target_as = cara_home_new_location
+						space_owner = {
+							country_event = { id = cara.930 days = 20 }
+						}
+					}
+				}
+			}
+		}
+		custom_gui = "enclave_caravaneer_option"
+	}
+
+	option = { # Reject
+		name = cara.930.c
+		trigger = {
+			OR = {
+				has_ethic = ethic_xenophobe
+				has_ethic = ethic_fanatic_xenophobe
+			}
+		}
+		response_text = cara.940.b.reply
+		hidden_effect = { # find other empire
+			if = {
+				limit = {
+					event_target:caravaneer_home_country = {
+						NOT = { has_country_flag = reestablishment_rejected }
+					}
+				}
+				event_target:caravaneer_home_country = {
+					set_country_flag = reestablishment_rejected
+				}
+				event_target:old_tradestation_system = {
+					closest_system = {
+						limit = {
+							exists = space_owner
+							NOT = {
+								any_system_planet = {
+									habitable_planet = yes
+								}
+							}
+							space_owner = {
+								is_playable_country = yes
+								is_at_war = no
+								has_communications = event_target:caravaneer_home_country
+								NOR = {
+									is_same_value = root
+									AND = {
+										exists = event_target:caravaneer_home_country
+										is_hostile = event_target:caravaneer_home_country
+									}
+									AND = {
+										exists = event_target:caravaneer_fleet1_country
+										is_hostile = event_target:caravaneer_fleet1_country
+									}
+									AND = {
+										exists = event_target:caravaneer_fleet2_country
+										is_hostile = event_target:caravaneer_fleet2_country
+									}
+									AND = {
+										exists = event_target:caravaneer_fleet3_country
+										is_hostile = event_target:caravaneer_fleet3_country
+									}
+								}
+							}
+						}
+						save_event_target_as = cara_home_new_location
+						space_owner = {
+							country_event = { id = cara.930 days = 20 }
+						}
+					}
+				}
+			}
+		}
+		custom_gui = "enclave_caravaneer_option"
+	}
+}
+
+country_event = {
+	id = cara.4101
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		is_country_type = caravaneer_home
+		any_neighbor_country = {
+			is_playable_country = yes
+			is_homicidal = no
+		}
+	}
+
+	immediate = {
+		every_neighbor_country = {
+			limit = {
+				is_playable_country = yes
+				is_homicidal = no
+			}
+		country_event = { id = cara.4100 }
+		}
+	}
+
+}
+
+#Neighboring the Caravan home system events
+country_event = {
+	id = cara.4100
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		is_playable_country = yes
+		is_homicidal = no
+		any_system_within_border = {
+			closest_system = {
+				min_steps = 0
+				max_steps = 3
+
+				limit = {
+					exists = space_owner
+					space_owner = {
+						is_country_type = caravaneer_home
+						has_communications = root
+					}
+				}
+			}
+			any_system_planet = {
+				is_colony = yes
+			}
+		}
+	}
+
+	immediate = {
+
+		random_system_within_border = {
+			limit = {
+				closest_system = {
+				min_steps = 0
+				max_steps = 3
+
+					limit = {
+						exists = space_owner
+						space_owner = {
+							is_country_type = caravaneer_home
+							has_communications = root
+						}
+					}
+				}
+				any_system_planet = {
+					is_colony = yes
+				}
+			}
+			save_event_target_as = cara_border_system
+			random_system_planet = {
+				limit = {
+					is_colony = yes
+				}
+				save_event_target_as = cara_border_planet
+			}
+			closest_system = {
+				limit = {
+					exists = space_owner
+					space_owner = { is_country_type = caravaneer_home }
+				}
+				space_owner = {
+					save_event_target_as = caravaneer_neighbor
+					owner_species = { save_event_target_as = caravaneer_neighbor_species }
+				}
+			}
+		}
+
+		random_list = {
+			500 = {
+				#no effect
+			}
+			10 = {
+				country_event = { id = cara.4110 }
+			}
+			10 = { #No factor 0 modifier as I don't want the remaining option to be more common.
+				if = {
+					limit = {
+						is_gestalt = no
+					}
+					event_target:cara_border_planet = { planet_event = { id = cara.4120 } }
+				}
+			}
+			10 = {
+				if = {
+					limit = {
+						is_gestalt = no
+					}
+					event_target:cara_border_planet = { planet_event = { id = cara.4130 } }
+				}
+			}
+			10 = {
+				if = {
+					limit = {
+						is_gestalt = no
+					}
+					event_target:cara_border_planet = { planet_event = { id = cara.4140 } }
+				}
+			}
+			5 = {
+				if = {
+					limit = {
+						is_gestalt = no
+					}
+					event_target:cara_border_planet = { planet_event = { id = cara.4150 } }
+				}
+			}
+			5 = {
+				if = {
+					limit = {
+						OR = {
+							is_gestalt = no
+							is_individual_machine = yes
+						}
+					}
+					event_target:cara_border_planet = { planet_event = { id = cara.4160 } }
+				}
+			}
+		}
+	}
+}
+
+country_event = {
+	id = cara.333
+	hide_window=yes
+	is_triggered_only=yes
+	trigger={
+		is_ai=yes
+		is_playable_country = yes
+		exists = event_target:caravaneer_home_country
+		has_communications = event_target:caravaneer_home_country
+		OR = {
+			AND = {
+				has_resource = {
+					type = energy
+					amount >= @ai_min_energy
+				}
+				has_monthly_income = {
+					resource = energy
+					value >= 50
+				}
+			}
+			check_variable = {
+				which = owned_cc_var
+				value >= 3000
+			}
+		}
+	}
+	immediate={
+		country_event = {
+			id = cara.100
+			scopes = {
+				from = event_target:caravaneer_home_country
+			}
+		}
+	}
+}

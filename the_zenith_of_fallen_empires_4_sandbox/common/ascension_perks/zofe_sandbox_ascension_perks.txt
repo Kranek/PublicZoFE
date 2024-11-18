@@ -1,0 +1,280 @@
+##Vanilla Overrides
+
+# See traditions/README.txt for format
+
+
+#################
+# ANCIENT RELICS ASCENSION PERKS
+#################
+
+ap_archaeoengineers = {
+	potential = {
+		host_has_dlc = "Ancient Relics Story Pack"
+		NOT = { has_ascension_perk = ap_archaeoengineers }
+	}
+
+	possible = {
+		custom_tooltip = {
+			fail_text = "requires_technology_tech_archaeostudies"
+			has_technology = tech_archaeostudies
+		}
+	}
+
+	on_enabled = {
+		custom_tooltip = ap_archaeoengineers_tooltip
+		hidden_effect = {
+			country_event = { id = ancrel.9925 }
+		}
+		every_system = {
+			limit = {
+				is_owned_by = root
+				has_modifier = zroni_storm
+				starbase = {
+					count_starbase_buildings = {
+						type = zroni_storm_caster
+						include_being_constructed = no
+						count = 1
+					}
+				}
+				any_ship_in_system = {
+					is_ship_class = shipclass_starbase
+					NOT = { has_component = "STARBASE_AURA_ZRONI_STORM" }
+				}
+			}
+			system_event = {
+				id = ancrel.9901
+			}
+		}
+	}
+
+	modifier = {
+		country_scientist_cap_add = 1
+		weapon_archaeotech_weapon_damage_mult = 0.33
+		weapon_lost_tech_weapon_damage_mult = 0.33
+		starbase_shipyard_build_minor_artifacts_cost_mult = -0.10
+	}
+
+	ai_weight = {
+		factor = 4.5
+		modifier = {
+			factor = 2
+			has_ethic = ethic_materialist
+		}
+		modifier = {
+			factor = 3
+			has_ethic = ethic_fanatic_materialist
+		}
+		modifier = {
+			factor = 5
+			count_archaeological_site = {
+				count > 3
+				limit = {
+					is_owned_by = root
+					is_site_completed = yes
+				}
+			}
+		}
+		modifier = {
+			factor = 2
+			resource_stockpile_compare = {
+				resource = minor_artifacts
+				value > 1000
+			}
+		}
+		modifier = {
+			factor = 2
+			is_xenophile = yes
+		}
+		modifier = {
+			factor = 0
+			is_xenophobe = yes
+		}
+		modifier = {
+			factor = 0.25
+			is_spiritualist = yes
+		}
+	}
+}
+
+ap_cosmogenesis = {
+	potential = {
+		has_machine_age_dlc = yes
+		NOR = {
+			has_ascension_perk = ap_become_the_crisis
+			has_ascension_perk = ap_cosmogenesis
+			has_ascension_perk = ap_defender_of_the_galaxy
+			has_ascension_perk = ap_galactic_ascendancy
+			has_ascension_perk = ap_galactic_consciousness
+			has_ascension_perk = ap_galactic_intelligence
+			is_zofe_country = yes
+			has_origin = origin_slavers # No crisis for MSI
+			has_origin = origin_ringworld_empire
+			has_origin = origin_original_people
+		}
+	}
+
+	possible = {
+		custom_tooltip = {
+			fail_text = "requires_ascension_perks_3"
+			num_ascension_perks > 2
+		}
+		custom_tooltip = {
+			fail_text = "requires_independence"
+			is_subject = no
+		}
+		custom_tooltip = {
+			fail_text = "must_not_be_custodian"
+			is_galactic_custodian = no
+		}
+		custom_tooltip = {
+			fail_text = "must_not_be_emperor"
+			is_galactic_emperor = no
+		}
+	}
+
+	on_enabled = {
+		hidden_effect = {
+			set_variable = {
+				which = cosmogenesis_world_advanced_logic_produced
+				value = 0
+			}
+		}
+		activate_crisis_progression = cosmogenesis_path
+	}
+
+	ai_weight = {
+		factor = 7.5
+		modifier = {
+			factor = 0
+			OR = {
+				is_egalitarian = yes
+				is_xenophile = yes
+			}
+		}
+		modifier = {
+			factor = 2
+			has_tradition = tr_discovery_finish
+		}
+		modifier = {
+			factor = 2
+			has_ascension_perk = ap_technological_ascendancy
+		}
+		modifier = {
+			factor = 2
+			has_ascension_perk = ap_enigmatic_engineering
+		}
+		modifier = {
+			factor = 2
+			vassals > 0
+			any_subject = {
+				any_agreement = {
+					has_active_specialization = specialist_scholarium
+				}
+			}
+		}
+		modifier = {
+			factor = 10
+			has_country_flag = whisperers_covenant_confirmed
+		}
+		modifier = {
+			factor = 0
+			galaxy_percentage < 0.1
+		}
+		modifier = {
+			factor = 2
+			galaxy_percentage > 0.2
+		}
+	}
+}
+
+ap_become_the_crisis = {
+	potential = {
+		has_nemesis = yes
+		NOR = {
+			has_ascension_perk = ap_become_the_crisis
+			has_ascension_perk = ap_cosmogenesis
+			has_ascension_perk = ap_defender_of_the_galaxy
+			has_ascension_perk = ap_galactic_ascendancy
+			is_zofe_country = yes
+			has_ascension_perk = ap_galactic_consciousness
+			has_ascension_perk = ap_galactic_intelligence
+			has_origin = origin_slavers
+			has_origin = origin_ringworld_empire
+			has_origin = origin_original_people
+		}
+	}
+
+	possible = {
+		custom_tooltip = {
+			fail_text = "requires_ascension_perks_3"
+			num_ascension_perks > 2
+		}
+		custom_tooltip = {
+			fail_text = "requires_independence"
+			is_subject = no
+		}
+		custom_tooltip = {
+			fail_text = "must_not_be_custodian"
+			is_galactic_custodian = no
+		}
+		custom_tooltip = {
+			fail_text = "must_not_be_emperor"
+			is_galactic_emperor = no
+		}
+		NOR = {
+			has_ethic = ethic_xenophile
+			has_ethic = ethic_fanatic_xenophile
+			has_ethic = ethic_pacifist
+			has_ethic = ethic_fanatic_pacifist
+			has_civic = civic_machine_servitor
+		}
+	}
+
+	on_enabled = {
+		hidden_effect = {
+			set_ai_personality = became_the_crisis
+		}
+		activate_crisis_progression = nemesis_path
+	}
+
+	ai_weight = {
+		factor = 7.5
+		modifier = {
+			factor = 0
+			NOR = {
+				is_militarist = yes
+				is_xenophobe = yes
+				is_gestalt = yes
+			}
+		}
+		modifier = {
+			factor = 10
+			is_homicidal = yes
+		}
+		modifier = {
+			factor = 2
+			has_tradition = tr_supremacy_finish
+		}
+		modifier = {
+			factor = 0
+			galaxy_percentage < 0.1
+		}
+		modifier = {
+			factor = 2
+			galaxy_percentage > 0.2
+		}
+		modifier = {
+			factor = 0
+			count_playable_country = {
+				count > 1
+				limit = {
+					has_ascension_perk = ap_become_the_crisis
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			blocks_disruptive_gameplay = yes
+		}
+	}
+}

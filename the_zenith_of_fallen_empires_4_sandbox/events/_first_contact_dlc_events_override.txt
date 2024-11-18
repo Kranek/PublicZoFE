@@ -1,0 +1,490 @@
+################################
+#
+# First Contact DLC Events
+#
+################################
+
+namespace = fircon
+
+@PreFTLDiplomacyEventTimer = 1800
+@PreFTLDiplomacyEventTimerLong = 5400
+
+## Fircon 7500 - 7999 Written by Victor Haeggman
+
+# We are NOT cute
+country_event = {
+	id = fircon.7500
+	title = fircon.7500.name
+	desc = fircon.7500.desc
+	picture = GFX_evt_alien_segregation
+	show_sound = event_administrative_work
+	is_triggered_only = yes
+	location = event_target:pre_ftl_planet
+
+	trigger = {
+		has_first_contact_dlc = yes
+		is_playable_country = yes
+		NOR = {
+			has_country_flag = fircon_7500_fired
+			has_country_flag = recent_preftl_diplomatic_event
+		}
+		has_active_observation_post = yes
+		any_observed_pre_ftl_within_border = {
+			NOR = {
+				is_hive_empire = yes
+				is_broken_shackles_pre_ftl_to_scope = { SCOPE = root }
+			}
+			current_awareness_level = full
+		}
+	}
+
+	immediate = {
+		random_planet_within_border = {
+			limit = {
+				has_observation_outpost = yes
+				exists = observation_outpost_owner
+				owner = {
+					NOR = {
+						is_hive_empire = yes
+						is_broken_shackles_pre_ftl_to_scope = { SCOPE = root }
+					}
+				}
+			}
+			save_event_target_as = pre_ftl_planet
+			owner = { save_event_target_as = pre_ftl_country }
+		}
+		set_timed_country_flag = {
+			flag = fircon_7500_fired
+			days = 5400
+		}
+		set_timed_country_flag = {
+			flag = recent_preftl_diplomatic_event
+			days = 1800
+		}
+	}
+
+	option = { # They are not wrong
+		name = fircon.7500.a
+		trigger = {
+			species = {
+				NOR = {
+					has_trait = trait_repugnant
+					has_trait = trait_robot_uncanny
+				}
+			}
+		}
+		add_monthly_resource_mult = {
+			resource = unity
+			value = @tier2unityreward
+			min = @tier2unitymin
+			max = @tier2unitymax
+		}
+	}
+	option = { # They ARE wrong
+		trigger = {
+			is_xenophobe = yes
+		}
+		name = fircon.7500.b
+		add_resource = { influence = 200 }
+	}
+	option = { # Really? Us!?
+		trigger = {
+			species = {
+				OR = {
+					has_trait = trait_repugnant
+					has_trait = trait_robot_uncanny
+				}
+			}
+		}
+		name = fircon.7500.c
+		add_monthly_resource_mult = {
+			resource = unity
+			value = @tier3unityreward
+			min = @tier3unitymin
+			max = @tier3unitymax
+		}
+	}
+	option = { # What a waste of time
+		trigger = {
+			values_others = no
+		}
+		name = fircon.7500.d
+		from = {
+			random_owned_pop = {
+				limit = {
+					NOT = { pop_has_ethic = ethic_xenophile }
+				}
+				pop_change_ethic = ethic_xenophobe
+			}
+		}
+	}
+
+	option = { # Can we have some of those plushies?
+		trigger = {
+			is_megacorp = no
+			values_others = yes
+		}
+		name = fircon.7500.e
+		add_modifier = {
+			modifier = stuffed_toy
+			days = -1
+		}
+	}
+
+	option = { # Where is our cut?
+		trigger = {
+			is_megacorp = yes
+		}
+		name = fircon.7500.f
+		event_target:pre_ftl_planet = {
+			observation_outpost = {
+				add_modifier = {
+					modifier = plushie_tariff
+					days = -1
+				}
+			}
+		}
+	}
+}
+
+# All is One
+country_event = {
+	id = fircon.7510
+	title = fircon.7510.name
+	desc = {
+		trigger = {
+			is_gestalt = no
+		}
+		text = fircon.7510.desc.regular
+	}
+	desc = {
+		trigger = {
+			is_gestalt = yes
+		}
+		text = fircon.7510.desc.gestalt
+	}
+	picture = GFX_evt_hive_mind_pre_ftl
+	show_sound = event_administrative_work
+	is_triggered_only = yes
+	location = event_target:pre_ftl_planet
+
+	trigger = {
+		has_first_contact_dlc = yes
+		is_playable_country = yes
+		is_gestalt = yes
+		NOR = {
+			has_country_flag = fircon_7510_fired
+			has_country_flag = recent_preftl_diplomatic_event
+		}
+		has_active_observation_post = yes
+		any_observed_pre_ftl_within_border = {
+			is_gestalt = yes
+			current_awareness_level = full
+			is_under_open_technological_enlightenment = root
+		}
+	}
+
+	immediate = {
+		random_planet_within_border = {
+			limit = {
+				has_observation_outpost = yes
+				exists = observation_outpost_owner
+				owner = {
+					is_gestalt = yes
+				}
+			}
+			save_event_target_as = pre_ftl_planet
+			owner = { save_event_target_as = pre_ftl_country }
+		}
+		set_timed_country_flag = {
+			flag = fircon_7510_fired
+			days = 5400
+		}
+		set_timed_country_flag = {
+			flag = recent_preftl_diplomatic_event
+			days = 1800
+		}
+	}
+
+	option = { #How horrible
+		name = fircon.7510.a
+		custom_tooltip = fircon.distrust_diplomacy
+		custom_tooltip = fircon.7510.a.tt
+		hidden_effect = {
+			event_target:pre_ftl_country = {
+				add_modifier = {
+					modifier = pre_ftl_distrustful
+					days = 3600
+				}
+			}
+			event_target:pre_ftl_planet = {
+				add_modifier = {
+					modifier = pre_ftl_distrustful
+					days = 3600
+				}
+			}
+			create_message = {
+				type = MESSAGE_PRE_FTL_DISTRUSTFUL
+				localization = MESSAGE_PRE_FTL_DISTRUSTFUL
+				days = 30
+				target = this
+				variable = {
+					type = name
+					localization = COUNTRY
+					scope = event_target:pre_ftl_country
+				}
+			}
+			event_target:pre_ftl_planet = {
+				while = {
+					count = 2
+					random_owned_pop = {
+						kill_pop = yes
+					}
+				}
+			}
+		}
+	}
+
+	option = { #This is progress
+		trigger = {
+			values_others = no
+		}
+		name = {
+			trigger = {
+				is_gestalt = no
+			}
+			text = fircon.7510.b.regular
+		}
+		name = {
+			trigger = {
+				is_gestalt = yes
+			}
+			text = fircon.7510.b.gestalt
+		}
+		custom_tooltip = fircon.advance_tech
+		custom_tooltip = fircon.7510.b.tt
+		hidden_effect = {
+			event_target:pre_ftl_country = {
+				advance_pre_ftl_tech = yes
+			}
+			event_target:pre_ftl_planet = {
+				while = {
+					count = 5
+					random_owned_pop = {
+						kill_pop = yes
+					}
+				}
+			}
+		}
+	}
+}
+
+## Trade Agreement Events
+
+# Freeport
+country_event = {
+	id = fircon.8025
+	title = fircon.8025.name
+	desc = fircon.8025.desc
+	picture = GFX_evt_gunrunning
+	show_sound = event_galactic_community
+	is_triggered_only = yes
+	location = event_target:freeport_planet
+
+	trigger = {
+		has_first_contact_dlc = yes
+		is_playable_country = yes
+		has_pre_ftl_trade_agreement = yes
+		NOR = {
+			has_country_flag = fircon_8025_fired
+			has_country_flag = recent_preftl_diplomatic_event
+		}
+	}
+
+	immediate = {
+		get_random_pre_ftl_trade_agreement = { EVENT = freeport }
+		set_country_flag = fircon_8025_fired
+		set_timed_country_flag = {
+			flag = recent_preftl_diplomatic_event
+			days = 5400
+		}
+	}
+
+	option = {
+		name = fircon.8025.a
+		allow = {
+			resource_stockpile_compare = { resource = influence value >= 50 }
+		}
+		add_resource = { influence = -50 }
+		event_target:freeport_planet = {
+			add_deposit = d_freeports
+		}
+	}
+
+	option = {
+		name = fircon.8025.b
+		event_target:freeport_planet = {
+			add_modifier = {
+				modifier = freeport_smuggling
+				days = 7200
+			}
+		}
+	}
+
+	option = {
+		name = fircon.8025.c
+		allow = {
+			resource_stockpile_compare = { resource = unity value >= 1000 }
+		}
+		add_resource = { unity = -1000 }
+		event_target:freeport_country = {
+			add_trust = {
+				amount = 100
+				who = root
+			}
+		}
+	}
+}
+
+# on_entering_wormhole
+# THIS = Fleet
+# FROM = System jumping to
+# FROMFROM = System jumped from
+fleet_event = {
+	id = fircon.3505
+	is_triggered_only = yes
+	hide_window = yes
+	trigger = {
+		fromfrom = { has_star_flag = chosen_system }
+		exists = event_target:chosen_empire
+		exists = from.owner
+		owner = {
+			is_same_value = event_target:chosen_empire
+			NOR = {
+				is_same_value = from.owner
+				has_communications = from.owner
+			}
+		}
+	}
+	immediate = {
+		every_playable_country = {
+			limit = {
+				NOT = { is_same_value = root.owner }
+				intel_level = {
+					system = from
+					level > low
+				}
+			}
+			country_event = { id = fircon.3510 }
+		}
+		if = {
+			limit = {
+				FROM.owner = {
+					OR = {
+						is_playable_country = yes
+						is_country_type = awakened_fallen_empire
+					}
+				}
+			}
+			root.owner = {
+				declare_war = {
+					target = FROM.owner
+					attacker_war_goal = wg_cleansing
+				}
+			}
+		}
+	}
+}
+
+country_event = {
+	id = fircon.3510
+	is_triggered_only = yes
+	diplomatic_title = BLANK_STRING
+	title = fircon.3510.name
+	desc = fircon.3510.desc
+	show_sound = event_worrying_signal
+	location = fromfrom
+	diplomatic = yes
+
+	trigger = {
+		is_playable_country = yes
+	}
+
+	picture_event_data = {
+		portrait = event_target:chosen_empire
+		planet_background = event_target:chosen_empire.capital_scope
+		graphical_culture = event_target:chosen_empire
+		city_level = event_target:chosen_empire.capital_scope
+		room = event_target:chosen_empire.ruler
+	}
+	immediate = {
+		establish_communications_no_message = from.owner
+	}
+	option = {
+		name = fircon.3510.A
+		tooltip = {
+			if = {
+				limit = {
+					FROMFROM.owner = {
+						OR = {
+							is_playable_country = yes
+							is_country_type = awakened_fallen_empire
+						}
+					}
+				}
+				event_target:chosen_empire = {
+					declare_war = {
+						target = FROMFROM.owner
+						attacker_war_goal = wg_cleansing
+					}
+				}
+			}
+		}
+	}
+}
+
+# on_first_contact
+# This = Empire 1
+# From = Empire 2
+# Fromfromfrom = System where contact occurred
+country_event = {
+	id = fircon.3515
+	is_triggered_only = yes
+	diplomatic_title = BLANK_STRING
+	title = fircon.3515.name
+	desc = fircon.3515.desc
+	show_sound = event_worrying_signal
+	location = fromfromfrom
+	diplomatic = yes
+	picture_event_data = {
+		portrait = event_target:chosen_empire
+		planet_background = event_target:chosen_empire.capital_scope
+		graphical_culture = event_target:chosen_empire
+		city_level = event_target:chosen_empire.capital_scope
+		room = event_target:chosen_empire.ruler
+	}
+
+	trigger = {
+		OR = {
+			is_playable_country = yes
+			is_country_type = awakened_fallen_empire
+		}
+		exists = event_target:chosen_empire
+		from = {
+			is_same_value = event_target:chosen_empire
+		}
+		fromfromfrom = { has_star_flag = chosen_system }
+	}
+	immediate = {
+		establish_communications_no_message = from
+	}
+	option = {
+		name = DISTURBING
+		from = {
+			declare_war = {
+				target = root
+				attacker_war_goal = wg_cleansing
+			}
+		}
+	}
+}

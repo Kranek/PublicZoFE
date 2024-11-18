@@ -1,0 +1,82 @@
+#################################################
+#												#
+# Machine Age DLC Cyberization Situation Events #
+#												#
+#################################################
+
+namespace = cyber
+
+# Remove old effects before reforming cyber swap government
+# THIS = country
+# Fired by: on_pre_government_changed
+country_event = {
+	id = cyber.30
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		is_playable_country = yes
+		OR = {
+			AND = {
+				is_democratic_authority = yes
+				has_country_flag = cyber_collectivist
+			}
+			AND = {
+				is_oligarchic_authority = yes
+				has_country_flag = cyber_collectivist
+			}
+			AND = {
+				is_imperial_authority = yes
+				has_country_flag = cyber_individualist
+			}
+		}
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				is_oligarchic_authority = yes
+				has_country_flag = cyber_collectivist
+			}
+			every_pop_faction = {
+				limit = {
+					is_faction_extorted = yes
+				}
+				set_faction_extorted = no
+			}
+		}
+		else_if = {
+			limit = {
+				is_imperial_authority = yes
+				has_country_flag = cyber_individualist
+			}
+			remove_relic = r_the_rulerchip
+			remove_modifier = rulerchip_intergenerational_knowledge
+		}
+	}
+}
+
+# Add new effects after reforming cyber swap government
+# THIS = country
+# Fired by: on_post_government_changed
+country_event = {
+	id = cyber.40
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		is_playable_country = yes
+		is_imperial_authority = yes
+		has_country_flag = cyber_individualist
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				is_imperial_authority = yes
+				has_country_flag = cyber_individualist
+			}
+			add_relic = r_the_rulerchip
+		}
+	}
+}

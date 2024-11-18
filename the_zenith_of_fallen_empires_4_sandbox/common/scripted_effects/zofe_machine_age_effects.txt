@@ -1,0 +1,610 @@
+make_lost_empire = {
+
+	if = {
+		limit = { has_civic = civic_machine_servitor }
+		set_country_flag = rogue_servitor
+	}
+
+	set_country_type = lost_empire
+	set_country_flag = lost_empire
+	set_country_flag = cosmogenesis_fe_empire
+
+	if = {
+		limit = {
+			is_gestalt = no
+		}
+		change_government = {
+			civics = {
+				civic = civic_lost_empire_lethargic_leadership
+				civic = civic_lost_empire_empire_in_decline
+			}
+			remove_invalid_civics = yes
+		}
+		if = {
+			limit = {
+				is_fanatic = yes
+			}
+			if = {
+				limit = {
+					has_ethic = ethic_spiritualist
+				}
+				country_remove_ethic = ethic_spiritualist
+			}
+			else_if = {
+				limit = {
+					has_ethic = ethic_authoritarian
+				}
+				country_remove_ethic = ethic_authoritarian
+			}
+			else_if = {
+				limit = {
+					has_ethic = ethic_materialist
+				}
+				country_remove_ethic = ethic_materialist
+			}
+			else_if = {
+				limit = {
+					has_ethic = ethic_militarist
+				}
+				country_remove_ethic = ethic_militarist
+			}
+			else_if = {
+				limit = {
+					has_ethic = ethic_pacifist
+				}
+				country_remove_ethic = ethic_pacifist
+			}
+			else_if = {
+				limit = {
+					has_ethic = ethic_xenophile
+				}
+				country_remove_ethic = ethic_xenophile
+			}
+			else_if = {
+				limit = {
+					has_ethic = ethic_xenophobe
+				}
+				country_remove_ethic = ethic_xenophobe
+			}
+		}
+		else_if = {
+			limit = {
+				is_fanatic = no
+			}
+			shift_ethic = ethic_fanatic_xenophobe
+			if = {
+				limit = {
+					has_ethic = ethic_spiritualist
+				}
+				country_remove_ethic = ethic_spiritualist
+			}
+			else_if = {
+				limit = {
+					has_ethic = ethic_authoritarian
+				}
+				country_remove_ethic = ethic_authoritarian
+			}
+			else_if = {
+				limit = {
+					has_ethic = ethic_materialist
+				}
+				country_remove_ethic = ethic_materialist
+			}
+			else_if = {
+				limit = {
+					has_ethic = ethic_militarist
+				}
+				country_remove_ethic = ethic_militarist
+			}
+			else_if = {
+				limit = {
+					has_ethic = ethic_pacifist
+				}
+				country_remove_ethic = ethic_pacifist
+			}
+			else_if = {
+				limit = {
+					has_ethic = ethic_xenophile
+				}
+				country_remove_ethic = ethic_xenophile
+			}
+			else_if = {
+				limit = {
+					has_ethic = ethic_xenophobe
+				}
+				country_remove_ethic = ethic_xenophobe
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			is_machine_empire = yes
+		}
+		change_government = {
+			civics = {
+				civic = civic_lost_empire_machine_remnants
+				civic = civic_lost_empire_custodian_directives
+			}
+			remove_invalid_civics = yes
+		}
+	}
+	else_if = {
+		limit = {
+			is_hive_empire = yes
+		}
+		change_government = {
+			civics = {
+				civic = civic_lost_empire_antediluvian_mind
+				civic = civic_lost_empire_sluggish_drones
+			}
+			remove_invalid_civics = yes
+		}
+	}
+
+	ruler = {
+		add_skill = 9
+	}
+
+	if = {
+		limit = { is_gestalt = no }
+		if = {
+			limit = { has_ethic = ethic_fanatic_xenophobe }
+			set_graphical_culture = fallen_xenophobe
+			set_city_graphical_culture = fallen_xenophobe
+			room_name_override = "fallen_xenophobe_room"
+		}
+		else_if = {
+			limit = { has_ethic = ethic_fanatic_xenophile }
+			set_graphical_culture = fallen_xenophile
+			set_city_graphical_culture = fallen_xenophile
+			room_name_override = "fallen_xenophile_room"
+		}
+		else_if = {
+			limit = { has_ethic = ethic_fanatic_pacifist }
+			set_graphical_culture = fallen_pacifist
+			set_city_graphical_culture = fallen_pacifist
+			room_name_override = "fallen_pacifist_room"
+		}
+		else_if = {
+			limit = { has_ethic = ethic_fanatic_militarist }
+			set_graphical_culture = fallen_militarist
+			set_city_graphical_culture = fallen_militarist
+			room_name_override = "fallen_militarist_room"
+		}
+		else_if = {
+			limit = { has_ethic = ethic_fanatic_authoritarian }
+			set_graphical_culture = fallen_authoritarian
+			set_city_graphical_culture = fallen_authoritarian
+			room_name_override = "fallen_authoritarian_room"
+		}
+		else_if = {
+			limit = { has_ethic = ethic_fanatic_egalitarian }
+			set_graphical_culture = fallen_egalitarian_02
+			set_city_graphical_culture = fallen_egalitarian_02
+			room_name_override = "fallen_egalitarian_02_room"
+		}
+		else_if = {
+			limit = { has_ethic = ethic_fanatic_spiritualist }
+			set_graphical_culture = fallen_spiritualist
+			set_city_graphical_culture = fallen_spiritualist
+			room_name_override = "fallen_spiritualist_room"
+		}
+		else_if = {
+			limit = { has_ethic = ethic_fanatic_materialist }
+			set_graphical_culture = fallen_materialist
+			set_city_graphical_culture = fallen_materialist
+			room_name_override = "fallen_materialist_room"
+		}
+	}
+	else_if = {
+		limit = { is_machine_empire = yes }
+		set_graphical_culture = fallen_machine
+		set_city_graphical_culture = fallen_machine
+		room_name_override = "fallen_machine_room"
+	}
+	else_if = {
+		limit = { is_hive_empire = yes }
+		set_graphical_culture = fallen_hive_mind
+		set_city_graphical_culture = fallen_hive_mind
+		room_name_override = "fallen_hive_mind_room"
+	}
+
+	# create_fallen_empire_cosmogenesis_navy = yes
+
+	# add_modifier = {
+	# 	modifier = fe_ship_cost_modifier
+	# 	days = -1
+	# }
+
+	give_technology = { tech = tech_fallen_technologies_1 message = no }
+	give_technology = { tech = tech_fallen_technologies_2 message = no }
+	give_technology = { tech = tech_fallen_technologies_3 message = no }
+	give_technology = { tech = tech_fallen_technologies_4 message = no }
+	give_technology = { tech = tech_fallen_technologies_5 message = no }
+	give_technology = { tech = tech_fallen_technologies_6 message = no }
+	
+	give_technology = { tech = tech_fallen_escorts message = no }
+	give_technology = { tech = tech_fallen_escort_build_speed message = no }
+	give_technology = { tech = tech_fallen_escort_hull_1 message = no }
+	give_technology = { tech = tech_fallen_escort_hull_2 message = no }
+
+	give_technology = { tech = tech_fallen_battlecruisers message = no }
+	give_technology = { tech = tech_fallen_battlecruiser_build_speed message = no }
+	give_technology = { tech = tech_fallen_battlecruiser_hull_1 message = no }
+	give_technology = { tech = tech_fallen_battlecruiser_hull_2 message = no }
+
+	give_technology = { tech = tech_fallen_titans message = no }
+	give_technology = { tech = tech_fallen_titan_hull_1 message = no }
+	give_technology = { tech = tech_fallen_titan_hull_2 message = no }
+
+	give_technology = { tech = tech_fallen_defense_platforms_1 message = no }
+	give_technology = { tech = tech_fallen_defense_platforms_2 message = no }
+	
+	every_system = {
+		limit = {
+			exists = owner
+			owner = {
+				is_same_value = root
+			}
+			OR = {
+				NOT = { exists = sector }
+				sector = { has_sector_type = normal_sector }
+			}
+		}
+		every_fleet_in_system = {
+			limit = {
+				is_mobile = no
+			}
+			destroy_fleet = this
+		}
+	}
+
+	if = {
+		limit = { is_gestalt = no }
+		owner_main_species = {
+			set_living_standard = {
+				type = living_standard_utopian
+				country = prev
+			}
+			set_migration_controls = {
+				type = migration_control_yes
+				country = prev
+			}
+		}
+	}
+
+	every_planet_within_border = {
+		limit = {
+			exists = owner
+			is_planet_class = pc_cosmogenesis_world
+		}
+
+		while = {
+			limit = {
+				num_pops > 0
+			}
+			random_owned_pop = {
+				kill_pop = yes
+			}
+		}
+		destroy_colony = yes
+
+		solar_system = {
+			spawn_megastructure = {
+				type = cosmogenesis_world_ruined
+				coords_from = PREV
+			}
+			random_system_planet = {
+				limit = {
+					has_planet_flag = has_cosmogenesis_world
+				}
+				remove_planet_flag = has_cosmogenesis_world
+				remove_planet_flag = has_megastructure
+			}
+		}
+
+		remove_planet = yes
+	}
+
+	every_planet_within_border = {
+		limit = {
+			is_colony = yes
+		}
+		if = {
+			limit = { is_capital = yes }
+			while = {
+				limit = {
+					num_pops > 2
+				}
+				random_owned_pop = {
+					kill_pop = yes
+				}
+			}
+		}
+	}
+
+	every_planet_within_border = {
+		limit = {
+			exists = sector
+			sector = { has_sector_type = core_sector }
+			OR = {
+				is_capital = yes
+				is_colonizable = yes
+			}
+		}
+
+		create_colony = {
+			owner = root
+			species = root.species
+		}
+
+		create_lost_empire_world = yes
+		clear_blockers = yes
+	}
+
+	every_owned_pop = {
+		limit = {
+			is_same_species = root.species
+			is_unemployed = yes
+		}
+		clear_pop_category = yes
+		set_pop_flag = decadent_pop
+		if = {
+			limit = { is_gestalt = no }
+			if = {
+				limit = {
+					root = {
+						has_ethic = ethic_fanatic_authoritarian
+					}
+				}
+				pop_change_ethic = ethic_fanatic_authoritarian
+			}
+			else_if = {
+				limit = {
+					root = {
+						has_ethic = ethic_fanatic_egalitarian
+					}
+				}
+				pop_change_ethic = ethic_fanatic_egalitarian
+			}
+			else_if = {
+				limit = {
+					root = {
+						has_ethic = ethic_fanatic_materialist
+					}
+				}
+				pop_change_ethic = ethic_fanatic_materialist
+			}
+			else_if = {
+				limit = {
+					root = {
+						has_ethic = ethic_fanatic_spiritualist
+					}
+				}
+				pop_change_ethic = ethic_fanatic_spiritualist
+			}
+			else_if = {
+				limit = {
+					root = {
+						has_ethic = ethic_fanatic_militarist
+					}
+				}
+				pop_change_ethic = ethic_fanatic_militarist
+			}
+			else_if = {
+				limit = {
+					root = {
+						has_ethic = ethic_fanatic_pacifist
+					}
+				}
+				pop_change_ethic = ethic_fanatic_pacifist
+			}
+			else_if = {
+				limit = {
+					root = {
+						has_ethic = ethic_fanatic_xenophile
+					}
+				}
+				pop_change_ethic = ethic_fanatic_xenophile
+			}
+			else_if = {
+				limit = {
+					root = {
+						has_ethic = ethic_fanatic_xenophobe
+					}
+				}
+				pop_change_ethic = ethic_fanatic_xenophobe
+			}
+		}
+	}
+}
+
+create_lost_empire_world = {
+	remove_all_buildings = yes
+	remove_all_districts = yes
+	set_planet_flag = fallen_empire_world
+	if = {
+		limit = {
+			is_urban_planet = no
+			is_ringworld = no
+		}
+		while = {
+			limit = {
+				free_district_slots > 0
+			}
+			add_district = district_city
+		}
+	}
+	else_if = {
+		limit = {
+			is_planet_class = pc_city
+		}
+		while = {
+			limit = {
+				free_district_slots > 0
+			}
+			add_district = district_arcology_housing
+		}
+	}
+	else_if = {
+		limit = {
+			is_planet_class = pc_ringworld_habitable
+		}
+		while = {
+			limit = {
+				free_district_slots > 0
+			} 
+			add_district = district_rw_city
+		}
+	}
+	else_if = {
+		limit = {
+			is_planet_class = pc_habitat
+		}
+		while = {
+			limit = {
+				free_district_slots > 0
+			}
+			add_district = district_hab_housing
+		}
+	}
+	else_if = {
+		limit = {
+			is_planet_class = pc_hive
+		}
+		while = {
+			limit = {
+				free_district_slots > 0
+			}
+			add_district = district_hive
+		}
+	}
+	else_if = {
+		limit = {
+			is_planet_class = pc_machine
+		}
+		while = {
+			limit = {
+				free_district_slots > 0
+			}
+			add_district = district_nexus
+		}
+	}
+
+	if = {
+		limit = { is_capital = yes }
+		while = {
+			limit = {
+				num_pops < 64
+			}
+			create_pop = {
+				species = root.species
+			}
+		}
+		if = {
+			limit = { root = { is_gestalt = no } }
+			add_building = building_fallen_palace
+			add_building = building_fallen_aegis_complex
+			add_building = building_fallen_aegis_complex
+			add_building = building_fallen_lab
+			add_building = building_fallen_class_4_singularity
+			add_building = building_fallen_dimensional_fabricator
+			add_building = building_fallen_nourishment_center
+			add_building = building_fallen_nano_forge
+			add_building = building_fallen_nano_forge
+			add_building = building_fallen_affluence_center
+			add_building = building_fallen_sky_dome
+			add_building = building_fallen_sky_dome
+		}
+		else_if = {
+			limit = { root = { is_hive_empire = yes } }
+			add_building = building_hive_major_capital
+			add_building = building_fallen_aegis_complex
+			add_building = building_fallen_aegis_complex
+			add_building = building_fallen_lab
+			add_building = building_fallen_class_4_singularity
+			add_building = building_fallen_dimensional_fabricator
+			add_building = building_fallen_nourishment_center
+			add_building = building_fallen_nourishment_center
+			add_building = building_fallen_nano_forge
+			add_building = building_fallen_nano_forge
+			add_building = building_fallen_sky_dome
+			add_building = building_fallen_sky_dome
+		}
+		else_if = {
+			limit = { root = { is_machine_empire = yes } }
+			add_building = building_machine_system_capital
+			add_building = building_fallen_aegis_complex
+			add_building = building_fallen_aegis_complex
+			add_building = building_fallen_lab
+			add_building = building_fallen_class_4_singularity
+			add_building = building_fallen_class_4_singularity
+			add_building = building_fallen_dimensional_fabricator
+			add_building = building_fallen_dimensional_fabricator
+			add_building = building_fallen_nano_forge
+			add_building = building_fallen_nano_forge
+			if = {
+				limit = { root = { is_rogue_servitor = yes } }
+				add_building = building_fallen_sky_dome
+				add_building = building_fallen_sky_dome
+			}
+		}
+	}
+	else_if = {
+		limit = { is_capital = no }
+		while = {
+			count < 24
+			create_pop = {
+				species = root.species
+			}
+		}
+		if = {
+			limit = { root = { is_gestalt = no } }
+			add_building = building_fallen_palace
+			add_building = building_fallen_aegis_complex
+			add_building = building_fallen_class_4_singularity
+			add_building = building_fallen_class_4_singularity
+			add_building = building_fallen_dimensional_fabricator
+			add_building = building_fallen_dimensional_fabricator
+			add_building = building_fallen_nourishment_center
+			add_building = building_fallen_nano_forge
+			add_building = building_fallen_nano_forge
+			add_building = building_fallen_affluence_center
+			add_building = building_fallen_sky_dome
+			add_building = building_fallen_sky_dome
+		}
+		else_if = {
+			limit = { root = { is_hive_empire = yes } }
+			add_building = building_hive_major_capital
+			add_building = building_fallen_aegis_complex
+			add_building = building_fallen_class_4_singularity
+			add_building = building_fallen_class_4_singularity
+			add_building = building_fallen_dimensional_fabricator
+			add_building = building_fallen_dimensional_fabricator
+			add_building = building_fallen_nourishment_center
+			add_building = building_fallen_nourishment_center
+			add_building = building_fallen_nano_forge
+			add_building = building_fallen_nano_forge
+			add_building = building_fallen_sky_dome
+			add_building = building_fallen_sky_dome
+		}
+		else_if = {
+			limit = { root = { is_machine_empire = yes } }
+			add_building = building_machine_system_capital
+			add_building = building_fallen_aegis_complex
+			add_building = building_fallen_aegis_complex
+			add_building = building_fallen_lab
+			add_building = building_fallen_class_4_singularity
+			add_building = building_fallen_class_4_singularity
+			add_building = building_fallen_dimensional_fabricator
+			add_building = building_fallen_dimensional_fabricator
+			add_building = building_fallen_nano_forge
+			add_building = building_fallen_nano_forge
+			if = {
+				limit = { root = { is_rogue_servitor = yes } }
+				add_building = building_fallen_sky_dome
+				add_building = building_fallen_sky_dome
+			}
+		}
+	}
+}

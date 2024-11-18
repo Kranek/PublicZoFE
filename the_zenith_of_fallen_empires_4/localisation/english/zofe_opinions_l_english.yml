@@ -1,0 +1,32 @@
+﻿l_english:
+
+ opinion_took_from_us:0 "Extorted"
+ 
+ opinion_mean_to_us:0 "Cruelty"
+ 
+ opinion_gifted_us:0 "Bestowed Resources"
+ 
+ opinion_nice_to_us:0 "Bestowed Boon"
+ 
+ opinion_ascended_empire_opposing:0 "Opposing fanatical beliefs"
+ opinion_ascended_empire_same:0 "Same fanatical beliefs"
+ 
+ opinion_helped_original_empire:0 "Complied with us"
+ 
+ opinion_defied_original_empire:0 "Defied us"
+ 
+ opinion_original_empire_defiant_subject:0 "Put in their place"
+ 
+ opinion_original_empire_enemy:0 "Enemies of the Original People"
+ 
+ opinion_original_empire_friend:0 "Friends of the Original People"
+
+ opinion_original_empire_coward:0 "Cowardice during Crusade"
+
+ opinion_refused_lost_empire_demand:0 "Refused Demands"
+
+ opinion_accepted_lost_empire_request:0 "Accepted Request"
+
+ opinion_refused_lost_empire_request:0 "Refused Request"
+
+ opinion_spurned_lost_empire_gift:0 "Spurned Gift"

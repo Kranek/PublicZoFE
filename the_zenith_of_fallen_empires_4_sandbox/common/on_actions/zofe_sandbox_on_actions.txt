@@ -1,0 +1,15 @@
+on_game_start = {
+	events = {
+		zofe_action.2 #Flag Sandbox Mode being Active.
+	}
+}
+
+# A war has been won
+# Root = Winner Warleader
+# From = Loser Warleader
+# FromFrom = War
+on_war_won = {
+	events = {
+		zofe_action.3
+	}
+}

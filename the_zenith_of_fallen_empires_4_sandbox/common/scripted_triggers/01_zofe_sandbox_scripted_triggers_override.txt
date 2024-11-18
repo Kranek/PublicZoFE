@@ -1,0 +1,475 @@
+##########################################
+### 	ZoFE Sandbox Scripted Triggers
+###				By Kolyn
+##########################################
+
+#For rare instances where you need to check for ZoFE Sandbox Mode before game starts.
+has_zofe_sandbox = {
+    always = yes
+}
+
+##Vanilla Overrides
+#Checks if the country type can have subjects
+is_country_type_with_subjects = {
+	OR = {
+		is_country_type = default
+		is_country_type = awakened_fallen_empire
+		is_country_type = awakened_marauders
+		is_country_type = ascended_empire
+		is_country_type = lost_empire
+		is_country_type = original_empire
+		is_country_type = awakened_original_empire
+	}
+}
+#Check for non-gestalt empire types
+is_regular_empire = {
+	OR = {
+		is_country_type = default
+		is_country_type = ascended_empire
+		is_country_type = lost_empire
+		is_country_type = original_empire
+		is_country_type = awakened_original_empire
+		is_country_type = fallen_empire
+		is_country_type = awakened_fallen_empire #for checks in buildings
+	}
+	NOT = { has_ethic = ethic_gestalt_consciousness	}
+}
+#Check for non-gestalt empire types, also checks if it's a primitive empire
+is_regular_empire_or_primitive = {
+	OR = {
+		is_country_type = default
+		is_country_type = ascended_empire
+		is_country_type = lost_empire
+		is_country_type = original_empire
+		is_country_type = awakened_original_empire
+		is_country_type = fallen_empire
+		is_country_type = awakened_fallen_empire #for checks in buildings
+		is_primitive = yes
+	}
+	NOT = { has_ethic = ethic_gestalt_consciousness	}
+}
+#Checks if the country can set AI policies
+can_set_ai_policy = {
+	is_mechanical_empire = no
+	OR = {
+		has_technology = tech_synthetic_workers
+		has_technology = tech_sapient_ai
+		any_relation = {
+			has_communications = prev
+			OR = {
+				has_technology = tech_synthetic_workers
+				has_technology = tech_sapient_ai
+				is_machine_empire = yes
+			}
+			OR = {
+				is_playable_country = yes
+				has_ai_personality_behaviour = robot_exploiter
+				has_ai_personality_behaviour = robot_liberator
+			}
+		}
+	}
+}
+
+has_comms_with_alien_empire = {
+	custom_tooltip = {
+		fail_text = has_comms_with_alien_empire_tooltip
+		any_relation = {
+			has_communications = root
+			OR = {
+				is_country_type = default
+				is_country_type = fallen_empire
+				is_country_type = awakened_fallen_empire
+				is_country_type = ascended_empire
+				is_country_type = lost_empire
+				is_country_type = original_empire
+				is_country_type = awakened_original_empire
+			}
+		}
+	}
+}
+
+has_comms_with_alien_civilization = {
+	any_relation = {
+		has_communications = root
+		OR = {
+			is_country_type = default
+			is_country_type = fallen_empire
+			is_country_type = awakened_fallen_empire
+			is_country_type = ascended_empire
+			is_country_type = lost_empire
+			is_country_type = original_empire
+			is_country_type = awakened_original_empire
+			is_country_type = enclave
+			is_country_type = nomad
+			is_country_type = dormant_marauders
+			is_country_type = awakened_marauders
+		}
+	}
+}
+
+has_total_war_cb = {
+	OR = {
+		#attacker checks
+		AND = {
+			OR = {
+				is_playable_country = yes
+				is_country_type = awakened_fallen_empire
+				is_country_type = fallen_empire
+				is_country_type = original_empire
+				is_country_type = awakened_original_empire
+			}
+			OR = {
+				is_country_type = awakened_fallen_empire
+				is_country_type = ascended_empire
+				has_valid_civic = civic_hive_devouring_swarm
+				has_valid_civic = civic_machine_assimilator
+				AND = {
+					has_valid_civic = civic_machine_terminator
+					from = {
+						NOR = {
+							has_country_flag = synthetic_empire
+							is_machine_empire = yes
+						}
+					}
+				}
+				AND = {
+					has_valid_civic = civic_fanatic_purifiers
+					NOT = { is_same_species = from }
+				}
+			}
+		}
+		#end threat checks
+		AND = {
+			is_playable_country = yes
+			NOR = {
+				is_country_type = awakened_fallen_empire
+				has_valid_civic = civic_fanatic_purifiers
+				has_valid_civic = civic_hive_devouring_swarm
+				has_valid_civic = civic_machine_assimilator
+				has_valid_civic = civic_machine_terminator
+			}
+			from = {
+				OR = {
+					is_country_type = awakened_fallen_empire
+					is_country_type = ascended_empire
+					has_valid_civic = civic_fanatic_purifiers
+					has_valid_civic = civic_hive_devouring_swarm
+					has_valid_civic = civic_machine_assimilator
+					has_valid_civic = civic_machine_terminator
+				}
+			}
+		}
+	}
+}
+
+can_generate_trade_value = {
+	exists = owner
+	owner = { is_playable_country = yes }
+}
+
+basic_eligibility_for_separatism_joining_trigger = {
+	if = {
+		limit = {
+			event_target:rebellion_species = { has_trait = trait_hive_mind }
+		}
+		is_hive_empire = yes
+	}
+	else_if = {
+		limit = {
+			event_target:rebellion_species = { has_trait = trait_machine_unit }
+		}
+		is_machine_empire = yes
+	}
+	else = {
+		is_regular_empire = yes
+		OR = {
+			is_same_species = event_target:rebellion_species
+			AND = {
+				event_target:revolt_situation = { has_situation_flag = slave_revolt }
+				has_ethic = ethic_fanatic_egalitarian
+			}
+		}
+	}
+	NOT = { is_same_value = event_target:revolt_situation.owner }
+	is_subject = no
+	NOR = {
+		is_in_federation_with = event_target:revolt_situation.owner
+		has_defensive_pact = event_target:revolt_situation.owner
+		has_non_aggression_pact = event_target:revolt_situation.owner
+	}
+	has_communications = event_target:revolt_situation.owner
+	is_playable_country = yes
+}
+
+valid_curators_intel_trade_target = {
+	OR = {
+		is_country_type = default
+		is_country_type = ascended_empire
+		is_country_type = lost_empire
+		is_country_type = original_empire
+		is_country_type = awakened_original_empire
+	}
+	NOR = {
+		is_same_value = root
+		AND = {
+			exists = event_target:curator_customer_1
+			is_same_value = event_target:curator_customer_1
+		}
+		AND = {
+			exists = event_target:curator_customer_2
+			is_same_value = event_target:curator_customer_2
+		}
+		AND = {
+			exists = event_target:curator_customer_3
+			is_same_value = event_target:curator_customer_3
+		}
+	}
+	root = {
+		has_communications = prev
+		NOR = {
+			intel = { who = prev value = 100 }
+			has_relation_flag = {
+				who = prev
+				flag = curator_bought_intel_on
+			}
+		}
+	}
+	OR = { # AI doesn't use Curators, but players can get protection against this by not using them
+		AND = {
+			is_ai = yes
+			has_communications = event_target:curator_enclave_country
+			OR = {
+				is_galactic_community_member = yes
+				any_system_within_border = {
+					any_fleet_in_system = {
+						is_owned_by = event_target:curator_enclave_country
+					}
+				}
+			}
+		}
+		event_target:curator_enclave_country = {
+			trust = {
+				who = prev
+				value >= 50
+			}
+		}
+	}
+}
+
+no_resource_for_component = {
+	is_playable_country = yes
+	OR = {
+		NOT = {
+			can_buy_on_market = $RESOURCE$ #i.e. has galactic market or positive income
+		}
+		AND = {
+			is_ai = yes
+			has_monthly_income = {
+				resource = $RESOURCE$
+				value < -2 #Reflexes to buy more tend to only kick in when below 0
+			}
+			resource_stockpile_compare = {
+				resource = $RESOURCE$
+				value < 150
+			}
+		}
+	}
+}
+
+ai_should_build_habitats = {
+	is_playable_country = yes
+	OR = {
+		is_at_war = no
+		mid_game_years_passed > 0
+	}
+	has_technology = tech_habitat_1
+	if = {
+		limit = {
+			NOT = { has_origin = origin_void_dwellers } #VDs should build habitats even if there are other planets available
+		}
+		ai_colonize_plans <= 0
+		OR = {
+			NOT = { has_trait = trait_aquatic }
+			has_ascension_perk = ap_hydrocentric
+		}
+	}
+	NOT = {
+		any_planet_within_border = {
+			is_planet_class = pc_habitat
+			is_colony = no
+		}
+	}
+	NOT = {
+		any_neighbor_country = {
+			is_crisis_faction = yes
+		}
+	}
+}
+
+shroudwalker_insight_save_spynetwork_trigger = {
+	OR = {
+		NOT = { exists = event_target:$EVENT_TARGET$ }
+		target = { is_same_value = event_target:$EVENT_TARGET$ }
+		root = {
+			NOT = {
+				any_spynetwork = {
+					owner = { is_same_value = root }
+					target = { 
+						is_playable_country = yes
+						is_same_value = event_target:$EVENT_TARGET$
+					}
+					exists = leader
+				}
+			}
+		}
+	}
+}
+
+is_valid_refugee_pop = {
+	is_robot_pop = no
+	NOR = {
+		has_trait = trait_hive_mind
+		can_think = no
+	}
+	owner = {
+		any_relation = {
+			is_playable_country = yes
+			has_communications = prev #relations include countries that have made first contact but not established comms
+			NOT = { has_policy_flag = refugees_not_allowed }
+			prevprev = { #this ensures Pop scope, as root will not always be pop scope
+				OR = {
+					has_citizenship_type = { type = citizenship_full country = prev }
+					AND = {
+						has_citizenship_type = { type = citizenship_limited country = prev }
+						prev = { has_policy_flag = refugees_allowed }
+					}
+				}
+			}
+			any_owned_planet = {
+				is_under_colonization = no
+				is_controlled_by = owner
+				has_orbital_bombardment = no
+			}
+		}
+	}
+}
+
+has_any_habitability = {
+	is_playable_country = yes
+	has_communications = prev
+	NOT = { has_policy_flag = refugees_not_allowed }
+	event_target:refugee_pop = {
+		OR = {
+			has_citizenship_type = { type = citizenship_full country = prev }
+			AND = {
+				has_citizenship_type = { type = citizenship_limited country = prev }
+				prev = { has_policy_flag = refugees_allowed }
+			}
+		}
+	}
+	any_owned_planet = {
+		is_under_colonization = no
+		is_controlled_by = owner
+		has_orbital_bombardment = no
+	}
+}
+
+#Country scope
+has_active_spynetwork = {
+	any_spynetwork = {
+		owner = { is_same_value = prevprev }
+		target = { is_playable_country = yes }
+		exists = leader
+		is_spynetwork_level > 0
+	}
+}
+
+# Country scope | from = Operation
+espionage_operation_disguise_disadvantage = {
+	OR = {
+		# Lacking appearance-changing tech
+		AND = {
+			species = { is_robotic = no }
+			NOT = { has_technology = tech_gene_tailoring }
+		}
+		AND = {
+			species = { is_robotic = yes } # Machine Intelligences, Synths, etc.
+			NOR = {
+				has_technology = tech_robomodding
+				has_technology = tech_robomodding_m
+			}
+		}
+		# Profound physiological differences
+		AND = {
+			is_gestalt = no
+			root.from.target = { is_gestalt = yes }
+		}
+		AND = {
+			is_gestalt = yes
+			root.from.target = { is_gestalt = no }
+		}
+		AND = {
+			owner_species = {
+				NOT = { has_trait = trait_cybernetic }
+			}
+			root.from.target = {
+				owner_species = { has_trait = trait_cybernetic }
+			}
+		}
+		AND = {
+			owner_species = {
+				NOT = { has_trait = trait_psionic }
+			}
+			root.from.target = {
+				owner_species = { has_trait = trait_psionic }
+			}
+		}
+	}
+	# Lacking the kinds of Asset which can help cover up the above
+	root.from = {
+		target = {
+			is_playable_country = yes
+		}
+		NOR = {
+			has_espionage_asset = asset_bureaucrat
+			has_espionage_asset = asset_clerk
+			has_espionage_asset = asset_ephapse_relay
+			has_espionage_asset = asset_behavioral_regulator
+			has_espionage_asset = asset_engagement_protocol
+		}
+	}
+}
+
+has_active_observation_post = {
+	is_playable_country = yes
+	has_country_flag = built_observation_post
+	any_system_within_border = {
+		any_system_colony = {
+			has_observation_outpost = yes
+		}
+	}
+}
+
+has_gw_ring_world = {
+	OR = {
+		has_ascension_perk = ap_galactic_wonders_utopia
+		has_ascension_perk = ap_galactic_wonders_utopia_and_megacorp
+		is_zofe_country = yes
+	}
+}
+
+has_gw_dyson_sphere = {
+	OR = {
+		has_ascension_perk = ap_galactic_wonders_utopia
+		has_ascension_perk = ap_galactic_wonders_utopia_and_megacorp
+		is_zofe_country = yes
+	}
+}
+
+has_gw_matter_decompressor = {
+	OR = {
+		has_ascension_perk = ap_galactic_wonders_megacorp
+		has_ascension_perk = ap_galactic_wonders_utopia_and_megacorp
+		is_zofe_country = yes
+	}
+}

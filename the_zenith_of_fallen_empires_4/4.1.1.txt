@@ -1,0 +1,44 @@
+4.1.1 Patch Notes
+
+*Fixed Fallen Consumer Goods buildings not giving amenities.
+*Fixed Original Empire battlecruiser design having extra weapons it shouldn't have.
+*Fixed Utopian districts not using the correct upkeep and production values.
+*You can no longer pick Galactic Nemesis if you are an Ascended Empire or pick Galactic Ascendancy if you already picked Galactic Nemesis, Ringworld and Original People Origin are now also forbidden from picking Galactic Nemesis.
+*Added a Fallen Empire tier clone vat for empires that adopted the genetics tradition.
+*Added the capital upgrade decision, it requries some of the fallen building technologies researched.
+*Fixed localisation issues.
+*Tweaked Utopian world modifiers and colony designations.
+*Added city level restriction to Utopian worlds, except for Utopian City worlds. Your cities will now stay beautiful and not overcrowded.
+*Added more space entities to the clean up affairs office option.
+*Original Crisis will now use Fallen Empire jobs and buildings if sandbox is enabled.
+*Fallen Domes now give planet habitability as well.
+*Fallen Empire buildings now have proper effect description for non-gestalt and gestalt empire jobs.
+*Fallen Empire buildings now have proper effect description for Fallen Empire jobs.
+*Fallen Empire lab buildings now give more regular researcher jobs across all tiers for gestalt and non-gestalt empires.
+*Fallen Empire lab buildings had their head researcher job removed.
+*Fixed Fallen Security building giving empire wide stability per building instead of planet only stability per building.
+*Added more advanced tooltips for Ringworld and Original People Origin.
+*Ascendancy Affairs Office now has a dedicated assistant for non-gestalt empires.
+*Added custom tooltip to the event option where an empire becomes a Fallen Empire.
+*Fixed subjects not becoming scions when their overlord becomes a Lost Empire.
+*Fixed primitives not becoming proper subjects if you enlighten them as a Lost or Ascended Empire.
+*Buffed power values for some DM/DE/OE reactors.
+*Lost Empires can now interact with pre-ftl empires.
+*Added additional tooltip to the Galactic Ascendancy Ascension Perk.
+*Fixed certain events not being overriden properly.
+*Fixed ZoFE rooms not appearing properly in certain diplomatic events.
+*Added finisher effect for Twilight of a Lost Empire Situation.
+*Fixed wrong government used for Lost Empires.
+*Updated Guardians of the Galaxy Modifier to include Synth Queen as well.
+*Added custom tooltip for Masters of Warfare and Guardian of the Galaxy Modifiers.
+*Fixed rogue servitors losing the ability to use bio trophies when they become a lost empire.
+*Added the ability to continue playing as your Fallen Empire remnant after winning via Cosmogenesis.
+*Subjects under Lost Empires can't declare war with the Dismantle Ascendancy wargoal.
+*Fixed Second Crusade ships missing some components.
+*Fixed Utopian Abundance living standard to be usable by individual machines.
+*Fixed Sun Generator incorrect upkeep.
+*Fixed Lost Tier Consumer Goods tech being an artifact research option even if your empire doesn't use Consumer Goods.
+*Sky Dome no longer gives housing usage reduction, Empyrean Dome now gives -5% housing usage instead of -10%.
+*Modding: Its now possible to prevent ascension for certain empires with "zofe_ascension_not_allowed" flag or by overriding the "zofe_ascension_allowed" scripted trigger.
+*Modding: Added scripted trigger for Gaia Worlds. To be used by modders.
+*Modding: Added extra scripted triggers for ZoFE planet classes, used for Merger of Rules.

@@ -1,0 +1,9 @@
+﻿l_english:
+
+ policy_border_demand:0 "Defensive Border Protocol"
+ policy_border_demand_desc:0 "This policy allows the empire to strictly control its borders by restricting access to neighboring empires."
+ demand_buffer_space:0 "Militarized Borders"
+ demand_buffer_space_desc:0 "Any unauthorized construction by a foreign empire near our borders is treated as a hostile act.\n\n§EGrants access to the §YStarbase Removal§! option in the §YAscendancy Affairs Office§!.§!\n\n"
+ demand_clear_borders_name:0 "Militarized Borders"
+ no_border_demand:0 "Open Borders"
+ no_border_demand_desc:0 "Foreign empires are allowed to traverse or expand near our borders without restrictions."

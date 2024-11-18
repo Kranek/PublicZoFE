@@ -1,0 +1,539 @@
+building_gaiaseeders_1 = {
+	base_buildtime = @b2_time
+	base_cap_amount = 1
+	category = government
+	can_be_disabled = no
+	upgrades = { "building_gaiaseeders_2" }
+
+	potential = {
+		exists = owner
+		owner = {
+			is_playable_country = yes
+			is_idyllic_bloom_empire = yes
+		}
+		NOR = {
+			is_planet_class = pc_gaia
+			is_planet_class = pc_city
+			is_planet_class = pc_hive
+			is_planet_class = pc_machine
+			is_planet_class = pc_relic
+		}
+		is_artificial = no
+	}
+
+	allow = {
+		has_upgraded_capital = yes
+	}
+
+	destroy_trigger = {
+		OR = {
+			is_planet_class = pc_gaia	# No double bonuses if player uses other tools to turn it into a Gaia world.
+			is_planet_class = pc_city
+			is_planet_class = pc_hive
+			is_planet_class = pc_machine
+			is_planet_class = pc_relic
+			NOT = { exists = owner }
+			owner = {
+				is_idyllic_bloom_empire = no
+			}
+		}
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			energy = 1500
+			multiplier = value:gaiaseeder_cost_mult
+		}
+		upkeep = {
+			energy = 20
+			multiplier = value:gaiaseeder_upkeep
+		}
+	}
+
+	planet_modifier = {
+		pop_growth_speed = 0.1
+	}
+}
+
+holding_idyllic_bloom = {
+	base_buildtime = @b1_time
+	owner_type = subject_holding
+	icon = building_gaiaseeders_4
+	base_cap_amount = 1
+
+	category = government
+
+	resources = {
+		category = planet_holdings
+		cost = {
+			energy = 1500
+			exotic_gases = @b4_rare_cost
+		}
+		upkeep = {
+			energy = 20
+			exotic_gases = @b3_rare_upkeep
+			multiplier = value:overlord_gaiaseeder_upkeep
+		}
+	}
+
+	potential = {
+		exists = owner
+		owner.overlord = {
+			is_playable_country = yes
+			is_idyllic_bloom_empire = yes
+		}
+		NOR = {
+			is_planet_class = pc_gaia
+			is_planet_class = pc_city
+			is_planet_class = pc_hive
+			is_planet_class = pc_machine
+			is_planet_class = pc_relic
+		}
+		is_artificial = no
+	}
+
+	planet_modifier = {
+		pop_environment_tolerance = 0.2
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = planet.owner
+			planet.owner = {
+				has_ascension_perk = ap_hydrocentric
+			}
+		}
+		monthly_loyalty = -0.5
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = planet.owner
+			planet.owner = {
+				NOT = { has_ascension_perk = ap_hydrocentric }
+			}
+		}
+		monthly_loyalty = 1
+	}
+
+	on_built = {
+		planet = {
+			set_timed_planet_flag = {
+				flag = anti_cheese_idyllic_bloom_flag
+			days = 3599
+			}
+			set_saved_date = {
+				key = idyllic_bloom_holding_timer
+				days_from_present = 3600
+				expires = 3600
+			}
+		}
+		owner.overlord = {
+			country_event = {
+				id = plant.105
+				days = 3600
+			}
+		}
+	}
+	on_destroy = {
+		planet = {
+			remove_planet_flag = anti_cheese_idyllic_bloom_flag
+		}
+	}
+	triggered_desc = {
+		trigger = {
+			planet = {
+				has_planet_flag = anti_cheese_idyllic_bloom_flag
+			}
+		}
+		text = holding_idyllic_bloom_effect_timer
+	}
+	triggered_desc = {
+		trigger = {
+			planet = {
+				NOT = {
+					has_planet_flag = anti_cheese_idyllic_bloom_flag
+				}
+			}
+		}
+		text = holding_idyllic_bloom_effect
+	}
+	allow = {
+		can_build_overlord_gaiaseeder = yes
+	}
+}
+
+# Servitors
+building_organic_sanctuary = {
+	base_buildtime = @b1_time
+
+	category = unity
+
+	potential = {
+		exists = owner
+		owner = { is_rogue_servitor = yes }
+
+		OR = {
+			owner = { is_ai = no }
+			has_upgraded_capital = yes
+		}
+	}
+
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			owner = {
+				NOT = { owner = { is_rogue_servitor = yes } }
+			}
+			AND = {
+				owner = { is_ai = yes }
+				count_owned_pop = { limit = { has_citizenship_type = { type = citizenship_organic_trophy country = owner } } count <= 20 }
+				num_buildings = { type = building_organic_sanctuary value > 3 }
+			}
+			AND = {
+				owner = { is_ai = yes }
+				count_owned_pop = { limit = { has_citizenship_type = { type = citizenship_organic_trophy country = owner } } count <= 40 }
+				num_buildings = { type = building_organic_paradise value > 5 }
+			}
+		}
+	}
+
+	convert_to = {
+		building_luxury_residence
+		building_communal_housing
+	}
+
+	planet_modifier = {
+		job_bio_trophy_add = 10
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @b1_minerals
+		}
+		upkeep = {
+			energy = @b1_upkeep
+		}
+	}
+
+	triggered_desc = {
+		text = job_bio_trophy_effect_desc
+	}
+
+	upgrades = {
+		"building_organic_paradise"
+	}
+
+	# We need to cheat here and tell AI that this will probably give some complex output since AI can not evaluate what this building does without the pops which it cant get without the building - chicken and egg
+	ai_resource_production = {
+		unity = 10
+		physics_research = 10
+		alloys = 5
+
+		trigger = {
+			NOT = { has_building = building_organic_sanctuary }
+		}
+	}
+
+	ai_weight_coefficient = 1.2
+
+	# Here we try to adress the second issue that the AI cant evaluate the pop job output of the bio trophy given the happiness trigger that was put inplace to guard against players exploiting bio trophies
+
+	#science
+	ai_resource_production = {
+		unity = 10
+		physics_research = 10
+
+		trigger = {
+			has_unemployed_pop_of_category = bio_trophy
+
+			planet_resource_compare = {
+				resource = physics_research
+				value >= 100
+				type = produces
+			}
+		}
+	}
+
+	#alloys
+	ai_resource_production = {
+		unity = 10
+		alloys = 10
+
+		trigger = {
+			has_unemployed_pop_of_category = bio_trophy
+
+			planet_resource_compare = {
+				resource = alloys
+				value >= 100
+				type = produces
+			}
+		}
+	}
+
+	#cgs
+	ai_resource_production = {
+		unity = 10
+		consumer_goods = 10
+
+		trigger = {
+			has_unemployed_pop_of_category = bio_trophy
+
+			planet_resource_compare = {
+				resource = consumer_goods
+				value >= 100
+				type = produces
+			}
+		}
+	}
+}
+
+building_organic_paradise = {
+	base_buildtime = @b2_time
+	can_build = no
+	icon = building_paradise_dome
+
+	category = unity
+
+	potential = {
+		exists = owner
+		owner = { is_rogue_servitor = yes }
+	}
+
+	destroy_trigger = {
+		exists = owner
+		NOT = { owner = { is_rogue_servitor = yes } }
+	}
+
+	convert_to = {
+		building_paradise_dome
+		building_communal_housing_large
+	}
+
+	planet_modifier = {
+		job_bio_trophy_add = 20
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = @b2_minerals
+			exotic_gases = @b2_rare_cost
+		}
+		upkeep = {
+			energy = @b2_upkeep
+			exotic_gases = @b2_rare_upkeep
+		}
+	}
+
+	triggered_desc = {
+		text = job_bio_trophy_effect_desc
+	}
+
+	prerequisites = { "tech_paradise_dome" }
+
+	show_tech_unlock_if = {
+		owner = { is_rogue_servitor = yes }
+	}
+
+	ai_weight_coefficient = 1.2
+
+	# Here we try to adress the second issue that the AI cant evaluate the pop job output of the bio trophy given the happiness trigger that was put inplace to guard against players exploiting bio trophies
+
+	#science
+	ai_resource_production = {
+		unity = 20
+		physics_research = 20
+
+		trigger = {
+			has_unemployed_pop_of_category = bio_trophy
+
+			planet_resource_compare = {
+				resource = physics_research
+				value >= 100
+				type = produces
+			}
+		}
+	}
+
+	#alloys
+	ai_resource_production = {
+		unity = 20
+		alloys = 20
+
+		trigger = {
+			has_unemployed_pop_of_category = bio_trophy
+
+			planet_resource_compare = {
+				resource = alloys
+				value >= 100
+				type = produces
+			}
+		}
+	}
+
+	#cgs
+	ai_resource_production = {
+		unity = 20
+		consumer_goods = 20
+
+		trigger = {
+			has_unemployed_pop_of_category = bio_trophy
+
+			planet_resource_compare = {
+				resource = consumer_goods
+				value >= 100
+				type = produces
+			}
+		}
+	}
+}
+
+building_clone_vats = {
+	base_buildtime = @b1_time
+
+	category = pop_assembly
+
+	base_cap_amount = 1
+
+	potential = {
+		exists = owner
+		owner = { has_tradition = tr_genetics_adopt }
+		NOT = { has_modifier = resort_colony }
+		OR = {
+			owner = { is_ai = no }
+			NOT = { exists = assembling_species }
+			assembling_species = { is_organic_species = yes }
+		}
+		OR = {
+			owner = { is_ai = no }
+			NAND = {
+				free_district_slots = 0
+				free_building_slots <= 1
+				free_housing <= 0
+				free_jobs <= 0
+			}
+		}
+	}
+
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			AND = {
+				owner = { is_ai = yes }
+				free_district_slots = 0
+				free_building_slots = 0
+				free_housing <= 0
+				free_jobs <= 0
+			}
+			NOT = { owner = { has_tradition = tr_genetics_adopt } }
+		}
+	}
+
+	planet_modifier = {
+		planet_pop_assembly_organic_add = 3
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_technology = tech_gene_tailoring
+			}
+			any_owned_pop = {
+				has_auto_modding_trait = yes
+			}
+		}
+		modifier = {
+			auto_mod_monthly_add = 2
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_origin = origin_overtuned
+			}
+			any_owned_pop = {
+				has_auto_modding_trait = yes
+			}
+		}
+		modifier = {
+			auto_mod_monthly_add = 2
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { has_tradition = tr_genetics_efficient_cloning }
+		}
+		modifier = {
+			planet_pop_assembly_organic_add = 1.5
+		}
+	}
+
+	resources = {
+		category = planet_buildings_clone_vats
+
+		# Base cost
+		cost = {
+			minerals = 500
+		}
+		# Org/Lith cost
+		cost = {
+			trigger = {
+				exists = owner
+				owner = { is_lithoid_empire = no }
+			}
+			food = 500
+		}
+		cost = {
+			trigger = {
+				exists = owner
+				owner = { is_lithoid_empire = yes }
+			}
+			energy = 500
+		}
+
+		# Base upkeep
+		upkeep = {
+			energy = 2
+		}
+		# Org/Lith upkeep
+		upkeep = {
+			trigger = {
+				exists = owner
+				owner = { is_lithoid_empire = no }
+			}
+			food = 30
+		}
+		upkeep = {
+			trigger = {
+				exists = owner
+				owner = { is_lithoid_empire = yes }
+			}
+			minerals = 30
+		}
+	}
+
+	triggered_desc = {
+		trigger = {
+			OR = {
+				has_building = building_robot_assembly_plant
+				AND = {
+					exists = assembling_species
+					assembling_species = { is_robotic_species = yes }
+				}
+			}
+		}
+		text = tooltip_organic_and_artificial_assembly_warning
+	}
+
+	upgrades = {
+		building_fallen_clone_vat
+	}
+}

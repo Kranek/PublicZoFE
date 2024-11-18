@@ -1,0 +1,63 @@
+############################
+#
+# Refugee Events
+#
+# Written by Martin Anward
+#
+############################
+
+namespace = refugees
+
+
+# Pop escapes crisis, fleeing to another empire
+planet_event = {
+	id = refugees.5
+	hide_window = yes
+	is_triggered_only = yes
+
+	pre_triggers = {
+		has_owner = yes
+	}
+
+	trigger = {
+		has_global_flag = galactic_crisis_happened
+		exists = owner
+		owner = { is_playable_country = yes }
+		is_controlled_by = owner
+		NOT = { has_planet_flag = refugees_escaping_crisis }
+		is_under_crisis_bombardment = yes
+	}
+
+	immediate = {
+		set_planet_flag = refugees_escaping_crisis
+		planet_event = { id = refugees.6 random = 90 }
+	}
+}
+
+# Pop escapes crisis, fleeing to another empire
+planet_event = {
+	id = refugees.6
+	hide_window = yes
+	is_triggered_only = yes
+
+	pre_triggers = {
+		has_owner = yes
+	}
+
+	trigger = {
+		has_global_flag = galactic_crisis_happened
+		owner = { is_playable_country = yes }
+		is_controlled_by = owner
+		has_planet_flag = refugees_escaping_crisis
+		is_under_crisis_bombardment = yes
+	}
+
+	immediate = {
+		random_owned_pop = {
+			limit = { is_valid_refugee_pop = yes }
+			save_event_target_as = refugee_pop #Must be saved for refugee_pop_effect to work
+			refugee_pop_effect = yes
+		}
+		remove_planet_flag = refugees_escaping_crisis
+	}
+}

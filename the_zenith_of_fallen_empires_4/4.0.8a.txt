@@ -1,0 +1,4 @@
+4.0.8a Patch Notes
+
+*Events that occur after surveying a planet should appear again.
+*Quest for Dark Matter should now happen again.

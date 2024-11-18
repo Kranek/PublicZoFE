@@ -1,0 +1,59 @@
+##############################
+# Astral Rift General Events #
+##############################
+
+namespace = astral_planes
+
+# Fill Astral Rift pool on country start / created
+# Scope = Country
+country_event = {
+	id = astral_planes.5
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_astral_planes_dlc = yes
+		is_playable_country = yes
+	}
+
+	immediate = {
+		fill_astral_rift_event_pool = yes
+	}
+}
+
+##########################
+# Civics Handling Events #
+##########################
+
+# Dimensional Worship astral thread reward modifier computing
+country_event = {
+	id = astral_planes.2000
+
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_astral_planes_dlc = yes
+		is_playable_country = yes
+	}
+
+	immediate = {
+		set_variable = {
+			which = astral_threads_scripted_rewards_mult
+			value = 1
+		}
+		if = {
+			limit = {
+				OR = {
+					has_valid_civic = civic_dimensional_worship
+					has_valid_civic = civic_corporate_dimensional_worship
+				}
+			}
+			change_variable = {
+				which = astral_threads_scripted_rewards_mult
+				value = modifier:country_astral_threads_produces_mult
+			}
+		}
+	}
+}

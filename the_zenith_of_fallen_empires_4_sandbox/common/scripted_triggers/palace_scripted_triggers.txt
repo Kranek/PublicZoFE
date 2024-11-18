@@ -1,0 +1,35 @@
+### Function calls type condition checks, pass param or just straight up yes/no ###
+
+### Palace Triggers ###
+
+# Simple Trigger check / add buildings here and the merger of rules will accommodate for any changes made to this trigger
+# zofe_capital_buildings = {
+# 	OR = {
+# 		has_building = building_le_ancient_palace
+# 		has_building = building_oe_palace
+# 	}
+# }
+
+has_fallen_buildings_for_palace = {
+	exists = owner
+	owner = {
+		has_technology = tech_fallen_aegis_complex
+		has_technology = tech_fallen_affluence_center
+		has_technology = tech_fallen_nano_forge
+		has_technology = tech_fallen_class_4_singularity
+		has_technology = tech_fallen_nourishment_center
+		has_technology = tech_fallen_dimensional_fabricator
+	}
+}
+
+has_original_buildings_for_palace = {
+	exists = owner
+	owner = {
+		has_technology = tech_original_empire_star_forts
+		has_technology = tech_original_empire_star_forge
+		has_technology = tech_original_empire_siphoner
+		has_technology = tech_original_empire_sun_generator
+		has_technology = tech_original_empire_cornucopia
+		has_technology = tech_original_empire_pleasure_palace
+	}
+}

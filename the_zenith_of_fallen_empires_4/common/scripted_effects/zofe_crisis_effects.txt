@@ -1,0 +1,663 @@
+create_original_empire_citadel = {
+	if = {
+		limit = { exists = starbase }
+		starbase = {
+			fleet = {
+				destroy_fleet = this
+			}
+		}
+	}
+	create_starbase = {
+		size = "starbase_citadel"
+		owner = event_target:original_empire
+			
+		module = "shipyard"
+		module = "original_empire_hangar_bay"
+		module = "original_empire_hangar_bay"
+		module = "original_empire_hangar_bay"
+		module = "original_empire_hangar_bay"
+		module = "original_empire_hangar_bay"
+			
+		building = "colossus_yards"
+		building = "target_uplink_computer"
+		building = "original_empire_shield_disabler"
+		building = "original_empire_communications_jammer"
+
+		
+		effect = {
+			while = {
+				count = 5
+				create_ship = {
+					name = random
+					design = "NAME_ORIGINAL_EMPIRE_TOWER"
+					graphical_culture = original_empire_01
+				}
+			}
+		}
+	}	
+}
+
+create_original_empire_reinforcement = {
+	create_leader = {
+		class = commander
+		species = event_target:original_species
+		name = random
+		skill = 10
+		traits = {
+			trait = leader_trait_cautious
+			trait = leader_trait_aggressive
+			trait = leader_trait_engineer
+		}
+	}
+	capital_scope = {
+		create_fleet = {
+			settings = { 
+				is_boss = yes
+				can_change_composition = no
+				spawn_debris = yes
+			}
+			effect = {
+				set_owner = event_target:original_empire
+				create_ship = {
+					name = random
+					design = "NAME_ORIGINAL_EMPIRE_TITAN"
+					graphical_culture = "original_empire_01"
+					upgradable = no
+				}
+				assign_leader = last_created_leader
+				while = {
+					count = 4
+					create_ship = {
+						name = random
+						design = "NAME_ORIGINAL_EMPIRE_BATTLECRUISER"
+						graphical_culture = "original_empire_01"
+						upgradable = no
+					}
+				}
+				while = {
+					count = 8
+					create_ship = {
+						name = random
+						design = "NAME_ORIGINAL_EMPIRE_ESCORT"
+						graphical_culture = "original_empire_01"
+						upgradable = no
+					}
+				}
+				set_location = {
+					target = prev
+					distance = 10
+					angle = random
+				}
+				set_fleet_stance = passive
+				set_aggro_range_measure_from = self
+				set_aggro_range = 500	
+			}
+		}
+	}
+}
+
+
+create_original_empire_imperial_armada = {
+	create_leader = {
+		class = commander
+		species = event_target:original_species
+		name = random
+		skill = 10
+		traits = {
+			trait = leader_trait_cautious
+			trait = leader_trait_aggressive
+			trait = leader_trait_engineer
+		}
+	}
+	create_fleet = {
+		name = "NAME_IMPERIAL_ARMADA"
+		settings = { 
+			can_change_composition = no
+			spawn_debris = yes
+			is_boss = yes
+		}
+		effect = {
+			set_owner = event_target:original_empire
+			create_ship = {
+				name = random
+				design = "NAME_ORIGINAL_EMPIRE_GOLIATH"
+				graphical_culture = "original_empire_01"
+				upgradable = no
+			}
+			assign_leader = last_created_leader
+			while = {
+				count = 2
+				create_ship = {
+					name = random
+					design = "NAME_ORIGINAL_EMPIRE_TITAN"
+					graphical_culture = "original_empire_01"
+					upgradable = no
+				}
+			}
+			while = {
+				count = 2
+				create_ship = {
+					name = random
+					design = "NAME_ORIGINAL_EMPIRE_TITAN_02"
+					graphical_culture = "original_empire_01"
+					upgradable = no
+				}
+			}
+			while = {
+				count = 16
+				create_ship = {
+					name = random
+					design = "NAME_ORIGINAL_EMPIRE_BATTLECRUISER"
+					graphical_culture = "original_empire_01"
+					upgradable = no
+				}
+			}
+			while = {
+				count = 32
+				create_ship = {
+					name = random
+					design = "NAME_ORIGINAL_EMPIRE_ESCORT"
+					graphical_culture = "original_empire_01"
+					upgradable = no
+				}
+			}
+			set_location = {
+				target = event_target:original_empire_capital
+				distance = 10
+				angle = random
+			}
+			set_fleet_stance = passive
+			set_aggro_range_measure_from = self
+			set_aggro_range = 500	
+		}
+	}
+}
+
+create_original_empire_battle_group_north = {
+	create_leader = {
+		class = commander
+		species = event_target:original_species
+		name = random
+		skill = 10
+		traits = {
+			trait = leader_trait_cautious
+			trait = leader_trait_aggressive
+			trait = leader_trait_engineer
+		}
+	}
+	create_fleet = {
+		name = "NAME_NORTHERN_ARMADA"
+		settings = { 
+			can_change_composition = no
+			spawn_debris = yes
+			is_boss = yes
+		}
+		effect = {
+			set_owner = event_target:original_empire
+			create_ship = {
+				name = random
+				design = "NAME_ORIGINAL_EMPIRE_TITAN"
+				graphical_culture = "original_empire_01"
+				upgradable = no
+			}
+			assign_leader = last_created_leader
+			while = {
+				count = 1
+				create_ship = {
+					name = random
+					design = "NAME_ORIGINAL_EMPIRE_TITAN_02"
+					graphical_culture = "original_empire_01"
+					upgradable = no
+				}
+			}
+			while = {
+				count = 8
+				create_ship = {
+					name = random
+					design = "NAME_ORIGINAL_EMPIRE_BATTLECRUISER"
+					graphical_culture = "original_empire_01"
+					upgradable = no
+				}
+			}
+			while = {
+				count = 16
+				create_ship = {
+					name = random
+					design = "NAME_ORIGINAL_EMPIRE_ESCORT"
+					graphical_culture = "original_empire_01"
+					upgradable = no
+				}
+			}
+			set_location = {
+				target = event_target:original_empire_capital
+				distance = 10
+				angle = random
+			}
+			set_fleet_stance = passive
+			set_aggro_range_measure_from = self
+			set_aggro_range = 500	
+		}
+	}
+}
+
+create_original_empire_battle_group_south = {
+	create_leader = {
+		class = commander
+		species = event_target:original_species
+		name = random
+		skill = 10
+		traits = {
+			trait = leader_trait_cautious
+			trait = leader_trait_aggressive
+			trait = leader_trait_engineer
+		}
+	}
+	create_fleet = {
+		name = "NAME_SOUTHERN_ARMADA"
+		settings = { 
+			can_change_composition = no
+			spawn_debris = yes
+			is_boss = yes
+		}
+		effect = {
+			set_owner = event_target:original_empire
+			create_ship = {
+				name = random
+				design = "NAME_ORIGINAL_EMPIRE_TITAN"
+				graphical_culture = "original_empire_01"
+				upgradable = no
+			}
+			assign_leader = last_created_leader
+			while = {
+				count = 1
+				create_ship = {
+					name = random
+					design = "NAME_ORIGINAL_EMPIRE_TITAN_02"
+					graphical_culture = "original_empire_01"
+					upgradable = no
+				}
+			}
+			while = {
+				count = 8
+				create_ship = {
+					name = random
+					design = "NAME_ORIGINAL_EMPIRE_BATTLECRUISER"
+					graphical_culture = "original_empire_01"
+					upgradable = no
+				}
+			}
+			while = {
+				count = 16
+				create_ship = {
+					name = random
+					design = "NAME_ORIGINAL_EMPIRE_ESCORT"
+					graphical_culture = "original_empire_01"
+					upgradable = no
+				}
+			}
+			set_location = {
+				target = event_target:original_empire_capital
+				distance = 10
+				angle = random
+			}
+			set_fleet_stance = passive
+			set_aggro_range_measure_from = self
+			set_aggro_range = 500	
+		}
+	}
+}
+
+create_original_empire_battle_group_center = {
+	create_leader = {
+		class = commander
+		species = event_target:original_species
+		name = random
+		skill = 10
+		traits = {
+			trait = leader_trait_cautious
+			trait = leader_trait_aggressive
+			trait = leader_trait_engineer
+		}
+	}
+	create_fleet = {
+		name = "NAME_OE_HOME_GARRISON_FLEET"
+		settings = { 
+			can_change_composition = no
+			spawn_debris = yes
+			is_boss = yes
+		}
+		effect = {
+			set_owner = event_target:original_empire
+			create_ship = {
+				name = random
+				design = "NAME_ORIGINAL_EMPIRE_TITAN"
+				graphical_culture = "original_empire_01"
+				upgradable = no
+			}
+			assign_leader = last_created_leader
+			while = {
+				count = 1
+				create_ship = {
+					name = random
+					design = "NAME_ORIGINAL_EMPIRE_TITAN_02"
+					graphical_culture = "original_empire_01"
+					upgradable = no
+				}
+			}
+			while = {
+				count = 12
+				create_ship = {
+					name = random
+					design = "NAME_ORIGINAL_EMPIRE_BATTLECRUISER"
+					graphical_culture = "original_empire_01"
+				}
+			}
+			assign_leader = last_created_leader
+			while = {
+				count = 24
+				create_ship = {
+					name = random
+					design = "NAME_ORIGINAL_EMPIRE_ESCORT"
+					graphical_culture = "original_empire_01"
+				}
+			}
+			set_fleet_stance = passive
+			set_aggro_range_measure_from = self
+			set_aggro_range = 500
+			set_location = {
+				target = event_target:original_empire_capital
+				distance = 0
+				angle = random
+			}
+			queue_actions = {
+				repeat = {
+					wait = {
+						duration = 9999
+					}
+				}
+			}
+		}
+		settings = {
+			garrison = yes
+		}
+	}
+	last_created_fleet = {
+		set_fleet_flag = oe_garrison_fleet
+	}
+}
+
+create_original_empire_battle_group_east = {
+	create_leader = {
+		class = commander
+		species = event_target:original_species
+		name = random
+		skill = 10
+		traits = {
+			trait = leader_trait_cautious
+			trait = leader_trait_aggressive
+			trait = leader_trait_engineer
+		}
+	}
+	create_fleet = {
+		name = "NAME_EASTERN_ARMADA"
+		settings = { 
+			can_change_composition = no
+			spawn_debris = yes
+			is_boss = yes
+		}
+		effect = {
+			set_owner = event_target:original_empire
+			create_ship = {
+				name = random
+				design = "NAME_ORIGINAL_EMPIRE_TITAN"
+				graphical_culture = "original_empire_01"
+				upgradable = no
+			}
+			assign_leader = last_created_leader
+			while = {
+				count = 1
+				create_ship = {
+					name = random
+					design = "NAME_ORIGINAL_EMPIRE_TITAN_02"
+					graphical_culture = "original_empire_01"
+					upgradable = no
+				}
+			}
+			while = {
+				count = 8
+				create_ship = {
+					name = random
+					design = "NAME_ORIGINAL_EMPIRE_BATTLECRUISER"
+					graphical_culture = "original_empire_01"
+					upgradable = no
+				}
+			}
+			while = {
+				count = 16
+				create_ship = {
+					name = random
+					design = "NAME_ORIGINAL_EMPIRE_ESCORT"
+					graphical_culture = "original_empire_01"
+					upgradable = no
+				}
+			}
+			set_location = {
+				target = event_target:original_empire_capital
+				distance = 10
+				angle = random
+			}
+			set_fleet_stance = passive
+			set_aggro_range_measure_from = self
+			set_aggro_range = 500	
+		}
+	}
+}
+
+create_original_empire_battle_group_west = {
+	create_leader = {
+		class = commander
+		species = event_target:original_species
+		name = random
+		skill = 10
+		traits = {
+			trait = leader_trait_cautious
+			trait = leader_trait_aggressive
+			trait = leader_trait_engineer
+		}
+	}
+
+	create_fleet = {
+		name = "NAME_WESTERN_ARMADA"
+		settings = { 
+			can_change_composition = no
+			spawn_debris = yes
+			is_boss = yes
+		}
+		effect = {
+			set_owner = event_target:original_empire
+			create_ship = {
+				name = random
+				design = "NAME_ORIGINAL_EMPIRE_TITAN"
+				graphical_culture = "original_empire_01"
+				upgradable = no
+			}
+			assign_leader = last_created_leader
+			while = {
+				count = 1
+				create_ship = {
+					name = random
+					design = "NAME_ORIGINAL_EMPIRE_TITAN_02"
+					graphical_culture = "original_empire_01"
+					upgradable = no
+				}
+			}
+			while = {
+				count = 8
+				create_ship = {
+					name = random
+					design = "NAME_ORIGINAL_EMPIRE_BATTLECRUISER"
+					graphical_culture = "original_empire_01"
+					upgradable = no
+				}
+			}
+			while = {
+				count = 16
+				create_ship = {
+					name = random
+					design = "NAME_ORIGINAL_EMPIRE_ESCORT"
+					graphical_culture = "original_empire_01"
+					upgradable = no
+				}
+			}
+			set_location = {
+				target = event_target:original_empire_capital
+				distance = 10
+				angle = random
+			}
+			set_fleet_stance = passive
+			set_aggro_range_measure_from = self
+			set_aggro_range = 500	
+		}
+	}
+}
+
+give_original_empire_technologies = {
+	if = {
+		limit = {
+			NOT = { has_technology = tech_original_technologies_1 }
+		}
+		give_technology = { tech = tech_original_technologies_1 }
+	}
+	if = {
+		limit = {
+			NOT = { has_technology = tech_original_technologies_2 }
+		}
+		give_technology = { tech = tech_original_technologies_2 }
+	}
+	if = {
+		limit = {
+			NOT = { has_technology = tech_original_technologies_3 }
+		}
+		give_technology = { tech = tech_original_technologies_3 }
+	}
+	if = {
+		limit = {
+			NOT = { has_technology = tech_divine_judgement }
+		}
+		give_technology = { tech = tech_divine_judgement }
+	}
+	if = {
+		limit = {
+			NOT = { has_technology = tech_light_of_salvation }
+		}
+		give_technology = { tech = tech_light_of_salvation }
+	}
+	if = {
+		limit = {
+			NOT = { has_technology = tech_light_of_arya }
+		}
+		give_technology = { tech = tech_light_of_arya }
+	}
+	if = {
+		limit = {
+			NOT = { has_technology = tech_blessed_sling }
+		}
+		give_technology = { tech = tech_blessed_sling }
+	}
+	if = {
+		limit = {
+			NOT = { has_technology = tech_holy_thunder }
+		}
+		give_technology = { tech = tech_holy_thunder }
+	}
+	if = {
+		limit = {
+			NOT = { has_technology = tech_deliverer_strike_craft }
+		}
+		give_technology = { tech = tech_deliverer_strike_craft }
+	}
+	if = {
+		limit = {
+			NOT = { has_technology = tech_righteous_fire }
+		}
+		give_technology = { tech = tech_righteous_fire }
+	}
+	if = {
+		limit = {
+			NOT = { has_technology = tech_original_empire_power_core }
+		}
+		give_technology = { tech = tech_original_empire_power_core }
+	}
+	if = {
+		limit = {
+			NOT = { has_technology = tech_original_empire_shield }
+		}
+		give_technology = { tech = tech_original_empire_shield }
+	}
+	if = {
+		limit = {
+			NOT = { has_technology = tech_original_empire_chalice }
+		}
+		give_technology = { tech = tech_original_empire_chalice }
+	}
+	if = {
+		limit = {
+			NOT = { has_technology = tech_original_empire_crucible }
+		}
+		give_technology = { tech = tech_original_empire_crucible }
+	}
+	if = {
+		limit = {
+			NOT = { has_technology = tech_celestial_armor }
+		}
+		give_technology = { tech = tech_celestial_armor }
+	}
+	if = {
+		limit = {
+			NOT = { has_technology = tech_celestial_plating }
+		}
+		give_technology = { tech = tech_celestial_plating }
+	}
+	if = {
+		limit = {
+			NOT = { has_technology = tech_original_empire_shield }
+		}
+		give_technology = { tech = tech_original_empire_shield }
+	}
+	if = {
+		limit = {
+			NOT = { has_technology = tech_original_empire_jump_drive }
+		}
+		give_technology = { tech = tech_original_empire_jump_drive }
+	}
+	if = {
+		limit = {
+			NOT = { has_technology = tech_original_empire_thruster }
+		}
+		give_technology = { tech = tech_original_empire_thruster }
+	}
+	if = {
+		limit = {
+			NOT = { has_technology = tech_original_empire_sensors }
+		}
+		give_technology = { tech = tech_original_empire_sensors }
+	}
+	if = {
+		limit = {
+			NOT = { has_technology = tech_original_empire_shield_disabler }
+		}
+		give_technology = { tech = tech_original_empire_shield_disabler }
+	}
+	if = {
+		limit = {
+			NOT = { has_technology = tech_original_empire_controls_jammer }
+		}
+		give_technology = { tech = tech_original_empire_controls_jammer }
+	}
+	if = {
+		limit = {
+			NOT = { has_technology = tech_original_empire_subspace_snare }
+		}
+		give_technology = { tech = tech_original_empire_subspace_snare }
+	}
+}

@@ -1,0 +1,64 @@
+#########################################
+#		ZoFE on_action events
+# 		      By Kolyn
+#########################################
+
+namespace = zofe_action
+
+#Base Mod Activation Check
+event = {
+	id = zofe_action.2
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = { has_global_flag = zofe_sandbox_activated }
+	}
+	
+	immediate = {
+		set_global_flag = zofe_sandbox_activated
+	}
+}
+
+# Fallen Empire war won event
+# Root = Winner Warleader
+# From = Loser Warleader
+country_event = {
+	id = zofe_action.3
+	title = zofe_action.3.name
+	desc = {
+		trigger = {
+			from = { is_gestalt = no }
+		}
+		text = zofe_action.3.desc
+	}
+	desc = {
+		trigger = {
+			from = { is_gestalt = yes }
+		}
+		text = zofe_action.3.desc.gestalt
+	}
+	picture = GFX_evt_fallen_empire
+	show_sound = event_planetary_riot
+	location = from
+	is_triggered_only = yes
+
+	trigger = {
+		is_country_type = lost_empire
+		is_gestalt = no
+		from = {
+			is_country_type = default
+		}
+	}
+
+	immediate = {
+		add_modifier = {
+			modifier = reaffirmed_superiority
+			years = 5
+		}
+	}
+	option = {
+		name = zofe_action.3.a
+		custom_tooltip = zofe_action.3.a.tooltip
+	}
+}

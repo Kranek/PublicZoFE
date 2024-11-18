@@ -1,0 +1,22 @@
+concept_ringworld_empire = {
+	icon = "gfx/interface/icons/traits/trait_ringworld_empire.dds"
+}
+concept_original_trait = {
+	icon = "gfx/interface/icons/traits/trait_original.dds"
+}
+
+concept_never_weary_trait = {
+	icon = "gfx/interface/icons/traits/trait_never_weary.dds"
+}
+
+concept_disciplined_trait = {
+	icon = "gfx/interface/icons/traits/trait_disciplined.dds"
+}
+
+concept_ap_cosmogenesis = {
+	icon = "gfx/interface/icons/ascension_perks/ap_cosmogenesis.dds"
+}
+
+concept_ap_become_the_crisis = {
+	icon = "gfx/interface/icons/ascension_perks/ap_become_the_crisis.dds"
+}

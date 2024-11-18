@@ -1,0 +1,20 @@
+NGameplay = {
+		DECADENCE_CHANCE = 0	# Chance of decadence increasing each month (multiplied by total size of empire & subjects)
+		TECH_COST_MULT_FALLEN_EMPIRE			= 1	# Awakened Empires pay this much more to research techs
+}
+
+NGraphics = {
+		MAX_GFX_PROJECTILES = 500
+		MAX_GFX_PRIO_PROJECTILES = 500
+		MAX_GFX_MISSILES = 250
+		MUZZLE_FLASH_LIMIT = 250
+}
+
+# NShip = {
+# 		MILITARY_POWER_HEALTH_WEIGHT		= 0.000075								#0.2
+# 		MILITARY_POWER_ARMOR_WEIGHT			= 1.0	# compared to health		#0.4
+# 		MILITARY_POWER_SHIELD_WEIGHT		= 1.0	# compared to health		#0.4
+# 		MILITARY_POWER_DAMAGE_WEIGHT		= 0.00075								#0.2
+# 		MILITARY_POWER_SCALE				= 5600 							#0.125
+# 		MILITARY_POWER_EXPONENT				= 0.5	# math: power = ( ( effective_health * damage_per_day ) ^ exponent ) * scale 	#0.82
+# }

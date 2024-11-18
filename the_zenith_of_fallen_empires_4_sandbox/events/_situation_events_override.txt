@@ -1,0 +1,245 @@
+##########################
+## By Pierre du Plessis ##
+##########################
+
+namespace = situation
+
+# Mysterious Labyrinth
+
+planet_event = {
+	id = situation.5
+	title = situation.5.name
+	desc = situation.5.desc
+	picture = GFX_evt_medieval_alien_civilization
+	show_sound = event_wind_ruins
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	location = root
+
+	pre_triggers = {
+		has_owner = yes
+		is_homeworld = no
+		original_owner = yes
+		is_ai = no
+		has_ground_combat = no
+		is_capital = no
+		is_occupied_flag = no
+	}
+
+	trigger = {
+		NOT = { has_planet_flag = colony_event }
+		is_artificial = no
+		NOT = { is_planet_class = pc_nuked }
+		owner = {
+			is_playable_country = yes
+		}
+	}
+
+	immediate = {
+		set_planet_flag = colony_event
+		owner = {
+			start_situation = {
+				type = situation_mysterious_labyrinth
+				target = root
+				effect = {
+					save_event_target_as = new_situation
+				}
+			}
+		}
+	}
+
+	option = {
+		name = situation.5.A #investigate it
+		icon = {
+			icon = GFX_situation_approach_research
+			icon_background = GFX_situation_approach_bg_yellow
+			text = set_situation_approach_icon_text
+		}
+		event_target:new_situation = {
+			set_situation_approach = approach_investigate
+		}
+	}
+	option = {
+		name = situation.5.B #we don't have time for this
+		icon = {
+			icon = GFX_situation_approach_shrug
+			icon_background = GFX_situation_approach_bg_yellow
+			text = set_situation_approach_icon_text
+		}
+		event_target:new_situation = {
+			set_situation_approach = approach_observe
+		}
+	}
+	after = {
+		hidden_effect = {
+			event_target:new_situation = {
+				set_situation_locked = no
+				set_timed_situation_flag = {
+					flag = labyrinth_timer
+					months = 21
+				}
+			}
+		}
+	}
+}
+
+# Alien Snow Narrative
+
+planet_event = {
+	id = situation.150
+	title = situation.150.name
+	desc = situation.150.desc
+	picture = GFX_evt_outpost
+	is_triggered_only = yes
+	show_sound = event_default
+	fire_only_once = yes
+
+	location = root
+
+	pre_triggers = {
+		has_owner = yes
+		is_homeworld = no
+		original_owner = yes
+		is_ai = no
+		has_ground_combat = no
+		is_capital = no
+		is_occupied_flag = no
+	}
+
+	trigger = {
+		NOT = { has_planet_flag = colony_event }
+		is_planet_class = pc_desert
+		owner = {
+			is_playable_country = yes
+			is_gestalt = no #for now
+		}
+	}
+
+	immediate = {
+		set_planet_flag = colony_event
+	}
+
+	option = {
+		name = INTERESTING
+		owner = {
+			start_situation = {
+				type = situation_living_snow
+				target = root
+			}
+		}
+	}
+}
+# Creates the Kaleidoscope and the variables used to track its state as it gets passed around
+event = {
+	id = situation.2000
+	is_triggered_only = yes
+	hide_window = yes
+	trigger = {
+		mid_game_years_passed > 0
+		has_nemesis = yes
+		has_global_flag = kaleidoscope_will_spawn
+		NOT = { has_global_flag = kaleidoscope_started }
+	}
+	immediate = {
+		#initialize global state-tracking variables
+		initialize_kaleidoscope = yes
+		# Picks a country
+		random_list = {
+			5 = {
+				random_playable_country = {
+					limit = {
+						is_ai = no
+						capital_scope = {
+							NOT = { has_active_building = building_planetary_shield_generator }
+						}
+					}
+					country_event = { id = situation.2002 random = 360 }
+				}
+			}
+			3 = {
+				random_playable_country = {
+					limit = {
+						is_ai = no
+					}
+					random_neighbor_country = {
+						limit = {
+							is_playable_country = yes
+							capital_scope = {
+								NOT = { has_active_building = building_planetary_shield_generator }
+							}
+						}
+						country_event = { id = situation.2002 random = 360 }
+					}
+				}
+			}
+			1 = {
+				random_playable_country = {
+					limit = {
+						is_ai = yes
+						is_playable_country = yes
+						capital_scope = {
+							NOT = { has_active_building = building_planetary_shield_generator }
+						}
+					}
+					country_event = { id = situation.2002 random = 360 }
+				}
+			}
+		}
+	}
+}
+# Give Kaleidoscope to the country who destroyed the host
+#This = destroyed country
+#From = optional, destroyer (country)
+country_event = {
+	id = situation.2060
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		any_situation = {
+			is_situation_type = situation_kaleidoscope
+		}
+		exists = from
+		from = {
+			is_playable_country = yes
+		}
+	}
+	
+	immediate = {		
+		from = {
+			# If the capital doesn't have a shield, give the Kaleidoscope to them 
+			if = {
+				limit = {
+					capital_scope = {
+						NOT = { has_active_building = building_planetary_shield_generator }
+					}
+				}
+				# Clean up so we can respawn it
+				remove_kaleidoscope_effect = yes
+				country_event = { id = situation.2002 }
+			}
+			# If the capital is shielded, the kaleidoscope disappears
+			else = {
+				random_system = {
+					limit = {
+						has_star_flag = kaleidoscope_system
+					}
+					save_event_target_as = kaleidoscope_system
+				}
+				every_playable_country = {
+					limit = {
+						intel_level = {
+							level > low
+							system = event_target:kaleidoscope_system
+						}
+						NOT = { is_same_value = root }
+					}
+					country_event = { id = situation.2045 }
+				}
+				# Clean up after notifying other countries, because we need the scope
+				remove_kaleidoscope_effect = yes
+			}
+		}
+	}
+}

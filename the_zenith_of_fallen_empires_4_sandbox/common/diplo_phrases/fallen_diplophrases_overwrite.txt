@@ -1,0 +1,501 @@
+greetings = {
+	#Scion to FE overlord
+	SCION_TO_FE_GREETING_01 = { # great honor to serve
+		weight = {
+			weight = 15
+		}
+		trigger = {
+			exists = overlord
+			overlord = { is_same_value = FROM }
+			NOR = {
+				is_at_war_with = FROM
+				is_disloyal_to = FROM
+			}
+			from = {
+				OR = {
+					is_zofe_fe = yes
+					is_zofe_ae = yes
+				}
+			}
+			root = {
+				any_agreement = {
+					agreement_preset = preset_scion
+				}
+			}
+		}
+	}
+
+	# SCION_TO_FE_GREETING_02 = { # great honor to serve
+	# 	weight = {
+	# 		weight = 15
+	# 	}
+	# 	trigger = {
+	# 		exists = overlord
+	# 		overlord = { is_same_value = FROM }
+	# 		NOT = { is_at_war_with = FROM }
+	# 		NOT = { is_disloyal_to = FROM }
+	# 		from = {
+	# 			OR = {
+	# 				is_zofe_fe = yes
+	# 				is_zofe_ae = yes
+	# 			}
+	# 		}
+	# 		root = {
+	# 			any_agreement = {
+	# 				agreement_preset = preset_scion
+	# 			}
+	# 		}
+	# 	}
+	# }	
+
+	# FE to Scion
+	FE_TO_SCION_GREETING_01 = { # we knew you were special
+		weight = {
+			weight = 100000
+		}
+		trigger = {
+			OR = {
+				is_zofe_fe = yes
+				is_zofe_ae = yes
+			}
+			is_overlord_to = FROM
+			FROM = {
+				#has_origin = origin_scion
+				any_agreement = {
+					agreement_preset = preset_scion
+				}
+			}
+		}
+	}
+	FE_TO_SCION_GREETING_02 = { # additional instructions?
+		weight = {
+			weight = 100000
+		}
+		trigger = {
+			OR = {
+				is_zofe_fe = yes
+				is_zofe_ae = yes
+			}
+			is_overlord_to = FROM
+			FROM = {
+				#has_origin = origin_scion
+				any_agreement = {
+					agreement_preset = preset_scion
+				}
+			}
+		}
+	}
+	FE_TO_SCION_GREETING_03 = { # perhaps someday you'll be great
+		weight = {
+			weight = 100000
+		}
+		trigger = {
+			OR = {
+				is_zofe_fe = yes
+				is_zofe_ae = yes
+			}
+			is_overlord_to = FROM
+			FROM = {
+				#has_origin = origin_scion
+				any_agreement = {
+					agreement_preset = preset_scion
+				}
+			}
+		}
+	}
+	FE_TO_SCION_GREETING_04 = { # you are fortunate...
+		weight = {
+			weight = 100000
+		}
+		trigger = {
+			OR = {
+				is_zofe_fe = yes
+				is_zofe_ae = yes
+			}
+			is_overlord_to = FROM
+			FROM = {
+				#has_origin = origin_scion
+				any_agreement = {
+					agreement_preset = preset_scion
+				}
+			}
+		}
+	}
+	FE_TO_SCION_GREETING_05 = { # I never expected you to get this far
+		weight = {
+			weight = 100000
+		}
+		trigger = {
+			OR = {
+				is_zofe_fe = yes
+				is_zofe_ae = yes
+			}
+			is_overlord_to = FROM
+			FROM = {
+				#has_origin = origin_scion
+				any_agreement = {
+					agreement_preset = preset_scion
+				}
+			}
+		}
+	}
+	FE_TO_SCION_GREETING_06 = { # seeing you here now...
+		weight = {
+			weight = 100000
+		}
+		trigger = {
+			OR = {
+				is_zofe_fe = yes
+				is_zofe_ae = yes
+			}
+			is_overlord_to = FROM
+			FROM = {
+				#has_origin = origin_scion
+				any_agreement = {
+					agreement_preset = preset_scion
+				}
+			}
+		}
+	}
+	FE_TO_SCION_GREETING_07 = { # simpler times
+		weight = {
+			weight = 100000
+		}
+		trigger = {
+			OR = {
+				is_zofe_fe = yes
+				is_zofe_ae = yes
+			}
+			is_overlord_to = FROM
+			FROM = {
+				#has_origin = origin_scion
+				any_agreement = {
+					agreement_preset = preset_scion
+				}
+			}
+		}
+	}
+	FE_TO_SCION_GREETING_08 = { # we're busy right now
+		weight = {
+			weight = 100000
+		}
+		trigger = {
+			OR = {
+				is_zofe_fe = yes
+				is_zofe_ae = yes
+			}
+			is_overlord_to = FROM
+			FROM = {
+				#has_origin = origin_scion
+				any_agreement = {
+					agreement_preset = preset_scion
+				}
+			}
+			is_at_war = yes
+		}
+	}
+
+	# Scion to Scion
+	SCION_TO_SCION_GREETING_01 = { # we're the favorites
+		weight = {
+			weight = 100000
+		}
+		trigger = {
+			any_country = {
+				OR = {
+					is_zofe_fe = yes
+					is_zofe_ae = yes
+				}
+				is_overlord_to = FROM
+				is_overlord_to = ROOT
+			}
+			FROM = {
+				#has_origin = origin_scion
+				any_agreement = {
+					agreement_preset = preset_scion
+				}
+			}
+			#has_origin = origin_scion
+			any_agreement = {
+				agreement_preset = preset_scion
+			}
+		}
+	}
+	SCION_TO_SCION_GREETING_02 = { # inheritance
+		weight = {
+			weight = 100000
+		}
+		trigger = {
+			any_country = {
+				OR = {
+					is_zofe_fe = yes
+					is_zofe_ae = yes
+				}
+				is_overlord_to = FROM
+				is_overlord_to = ROOT
+			}
+			FROM = {
+				#has_origin = origin_scion
+				any_agreement = {
+					agreement_preset = preset_scion
+				}
+			}
+			#has_origin = origin_scion
+			any_agreement = {
+				agreement_preset = preset_scion
+			}
+		}
+	}
+	SCION_TO_SCION_GREETING_03 = { # they like us more than you
+		weight = {
+			weight = 100000
+		}
+		trigger = {
+			any_country = {
+				OR = {
+					is_zofe_fe = yes
+					is_zofe_ae = yes
+				}
+				is_overlord_to = FROM
+				is_overlord_to = ROOT
+			}
+			FROM = {
+				#has_origin = origin_scion
+				any_agreement = {
+					agreement_preset = preset_scion
+				}
+			}
+			#has_origin = origin_scion
+			any_agreement = {
+				agreement_preset = preset_scion
+			}
+		}
+	}
+	SCION_TO_SCION_GREETING_04 = { # did the masters mention us?
+		weight = {
+			weight = 100000
+		}
+		trigger = {
+			any_country = {
+				OR = {
+					is_zofe_fe = yes
+					is_zofe_ae = yes
+				}
+				is_overlord_to = FROM
+				is_overlord_to = ROOT
+			}
+			FROM = {
+				#has_origin = origin_scion
+				any_agreement = {
+					agreement_preset = preset_scion
+				}
+			}
+			#has_origin = origin_scion
+			any_agreement = {
+				agreement_preset = preset_scion
+			}
+		}
+	}
+	SCION_TO_SCION_GREETING_05 = { # we've accepted our role
+		weight = {
+			weight = 100000
+		}
+		trigger = {
+			any_country = {
+				OR = {
+					is_zofe_fe = yes
+					is_zofe_ae = yes
+				}
+				is_overlord_to = FROM
+				is_overlord_to = ROOT
+			}
+			FROM = {
+				#has_origin = origin_scion
+				any_agreement = {
+					agreement_preset = preset_scion
+				}
+			}
+			#has_origin = origin_scion
+			any_agreement = {
+				agreement_preset = preset_scion
+			}
+		}
+	}
+	SCION_TO_SCION_GREETING_06 = { # greetings, fellow Scions
+		weight = {
+			weight = 100000
+		}
+		trigger = {
+			any_country = {
+				OR = {
+					is_zofe_fe = yes
+					is_zofe_ae = yes
+				}
+				is_overlord_to = FROM
+				is_overlord_to = ROOT
+			}
+			FROM = {
+				#has_origin = origin_scion
+				any_agreement = {
+					agreement_preset = preset_scion
+				}
+			}
+			#has_origin = origin_scion
+			any_agreement = {
+				agreement_preset = preset_scion
+			}
+		}
+	}
+
+	# Scion to Other Empire
+	SCION_TO_EMPIRE_GREETING_01 = { # they know what's best
+		weight = {
+			weight = 100000
+		}
+		trigger = {
+			any_country = {
+				OR = {
+					is_zofe_fe = yes
+					is_zofe_ae = yes
+				}
+				NOT = { is_overlord_to = FROM }
+				is_overlord_to = ROOT
+			}
+			#has_origin = origin_scion
+			any_agreement = {
+				agreement_preset = preset_scion
+			}
+			NOT = { is_at_war_with = FROM }
+			from = {
+				NOT = {
+					has_subject = root
+				}
+			}
+		}
+	}
+	SCION_TO_EMPIRE_GREETING_02 = { # our masters have a plan
+		weight = {
+			weight = 100000
+		}
+		trigger = {
+			any_country = {
+				OR = {
+					is_zofe_fe = yes
+					is_zofe_ae = yes
+				}
+				NOT = { is_overlord_to = FROM }
+				is_overlord_to = ROOT
+			}
+			#has_origin = origin_scion
+			any_agreement = {
+				agreement_preset = preset_scion
+			}
+			NOT = { is_at_war_with = FROM }
+			from = {
+				NOT = {
+					has_subject = root
+				}
+			}
+		}
+	}
+	SCION_TO_EMPIRE_GREETING_03 = { # great honor to serve
+		weight = {
+			weight = 100000
+		}
+		trigger = {
+			any_country = {
+				OR = {
+					is_zofe_fe = yes
+					is_zofe_ae = yes
+				}
+				NOT = { is_overlord_to = FROM }
+				is_overlord_to = ROOT
+			}
+			#has_origin = origin_scion
+			any_agreement = {
+				agreement_preset = preset_scion
+			}
+			NOT = { is_at_war_with = FROM }
+			from = {
+				NOT = {
+					has_subject = root
+				}
+			}
+		}
+	}
+	SCION_TO_EMPIRE_GREETING_04 = { # perhaps one day you'll join
+		weight = {
+			weight = 100000
+		}
+		trigger = {
+			any_country = {
+				OR = {
+					is_zofe_fe = yes
+					is_zofe_ae = yes
+				}
+				NOT = { is_overlord_to = FROM }
+				is_overlord_to = ROOT
+			}
+			#has_origin = origin_scion
+			any_agreement = {
+				agreement_preset = preset_scion
+			}
+			NOT = { is_at_war_with = FROM }
+			from = {
+				NOT = {
+					has_subject = root
+				}
+			}
+		}
+	}
+	SCION_TO_EMPIRE_GREETING_05 = { # do you not feel lost?
+		weight = {
+			weight = 100000
+		}
+		trigger = {
+			any_country = {
+				OR = {
+					is_zofe_fe = yes
+					is_zofe_ae = yes
+				}
+				NOT = { is_overlord_to = FROM }
+				is_overlord_to = ROOT
+			}
+			#has_origin = origin_scion
+			any_agreement = {
+				agreement_preset = preset_scion
+			}
+			NOT = { is_at_war_with = FROM }
+			from = {
+				NOT = {
+					has_subject = root
+				}
+			}
+		}
+	}
+	SCION_TO_EMPIRE_GREETING_06 = { # perhaps you'll benefit from wisdom
+		weight = {
+			weight = 100000
+		}
+		trigger = {
+			any_country = {
+				OR = {
+					is_zofe_fe = yes
+					is_zofe_ae = yes
+				}
+				NOT = { is_overlord_to = FROM }
+				is_overlord_to = ROOT
+			}
+			#has_origin = origin_scion
+			any_agreement = {
+				agreement_preset = preset_scion
+			}
+			NOT = { is_at_war_with = FROM }
+			from = {
+				NOT = {
+					has_subject = root
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,9 @@
+*Updated for Cosmic Storms v3.13.*
+*Replaced has_authority triggers with is_authority_type.
+*Fixed Fallen building triggers.
+*Fixed some Utopian districts for rogue servitors.
+*Fixed fleet power overflowing.
+*Removed Wormhole bypass.
+*Fixed up ZoFE policies a bit.
+*Fixed Lost Technologies Research exit option triggering a cooldown.
+*Fixed Xeno Abduction bombardment stance not abducting pops.

@@ -1,0 +1,3248 @@
+save_default_country_specimens = {
+	if = {
+		limit = { has_grand_archive_dlc = yes }
+		if = {
+			limit = {
+				has_specimen = acidic_spores
+			}
+			set_country_flag = has_acidic_spores
+		}
+		if = {
+			limit = {
+				has_specimen = adakkaria_propaganda_poster
+			}
+			set_country_flag = has_adakkaria_propaganda_poster
+		}
+		if = {
+			limit = {
+				has_specimen = advisor_core
+			}
+			set_country_flag = has_advisor_core
+		}
+		if = {
+			limit = {
+				has_specimen = alien_brain_scans
+			}
+			set_country_flag = has_alien_brain_scans
+		}
+		if = {
+			limit = {
+				has_specimen = alien_dining_set
+			}
+			set_country_flag = has_alien_dining_set
+		}
+		if = {
+			limit = {
+				has_specimen = alien_jewelry
+			}
+			set_country_flag = has_alien_jewelry
+		}
+		if = {
+			limit = {
+				has_specimen = alien_toy
+			}
+			set_country_flag = has_alien_toy
+		}
+		if = {
+			limit = {
+				has_specimen = altar_to_the_elder_one
+			}
+			set_country_flag = has_altar_to_the_elder_one
+		}
+		if = {
+			limit = {
+				has_specimen = aluminium_plaque
+			}
+			set_country_flag = has_aluminium_plaque
+		}
+		if = {
+			limit = {
+				has_specimen = ammoniaphytus
+			}
+			set_country_flag = has_ammoniaphytus
+		}
+		if = {
+			limit = {
+				has_specimen = amoeba_flagella_gland
+			}
+			set_country_flag = has_amoeba_flagella_gland
+		}
+		if = {
+			limit = {
+				has_specimen = ancient_bust
+			}
+			set_country_flag = has_ancient_bust
+		}
+		if = {
+			limit = {
+				has_specimen = ancient_kinetic_launcher
+			}
+			set_country_flag = has_ancient_kinetic_launcher
+		}
+		if = {
+			limit = {
+				has_specimen = ancient_laser_pointer
+			}
+			set_country_flag = has_ancient_laser_pointer
+		}
+		if = {
+			limit = {
+				has_specimen = ancient_nanites
+			}
+			set_country_flag = has_ancient_nanites
+		}
+		if = {
+			limit = {
+				has_specimen = ancient_nuclear_armament
+			}
+			set_country_flag = has_ancient_nuclear_armament
+		}
+		if = {
+			limit = {
+				has_specimen = ancient_political_memoir
+			}
+			set_country_flag = has_ancient_political_memoir
+		}
+		if = {
+			limit = {
+				has_specimen = ancient_rift_sphere
+			}
+			set_country_flag = has_ancient_rift_sphere
+		}
+		if = {
+			limit = {
+				has_specimen = ancient_satellite
+			}
+			set_country_flag = has_ancient_satellite
+		}
+		if = {
+			limit = {
+				has_specimen = ancient_sensor
+			}
+			set_country_flag = has_ancient_sensor
+		}
+		if = {
+			limit = {
+				has_specimen = asteroid_fossils
+			}
+			set_country_flag = has_asteroid_fossils
+		}
+		if = {
+			limit = {
+				has_specimen = ballad_of_the_sable_knight
+			}
+			set_country_flag = has_ballad_of_the_sable_knight
+		}
+		if = {
+			limit = {
+				has_specimen = beauty_of_planet
+			}
+			set_country_flag = has_beauty_of_planet
+		}
+		if = {
+			limit = {
+				has_specimen = black_hole_chromatic_anomaly
+			}
+			set_country_flag = has_black_hole_chromatic_anomaly
+		}
+		if = {
+			limit = {
+				has_specimen = black_needle_ceremonial_sword
+			}
+			set_country_flag = has_black_needle_ceremonial_sword
+		}
+		if = {
+			limit = {
+				has_specimen = black_needle_ledger
+			}
+			set_country_flag = has_black_needle_ledger
+		}
+		if = {
+			limit = {
+				has_specimen = burnt_migratory_trees
+			}
+			set_country_flag = has_burnt_migratory_trees
+		}
+		if = {
+			limit = {
+				has_specimen = captain_ness_body
+			}
+			set_country_flag = has_captain_ness_body
+		}
+		if = {
+			limit = {
+				has_specimen = captain_ness_logbook
+			}
+			set_country_flag = has_captain_ness_logbook
+		}
+		if = {
+			limit = {
+				has_specimen = carnivorous_megaflora
+			}
+			set_country_flag = has_carnivorous_megaflora
+		}
+		if = {
+			limit = {
+				has_specimen = castaway_robot
+			}
+			set_country_flag = has_castaway_robot
+		}
+		if = {
+			limit = {
+				has_specimen = cenotaph_display
+			}
+			set_country_flag = has_cenotaph_display
+		}
+		if = {
+			limit = {
+				has_specimen = centrifugal_container
+			}
+			set_country_flag = has_centrifugal_container
+		}
+		if = {
+			limit = {
+				has_specimen = cetana_love
+			}
+			set_country_flag = has_cetana_love
+		}
+		if = {
+			limit = {
+				has_specimen = chambered_clay_pot
+			}
+			set_country_flag = has_chambered_clay_pot
+		}
+		if = {
+			limit = {
+				has_specimen = claw_of_the_trickster
+			}
+			set_country_flag = has_claw_of_the_trickster
+		}
+		if = {
+			limit = {
+				has_specimen = confessions_benefactors
+			}
+			set_country_flag = has_confessions_benefactors
+		}
+		if = {
+			limit = {
+				has_specimen = coprolite
+			}
+			set_country_flag = has_coprolite
+		}
+		if = {
+			limit = {
+				has_specimen = cosmic_diamond_fragment
+			}
+			set_country_flag = has_cosmic_diamond_fragment
+		}
+		if = {
+			limit = {
+				has_specimen = crimson_nimkips
+			}
+			set_country_flag = has_crimson_nimkips
+		}
+		if = {
+			limit = {
+				has_specimen = crystal_core
+			}
+			set_country_flag = has_crystal_core
+		}
+		if = {
+			limit = {
+				has_specimen = crystal_nest_fragments
+			}
+			set_country_flag = has_crystal_nest_fragments
+		}
+		if = {
+			limit = {
+				has_specimen = crystal_sphere_fragments
+			}
+			set_country_flag = has_crystal_sphere_fragments
+		}
+		if = {
+			limit = {
+				has_specimen = crystallized_cutholoid_eye
+			}
+			set_country_flag = has_crystallized_cutholoid_eye
+		}
+		if = {
+			limit = {
+				has_specimen = cult_pendant
+			}
+			set_country_flag = has_cult_pendant
+		}
+		if = {
+			limit = {
+				has_specimen = cunning_flora_specimen
+			}
+			set_country_flag = has_cunning_flora_specimen
+		}
+		if = {
+			limit = {
+				has_specimen = curator_survey
+			}
+			set_country_flag = has_curator_survey
+		}
+		if = {
+			limit = {
+				has_specimen = cutholoid_digestive_acids
+			}
+			set_country_flag = has_cutholoid_digestive_acids
+		}
+		if = {
+			limit = {
+				has_specimen = cybrex_mining_column
+			}
+			set_country_flag = has_cybrex_mining_column
+		}
+		if = {
+			limit = {
+				has_specimen = data_on_infinity
+			}
+			set_country_flag = has_data_on_infinity
+		}
+		if = {
+			limit = {
+				has_specimen = datacore_of_sinople
+			}
+			set_country_flag = has_datacore_of_sinople
+		}
+		if = {
+			limit = {
+				has_specimen = dathnak_gas
+			}
+			set_country_flag = has_dathnak_gas
+		}
+		if = {
+			limit = {
+				has_specimen = dead_god_mantle
+			}
+			set_country_flag = has_dead_god_mantle
+		}
+		if = {
+			limit = {
+				has_specimen = decayed_megathrusters
+			}
+			set_country_flag = has_decayed_megathrusters
+		}
+		if = {
+			limit = {
+				has_specimen = decayed_satellite
+			}
+			set_country_flag = has_decayed_satellite
+		}
+		if = {
+			limit = {
+				has_specimen = declaration_of_animosity
+			}
+			set_country_flag = has_declaration_of_animosity
+		}
+		if = {
+			limit = {
+				has_specimen = declaration_of_friendship
+			}
+			set_country_flag = has_declaration_of_friendship
+		}
+		if = {
+			limit = {
+				has_specimen = derelict_cybrex_warform
+			}
+			set_country_flag = has_derelict_cybrex_warform
+		}
+		if = {
+			limit = {
+				has_specimen = desiccated_brain_slug
+			}
+			set_country_flag = has_desiccated_brain_slug
+		}
+		if = {
+			limit = {
+				has_specimen = destroyed_mascot_of_colony
+			}
+			set_country_flag = has_destroyed_mascot_of_colony
+		}
+		if = {
+			limit = {
+				has_specimen = devolved_baol_drones
+			}
+			set_country_flag = has_devolved_baol_drones
+		}
+		if = {
+			limit = {
+				has_specimen = dimensional_endothelial_lining
+			}
+			set_country_flag = has_dimensional_endothelial_lining
+		}
+		if = {
+			limit = {
+				has_specimen = dna_archive
+			}
+			set_country_flag = has_dna_archive
+		}
+		if = {
+			limit = {
+				has_specimen = doomsday_scrolls
+			}
+			set_country_flag = has_doomsday_scrolls
+		}
+		if = {
+			limit = {
+				has_specimen = drone_ship_core
+			}
+			set_country_flag = has_drone_ship_core
+		}
+		if = {
+			limit = {
+				has_specimen = electric_life
+			}
+			set_country_flag = has_electric_life
+		}
+		if = {
+			limit = {
+				has_specimen = enormous_scrambled_albumen
+			}
+			set_country_flag = has_enormous_scrambled_albumen
+		}
+		if = {
+			limit = {
+				has_specimen = epic_of_zarqlan
+			}
+			set_country_flag = has_epic_of_zarqlan
+		}
+		if = {
+			limit = {
+				has_specimen = ethereal_dust
+			}
+			set_country_flag = has_ethereal_dust
+		}
+		if = {
+			limit = {
+				has_specimen = exobiology_compendium
+			}
+			set_country_flag = has_exobiology_compendium
+		}
+		if = {
+			limit = {
+				has_specimen = extradimensional_ceramic_pot
+			}
+			set_country_flag = has_extradimensional_ceramic_pot
+		}
+		if = {
+			limit = {
+				has_specimen = extradimensional_fungus
+			}
+			set_country_flag = has_extradimensional_fungus
+		}
+		if = {
+			limit = {
+				has_specimen = fevorian_blueprints
+			}
+			set_country_flag = has_fevorian_blueprints
+		}
+		if = {
+			limit = {
+				has_specimen = figurehead_hyacinth
+			}
+			set_country_flag = has_figurehead_hyacinth
+		}
+		if = {
+			limit = {
+				has_specimen = first_defiled_astronaut
+			}
+			set_country_flag = has_first_defiled_astronaut
+		}
+		if = {
+			limit = {
+				has_specimen = first_league_crew_manifest
+			}
+			set_country_flag = has_first_league_crew_manifest
+		}
+		if = {
+			limit = {
+				has_specimen = fish_in_the_sea_sheet_music
+			}
+			set_country_flag = has_fish_in_the_sea_sheet_music
+		}
+		if = {
+			limit = {
+				has_specimen = flag_of_the_jaro_lyjo
+			}
+			set_country_flag = has_flag_of_the_jaro_lyjo
+		}
+		if = {
+			limit = {
+				has_specimen = flooded_settlement_mound
+			}
+			set_country_flag = has_flooded_settlement_mound
+		}
+		if = {
+			limit = {
+				has_specimen = fossilized_endoskeletons
+			}
+			set_country_flag = has_fossilized_endoskeletons
+		}
+		if = {
+			limit = {
+				has_specimen = fossilized_megastomach
+			}
+			set_country_flag = has_fossilized_megastomach
+		}
+		if = {
+			limit = {
+				has_specimen = fossilized_voidworm_tooth
+			}
+			set_country_flag = has_fossilized_voidworm_tooth
+		}
+		if = {
+			limit = {
+				has_specimen = fossilized_vultaum_remains
+			}
+			set_country_flag = has_fossilized_vultaum_remains
+		}
+		if = {
+			limit = {
+				has_specimen = fractured_planet
+			}
+			set_country_flag = has_fractured_planet
+		}
+		if = {
+			limit = {
+				has_specimen = fragmented_zroni_archive
+			}
+			set_country_flag = has_fragmented_zroni_archive
+		}
+		if = {
+			limit = {
+				has_specimen = galactic_megadrive
+			}
+			set_country_flag = has_galactic_megadrive
+		}
+		if = {
+			limit = {
+				has_specimen = gamma_resistant_flora
+			}
+			set_country_flag = has_gamma_resistant_flora
+		}
+		if = {
+			limit = {
+				has_specimen = gargantua_megalus
+			}
+			set_country_flag = has_gargantua_megalus
+		}
+		if = {
+			limit = {
+				has_specimen = genesis_core
+			}
+			set_country_flag = has_genesis_core
+		}
+		if = {
+			limit = {
+				has_specimen = genetic_code
+			}
+			set_country_flag = has_genetic_code
+		}
+		if = {
+			limit = {
+				has_specimen = geometric_water_currents
+			}
+			set_country_flag = has_geometric_water_currents
+		}
+		if = {
+			limit = {
+				has_specimen = giant_egg_shell
+			}
+			set_country_flag = has_giant_egg_shell
+		}
+		if = {
+			limit = {
+				has_specimen = golden_phonograph_record
+			}
+			set_country_flag = has_golden_phonograph_record
+		}
+		if = {
+			limit = {
+				has_specimen = golem_contortionist_dna
+			}
+			set_country_flag = has_golem_contortionist_dna
+		}
+		if = {
+			limit = {
+				has_specimen = grunur_data_crystal
+			}
+			set_country_flag = has_grunur_data_crystal
+		}
+		if = {
+			limit = {
+				has_specimen = head_of_the_beast
+			}
+			set_country_flag = has_head_of_the_beast
+		}
+		if = {
+			limit = {
+				has_specimen = heart_of_the_pulsar
+			}
+			set_country_flag = has_heart_of_the_pulsar
+		}
+		if = {
+			limit = {
+				has_specimen = hemterine_magnetic_figurehead
+			}
+			set_country_flag = has_hemterine_magnetic_figurehead
+		}
+		if = {
+			limit = {
+				has_specimen = high_geode_of_the_molluscoids
+			}
+			set_country_flag = has_high_geode_of_the_molluscoids
+		}
+		if = {
+			limit = {
+				has_specimen = hot_ice
+			}
+			set_country_flag = has_hot_ice
+		}
+		if = {
+			limit = {
+				has_specimen = hyper_mulch
+			}
+			set_country_flag = has_hyper_mulch
+		}
+		if = {
+			limit = {
+				has_specimen = hyperfertile_soil
+			}
+			set_country_flag = has_hyperfertile_soil
+		}
+		if = {
+			limit = {
+				has_specimen = illanii_archives
+			}
+			set_country_flag = has_illanii_archives
+		}
+		if = {
+			limit = {
+				has_specimen = impossible_object
+			}
+			set_country_flag = has_impossible_object
+		}
+		if = {
+			limit = {
+				has_specimen = index_of_knowledge
+			}
+			set_country_flag = has_index_of_knowledge
+		}
+		if = {
+			limit = {
+				has_specimen = inet_trade_manifesto
+			}
+			set_country_flag = has_inet_trade_manifesto
+		}
+		if = {
+			limit = {
+				has_specimen = inetian_model_manual
+			}
+			set_country_flag = has_inetian_model_manual
+		}
+		if = {
+			limit = {
+				has_specimen = infinite_reboot_loop
+			}
+			set_country_flag = has_infinite_reboot_loop
+		}
+		if = {
+			limit = {
+				has_specimen = interdimensional_treaty
+			}
+			set_country_flag = has_interdimensional_treaty
+		}
+		if = {
+			limit = {
+				has_specimen = intergalactic_projectile
+			}
+			set_country_flag = has_intergalactic_projectile
+		}
+		if = {
+			limit = {
+				has_specimen = invasive_exofungus
+			}
+			set_country_flag = has_invasive_exofungus
+		}
+		if = {
+			limit = {
+				has_specimen = irassian_bacterium_javoria
+			}
+			set_country_flag = has_irassian_bacterium_javoria
+		}
+		if = {
+			limit = {
+				has_specimen = irassian_digital_atlas
+			}
+			set_country_flag = has_irassian_digital_atlas
+		}
+		if = {
+			limit = {
+				has_specimen = irassian_purge_order
+			}
+			set_country_flag = has_irassian_purge_order
+		}
+		if = {
+			limit = {
+				has_specimen = key_to_fertility
+			}
+			set_country_flag = has_key_to_fertility
+		}
+		if = {
+			limit = {
+				has_specimen = khalanka_crystallized_corpses
+			}
+			set_country_flag = has_khalanka_crystallized_corpses
+		}
+		if = {
+			limit = {
+				has_specimen = khamdai_magil_sha
+			}
+			set_country_flag = has_khamdai_magil_sha
+		}
+		if = {
+			limit = {
+				has_specimen = kuurian_cybrex_blueprints
+			}
+			set_country_flag = has_kuurian_cybrex_blueprints
+		}
+		if = {
+			limit = {
+				has_specimen = landeer_arm
+			}
+			set_country_flag = has_landeer_arm
+		}
+		if = {
+			limit = {
+				has_specimen = larionessi_cloning_vat
+			}
+			set_country_flag = has_larionessi_cloning_vat
+		}
+		if = {
+			limit = {
+				has_specimen = last_copy_of_the_prince
+			}
+			set_country_flag = has_last_copy_of_the_prince
+		}
+		if = {
+			limit = {
+				has_specimen = last_fragment_fevor
+			}
+			set_country_flag = has_last_fragment_fevor
+		}
+		if = {
+			limit = {
+				has_specimen = last_general_badge
+			}
+			set_country_flag = has_last_general_badge
+		}
+		if = {
+			limit = {
+				has_specimen = last_mharin_kharin
+			}
+			set_country_flag = has_last_mharin_kharin
+		}
+		if = {
+			limit = {
+				has_specimen = leviathan_scale
+			}
+			set_country_flag = has_leviathan_scale
+		}
+		if = {
+			limit = {
+				has_specimen = living_snow_sculpture
+			}
+			set_country_flag = has_living_snow_sculpture
+		}
+		if = {
+			limit = {
+				has_specimen = localised_aurora_borealis
+			}
+			set_country_flag = has_localised_aurora_borealis
+		}
+		if = {
+			limit = {
+				has_specimen = loopmail
+			}
+			set_country_flag = has_loopmail
+		}
+		if = {
+			limit = {
+				has_specimen = lunatic_broker_therapy_box
+			}
+			set_country_flag = has_lunatic_broker_therapy_box
+		}
+		if = {
+			limit = {
+				has_specimen = manifesti_piece
+			}
+			set_country_flag = has_manifesti_piece
+		}
+		if = {
+			limit = {
+				has_specimen = manna_fruit
+			}
+			set_country_flag = has_manna_fruit
+		}
+		if = {
+			limit = {
+				has_specimen = massive_metatarsal
+			}
+			set_country_flag = has_massive_metatarsal
+		}
+		if = {
+			limit = {
+				has_specimen = medal_for_services_to_diplomacy
+			}
+			set_country_flag = has_medal_for_services_to_diplomacy
+		}
+		if = {
+			limit = {
+				has_specimen = megacorpse_hyperguitar
+			}
+			set_country_flag = has_megacorpse_hyperguitar
+		}
+		if = {
+			limit = {
+				has_specimen = memorial_for_bubbles
+			}
+			set_country_flag = has_memorial_for_bubbles
+		}
+		if = {
+			limit = {
+				has_specimen = memorial_stone
+			}
+			set_country_flag = has_memorial_stone
+		}
+		if = {
+			limit = {
+				has_specimen = memorial_to_homeworld
+			}
+			set_country_flag = has_memorial_to_homeworld
+		}
+		if = {
+			limit = {
+				has_specimen = memories_of_elik
+			}
+			set_country_flag = has_memories_of_elik
+		}
+		if = {
+			limit = {
+				has_specimen = memory_orbs
+			}
+			set_country_flag = has_memory_orbs
+		}
+		if = {
+			limit = {
+				has_specimen = mercenary_story
+			}
+			set_country_flag = has_mercenary_story
+		}
+		if = {
+			limit = {
+				has_specimen = metallic_snow
+			}
+			set_country_flag = has_metallic_snow
+		}
+		if = {
+			limit = {
+				has_specimen = minamar_chandelier
+			}
+			set_country_flag = has_minamar_chandelier
+		}
+		if = {
+			limit = {
+				has_specimen = mineralized_brain
+			}
+			set_country_flag = has_mineralized_brain
+		}
+		if = {
+			limit = {
+				has_specimen = mini_moon_dust
+			}
+			set_country_flag = has_mini_moon_dust
+		}
+		if = {
+			limit = {
+				has_specimen = mining_transmitter
+			}
+			set_country_flag = has_mining_transmitter
+		}
+		if = {
+			limit = {
+				has_specimen = miracle_cream
+			}
+			set_country_flag = has_miracle_cream
+		}
+		if = {
+			limit = {
+				has_specimen = missile_lone_defender
+			}
+			set_country_flag = has_missile_lone_defender
+		}
+		if = {
+			limit = {
+				has_specimen = molten_slag
+			}
+			set_country_flag = has_molten_slag
+		}
+		if = {
+			limit = {
+				has_specimen = musings_on_infinity
+			}
+			set_country_flag = has_musings_on_infinity
+		}
+		if = {
+			limit = {
+				has_specimen = mutated_fumongus
+			}
+			set_country_flag = has_mutated_fumongus
+		}
+		if = {
+			limit = {
+				has_specimen = mutative_digestive_fluids
+			}
+			set_country_flag = has_mutative_digestive_fluids
+		}
+		if = {
+			limit = {
+				has_specimen = namarian_colonist_standard
+			}
+			set_country_flag = has_namarian_colonist_standard
+		}
+		if = {
+			limit = {
+				has_specimen = namarian_sculpture
+			}
+			set_country_flag = has_namarian_sculpture
+		}
+		if = {
+			limit = {
+				has_specimen = namarian_vessel_heraldry
+			}
+			set_country_flag = has_namarian_vessel_heraldry
+		}
+		if = {
+			limit = {
+				has_specimen = nanite_sludge
+			}
+			set_country_flag = has_nanite_sludge
+		}
+		if = {
+			limit = {
+				has_specimen = obsidian_obelisk_fragment
+			}
+			set_country_flag = has_obsidian_obelisk_fragment
+		}
+		if = {
+			limit = {
+				has_specimen = oiled_fabric
+			}
+			set_country_flag = has_oiled_fabric
+		}
+		if = {
+			limit = {
+				has_specimen = organic_computer
+			}
+			set_country_flag = has_organic_computer
+		}
+		if = {
+			limit = {
+				has_specimen = organic_machine_interface_sculpture
+			}
+			set_country_flag = has_organic_machine_interface_sculpture
+		}
+		if = {
+			limit = {
+				has_specimen = orinthi_teeth
+			}
+			set_country_flag = has_orinthi_teeth
+		}
+		if = {
+			limit = {
+				has_specimen = osseus_construction_material
+			}
+			set_country_flag = has_osseus_construction_material
+		}
+		if = {
+			limit = {
+				has_specimen = path_to_progress
+			}
+			set_country_flag = has_path_to_progress
+		}
+		if = {
+			limit = {
+				has_specimen = peerless_atomic_clock
+			}
+			set_country_flag = has_peerless_atomic_clock
+		}
+		if = {
+			limit = {
+				has_specimen = perception_of_infinity
+			}
+			set_country_flag = has_perception_of_infinity
+		}
+		if = {
+			limit = {
+				has_specimen = perfectly_faceted_carbon
+			}
+			set_country_flag = has_perfectly_faceted_carbon
+		}
+		if = {
+			limit = {
+				has_specimen = pet_collar
+			}
+			set_country_flag = has_pet_collar
+		}
+		if = {
+			limit = {
+				has_specimen = perikan_tapico_jewel
+			}
+			set_country_flag = has_perikan_tapico_jewel
+		}
+		if = {
+			limit = {
+				has_specimen = piece_of_invocator
+			}
+			set_country_flag = has_piece_of_invocator
+		}
+		if = {
+			limit = {
+				has_specimen = pilgrimage_last_days
+			}
+			set_country_flag = has_pilgrimage_last_days
+		}
+		if = {
+			limit = {
+				has_specimen = planet_crystalose
+			}
+			set_country_flag = has_planet_crystalose
+		}
+		if = {
+			limit = {
+				has_specimen = planet_pushing_thruster
+			}
+			set_country_flag = has_planet_pushing_thruster
+		}
+		if = {
+			limit = {
+				has_specimen = planet_super_roots
+			}
+			set_country_flag = has_planet_super_roots
+		}
+		if = {
+			limit = {
+				has_specimen = planet_vaccine
+			}
+			set_country_flag = has_planet_vaccine
+		}
+		if = {
+			limit = {
+				has_specimen = planetary_sculpture
+			}
+			set_country_flag = has_planetary_sculpture
+		}
+		if = {
+			limit = {
+				has_specimen = primitive_mega_electromagnet
+			}
+			set_country_flag = has_primitive_mega_electromagnet
+		}
+		if = {
+			limit = {
+				has_specimen = programmable_puzzle_cube
+			}
+			set_country_flag = has_programmable_puzzle_cube
+		}
+		if = {
+			limit = {
+				has_specimen = psionic_entity_residue
+			}
+			set_country_flag = has_psionic_entity_residue
+		}
+		if = {
+			limit = {
+				has_specimen = radiated_remains
+			}
+			set_country_flag = has_radiated_remains
+		}
+		if = {
+			limit = {
+				has_specimen = rainaissance
+			}
+			set_country_flag = has_rainaissance
+		}
+		if = {
+			limit = {
+				has_specimen = reactive_rock
+			}
+			set_country_flag = has_reactive_rock
+		}
+		if = {
+			limit = {
+				has_specimen = reparation_invoice
+			}
+			set_country_flag = has_reparation_invoice
+		}
+		if = {
+			limit = {
+				has_specimen = repurposed_cleaning_drone
+			}
+			set_country_flag = has_repurposed_cleaning_drone
+		}
+		if = {
+			limit = {
+				has_specimen = resonant_diffusion_crystal
+			}
+			set_country_flag = has_resonant_diffusion_crystal
+		}
+		if = {
+			limit = {
+				has_specimen = retarax_hunting_trophies
+			}
+			set_country_flag = has_retarax_hunting_trophies
+		}
+		if = {
+			limit = {
+				has_specimen = robe_of_the_golden_broker
+			}
+			set_country_flag = has_robe_of_the_golden_broker
+		}
+		if = {
+			limit = {
+				has_specimen = rock_jellies
+			}
+			set_country_flag = has_rock_jellies
+		}
+		if = {
+			limit = {
+				has_specimen = rudari_death_laser_prototype
+			}
+			set_country_flag = has_rudari_death_laser_prototype
+		}
+		if = {
+			limit = {
+				has_specimen = saariah_guilt
+			}
+			set_country_flag = has_saariah_guilt
+		}
+		if = {
+			limit = {
+				has_specimen = scent_based_information_device
+			}
+			set_country_flag = has_scent_based_information_device
+		}
+		if = {
+			limit = {
+				has_specimen = scientific_treatise_of_telisa
+			}
+			set_country_flag = has_scientific_treatise_of_telisa
+		}
+		if = {
+			limit = {
+				has_specimen = secrets_black_crown
+			}
+			set_country_flag = has_secrets_black_crown
+		}
+		if = {
+			limit = {
+				has_specimen = sembelami_alms_basket
+			}
+			set_country_flag = has_sembelami_alms_basket
+		}
+		if = {
+			limit = {
+				has_specimen = shallarian_data_core
+			}
+			set_country_flag = has_shallarian_data_core
+		}
+		if = {
+			limit = {
+				has_specimen = shipyard_schematics
+			}
+			set_country_flag = has_shipyard_schematics
+		}
+		if = {
+			limit = {
+				has_specimen = sky_dragon
+			}
+			set_country_flag = has_sky_dragon
+		}
+		if = {
+			limit = {
+				has_specimen = smeegibb_statue
+			}
+			set_country_flag = has_smeegibb_statue
+		}
+		if = {
+			limit = {
+				has_specimen = sniran_spikes
+			}
+			set_country_flag = has_sniran_spikes
+		}
+		if = {
+			limit = {
+				has_specimen = sonic_reflective_prism
+			}
+			set_country_flag = has_sonic_reflective_prism
+		}
+		if = {
+			limit = {
+				has_specimen = spaceborne_hunter_handbook
+			}
+			set_country_flag = has_spaceborne_hunter_handbook
+		}
+		if = {
+			limit = {
+				has_specimen = spaceborne_xeno_encyclopedia
+			}
+			set_country_flag = has_spaceborne_xeno_encyclopedia
+		}
+		if = {
+			limit = {
+				has_specimen = spiraling_attraction
+			}
+			set_country_flag = has_spiraling_attraction
+		}
+		if = {
+			limit = {
+				has_specimen = spirit_of_the_unshackled
+			}
+			set_country_flag = has_spirit_of_the_unshackled
+		}
+		if = {
+			limit = {
+				has_specimen = star_mall_map
+			}
+			set_country_flag = has_star_mall_map
+		}
+		if = {
+			limit = {
+				has_specimen = starmetal
+			}
+			set_country_flag = has_starmetal
+		}
+		if = {
+			limit = {
+				has_specimen = striated_sand
+			}
+			set_country_flag = has_striated_sand
+		}
+		if = {
+			limit = {
+				has_specimen = sullebaster_control_column
+			}
+			set_country_flag = has_sullebaster_control_column
+		}
+		if = {
+			limit = {
+				has_specimen = symbiotic_fruit
+			}
+			set_country_flag = has_symbiotic_fruit
+		}
+		if = {
+			limit = {
+				has_specimen = tarblac_shimmer
+			}
+			set_country_flag = has_tarblac_shimmer
+		}
+		if = {
+			limit = {
+				has_specimen = terraforming_case_study
+			}
+			set_country_flag = has_terraforming_case_study
+		}
+		if = {
+			limit = {
+				has_specimen = terraforming_case_study_dry
+			}
+			set_country_flag = has_terraforming_case_study_dry
+		}
+		if = {
+			limit = {
+				has_specimen = terraforming_case_study_frozen
+			}
+			set_country_flag = has_terraforming_case_study_frozen
+		}
+		if = {
+			limit = {
+				has_specimen = terraforming_machinery
+			}
+			set_country_flag = has_terraforming_machinery
+		}
+		if = {
+			limit = {
+				has_specimen = terraforming_records
+			}
+			set_country_flag = has_terraforming_records
+		}
+		if = {
+			limit = {
+				has_specimen = the_final_sacrifice
+			}
+			set_country_flag = has_the_final_sacrifice
+		}
+		if = {
+			limit = {
+				has_specimen = the_mask_of_transformation
+			}
+			set_country_flag = has_the_mask_of_transformation
+		}
+		if = {
+			limit = {
+				has_specimen = the_planet_orchestra
+			}
+			set_country_flag = has_the_planet_orchestra
+		}
+		if = {
+			limit = {
+				has_specimen = the_writer_sphere
+			}
+			set_country_flag = has_the_writer_sphere
+		}
+		if = {
+			limit = {
+				has_specimen = tiny_ancient_sarcophagus
+			}
+			set_country_flag = has_tiny_ancient_sarcophagus
+		}
+		if = {
+			limit = {
+				has_specimen = tiyanki_radioactive_sac
+			}
+			set_country_flag = has_tiyanki_radioactive_sac
+		}
+		if = {
+			limit = {
+				has_specimen = torn_solar_sail
+			}
+			set_country_flag = has_torn_solar_sail
+		}
+		if = {
+			limit = {
+				has_specimen = toxic_bio_engine
+			}
+			set_country_flag = has_toxic_bio_engine
+		}
+		if = {
+			limit = {
+				has_specimen = tree_of_life_sample
+			}
+			set_country_flag = has_tree_of_life_sample
+		}
+		if = {
+			limit = {
+				has_specimen = tricorne_of_aussan
+			}
+			set_country_flag = has_tricorne_of_aussan
+		}
+		if = {
+			limit = {
+				has_specimen = triggerless_gun
+			}
+			set_country_flag = has_triggerless_gun
+		}
+		if = {
+			limit = {
+				has_specimen = uddloran_pelts
+			}
+			set_country_flag = has_uddloran_pelts
+		}
+		if = {
+			limit = {
+				has_specimen = underworld_cantina_sign
+			}
+			set_country_flag = has_underworld_cantina_sign
+		}
+		if = {
+			limit = {
+				has_specimen = unfinished_manifesto
+			}
+			set_country_flag = has_unfinished_manifesto
+		}
+		if = {
+			limit = {
+				has_specimen = uranium_glassware
+			}
+			set_country_flag = has_uranium_glassware
+		}
+		if = {
+			limit = {
+				has_specimen = vault_of_polaris
+			}
+			set_country_flag = has_vault_of_polaris
+		}
+		if = {
+			limit = {
+				has_specimen = veil_of_selene
+			}
+			set_country_flag = has_veil_of_selene
+		}
+		if = {
+			limit = {
+				has_specimen = verdingo_tendril_hook
+			}
+			set_country_flag = has_verdingo_tendril_hook
+		}
+		if = {
+			limit = {
+				has_specimen = vibrating_crystal
+			}
+			set_country_flag = has_vibrating_crystal
+		}
+		if = {
+			limit = {
+				has_specimen = voidworm_amniotics
+			}
+			set_country_flag = has_voidworm_amniotics
+		}
+		if = {
+			limit = {
+				has_specimen = voidworm_heart
+			}
+			set_country_flag = has_voidworm_heart
+		}
+		if = {
+			limit = {
+				has_specimen = vultaum_religious_pamphlet
+			}
+			set_country_flag = has_vultaum_religious_pamphlet
+		}
+		if = {
+			limit = {
+				has_specimen = vultaum_vr_video_game
+			}
+			set_country_flag = has_vultaum_vr_video_game
+		}
+		if = {
+			limit = {
+				has_specimen = warning_monolith
+			}
+			set_country_flag = has_warning_monolith
+		}
+		if = {
+			limit = {
+				has_specimen = wormhole_anchor
+			}
+			set_country_flag = has_wormhole_anchor
+		}
+		if = {
+			limit = {
+				has_specimen = wormhole_fur
+			}
+			set_country_flag = has_wormhole_fur
+		}
+		if = {
+			limit = {
+				has_specimen = ytterite_preserved_corpse
+			}
+			set_country_flag = has_ytterite_preserved_corpse
+		}
+		if = {
+			limit = {
+				has_specimen = ytterite_kaleidoscopic_fascinator
+			}
+			set_country_flag = has_ytterite_kaleidoscopic_fascinator
+		}
+		if = {
+			limit = {
+				has_specimen = ytterite_royal_scepter
+			}
+			set_country_flag = has_ytterite_royal_scepter
+		}
+		if = {
+			limit = {
+				has_specimen = yuht_audio_console
+			}
+			set_country_flag = has_yuht_audio_console
+		}
+		if = {
+			limit = {
+				has_specimen = yuht_cryo_pod
+			}
+			set_country_flag = has_yuht_cryo_pod
+		}
+		if = {
+			limit = {
+				has_specimen = yuht_crystal_skull
+			}
+			set_country_flag = has_yuht_crystal_skull
+		}
+		if = {
+			limit = {
+				has_specimen = zombie_probe
+			}
+			set_country_flag = has_zombie_probe
+		}
+		if = {
+			limit = {
+				has_specimen = zone_a_sedative
+			}
+			set_country_flag = has_zone_a_sedative
+		}
+		if = {
+			limit = {
+				has_specimen = zroni_war_banners
+			}
+			set_country_flag = has_zroni_war_banners
+		}
+		if = {
+			limit = {
+				has_specimen = zulcor_wings
+			}
+			set_country_flag = has_zulcor_wings
+		}
+	}
+}
+
+add_ascended_empire_specimens = {
+	if = {
+		limit = { has_grand_archive_dlc = yes }
+		if = {
+			limit = {
+				has_country_flag = has_acidic_spores
+			}
+			give_specimen = { key = acidic_spores }
+			remove_country_flag = has_acidic_spores
+		}
+		if = {
+			limit = {
+				has_country_flag = has_adakkaria_propaganda_poster
+			}
+			give_specimen = { key = adakkaria_propaganda_poster }
+			remove_country_flag = has_adakkaria_propaganda_poster
+		}
+		if = {
+			limit = {
+				has_country_flag = has_advisor_core
+			}
+			give_specimen = { key = advisor_core }
+			remove_country_flag = has_advisor_core
+		}
+		if = {
+			limit = {
+				has_country_flag = has_alien_brain_scans
+			}
+			give_specimen = { key = alien_brain_scans }
+			remove_country_flag = has_alien_brain_scans
+		}
+		if = {
+			limit = {
+				has_country_flag = has_alien_dining_set
+			}
+			give_specimen = { key = alien_dining_set }
+			remove_country_flag = has_alien_dining_set
+		}
+		if = {
+			limit = {
+				has_country_flag = has_alien_jewelry
+			}
+			give_specimen = { key = alien_jewelry }
+			remove_country_flag = has_alien_jewelry
+		}
+		if = {
+			limit = {
+				has_country_flag = has_alien_toy
+			}
+			give_specimen = { key = alien_toy }
+			remove_country_flag = has_alien_toy
+		}
+		if = {
+			limit = {
+				has_country_flag = has_altar_to_the_elder_one
+			}
+			give_specimen = { key = altar_to_the_elder_one }
+			remove_country_flag = has_altar_to_the_elder_one
+		}
+		if = {
+			limit = {
+				has_country_flag = has_aluminium_plaque
+			}
+			give_specimen = { key = aluminium_plaque }
+			remove_country_flag = has_aluminium_plaque
+		}
+		if = {
+			limit = {
+				has_country_flag = has_ammoniaphytus
+			}
+			give_specimen = { key = ammoniaphytus }
+			remove_country_flag = has_ammoniaphytus
+		}
+		if = {
+			limit = {
+				has_country_flag = has_amoeba_flagella_gland
+			}
+			give_specimen = { key = amoeba_flagella_gland }
+			remove_country_flag = has_amoeba_flagella_gland
+		}
+		if = {
+			limit = {
+				has_country_flag = has_ancient_bust
+			}
+			give_specimen = { key = ancient_bust }
+			remove_country_flag = has_ancient_bust
+		}
+		if = {
+			limit = {
+				has_country_flag = has_ancient_kinetic_launcher
+			}
+			give_specimen = { key = ancient_kinetic_launcher }
+			remove_country_flag = has_ancient_kinetic_launcher
+		}
+		if = {
+			limit = {
+				has_country_flag = has_ancient_laser_pointer
+			}
+			give_specimen = { key = ancient_laser_pointer }
+			remove_country_flag = has_ancient_laser_pointer
+		}
+		if = {
+			limit = {
+				has_country_flag = has_ancient_nanites
+			}
+			give_specimen = { key = ancient_nanites }
+			remove_country_flag = has_ancient_nanites
+		}
+		if = {
+			limit = {
+				has_country_flag = has_ancient_nuclear_armament
+			}
+			give_specimen = { key = ancient_nuclear_armament }
+			remove_country_flag = has_ancient_nuclear_armament
+		}
+		if = {
+			limit = {
+				has_country_flag = has_ancient_political_memoir
+			}
+			give_specimen = { key = ancient_political_memoir }
+			remove_country_flag = has_ancient_political_memoir
+		}
+		if = {
+			limit = {
+				has_country_flag = has_ancient_rift_sphere
+			}
+			give_specimen = { key = ancient_rift_sphere }
+			remove_country_flag = has_ancient_rift_sphere
+		}
+		if = {
+			limit = {
+				has_country_flag = has_ancient_satellite
+			}
+			give_specimen = { key = ancient_satellite }
+			remove_country_flag = has_ancient_satellite
+		}
+		if = {
+			limit = {
+				has_country_flag = has_ancient_sensor
+			}
+			give_specimen = { key = ancient_sensor }
+			remove_country_flag = has_ancient_sensor
+		}
+		if = {
+			limit = {
+				has_country_flag = has_asteroid_fossils
+			}
+			give_specimen = { key = asteroid_fossils }
+			remove_country_flag = has_asteroid_fossils
+		}
+		if = {
+			limit = {
+				has_country_flag = has_ballad_of_the_sable_knight
+			}
+			give_specimen = { key = ballad_of_the_sable_knight }
+			remove_country_flag = has_ballad_of_the_sable_knight
+		}
+		if = {
+			limit = {
+				has_country_flag = has_beauty_of_planet
+			}
+			give_specimen = { key = beauty_of_planet }
+			remove_country_flag = has_beauty_of_planet
+		}
+		if = {
+			limit = {
+				has_country_flag = has_black_hole_chromatic_anomaly
+			}
+			give_specimen = { key = black_hole_chromatic_anomaly }
+			remove_country_flag = has_black_hole_chromatic_anomaly
+		}
+		if = {
+			limit = {
+				has_country_flag = has_black_needle_ceremonial_sword
+			}
+			give_specimen = { key = black_needle_ceremonial_sword }
+			remove_country_flag = has_black_needle_ceremonial_sword
+		}
+		if = {
+			limit = {
+				has_country_flag = has_black_needle_ledger
+			}
+			give_specimen = { key = black_needle_ledger }
+			remove_country_flag = has_black_needle_ledger
+		}
+		if = {
+			limit = {
+				has_country_flag = has_burnt_migratory_trees
+			}
+			give_specimen = { key = burnt_migratory_trees }
+			remove_country_flag = has_burnt_migratory_trees
+		}
+		if = {
+			limit = {
+				has_country_flag = has_captain_ness_body
+			}
+			give_specimen = { key = captain_ness_body }
+			remove_country_flag = has_captain_ness_body
+		}
+		if = {
+			limit = {
+				has_country_flag = has_captain_ness_logbook
+			}
+			give_specimen = { key = captain_ness_logbook }
+			remove_country_flag = has_captain_ness_logbook
+		}
+		if = {
+			limit = {
+				has_country_flag = has_carnivorous_megaflora
+			}
+			give_specimen = { key = carnivorous_megaflora }
+			remove_country_flag = has_carnivorous_megaflora
+		}
+		if = {
+			limit = {
+				has_country_flag = has_castaway_robot
+			}
+			give_specimen = { key = castaway_robot }
+			remove_country_flag = has_castaway_robot
+		}
+		if = {
+			limit = {
+				has_country_flag = has_cenotaph_display
+			}
+			give_specimen = { key = cenotaph_display }
+			remove_country_flag = has_cenotaph_display
+		}
+		if = {
+			limit = {
+				has_country_flag = has_centrifugal_container
+			}
+			give_specimen = { key = centrifugal_container }
+			remove_country_flag = has_centrifugal_container
+		}
+		if = {
+			limit = {
+				has_country_flag = has_cetana_love
+			}
+			give_specimen = { key = cetana_love }
+			remove_country_flag = has_cetana_love
+		}
+		if = {
+			limit = {
+				has_country_flag = has_chambered_clay_pot
+			}
+			give_specimen = { key = chambered_clay_pot }
+			remove_country_flag = has_chambered_clay_pot
+		}
+		if = {
+			limit = {
+				has_country_flag = has_claw_of_the_trickster
+			}
+			give_specimen = { key = claw_of_the_trickster }
+			remove_country_flag = has_claw_of_the_trickster
+		}
+		if = {
+			limit = {
+				has_country_flag = has_confessions_benefactors
+			}
+			give_specimen = { key = confessions_benefactors }
+			remove_country_flag = has_confessions_benefactors
+		}
+		if = {
+			limit = {
+				has_country_flag = has_coprolite
+			}
+			give_specimen = { key = coprolite }
+			remove_country_flag = has_coprolite
+		}
+		if = {
+			limit = {
+				has_country_flag = has_cosmic_diamond_fragment
+			}
+			give_specimen = { key = cosmic_diamond_fragment }
+			remove_country_flag = has_cosmic_diamond_fragment
+		}
+		if = {
+			limit = {
+				has_country_flag = has_crimson_nimkips
+			}
+			give_specimen = { key = crimson_nimkips }
+			remove_country_flag = has_crimson_nimkips
+		}
+		if = {
+			limit = {
+				has_country_flag = has_crystal_core
+			}
+			give_specimen = { key = crystal_core }
+			remove_country_flag = has_crystal_core
+		}
+		if = {
+			limit = {
+				has_country_flag = has_crystal_nest_fragments
+			}
+			give_specimen = { key = crystal_nest_fragments }
+			remove_country_flag = has_crystal_nest_fragments
+		}
+		if = {
+			limit = {
+				has_country_flag = has_crystal_sphere_fragments
+			}
+			give_specimen = { key = crystal_sphere_fragments }
+			remove_country_flag = has_crystal_sphere_fragments
+		}
+		if = {
+			limit = {
+				has_country_flag = has_crystallized_cutholoid_eye
+			}
+			give_specimen = { key = crystallized_cutholoid_eye }
+			remove_country_flag = has_crystallized_cutholoid_eye
+		}
+		if = {
+			limit = {
+				has_country_flag = has_cult_pendant
+			}
+			give_specimen = { key = cult_pendant }
+			remove_country_flag = has_cult_pendant
+		}
+		if = {
+			limit = {
+				has_country_flag = has_cunning_flora_specimen
+			}
+			give_specimen = { key = cunning_flora_specimen }
+			remove_country_flag = has_cunning_flora_specimen
+		}
+		if = {
+			limit = {
+				has_country_flag = has_curator_survey
+			}
+			give_specimen = { key = curator_survey }
+			remove_country_flag = has_curator_survey
+		}
+		if = {
+			limit = {
+				has_country_flag = has_cutholoid_digestive_acids
+			}
+			give_specimen = { key = cutholoid_digestive_acids }
+			remove_country_flag = has_cutholoid_digestive_acids
+		}
+		if = {
+			limit = {
+				has_country_flag = has_cybrex_mining_column
+			}
+			give_specimen = { key = cybrex_mining_column }
+			remove_country_flag = has_cybrex_mining_column
+		}
+		if = {
+			limit = {
+				has_country_flag = has_data_on_infinity
+			}
+			give_specimen = { key = data_on_infinity }
+			remove_country_flag = has_data_on_infinity
+		}
+		if = {
+			limit = {
+				has_country_flag = has_datacore_of_sinople
+			}
+			give_specimen = { key = datacore_of_sinople }
+			remove_country_flag = has_datacore_of_sinople
+		}
+		if = {
+			limit = {
+				has_country_flag = has_dathnak_gas
+			}
+			give_specimen = { key = dathnak_gas }
+			remove_country_flag = has_dathnak_gas
+		}
+		if = {
+			limit = {
+				has_country_flag = has_dead_god_mantle
+			}
+			give_specimen = { key = dead_god_mantle }
+			remove_country_flag = has_dead_god_mantle
+		}
+		if = {
+			limit = {
+				has_country_flag = has_decayed_megathrusters
+			}
+			give_specimen = { key = decayed_megathrusters }
+			remove_country_flag = has_decayed_megathrusters
+		}
+		if = {
+			limit = {
+				has_country_flag = has_decayed_satellite
+			}
+			give_specimen = { key = decayed_satellite }
+			remove_country_flag = has_decayed_satellite
+		}
+		if = {
+			limit = {
+				has_country_flag = has_declaration_of_animosity
+			}
+			give_specimen = { key = declaration_of_animosity }
+			remove_country_flag = has_declaration_of_animosity
+		}
+		if = {
+			limit = {
+				has_country_flag = has_declaration_of_friendship
+			}
+			give_specimen = { key = declaration_of_friendship }
+			remove_country_flag = has_declaration_of_friendship
+		}
+		if = {
+			limit = {
+				has_country_flag = has_derelict_cybrex_warform
+			}
+			give_specimen = { key = derelict_cybrex_warform }
+			remove_country_flag = has_derelict_cybrex_warform
+		}
+		if = {
+			limit = {
+				has_country_flag = has_desiccated_brain_slug
+			}
+			give_specimen = { key = desiccated_brain_slug }
+			remove_country_flag = has_desiccated_brain_slug
+		}
+		if = {
+			limit = {
+				has_country_flag = has_destroyed_mascot_of_colony
+			}
+			give_specimen = { key = destroyed_mascot_of_colony }
+			remove_country_flag = has_destroyed_mascot_of_colony
+		}
+		if = {
+			limit = {
+				has_country_flag = has_devolved_baol_drones
+			}
+			give_specimen = { key = devolved_baol_drones }
+			remove_country_flag = has_devolved_baol_drones
+		}
+		if = {
+			limit = {
+				has_country_flag = has_dimensional_endothelial_lining
+			}
+			give_specimen = { key = dimensional_endothelial_lining }
+			remove_country_flag = has_dimensional_endothelial_lining
+		}
+		if = {
+			limit = {
+				has_country_flag = has_dna_archive
+			}
+			give_specimen = { key = dna_archive }
+			remove_country_flag = has_dna_archive
+		}
+		if = {
+			limit = {
+				has_country_flag = has_doomsday_scrolls
+			}
+			give_specimen = { key = doomsday_scrolls }
+			remove_country_flag = has_doomsday_scrolls
+		}
+		if = {
+			limit = {
+				has_country_flag = has_drone_ship_core
+			}
+			give_specimen = { key = drone_ship_core }
+			remove_country_flag = has_drone_ship_core
+		}
+		if = {
+			limit = {
+				has_country_flag = has_electric_life
+			}
+			give_specimen = { key = electric_life }
+			remove_country_flag = has_electric_life
+		}
+		if = {
+			limit = {
+				has_country_flag = has_enormous_scrambled_albumen
+			}
+			give_specimen = { key = enormous_scrambled_albumen }
+			remove_country_flag = has_enormous_scrambled_albumen
+		}
+		if = {
+			limit = {
+				has_country_flag = has_epic_of_zarqlan
+			}
+			give_specimen = { key = epic_of_zarqlan }
+			remove_country_flag = has_epic_of_zarqlan
+		}
+		if = {
+			limit = {
+				has_country_flag = has_ethereal_dust
+			}
+			give_specimen = { key = ethereal_dust }
+			remove_country_flag = has_ethereal_dust
+		}
+		if = {
+			limit = {
+				has_country_flag = has_exobiology_compendium
+			}
+			give_specimen = { key = exobiology_compendium }
+			remove_country_flag = has_exobiology_compendium
+		}
+		if = {
+			limit = {
+				has_country_flag = has_extradimensional_ceramic_pot
+			}
+			give_specimen = { key = extradimensional_ceramic_pot }
+			remove_country_flag = has_extradimensional_ceramic_pot
+		}
+		if = {
+			limit = {
+				has_country_flag = has_extradimensional_fungus
+			}
+			give_specimen = { key = extradimensional_fungus }
+			remove_country_flag = has_extradimensional_fungus
+		}
+		if = {
+			limit = {
+				has_country_flag = has_fevorian_blueprints
+			}
+			give_specimen = { key = fevorian_blueprints }
+			remove_country_flag = has_fevorian_blueprints
+		}
+		if = {
+			limit = {
+				has_country_flag = has_figurehead_hyacinth
+			}
+			give_specimen = { key = figurehead_hyacinth }
+			remove_country_flag = has_figurehead_hyacinth
+		}
+		if = {
+			limit = {
+				has_country_flag = has_first_defiled_astronaut
+			}
+			give_specimen = { key = first_defiled_astronaut }
+			remove_country_flag = has_first_defiled_astronaut
+		}
+		if = {
+			limit = {
+				has_country_flag = has_first_league_crew_manifest
+			}
+			give_specimen = { key = first_league_crew_manifest }
+			remove_country_flag = has_first_league_crew_manifest
+		}
+		if = {
+			limit = {
+				has_country_flag = has_fish_in_the_sea_sheet_music
+			}
+			give_specimen = { key = fish_in_the_sea_sheet_music }
+			remove_country_flag = has_fish_in_the_sea_sheet_music
+		}
+		if = {
+			limit = {
+				has_country_flag = has_flag_of_the_jaro_lyjo
+			}
+			give_specimen = { key = flag_of_the_jaro_lyjo }
+			remove_country_flag = has_flag_of_the_jaro_lyjo
+		}
+		if = {
+			limit = {
+				has_country_flag = has_flooded_settlement_mound
+			}
+			give_specimen = { key = flooded_settlement_mound }
+			remove_country_flag = has_flooded_settlement_mound
+		}
+		if = {
+			limit = {
+				has_country_flag = has_fossilized_endoskeletons
+			}
+			give_specimen = { key = fossilized_endoskeletons }
+			remove_country_flag = has_fossilized_endoskeletons
+		}
+		if = {
+			limit = {
+				has_country_flag = has_fossilized_megastomach
+			}
+			give_specimen = { key = fossilized_megastomach }
+			remove_country_flag = has_fossilized_megastomach
+		}
+		if = {
+			limit = {
+				has_country_flag = has_fossilized_voidworm_tooth
+			}
+			give_specimen = { key = fossilized_voidworm_tooth }
+			remove_country_flag = has_fossilized_voidworm_tooth
+		}
+		if = {
+			limit = {
+				has_country_flag = has_fossilized_vultaum_remains
+			}
+			give_specimen = { key = fossilized_vultaum_remains }
+			remove_country_flag = has_fossilized_vultaum_remains
+		}
+		if = {
+			limit = {
+				has_country_flag = has_fractured_planet
+			}
+			give_specimen = { key = fractured_planet }
+			remove_country_flag = has_fractured_planet
+		}
+		if = {
+			limit = {
+				has_country_flag = has_fragmented_zroni_archive
+			}
+			give_specimen = { key = fragmented_zroni_archive }
+			remove_country_flag = has_fragmented_zroni_archive
+		}
+		if = {
+			limit = {
+				has_country_flag = has_galactic_megadrive
+			}
+			give_specimen = { key = galactic_megadrive }
+			remove_country_flag = has_galactic_megadrive
+		}
+		if = {
+			limit = {
+				has_country_flag = has_gamma_resistant_flora
+			}
+			give_specimen = { key = gamma_resistant_flora }
+			remove_country_flag = has_gamma_resistant_flora
+		}
+		if = {
+			limit = {
+				has_country_flag = has_gargantua_megalus
+			}
+			give_specimen = { key = gargantua_megalus }
+			remove_country_flag = has_gargantua_megalus
+		}
+		if = {
+			limit = {
+				has_country_flag = has_genesis_core
+			}
+			give_specimen = { key = genesis_core }
+			remove_country_flag = has_genesis_core
+		}
+		if = {
+			limit = {
+				has_country_flag = has_genetic_code
+			}
+			give_specimen = { key = genetic_code }
+			remove_country_flag = has_genetic_code
+		}
+		if = {
+			limit = {
+				has_country_flag = has_geometric_water_currents
+			}
+			give_specimen = { key = geometric_water_currents }
+			remove_country_flag = has_geometric_water_currents
+		}
+		if = {
+			limit = {
+				has_country_flag = has_giant_egg_shell
+			}
+			give_specimen = { key = giant_egg_shell }
+			remove_country_flag = has_giant_egg_shell
+		}
+		if = {
+			limit = {
+				has_country_flag = has_golden_phonograph_record
+			}
+			give_specimen = { key = golden_phonograph_record }
+			remove_country_flag = has_golden_phonograph_record
+		}
+		if = {
+			limit = {
+				has_country_flag = has_golem_contortionist_dna
+			}
+			give_specimen = { key = golem_contortionist_dna }
+			remove_country_flag = has_golem_contortionist_dna
+		}
+		if = {
+			limit = {
+				has_country_flag = has_grunur_data_crystal
+			}
+			give_specimen = { key = grunur_data_crystal }
+			remove_country_flag = has_grunur_data_crystal
+		}
+		if = {
+			limit = {
+				has_country_flag = has_head_of_the_beast
+			}
+			give_specimen = { key = head_of_the_beast }
+			remove_country_flag = has_head_of_the_beast
+		}
+		if = {
+			limit = {
+				has_country_flag = has_heart_of_the_pulsar
+			}
+			give_specimen = { key = heart_of_the_pulsar }
+			remove_country_flag = has_heart_of_the_pulsar
+		}
+		if = {
+			limit = {
+				has_country_flag = has_hemterine_magnetic_figurehead
+			}
+			give_specimen = { key = hemterine_magnetic_figurehead }
+			remove_country_flag = has_hemterine_magnetic_figurehead
+		}
+		if = {
+			limit = {
+				has_country_flag = has_high_geode_of_the_molluscoids
+			}
+			give_specimen = { key = high_geode_of_the_molluscoids }
+			remove_country_flag = has_high_geode_of_the_molluscoids
+		}
+		if = {
+			limit = {
+				has_country_flag = has_hot_ice
+			}
+			give_specimen = { key = hot_ice }
+			remove_country_flag = has_hot_ice
+		}
+		if = {
+			limit = {
+				has_country_flag = has_hyper_mulch
+			}
+			give_specimen = { key = hyper_mulch }
+			remove_country_flag = has_hyper_mulch
+		}
+		if = {
+			limit = {
+				has_country_flag = has_hyperfertile_soil
+			}
+			give_specimen = { key = hyperfertile_soil }
+			remove_country_flag = has_hyperfertile_soil
+		}
+		if = {
+			limit = {
+				has_country_flag = has_illanii_archives
+			}
+			give_specimen = { key = illanii_archives }
+			remove_country_flag = has_illanii_archives
+		}
+		if = {
+			limit = {
+				has_country_flag = has_impossible_object
+			}
+			give_specimen = { key = impossible_object }
+			remove_country_flag = has_impossible_object
+		}
+		if = {
+			limit = {
+				has_country_flag = has_index_of_knowledge
+			}
+			give_specimen = { key = index_of_knowledge }
+			remove_country_flag = has_index_of_knowledge
+		}
+		if = {
+			limit = {
+				has_country_flag = has_inet_trade_manifesto
+			}
+			give_specimen = { key = inet_trade_manifesto }
+			remove_country_flag = has_inet_trade_manifesto
+		}
+		if = {
+			limit = {
+				has_country_flag = has_inetian_model_manual
+			}
+			give_specimen = { key = inetian_model_manual }
+			remove_country_flag = has_inetian_model_manual
+		}
+		if = {
+			limit = {
+				has_country_flag = has_infinite_reboot_loop
+			}
+			give_specimen = { key = infinite_reboot_loop }
+			remove_country_flag = has_infinite_reboot_loop
+		}
+		if = {
+			limit = {
+				has_country_flag = has_interdimensional_treaty
+			}
+			give_specimen = { key = interdimensional_treaty }
+			remove_country_flag = has_interdimensional_treaty
+		}
+		if = {
+			limit = {
+				has_country_flag = has_intergalactic_projectile
+			}
+			give_specimen = { key = intergalactic_projectile }
+			remove_country_flag = has_intergalactic_projectile
+		}
+		if = {
+			limit = {
+				has_country_flag = has_invasive_exofungus
+			}
+			give_specimen = { key = invasive_exofungus }
+			remove_country_flag = has_invasive_exofungus
+		}
+		if = {
+			limit = {
+				has_country_flag = has_irassian_bacterium_javoria
+			}
+			give_specimen = { key = irassian_bacterium_javoria }
+			remove_country_flag = has_irassian_bacterium_javoria
+		}
+		if = {
+			limit = {
+				has_country_flag = has_irassian_digital_atlas
+			}
+			give_specimen = { key = irassian_digital_atlas }
+			remove_country_flag = has_irassian_digital_atlas
+		}
+		if = {
+			limit = {
+				has_country_flag = has_irassian_purge_order
+			}
+			give_specimen = { key = irassian_purge_order }
+			remove_country_flag = has_irassian_purge_order
+		}
+		if = {
+			limit = {
+				has_country_flag = has_key_to_fertility
+			}
+			give_specimen = { key = key_to_fertility }
+			remove_country_flag = has_key_to_fertility
+		}
+		if = {
+			limit = {
+				has_country_flag = has_khalanka_crystallized_corpses
+			}
+			give_specimen = { key = khalanka_crystallized_corpses }
+			remove_country_flag = has_khalanka_crystallized_corpses
+		}
+		if = {
+			limit = {
+				has_country_flag = has_khamdai_magil_sha
+			}
+			give_specimen = { key = khamdai_magil_sha }
+			remove_country_flag = has_khamdai_magil_sha
+		}
+		if = {
+			limit = {
+				has_country_flag = has_kuurian_cybrex_blueprints
+			}
+			give_specimen = { key = kuurian_cybrex_blueprints }
+			remove_country_flag = has_kuurian_cybrex_blueprints
+		}
+		if = {
+			limit = {
+				has_country_flag = has_landeer_arm
+			}
+			give_specimen = { key = landeer_arm }
+			remove_country_flag = has_landeer_arm
+		}
+		if = {
+			limit = {
+				has_country_flag = has_larionessi_cloning_vat
+			}
+			give_specimen = { key = larionessi_cloning_vat }
+			remove_country_flag = has_larionessi_cloning_vat
+		}
+		if = {
+			limit = {
+				has_country_flag = has_last_copy_of_the_prince
+			}
+			give_specimen = { key = last_copy_of_the_prince }
+			remove_country_flag = has_last_copy_of_the_prince
+		}
+		if = {
+			limit = {
+				has_country_flag = has_last_fragment_fevor
+			}
+			give_specimen = { key = last_fragment_fevor }
+			remove_country_flag = has_last_fragment_fevor
+		}
+		if = {
+			limit = {
+				has_country_flag = has_last_general_badge
+			}
+			give_specimen = { key = last_general_badge }
+			remove_country_flag = has_last_general_badge
+		}
+		if = {
+			limit = {
+				has_country_flag = has_last_mharin_kharin
+			}
+			give_specimen = { key = last_mharin_kharin }
+			remove_country_flag = has_last_mharin_kharin
+		}
+		if = {
+			limit = {
+				has_country_flag = has_leviathan_scale
+			}
+			give_specimen = { key = leviathan_scale }
+			remove_country_flag = has_leviathan_scale
+		}
+		if = {
+			limit = {
+				has_country_flag = has_living_snow_sculpture
+			}
+			give_specimen = { key = living_snow_sculpture }
+			remove_country_flag = has_living_snow_sculpture
+		}
+		if = {
+			limit = {
+				has_country_flag = has_localised_aurora_borealis
+			}
+			give_specimen = { key = localised_aurora_borealis }
+			remove_country_flag = has_localised_aurora_borealis
+		}
+		if = {
+			limit = {
+				has_country_flag = has_loopmail
+			}
+			give_specimen = { key = loopmail }
+			remove_country_flag = has_loopmail
+		}
+		if = {
+			limit = {
+				has_country_flag = has_lunatic_broker_therapy_box
+			}
+			give_specimen = { key = lunatic_broker_therapy_box }
+			remove_country_flag = has_lunatic_broker_therapy_box
+		}
+		if = {
+			limit = {
+				has_country_flag = has_manifesti_piece
+			}
+			give_specimen = { key = manifesti_piece }
+			remove_country_flag = has_manifesti_piece
+		}
+		if = {
+			limit = {
+				has_country_flag = has_manna_fruit
+			}
+			give_specimen = { key = manna_fruit }
+			remove_country_flag = has_manna_fruit
+		}
+		if = {
+			limit = {
+				has_country_flag = has_massive_metatarsal
+			}
+			give_specimen = { key = massive_metatarsal }
+			remove_country_flag = has_massive_metatarsal
+		}
+		if = {
+			limit = {
+				has_country_flag = has_medal_for_services_to_diplomacy
+			}
+			give_specimen = { key = medal_for_services_to_diplomacy }
+			remove_country_flag = has_medal_for_services_to_diplomacy
+		}
+		if = {
+			limit = {
+				has_country_flag = has_megacorpse_hyperguitar
+			}
+			give_specimen = { key = megacorpse_hyperguitar }
+			remove_country_flag = has_megacorpse_hyperguitar
+		}
+		if = {
+			limit = {
+				has_country_flag = has_memorial_for_bubbles
+			}
+			give_specimen = { key = memorial_for_bubbles }
+			remove_country_flag = has_memorial_for_bubbles
+		}
+		if = {
+			limit = {
+				has_country_flag = has_memorial_stone
+			}
+			give_specimen = { key = memorial_stone }
+			remove_country_flag = has_memorial_stone
+		}
+		if = {
+			limit = {
+				has_country_flag = has_memorial_to_homeworld
+			}
+			give_specimen = { key = memorial_to_homeworld }
+			remove_country_flag = has_memorial_to_homeworld
+		}
+		if = {
+			limit = {
+				has_country_flag = has_memories_of_elik
+			}
+			give_specimen = { key = memories_of_elik }
+			remove_country_flag = has_memories_of_elik
+		}
+		if = {
+			limit = {
+				has_country_flag = has_memory_orbs
+			}
+			give_specimen = { key = memory_orbs }
+			remove_country_flag = has_memory_orbs
+		}
+		if = {
+			limit = {
+				has_country_flag = has_mercenary_story
+			}
+			give_specimen = { key = mercenary_story }
+			remove_country_flag = has_mercenary_story
+		}
+		if = {
+			limit = {
+				has_country_flag = has_metallic_snow
+			}
+			give_specimen = { key = metallic_snow }
+			remove_country_flag = has_metallic_snow
+		}
+		if = {
+			limit = {
+				has_country_flag = has_minamar_chandelier
+			}
+			give_specimen = { key = minamar_chandelier }
+			remove_country_flag = has_minamar_chandelier
+		}
+		if = {
+			limit = {
+				has_country_flag = has_mineralized_brain
+			}
+			give_specimen = { key = mineralized_brain }
+			remove_country_flag = has_mineralized_brain
+		}
+		if = {
+			limit = {
+				has_country_flag = has_mini_moon_dust
+			}
+			give_specimen = { key = mini_moon_dust }
+			remove_country_flag = has_mini_moon_dust
+		}
+		if = {
+			limit = {
+				has_country_flag = has_mining_transmitter
+			}
+			give_specimen = { key = mining_transmitter }
+			remove_country_flag = has_mining_transmitter
+		}
+		if = {
+			limit = {
+				has_country_flag = has_miracle_cream
+			}
+			give_specimen = { key = miracle_cream }
+			remove_country_flag = has_miracle_cream
+		}
+		if = {
+			limit = {
+				has_country_flag = has_missile_lone_defender
+			}
+			give_specimen = { key = missile_lone_defender }
+			remove_country_flag = has_missile_lone_defender
+		}
+		if = {
+			limit = {
+				has_country_flag = has_molten_slag
+			}
+			give_specimen = { key = molten_slag }
+			remove_country_flag = has_molten_slag
+		}
+		if = {
+			limit = {
+				has_country_flag = has_musings_on_infinity
+			}
+			give_specimen = { key = musings_on_infinity }
+			remove_country_flag = has_musings_on_infinity
+		}
+		if = {
+			limit = {
+				has_country_flag = has_mutated_fumongus
+			}
+			give_specimen = { key = mutated_fumongus }
+			remove_country_flag = has_mutated_fumongus
+		}
+		if = {
+			limit = {
+				has_country_flag = has_mutative_digestive_fluids
+			}
+			give_specimen = { key = mutative_digestive_fluids }
+			remove_country_flag = has_mutative_digestive_fluids
+		}
+		if = {
+			limit = {
+				has_country_flag = has_namarian_colonist_standard
+			}
+			give_specimen = { key = namarian_colonist_standard }
+			remove_country_flag = has_namarian_colonist_standard
+		}
+		if = {
+			limit = {
+				has_country_flag = has_namarian_sculpture
+			}
+			give_specimen = { key = namarian_sculpture }
+			remove_country_flag = has_namarian_sculpture
+		}
+		if = {
+			limit = {
+				has_country_flag = has_namarian_vessel_heraldry
+			}
+			give_specimen = { key = namarian_vessel_heraldry }
+			remove_country_flag = has_namarian_vessel_heraldry
+		}
+		if = {
+			limit = {
+				has_country_flag = has_nanite_sludge
+			}
+			give_specimen = { key = nanite_sludge }
+			remove_country_flag = has_nanite_sludge
+		}
+		if = {
+			limit = {
+				has_country_flag = has_obsidian_obelisk_fragment
+			}
+			give_specimen = { key = obsidian_obelisk_fragment }
+			remove_country_flag = has_obsidian_obelisk_fragment
+		}
+		if = {
+			limit = {
+				has_country_flag = has_oiled_fabric
+			}
+			give_specimen = { key = oiled_fabric }
+			remove_country_flag = has_oiled_fabric
+		}
+		if = {
+			limit = {
+				has_country_flag = has_organic_computer
+			}
+			give_specimen = { key = organic_computer }
+			remove_country_flag = has_organic_computer
+		}
+		if = {
+			limit = {
+				has_country_flag = has_organic_machine_interface_sculpture
+			}
+			give_specimen = { key = organic_machine_interface_sculpture }
+			remove_country_flag = has_organic_machine_interface_sculpture
+		}
+		if = {
+			limit = {
+				has_country_flag = has_orinthi_teeth
+			}
+			give_specimen = { key = orinthi_teeth }
+			remove_country_flag = has_orinthi_teeth
+		}
+		if = {
+			limit = {
+				has_country_flag = has_osseus_construction_material
+			}
+			give_specimen = { key = osseus_construction_material }
+			remove_country_flag = has_osseus_construction_material
+		}
+		if = {
+			limit = {
+				has_country_flag = has_path_to_progress
+			}
+			give_specimen = { key = path_to_progress }
+			remove_country_flag = has_path_to_progress
+		}
+		if = {
+			limit = {
+				has_country_flag = has_peerless_atomic_clock
+			}
+			give_specimen = { key = peerless_atomic_clock }
+			remove_country_flag = has_peerless_atomic_clock
+		}
+		if = {
+			limit = {
+				has_country_flag = has_perception_of_infinity
+			}
+			give_specimen = { key = perception_of_infinity }
+			remove_country_flag = has_perception_of_infinity
+		}
+		if = {
+			limit = {
+				has_country_flag = has_perfectly_faceted_carbon
+			}
+			give_specimen = { key = perfectly_faceted_carbon }
+			remove_country_flag = has_perfectly_faceted_carbon
+		}
+		if = {
+			limit = {
+				has_country_flag = has_pet_collar
+			}
+			give_specimen = { key = pet_collar }
+			remove_country_flag = has_pet_collar
+		}
+		if = {
+			limit = {
+				has_country_flag = has_perikan_tapico_jewel
+			}
+			give_specimen = { key = perikan_tapico_jewel }
+			remove_country_flag = has_perikan_tapico_jewel
+		}
+		if = {
+			limit = {
+				has_country_flag = has_piece_of_invocator
+			}
+			give_specimen = { key = piece_of_invocator }
+			remove_country_flag = has_piece_of_invocator
+		}
+		if = {
+			limit = {
+				has_country_flag = has_pilgrimage_last_days
+			}
+			give_specimen = { key = pilgrimage_last_days }
+			remove_country_flag = has_pilgrimage_last_days
+		}
+		if = {
+			limit = {
+				has_country_flag = has_planet_crystalose
+			}
+			give_specimen = { key = planet_crystalose }
+			remove_country_flag = has_planet_crystalose
+		}
+		if = {
+			limit = {
+				has_country_flag = has_planet_pushing_thruster
+			}
+			give_specimen = { key = planet_pushing_thruster }
+			remove_country_flag = has_planet_pushing_thruster
+		}
+		if = {
+			limit = {
+				has_country_flag = has_planet_super_roots
+			}
+			give_specimen = { key = planet_super_roots }
+			remove_country_flag = has_planet_super_roots
+		}
+		if = {
+			limit = {
+				has_country_flag = has_planet_vaccine
+			}
+			give_specimen = { key = planet_vaccine }
+			remove_country_flag = has_planet_vaccine
+		}
+		if = {
+			limit = {
+				has_country_flag = has_planetary_sculpture
+			}
+			give_specimen = { key = planetary_sculpture }
+			remove_country_flag = has_planetary_sculpture
+		}
+		if = {
+			limit = {
+				has_country_flag = has_primitive_mega_electromagnet
+			}
+			give_specimen = { key = primitive_mega_electromagnet }
+			remove_country_flag = has_primitive_mega_electromagnet
+		}
+		if = {
+			limit = {
+				has_country_flag = has_programmable_puzzle_cube
+			}
+			give_specimen = { key = programmable_puzzle_cube }
+			remove_country_flag = has_programmable_puzzle_cube
+		}
+		if = {
+			limit = {
+				has_country_flag = has_psionic_entity_residue
+			}
+			give_specimen = { key = psionic_entity_residue }
+			remove_country_flag = has_psionic_entity_residue
+		}
+		if = {
+			limit = {
+				has_country_flag = has_radiated_remains
+			}
+			give_specimen = { key = radiated_remains }
+			remove_country_flag = has_radiated_remains
+		}
+		if = {
+			limit = {
+				has_country_flag = has_rainaissance
+			}
+			give_specimen = { key = rainaissance }
+			remove_country_flag = has_rainaissance
+		}
+		if = {
+			limit = {
+				has_country_flag = has_reactive_rock
+			}
+			give_specimen = { key = reactive_rock }
+			remove_country_flag = has_reactive_rock
+		}
+		if = {
+			limit = {
+				has_country_flag = has_reparation_invoice
+			}
+			give_specimen = { key = reparation_invoice }
+			remove_country_flag = has_reparation_invoice
+		}
+		if = {
+			limit = {
+				has_country_flag = has_repurposed_cleaning_drone
+			}
+			give_specimen = { key = repurposed_cleaning_drone }
+			remove_country_flag = has_repurposed_cleaning_drone
+		}
+		if = {
+			limit = {
+				has_country_flag = has_resonant_diffusion_crystal
+			}
+			give_specimen = { key = resonant_diffusion_crystal }
+			remove_country_flag = has_resonant_diffusion_crystal
+		}
+		if = {
+			limit = {
+				has_country_flag = has_retarax_hunting_trophies
+			}
+			give_specimen = { key = retarax_hunting_trophies }
+			remove_country_flag = has_retarax_hunting_trophies
+		}
+		if = {
+			limit = {
+				has_country_flag = has_robe_of_the_golden_broker
+			}
+			give_specimen = { key = robe_of_the_golden_broker }
+			remove_country_flag = has_robe_of_the_golden_broker
+		}
+		if = {
+			limit = {
+				has_country_flag = has_rock_jellies
+			}
+			give_specimen = { key = rock_jellies }
+			remove_country_flag = has_rock_jellies
+		}
+		if = {
+			limit = {
+				has_country_flag = has_rudari_death_laser_prototype
+			}
+			give_specimen = { key = rudari_death_laser_prototype }
+			remove_country_flag = has_rudari_death_laser_prototype
+		}
+		if = {
+			limit = {
+				has_country_flag = has_saariah_guilt
+			}
+			give_specimen = { key = saariah_guilt }
+			remove_country_flag = has_saariah_guilt
+		}
+		if = {
+			limit = {
+				has_country_flag = has_scent_based_information_device
+			}
+			give_specimen = { key = scent_based_information_device }
+			remove_country_flag = has_scent_based_information_device
+		}
+		if = {
+			limit = {
+				has_country_flag = has_scientific_treatise_of_telisa
+			}
+			give_specimen = { key = scientific_treatise_of_telisa }
+			remove_country_flag = has_scientific_treatise_of_telisa
+		}
+		if = {
+			limit = {
+				has_country_flag = has_secrets_black_crown
+			}
+			give_specimen = { key = secrets_black_crown }
+			remove_country_flag = has_secrets_black_crown
+		}
+		if = {
+			limit = {
+				has_country_flag = has_sembelami_alms_basket
+			}
+			give_specimen = { key = sembelami_alms_basket }
+			remove_country_flag = has_sembelami_alms_basket
+		}
+		if = {
+			limit = {
+				has_country_flag = has_shallarian_data_core
+			}
+			give_specimen = { key = shallarian_data_core }
+			remove_country_flag = has_shallarian_data_core
+		}
+		if = {
+			limit = {
+				has_country_flag = has_shipyard_schematics
+			}
+			give_specimen = { key = shipyard_schematics }
+			remove_country_flag = has_shipyard_schematics
+		}
+		if = {
+			limit = {
+				has_country_flag = has_sky_dragon
+			}
+			give_specimen = { key = sky_dragon }
+			remove_country_flag = has_sky_dragon
+		}
+		if = {
+			limit = {
+				has_country_flag = has_smeegibb_statue
+			}
+			give_specimen = { key = smeegibb_statue }
+			remove_country_flag = has_smeegibb_statue
+		}
+		if = {
+			limit = {
+				has_country_flag = has_sniran_spikes
+			}
+			give_specimen = { key = sniran_spikes }
+			remove_country_flag = has_sniran_spikes
+		}
+		if = {
+			limit = {
+				has_country_flag = has_sonic_reflective_prism
+			}
+			give_specimen = { key = sonic_reflective_prism }
+			remove_country_flag = has_sonic_reflective_prism
+		}
+		if = {
+			limit = {
+				has_country_flag = has_spaceborne_hunter_handbook
+			}
+			give_specimen = { key = spaceborne_hunter_handbook }
+			remove_country_flag = has_spaceborne_hunter_handbook
+		}
+		if = {
+			limit = {
+				has_country_flag = has_spaceborne_xeno_encyclopedia
+			}
+			give_specimen = { key = spaceborne_xeno_encyclopedia }
+			remove_country_flag = has_spaceborne_xeno_encyclopedia
+		}
+		if = {
+			limit = {
+				has_country_flag = has_spiraling_attraction
+			}
+			give_specimen = { key = spiraling_attraction }
+			remove_country_flag = has_spiraling_attraction
+		}
+		if = {
+			limit = {
+				has_country_flag = has_spirit_of_the_unshackled
+			}
+			give_specimen = { key = spirit_of_the_unshackled }
+			remove_country_flag = has_spirit_of_the_unshackled
+		}
+		if = {
+			limit = {
+				has_country_flag = has_star_mall_map
+			}
+			give_specimen = { key = star_mall_map }
+			remove_country_flag = has_star_mall_map
+		}
+		if = {
+			limit = {
+				has_country_flag = has_starmetal
+			}
+			give_specimen = { key = starmetal }
+			remove_country_flag = has_starmetal
+		}
+		if = {
+			limit = {
+				has_country_flag = has_striated_sand
+			}
+			give_specimen = { key = striated_sand }
+			remove_country_flag = has_striated_sand
+		}
+		if = {
+			limit = {
+				has_country_flag = has_sullebaster_control_column
+			}
+			give_specimen = { key = sullebaster_control_column }
+			remove_country_flag = has_sullebaster_control_column
+		}
+		if = {
+			limit = {
+				has_country_flag = has_symbiotic_fruit
+			}
+			give_specimen = { key = symbiotic_fruit }
+			remove_country_flag = has_symbiotic_fruit
+		}
+		if = {
+			limit = {
+				has_country_flag = has_tarblac_shimmer
+			}
+			give_specimen = { key = tarblac_shimmer }
+			remove_country_flag = has_tarblac_shimmer
+		}
+		if = {
+			limit = {
+				has_country_flag = has_terraforming_case_study
+			}
+			give_specimen = { key = terraforming_case_study }
+			remove_country_flag = has_terraforming_case_study
+		}
+		if = {
+			limit = {
+				has_country_flag = has_terraforming_case_study_dry
+			}
+			give_specimen = { key = terraforming_case_study_dry }
+			remove_country_flag = has_terraforming_case_study_dry
+		}
+		if = {
+			limit = {
+				has_country_flag = has_terraforming_case_study_frozen
+			}
+			give_specimen = { key = terraforming_case_study_frozen }
+			remove_country_flag = has_terraforming_case_study_frozen
+		}
+		if = {
+			limit = {
+				has_country_flag = has_terraforming_machinery
+			}
+			give_specimen = { key = terraforming_machinery }
+			remove_country_flag = has_terraforming_machinery
+		}
+		if = {
+			limit = {
+				has_country_flag = has_terraforming_records
+			}
+			give_specimen = { key = terraforming_records }
+			remove_country_flag = has_terraforming_records
+		}
+		if = {
+			limit = {
+				has_country_flag = has_the_final_sacrifice
+			}
+			give_specimen = { key = the_final_sacrifice }
+			remove_country_flag = has_the_final_sacrifice
+		}
+		if = {
+			limit = {
+				has_country_flag = has_the_mask_of_transformation
+			}
+			give_specimen = { key = the_mask_of_transformation }
+			remove_country_flag = has_the_mask_of_transformation
+		}
+		if = {
+			limit = {
+				has_country_flag = has_the_planet_orchestra
+			}
+			give_specimen = { key = the_planet_orchestra }
+			remove_country_flag = has_the_planet_orchestra
+		}
+		if = {
+			limit = {
+				has_country_flag = has_the_writer_sphere
+			}
+			give_specimen = { key = the_writer_sphere }
+			remove_country_flag = has_the_writer_sphere
+		}
+		if = {
+			limit = {
+				has_country_flag = has_tiny_ancient_sarcophagus
+			}
+			give_specimen = { key = tiny_ancient_sarcophagus }
+			remove_country_flag = has_tiny_ancient_sarcophagus
+		}
+		if = {
+			limit = {
+				has_country_flag = has_tiyanki_radioactive_sac
+			}
+			give_specimen = { key = tiyanki_radioactive_sac }
+			remove_country_flag = has_tiyanki_radioactive_sac
+		}
+		if = {
+			limit = {
+				has_country_flag = has_torn_solar_sail
+			}
+			give_specimen = { key = torn_solar_sail }
+			remove_country_flag = has_torn_solar_sail
+		}
+		if = {
+			limit = {
+				has_country_flag = has_toxic_bio_engine
+			}
+			give_specimen = { key = toxic_bio_engine }
+			remove_country_flag = has_toxic_bio_engine
+		}
+		if = {
+			limit = {
+				has_country_flag = has_tree_of_life_sample
+			}
+			give_specimen = { key = tree_of_life_sample }
+			remove_country_flag = has_tree_of_life_sample
+		}
+		if = {
+			limit = {
+				has_country_flag = has_tricorne_of_aussan
+			}
+			give_specimen = { key = tricorne_of_aussan }
+			remove_country_flag = has_tricorne_of_aussan
+		}
+		if = {
+			limit = {
+				has_country_flag = has_triggerless_gun
+			}
+			give_specimen = { key = triggerless_gun }
+			remove_country_flag = has_triggerless_gun
+		}
+		if = {
+			limit = {
+				has_country_flag = has_uddloran_pelts
+			}
+			give_specimen = { key = uddloran_pelts }
+			remove_country_flag = has_uddloran_pelts
+		}
+		if = {
+			limit = {
+				has_country_flag = has_underworld_cantina_sign
+			}
+			give_specimen = { key = underworld_cantina_sign }
+			remove_country_flag = has_underworld_cantina_sign
+		}
+		if = {
+			limit = {
+				has_country_flag = has_unfinished_manifesto
+			}
+			give_specimen = { key = unfinished_manifesto }
+			remove_country_flag = has_unfinished_manifesto
+		}
+		if = {
+			limit = {
+				has_country_flag = has_uranium_glassware
+			}
+			give_specimen = { key = uranium_glassware }
+			remove_country_flag = has_uranium_glassware
+		}
+		if = {
+			limit = {
+				has_country_flag = has_vault_of_polaris
+			}
+			give_specimen = { key = vault_of_polaris }
+			remove_country_flag = has_vault_of_polaris
+		}
+		if = {
+			limit = {
+				has_country_flag = has_veil_of_selene
+			}
+			give_specimen = { key = veil_of_selene }
+			remove_country_flag = has_veil_of_selene
+		}
+		if = {
+			limit = {
+				has_country_flag = has_verdingo_tendril_hook
+			}
+			give_specimen = { key = verdingo_tendril_hook }
+			remove_country_flag = has_verdingo_tendril_hook
+		}
+		if = {
+			limit = {
+				has_country_flag = has_vibrating_crystal
+			}
+			give_specimen = { key = vibrating_crystal }
+			remove_country_flag = has_vibrating_crystal
+		}
+		if = {
+			limit = {
+				has_country_flag = has_voidworm_amniotics
+			}
+			give_specimen = { key = voidworm_amniotics }
+			remove_country_flag = has_voidworm_amniotics
+		}
+		if = {
+			limit = {
+				has_country_flag = has_voidworm_heart
+			}
+			give_specimen = { key = voidworm_heart }
+			remove_country_flag = has_voidworm_heart
+		}
+		if = {
+			limit = {
+				has_country_flag = has_vultaum_religious_pamphlet
+			}
+			give_specimen = { key = vultaum_religious_pamphlet }
+			remove_country_flag = has_vultaum_religious_pamphlet
+		}
+		if = {
+			limit = {
+				has_country_flag = has_vultaum_vr_video_game
+			}
+			give_specimen = { key = vultaum_vr_video_game }
+			remove_country_flag = has_vultaum_vr_video_game
+		}
+		if = {
+			limit = {
+				has_country_flag = has_warning_monolith
+			}
+			give_specimen = { key = warning_monolith }
+			remove_country_flag = has_warning_monolith
+		}
+		if = {
+			limit = {
+				has_country_flag = has_wormhole_anchor
+			}
+			give_specimen = { key = wormhole_anchor }
+			remove_country_flag = has_wormhole_anchor
+		}
+		if = {
+			limit = {
+				has_country_flag = has_wormhole_fur
+			}
+			give_specimen = { key = wormhole_fur }
+			remove_country_flag = has_wormhole_fur
+		}
+		if = {
+			limit = {
+				has_country_flag = has_ytterite_preserved_corpse
+			}
+			give_specimen = { key = ytterite_preserved_corpse }
+			remove_country_flag = has_ytterite_preserved_corpse
+		}
+		if = {
+			limit = {
+				has_country_flag = has_ytterite_kaleidoscopic_fascinator
+			}
+			give_specimen = { key = ytterite_kaleidoscopic_fascinator }
+			remove_country_flag = has_ytterite_kaleidoscopic_fascinator
+		}
+		if = {
+			limit = {
+				has_country_flag = has_ytterite_royal_scepter
+			}
+			give_specimen = { key = ytterite_royal_scepter }
+			remove_country_flag = has_ytterite_royal_scepter
+		}
+		if = {
+			limit = {
+				has_country_flag = has_yuht_audio_console
+			}
+			give_specimen = { key = yuht_audio_console }
+			remove_country_flag = has_yuht_audio_console
+		}
+		if = {
+			limit = {
+				has_country_flag = has_yuht_cryo_pod
+			}
+			give_specimen = { key = yuht_cryo_pod }
+			remove_country_flag = has_yuht_cryo_pod
+		}
+		if = {
+			limit = {
+				has_country_flag = has_yuht_crystal_skull
+			}
+			give_specimen = { key = yuht_crystal_skull }
+			remove_country_flag = has_yuht_crystal_skull
+		}
+		if = {
+			limit = {
+				has_country_flag = has_zombie_probe
+			}
+			give_specimen = { key = zombie_probe }
+			remove_country_flag = has_zombie_probe
+		}
+		if = {
+			limit = {
+				has_country_flag = has_zone_a_sedative
+			}
+			give_specimen = { key = zone_a_sedative }
+			remove_country_flag = has_zone_a_sedative
+		}
+		if = {
+			limit = {
+				has_country_flag = has_zroni_war_banners
+			}
+			give_specimen = { key = zroni_war_banners }
+			remove_country_flag = has_zroni_war_banners
+		}
+		if = {
+			limit = {
+				has_country_flag = has_zulcor_wings
+			}
+			give_specimen = { key = zulcor_wings }
+			remove_country_flag = has_zulcor_wings
+		}
+	}
+}

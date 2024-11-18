@@ -1,0 +1,60 @@
+# Change log of 28/10/2024
+
+## ZoFE 4.1.3 Patch
+
+Notes
+* Disabled Utopian Habitat decision until it's reworked.
+* Updated for Stellaris 3.14.1
+* We can't port over your space fauna [vivarium] due to limitations, your specimens however are safe.
+
+Fixes
+* Vanilla
+ - Fixed is_zofe_utopian_ring trigger.
+ - Fixes to ZoFE civics.
+ - Fixes for ZoFE buildings.
+ - Fixes for some wargoals.
+ - You can now extort the Hedonist Faction.
+ - Fixed ZoFE ship roles.
+ - Added subjects joining their Ascended or Awakened empire's war to an on_action, helping performance.
+ - Fixed Utopian World Creation Decisions not having the proper cost for World Architect Civic.
+ - Fixed ZoFE Localization issues.
+ - Mastery of Nature is no longer allowed if you have a Planetscaper civic[s].
+ - Fixed wrong tooltip on L size Titan Plating showing armor instead of hull.
+ - Fixed some components not upgrading on certain ship classes.
+ - Fallen Tier Clone Vat is now restricted to Sandbox and is a direct upgrade from the base Clone Vat building.
+ - Cosmogenesis empires can no longer research Dark Matter and Living Metal production buildings until they win the game and become a ZoFE country.
+ - Fixed Lost Technologies: Automated Industries event allowing options even if you don't own prerequisite tech for the option.
+ - Fixed an issue that could cause decadence situations to continue piling up for gestalt empires.
+ - Fixed not being able to increase Dyson Sphere limit through Ascendancy Affairs Office.
+
+* Sandbox
+ - Fixed Marauder leader hire events.
+ - Fixed descriptor version.
+ - Fixed a ZoFE gamerule.
+ - Wargoal and Casus Belli overhaul and overwrite.
+ - Fixed Arcology decision being usable on ZoFE Utopian Worlds if you picked up the Ascension Perk.
+ - The new Capital Building added via decision now has proper jobs depending on your civic of choice.
+ - Bio-Trophy citizenship overwrite now works as intended.
+ - As a Synth Ascended Empire you can now assimilate robot pops [thank you paradox for the hardcoded things].
+ - Fixed Citizenship types for robot pops [also thank you paradox].
+ - Fixed specimens being lost on zofe country type change.
+ - If you own the Astral Planes DLC, your Astral Threads are now exported upon country type change.
+ - You can now use vanilla capital designations as a lost empire.
+
+Game Content and Changes
+* Vanilla
+ - Research Dark Matter Power Core Artifact action now requires 1.5k minor artifacts instead of 5k, to compensate gambling has returned, have fun.
+ - Added an option to increase the limit of Dyson Swarms and Arc Furnaces through Ascendancy Affairs Office.
+ - Added Lost Empire colony designations for gestalt capital planets.
+ 
+* Sandbox
+ - Added additional game rule for pissing off Lost Empires.
+ - Added a new Policy for Lost Empires which controls construction on their border.
+ - Added Fallen Empire demand events to the Ascendancy Affairs Office for Lost Empires.
+ - Added Fallen Empire gift events to the Ascendancy Affairs Office for Lost Empires.
+ - Added Fallen Empire Punishment Casus Belli for Lost Empires.
+ - Added Fallen Empire wargoals for Lost Empires.
+ - Upon forming the Galactic Imperium your Fanatic Ethic remains the same if you are an Ascended Empire.
+
+Suggestions Added
+* Members within the Galactic Community/Galactic Imperium are now under the sphere of influence of the Galactic Custodian/Emperor in the Ascendancy Affairs Office.

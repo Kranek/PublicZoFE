@@ -1,0 +1,612 @@
+#Root = target country
+#This = country
+
+is_valid_rival = {
+	custom_tooltip = {
+		fail_text = INVALID_RIVAL_DESC
+		root = {
+			OR = {
+				prev = { NOT = { is_playable_country = yes } }
+				AND = {
+					relative_power = { who = prev value >= inferior }
+					OR = {
+						relative_power = { who = prev value <= superior }
+						prev = { has_policy_flag = diplo_stance_animosity }
+					}
+				}
+				is_country_type = mirrored_country # Mirrored Empire doesn't have relative power but we want to be rivals anyway
+			}
+		}
+	}
+}
+
+# Root = claimer
+# This = system
+can_add_claim = {
+	hidden_trigger = {
+		if = {
+			limit = {
+				root = { NOT = { is_playable_country = yes } }
+			}
+			always = yes
+		}
+	}
+	custom_tooltip = {
+		fail_text = CANNOT_ADD_CLAIM_POLICY
+		OR = {
+			root = { has_policy_flag = unrestricted_wars }
+			AND = {
+				exists = owner
+				owner = { is_gestalt = yes }
+			}
+			AND = {
+				exists = owner
+				owner = {
+					any_war = {
+						any_attacker = { is_same_value = prevprev }
+						any_defender = { is_same_value = root }
+					}
+				}
+			}
+		}
+	}
+	custom_tooltip = {
+		fail_text = CANNOT_ADD_CLAIM_NOT_VALID_EMPIRE
+		NAND = {
+			exists = owner
+			owner = {
+				NOR = {
+					is_playable_country = yes
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
+				}
+			}
+		}
+	}
+	custom_tooltip = {
+		fail_text = CANNOT_ADD_CLAIM_DEVOURING_SWARM
+		NAND = {
+			root = { has_valid_civic = civic_hive_devouring_swarm }
+			root = { is_lithoid_empire = no }
+		}
+	}
+	custom_tooltip = {
+		fail_text = CANNOT_ADD_CLAIM_DEVOURING_SWARM_LITHOID
+		NAND = {
+			root = { has_valid_civic = civic_hive_devouring_swarm }
+			root = { is_lithoid_empire = yes }
+		}
+	}
+	custom_tooltip = {
+		fail_text = CANNOT_ADD_CLAIM_ASSIMILATOR
+		NOT = { root = { has_valid_civic = civic_machine_assimilator } }
+	}
+	custom_tooltip = {
+		fail_text = CANNOT_ADD_CLAIM_PURIFIERS
+		NAND = {
+			exists = owner
+			root = { has_valid_civic = civic_fanatic_purifiers }
+			NOT = {	owner = { is_same_species = root } }
+		}
+	}
+	custom_tooltip = {
+		fail_text = CANNOT_ADD_CLAIM_EXTERMINATOR
+		NAND = {
+			exists = owner
+			root = { has_valid_civic = civic_machine_terminator }
+			owner = {
+				NOR = {
+					is_same_species = root
+					has_country_flag = synthetic_empire
+					is_machine_empire = yes
+					is_individual_machine = yes
+				}
+			}
+		}
+	}
+	custom_tooltip = {
+		fail_text = CANNOT_ADD_CLAIM_THEY_THREAT
+		NAND = {
+			exists = owner
+			owner = {
+				OR = {
+					has_valid_civic = civic_hive_devouring_swarm
+					has_valid_civic = civic_fanatic_purifiers
+					has_valid_civic = civic_machine_terminator
+					has_valid_civic = civic_machine_assimilator
+				}
+			}
+			root = {
+				NOR = {
+					has_valid_civic = civic_hive_devouring_swarm
+					has_valid_civic = civic_fanatic_purifiers
+					has_valid_civic = civic_machine_terminator
+					has_valid_civic = civic_machine_assimilator
+				}
+			}
+		}
+	}
+}
+
+# Root = taker country
+# This = giver country
+can_get_claim_from_lost_system = {
+	custom_tooltip = {
+		fail_text = CANNOT_ADD_CLAIM_NOT_VALID_EMPIRE
+		OR = {
+			is_playable_country = yes
+			is_country_type = fallen_empire
+			is_country_type = awakened_fallen_empire
+		}
+		root = {
+			OR = {
+				is_playable_country = yes
+				is_country_type = fallen_empire
+				is_country_type = awakened_fallen_empire
+			}
+		}
+	}
+	custom_tooltip = {
+		fail_text = CANNOT_ADD_CLAIM_DEVOURING_SWARM
+		NOT = { has_valid_civic = civic_hive_devouring_swarm }
+	}
+	custom_tooltip = {
+		fail_text = CANNOT_ADD_CLAIM_ASSIMILATOR
+		NOT = { has_valid_civic = civic_machine_assimilator }
+	}
+	custom_tooltip = {
+		fail_text = CANNOT_ADD_CLAIM_PURIFIERS
+		NAND = {
+			has_valid_civic = civic_fanatic_purifiers
+			NOT = {	is_same_species = root }
+		}
+	}
+	custom_tooltip = {
+		fail_text = CANNOT_ADD_CLAIM_EXTERMINATOR
+		NAND = {
+			has_valid_civic = civic_machine_terminator
+			NOR = {
+				is_same_species = root
+				has_country_flag = synthetic_empire
+				is_machine_empire = yes
+			}
+		}
+	}
+}
+
+# Root = Bombarding country
+# This = Receiving country
+should_surrender_planets_to = {
+	is_playable_country = yes
+	is_gestalt = no
+	is_homicidal = no
+	is_crisis_faction = no
+	is_primitive = no
+	root = {
+		is_homicidal = no
+		is_crisis_faction = no
+		is_primitive = no
+		is_playable_country = yes
+	}
+}
+
+
+#Root = country, attacker
+#This = country, target
+#This rule is a condition for taking hostile actions towards neutral targets. Such as landing troops or attacking their fleets
+can_take_hostile_actions = {
+	if = {
+		limit = {
+			ROOT = {
+				NOT = { has_policy_flag = first_contact_attack_allowed }
+			}
+			NOT = {
+				is_hostile = ROOT
+				has_communications = ROOT
+			}
+		}
+		custom_tooltip = {
+			text = "CAN_TAKE_HOSTILE_ACTION_FIRST_CONTACT_PROTOCOL"
+			always = no
+		}
+	}
+	else_if = {
+		limit = {
+			has_country_flag = fotd_seperatist_country@ROOT
+			ROOT = {
+				has_origin = origin_fear_of_the_dark
+			}
+		}
+		custom_tooltip = {
+			text = "CAN_TAKE_HOSTILE_ACTION_FOTD"
+			always = no
+		}
+	}
+	else_if = {
+		limit = {
+			AND = {
+				NOT = { has_country_flag = hostile_to_nomads }
+				ROOT = {
+					is_country_type = nomad
+				}
+			}
+		}
+		custom_tooltip = {
+			text = "CAN_TAKE_HOSTILE_ACTION_FIRST_CONTACT_PROTOCOL"
+			always = no
+		}
+	}
+	else_if = {
+		#attacking primitives with non-interference
+		limit = {
+			ROOT = {
+				is_playable_country = yes
+				NOT = {
+					has_policy_flag = interference_aggressive
+				}
+			}
+			is_primitive = yes
+		}
+		custom_tooltip = {
+			text = "CAN_TAKE_HOSTILE_ACTION_NATIVE_INTERFERENCE"
+			always = no
+		}
+	}
+	else_if = {
+		limit = {
+			is_primitive = yes
+			ROOT = { is_playable_country = yes }
+			capital_scope = {
+				root = {
+					NOT = {
+						any_planet_within_border = {
+							is_same_value = prevprev
+						}
+					}
+				}
+			}
+		}
+		custom_tooltip = {
+			text = ""
+			always = no
+		}
+	}
+	else_if = {
+		limit = {
+			ROOT = { any_agreement = { agreement_preset = preset_satrapy } }
+			is_country_type = faction
+			root = {
+				any_owned_planet = {
+					exists = controller
+					controller = {
+						is_same_value = prevprevprev
+					}
+				}
+			}
+		}
+		custom_tooltip = {
+			text = ""
+			always = yes
+		}
+	}
+	else_if = {
+		limit = {
+			exists = overlord
+			ROOT = { any_agreement = { agreement_preset = preset_satrapy } }
+		}
+		custom_tooltip = {
+			text = "CAN_TAKE_HOSTILE_ACTION_SATRAPY"
+			always = no
+		}
+	}
+	else_if = {
+		limit = {
+			exists = overlord
+			overlord = { is_same_value = root }
+			ROOT = { any_agreement = { agreement_preset = preset_satrapy } }
+		}
+		custom_tooltip = {
+			text = "CAN_TAKE_HOSTILE_ACTION_OVERLORD"
+			always = no
+		}
+	}
+	else = {
+		always = yes
+	}
+}
+
+# this = ship
+# root = country that kills ship
+can_spawn_debris = {
+	root = { is_playable_country = yes }
+	exists = owner
+	owner = { NOT = { has_ascension_perk = ap_enigmatic_engineering } }
+}
+
+
+# this = country
+can_spawn_occupation_armies = {
+	OR = {
+		is_playable_country = yes
+		is_zofe_oe = yes
+		is_country_type = fallen_empire
+		is_country_type = awakened_fallen_empire
+	}
+}
+
+
+# This = country
+can_use_galactic_market = {
+	is_playable_country = yes
+	NOR = {
+		has_civic = civic_fanatic_purifiers
+		has_civic = civic_hive_devouring_swarm
+		has_civic = civic_machine_terminator
+	}
+}
+
+# This = country
+can_be_part_of_galactic_community = {
+	custom_tooltip = {
+		fail_text = "community_default_failtext"
+		is_playable_country = yes
+	}
+	custom_tooltip = {
+		fail_text = "community_homicidal_failtext"
+		NOR = {
+			has_civic = civic_fanatic_purifiers
+			has_civic = civic_hive_devouring_swarm
+			has_civic = civic_machine_terminator
+		}
+	}
+	custom_tooltip = {
+		fail_text = "community_declared_crisis_failtext"
+		has_been_declared_crisis = no
+	}
+	custom_tooltip = {
+		fail_text = "community_declared_crisis_failtext"
+		#fail_text = "community_overlord_declared_crisis_failtext"
+		OR = {
+			NOT = { exists = overlord }
+			overlord = { has_been_declared_crisis = no }
+		}
+	}
+}
+
+# This = country
+can_be_part_of_galactic_empire = {
+	custom_tooltip = {
+		fail_text = "community_default_failtext"
+		is_playable_country = yes
+	}
+	custom_tooltip = {
+		fail_text = "community_homicidal_failtext"
+		NOR = {
+			has_civic = civic_fanatic_purifiers
+			has_civic = civic_hive_devouring_swarm
+			has_civic = civic_machine_terminator
+		}
+	}
+	custom_tooltip = {
+		fail_text = "community_declared_crisis_failtext"
+		has_been_declared_crisis = no
+	}
+	custom_tooltip = {
+		fail_text = "community_declared_crisis_failtext"
+		#fail_text = "community_overlord_declared_crisis_failtext"
+		OR = {
+			NOT = { exists = overlord }
+			overlord = { has_been_declared_crisis = no }
+		}
+	}
+}
+
+# This = country
+can_be_part_of_galactic_council = {
+	is_playable_country = yes
+	NOR = {
+		has_civic = civic_fanatic_purifiers
+		has_civic = civic_hive_devouring_swarm
+		has_civic = civic_machine_terminator
+	}
+}
+
+# This = planet
+# Checked before can_pop_auto_migrate to save performance
+can_planet_auto_migrate = {
+	custom_tooltip = {
+		fail_text = AUTO_MIGRATE_CULTURE_SHOCK
+		NOT = { has_modifier = planet_culture_shock }
+	}
+	custom_tooltip = {
+		fail_text = AUTO_MIGRATE_COLONY_TOO_NEW
+		OR = {
+			colony_age > 60
+			is_capital = yes # Don't break Doomsday!
+		}
+	}
+	custom_tooltip = {
+		fail_text = AUTO_MIGRATE_ONLY_HAS_ONE_POP
+		num_sapient_pops > 1 
+	}
+	hidden_trigger = {
+		exists = owner
+		owner = {
+			OR = {
+				is_playable_country = yes
+				is_country_type = awakened_fallen_empire
+			}
+		}
+	}
+}
+
+# From = country, country that tries to connect using relay network
+# ROOT/This = country, target country to connect to using relay network
+can_country_connect_to_relay_network = {
+	AND = {
+		is_primitive = no
+		OR = {
+			is_playable_country = yes
+			is_subject = yes
+			is_overlord = yes
+		}
+	}
+}
+
+
+
+# This = leader, leader we'd like to trade
+# Root = country, country that owns the leader currently
+# From = country, country that would receive the leader
+can_trade_leader = {
+	# The leader must have a trait from a specialist subject type.
+	this = {
+		has_specialist_subject_leader_trait = yes
+		is_councilor = no
+		is_heir = no
+	}
+	OR = {
+		AND = { # Either from subject to Overlord
+			ROOT = {
+				is_subject = yes
+			}
+			FROM = {
+				is_overlord_to = ROOT
+			}
+		}
+		AND = { # Or from a tactical cogitator empire to a NON tactical cogitator empire
+			ROOT = { has_valid_civic = civic_machine_tactical_algorithms }
+			FROM = {
+				NOT = { has_valid_civic = civic_machine_tactical_algorithms }
+				is_fallen_empire = no
+				NOT = {
+					any_owned_leader = {
+						has_trait = leader_trait_tactical_algorithms
+					}
+				}
+			}
+		}
+	}
+	# The subject and overlord must both be regular empires, machine intelligences or hive-minds.
+	OR = {
+		AND = {
+			ROOT = {
+				is_regular_empire = yes
+			}
+			FROM = {
+				is_regular_empire = yes
+			}
+		}
+		AND = {
+			ROOT = {
+				is_machine_empire = yes
+			}
+			FROM = {
+				is_machine_empire = yes
+			}
+		}
+		AND = {
+			ROOT = {
+				is_hive_empire = yes
+			}
+			FROM = {
+				is_hive_empire = yes
+			}
+		}
+		AND = { # Tactical Cogitator option
+			ROOT = {
+				has_valid_civic = civic_machine_tactical_algorithms
+			}
+			FROM = {
+				OR = {
+					is_regular_empire = yes
+					is_hive_empire = yes
+					is_machine_empire = yes
+				}
+				NOT = { has_country_flag = no_murdering_tactical_leaders }
+				NOT = {
+					any_owned_leader = {
+						has_trait = leader_trait_tactical_algorithms
+					}
+				}
+			}
+		}
+	}
+	# Can't trade gestalt nodes
+	is_gestalt_node = no
+	# The overlord can't be a fallen or awakened empire.
+	ROOT = {
+		NAND = {
+			is_overlord = yes
+			OR = {
+				is_country_type = fallen_empire
+				is_country_type = awakened_fallen_empire
+				is_country_type = original_empire
+				is_country_type = awakened_original_empire
+			}
+		}
+	}
+	NOR = {
+		has_trait = leader_trait_fotd_scientist
+		has_trait = leader_trait_fotd_commander
+	}
+}
+
+# This = fleet, fleet we'd like to trade
+# Root = country, country that owns the fleet currently
+# From = country, country that would receive the fleet
+can_trade_fleet = {
+	AND = {
+		ROOT = {
+			NAND = {
+				is_overlord = yes
+				OR = {
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
+					is_country_type = original_empire
+					is_country_type = awakened_original_empire
+				}
+			}
+		}
+		NOT = { has_fleet_flag = dimensional_fleet }
+	}
+}
+# Will colonizing this planet tick off a fallen empire?
+# Root = lost/fallen empire
+# This = planet
+will_anger_fallen_empire = {
+	OR = {
+		AND = {
+			root = {
+				AND = {
+					is_country_type = lost_empire
+					has_policy_flag = demand_clear_borders
+				}
+			}
+			is_neighbor_of = root
+		}
+		AND = {
+			root = { has_ai_personality_behaviour = demands_clear_borders }
+			is_neighbor_of = root
+		}
+		AND = {
+			root = { has_ai_personality_behaviour = holy_planets }
+			has_modifier = "holy_planet"
+			space_owner = {
+				NOT = { has_relic = r_severed_head }
+			}
+		}
+	}
+}
+#this/root = pop
+#checked if job's possible_precalc = can_fill_precursor_job
+can_fill_precursor_job = {
+	custom_tooltip = SPECIALIST_JOB_TRIGGER
+	hidden_trigger = {
+		exists = owner
+		OR = {
+			owner = { is_fallen_empire = yes }
+			owner = { is_zofe_oe = yes }
+		}
+	}
+}

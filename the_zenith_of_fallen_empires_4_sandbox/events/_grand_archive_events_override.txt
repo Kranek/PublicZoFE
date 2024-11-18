@@ -1,0 +1,222 @@
+namespace = grand_archive
+
+# If a country becomes playable or is created during voidworms crisis, becomes immune
+# this = country
+country_event = {
+	id = grand_archive.2350
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_grand_archive_dlc = yes
+		is_playable_country = yes
+		is_voidworms_crisis_active = yes
+	}
+
+	immediate = {
+		set_country_flag = voidworms_bombardment_disabled
+	}
+}
+
+# Cutholoid revealed on_entering_system_fleet
+# Scope = fleet
+# From = System
+fleet_event = {
+	id = grand_archive.3030
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_grand_archive_dlc = yes
+		exists = event_target:cutholoids_country
+		controller = {
+			is_playable_country = yes
+			has_communications = event_target:cutholoids_country
+		}
+	}
+
+	immediate = {
+		from = {
+			every_system_planet = {
+				limit = { is_planet_class = pc_cutholoid }
+				save_event_target_as = revealed_cutholoid
+				spawn_cutholoid_from_asteroid = {
+					LOCATION = event_target:revealed_cutholoid
+				}
+			}
+		}
+	}
+}
+
+# Transfer ship to mia
+# This = Engulfed Ship (Defender)
+# From = Engulfing Ship (Attacker)
+ship_event = {
+	id = grand_archive.3200
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		from = {
+			exists = controller
+			controller = { is_playable_country = yes }
+		}
+	}
+
+	immediate = {
+		switch = {
+			trigger = is_ship_size
+			space_whale_1 = { from.controller = { add_resource = { food = 1000 } } }
+			space_whale_2 = { from.controller = { add_resource = { food = 1000 } } }
+			space_whale_3 = { from.controller = { add_resource = { food = 1000 } } }
+			space_whale_4 = { from.controller = { add_resource = { food = 1000 } } }
+			space_whale_5 = { from.controller = { add_resource = { food = 1000 } } }
+			space_amoeba = { from.controller = { add_resource = { physics_research = 500 } } }
+			space_amoeba_mother = { from.controller = { add_resource = { physics_research = 1000 } } }
+			voidworms_small = { from.controller = { add_resource = { food = 100 } } }
+			voidworms_medium = { from.controller = { add_resource = { food = 200 } } }
+			crystal_ship_small_blue = { from.controller = { add_resource = { rare_crystals = 50 } } }
+			crystal_ship_medium_blue = { from.controller = { add_resource = { rare_crystals = 100 } } }
+			crystal_ship_large_blue = { from.controller = { add_resource = { rare_crystals = 150 } } }
+			crystal_ship_small_green = { from.controller = { add_resource = { rare_crystals = 50 } } }
+			crystal_ship_medium_green = { from.controller = { add_resource = { rare_crystals = 100 } } }
+			crystal_ship_large_green = { from.controller = { add_resource = { rare_crystals = 150 } } }
+			crystal_ship_small_yellow = { from.controller = { add_resource = { rare_crystals = 50 } } }
+			crystal_ship_medium_yellow = { from.controller = { add_resource = { rare_crystals = 100 } } }
+			crystal_ship_large_yellow = { from.controller = { add_resource = { rare_crystals = 150 } } }
+			crystal_ship_small_red = { from.controller = { add_resource = { rare_crystals = 50 } } }
+			crystal_ship_medium_red = { from.controller = { add_resource = { rare_crystals = 100 } } }
+			crystal_ship_large_red = { from.controller = { add_resource = { rare_crystals = 150 } } }
+			crystal_ship_small_blue_elite = { from.controller = { add_resource = { rare_crystals = 100 } } }
+			crystal_ship_medium_blue_elite = { from.controller = { add_resource = { rare_crystals = 150 } } }
+			crystal_ship_large_blue_elite = { from.controller = { add_resource = { rare_crystals = 200 } } }
+			crystal_ship_small_green_elite = { from.controller = { add_resource = { rare_crystals = 100 } } }
+			crystal_ship_medium_green_elite = { from.controller = { add_resource = { rare_crystals = 150 } } }
+			crystal_ship_large_green_elite = { from.controller = { add_resource = { rare_crystals = 200 } } }
+			crystal_ship_small_yellow_elite = { from.controller = { add_resource = { rare_crystals = 100 } } }
+			crystal_ship_medium_yellow_elite = { from.controller = { add_resource = { rare_crystals = 150 } } }
+			crystal_ship_large_yellow_elite = { from.controller = { add_resource = { rare_crystals = 200 } } }
+			crystal_ship_small_red_elite = { from.controller = { add_resource = { rare_crystals = 100 } } }
+			crystal_ship_medium_red_elite = { from.controller = { add_resource = { rare_crystals = 150 } } }
+			crystal_ship_large_red_elite = { from.controller = { add_resource = { rare_crystals = 200 } } }
+			default = {
+				create_fleet = {
+					name = fleet
+					effect = {
+						set_owner = prev.from.controller
+						set_location = prev.fleet
+						create_ship = {
+							name = random
+							design = prev
+							graphical_culture = prev
+							graphical_culture_fallback = prev.controller
+							upgradable = no
+						}
+						set_mia = mia_return_home
+						set_mia_return_delay = @engulf_return_delay_in_days
+					}
+				}
+			}
+		}
+	}
+}
+
+# Grand Archive Destroyed effect after system is destroyed
+# This = starbase being destroyed (not ship!)
+# From = fleet that destroyed the starbase
+starbase_event = {
+	id = grand_archive.4500
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		solar_system = {
+			any_system_megastructure = { is_megastructure_type = grand_archive_0 }
+		}
+	}
+
+	immediate = {
+		solar_system = {
+			every_system_megastructure = {
+				limit = { is_megastructure_type = grand_archive_0 }
+				if = {
+					limit = { exists = planet }
+					planet = { save_event_target_as = grand_archive_location }
+				}
+				else = {
+					prev = { save_event_target_as = grand_archive_location }
+				}
+				destroy_grand_archive = yes
+			}
+		}
+
+		owner = {
+			# Cleanup
+			remove_country_flag = ga_destroyed_contains_specimen
+			remove_country_flag = ga_destroyed_contains_space_fauna
+
+			if = {
+				limit = { num_vivarium_slots > 0 }
+				set_country_flag = ga_destroyed_contains_space_fauna
+				release_all_vivarium_fauna = { LOCATION = event_target:grand_archive_location }
+			}
+			set_country_flag = grand_archive_destroyed
+		}
+
+		if = {
+			limit = {
+				exists = from.controller
+				from.controller = { is_playable_country = yes }
+			}
+			from.controller = {
+				country_event = {
+					id = grand_archive.4505
+					scopes = {
+						from = root.owner
+						fromfrom = root.solar_system
+					}
+				}
+			}
+		}
+		else = {
+			owner = {
+				country_event = { id = grand_archive.4520 }
+			}
+		}
+	}
+}
+
+ship_event = {
+	id = grand_archive.10000
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		is_space_fauna = yes
+		owner = {
+			is_playable_country = yes
+			has_technology = tech_controlled_mutations_2
+		}
+	}
+
+	immediate = {
+		switch = {
+			trigger = is_ship_size
+			inline_script = { script = grand_archive/mutations/unique_mutation_trigger_check_case SHIP_SIZE = space_amoeba SHIP_CATEGORY = space_amoeba EVENT_ID = grand_archive.10005 }
+			inline_script = { script = grand_archive/mutations/unique_mutation_trigger_check_case SHIP_SIZE = space_amoeba_mother SHIP_CATEGORY = space_amoeba EVENT_ID = grand_archive.10005 }
+			inline_script = { script = grand_archive/mutations/unique_mutation_trigger_check_case SHIP_SIZE = space_whale_1 SHIP_CATEGORY = tiyanki EVENT_ID = grand_archive.10006 }
+			inline_script = { script = grand_archive/mutations/unique_mutation_trigger_check_case SHIP_SIZE = space_whale_2 SHIP_CATEGORY = tiyanki EVENT_ID = grand_archive.10006 }
+			inline_script = { script = grand_archive/mutations/unique_mutation_trigger_check_case SHIP_SIZE = space_whale_3 SHIP_CATEGORY = tiyanki EVENT_ID = grand_archive.10006 }
+			inline_script = { script = grand_archive/mutations/unique_mutation_trigger_check_case SHIP_SIZE = space_whale_4 SHIP_CATEGORY = tiyanki EVENT_ID = grand_archive.10006 }
+			inline_script = { script = grand_archive/mutations/unique_mutation_trigger_check_case SHIP_SIZE = space_whale_5 SHIP_CATEGORY = tiyanki EVENT_ID = grand_archive.10006 }
+			inline_script = { script = grand_archive/mutations/unique_mutation_trigger_check_case SHIP_SIZE = voidworms_small SHIP_CATEGORY = voidworm EVENT_ID = grand_archive.10007 }
+			inline_script = { script = grand_archive/mutations/unique_mutation_trigger_check_case SHIP_SIZE = voidworms_medium SHIP_CATEGORY = voidworm EVENT_ID = grand_archive.10007 }
+			inline_script = { script = grand_archive/mutations/unique_mutation_trigger_check_case SHIP_SIZE = voidworms_large SHIP_CATEGORY = voidworm EVENT_ID = grand_archive.10007 }
+			inline_script = { script = grand_archive/mutations/unique_mutation_trigger_check_case SHIP_SIZE = voidworms_titan SHIP_CATEGORY = voidworm EVENT_ID = grand_archive.10007 }
+			inline_script = { script = grand_archive/mutations/unique_mutation_trigger_check_case SHIP_SIZE = cutholoids_hatchling SHIP_CATEGORY = cutholoid EVENT_ID = grand_archive.10008 }
+			inline_script = { script = grand_archive/mutations/unique_mutation_trigger_check_case SHIP_SIZE = cutholoids_juvenile SHIP_CATEGORY = cutholoid EVENT_ID = grand_archive.10008 }
+			inline_script = { script = grand_archive/mutations/unique_mutation_trigger_check_case SHIP_SIZE = cutholoids SHIP_CATEGORY = cutholoid EVENT_ID = grand_archive.10008 }
+		}
+	}
+}

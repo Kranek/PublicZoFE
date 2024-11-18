@@ -1,0 +1,17 @@
+@base_tradition_agenda_cost = 7000
+@short_agenda_cost = 3500
+agenda_zofe_ascension_theory = {
+	agenda_cost = @base_tradition_agenda_cost
+	allow = {
+		has_technology = tech_galactic_administration
+	}
+	potential = {
+		NOR = {
+			has_technology = tech_ascension_theory
+			has_tech_option = tech_ascension_theory
+		}
+	}
+	effect = {
+		give_technology = { tech = tech_ascension_theory }
+	}
+}

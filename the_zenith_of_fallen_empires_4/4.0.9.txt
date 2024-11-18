@@ -1,0 +1,16 @@
+4.0.9 Patch Notes
+
+*Updated for 3.11
+*Fixed FE warning to Original People loc error.
+*Added Starbase power cores as upgrades to vanilla.
+*Holy Thunder now has a point-defense weapon tag.
+*Experimentally removed 36 MTTH events, let me know if it improves performance.
+*DM Power event typo fix.
+*Lost Tech Components that are not Omni weapons have MA costs removed.
+*Original Empire Components have MA costs halved.
+*Improved tooltip for the Dark Matter Power Research using Artifacts to recommend the Archeoenginners AP in order to reach the 5000 MA cap required.
+*Tech costs of ZoFE technologies and projects have been reduced across the board.
+*Original Tech boosts reduced for Original People.
+*Added new edict that increases Lost Tech weapon damage and fire rate, accessible from Lost Tech menu.
+*Added new council agenda to give Ascension Theory technology once Galactic Administration has been researched.
+*Created Lost Empire Situation, a base upon which future Lost Empire content will be built.

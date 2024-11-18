@@ -1,0 +1,423 @@
+col_capital_foundry = {
+	icon = GFX_colony_type_capital_foundry
+
+	potential = {
+		is_capital = yes
+
+		exists = owner
+		owner = {
+			AND = {
+				OR = {
+					is_country_type = default
+					is_country_type = ascended_empire
+				}
+				OR = {
+					is_ai = no
+					AND = {
+						years_passed > 25
+						num_owned_planets >= 5
+					}
+				}
+			}
+		}
+	}
+
+	planet_modifier = {
+		planet_stability_add = 5
+		planet_resettlement_unemployed_destination_mult = 0.1
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			owner = {
+				OR = {
+					is_country_type = default
+					is_country_type = ascended_empire
+				}
+				is_machine_empire = no
+			}
+		}
+		planet_metallurgists_produces_mult = 0.15
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			owner = {
+				OR = {
+					is_country_type = default
+					is_country_type = ascended_empire
+				}
+				is_machine_empire = yes
+			}
+		}
+		planet_metallurgists_produces_mult = 0.20
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			owner = {
+				OR = {
+					is_country_type = default
+					is_country_type = ascended_empire
+				}
+				is_gestalt = no
+			}
+		}
+		planet_amenities_add = 10
+		pop_government_ethic_attraction = 1
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			owner = {
+				OR = {
+					is_country_type = default
+					is_country_type = ascended_empire
+				}
+				is_gestalt = yes
+			}
+		}
+		planet_amenities_no_happiness_add = 10
+		planet_crime_no_happiness_add = -20
+	}
+
+	triggered_planet_modifier = {
+		potential = { uses_district_set = ring_world }
+		pop_growth_speed = 0.1
+		planet_pop_assembly_mult = 0.1
+		planet_pop_assembly_organic_mult = 0.1
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { has_tradition = tr_adaptability_finish }
+		}
+		modifier = {
+			planet_jobs_produces_mult = 0.05
+		}
+	}
+
+	# used by AI to estimate what will happen when we change the designation
+	ai_resource_conversion = {
+		consumer_goods = 0
+		alloys = 2
+
+		trigger = {
+			owner = {
+				country_uses_consumer_goods = yes
+			}
+		}
+	}
+
+	ai_resource_current_conversion = {
+		alloys = 0.5
+		consumer_goods = -2
+
+		trigger = {
+			owner = {
+				country_uses_consumer_goods = yes
+			}
+		}
+	}
+
+	custom_tooltip = col_foundry_custom
+
+	weight_modifier = {
+		base = 0
+	}
+}
+
+col_capital_factory = {
+	icon = GFX_colony_type_capital_factory
+
+	potential = {
+		is_capital = yes
+
+		exists = owner
+		owner = {
+			AND = {
+				OR = {
+					is_country_type = default
+					is_country_type = ascended_empire
+				}
+				country_uses_consumer_goods = yes
+
+				OR = {
+					is_ai = no
+					AND = {
+						years_passed > 25
+						num_owned_planets >= 5
+					}
+				}
+			}
+		}
+	}
+
+	planet_modifier = {
+		planet_stability_add = 5
+		planet_resettlement_unemployed_destination_mult = 0.1
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			owner = {
+				OR = {
+					is_country_type = default
+					is_country_type = ascended_empire
+				}
+				is_machine_empire = no
+			}
+		}
+		planet_artisans_produces_mult = 0.15
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			owner = {
+				OR = {
+					is_country_type = default
+					is_country_type = ascended_empire
+				}
+				is_machine_empire = yes
+			}
+		}
+		planet_artisans_produces_mult = 0.20
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			owner = {
+				OR = {
+					is_country_type = default
+					is_country_type = ascended_empire
+				}
+				is_gestalt = no
+			}
+		}
+		planet_amenities_add = 10
+		pop_government_ethic_attraction = 1
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			owner = {
+				OR = {
+					is_country_type = default
+					is_country_type = ascended_empire
+				}
+				is_gestalt = yes
+			}
+		}
+		planet_amenities_no_happiness_add = 10
+		planet_crime_no_happiness_add = -20
+	}
+
+	triggered_planet_modifier = {
+		potential = { uses_district_set = ring_world }
+		pop_growth_speed = 0.1
+		planet_pop_assembly_mult = 0.1
+		planet_pop_assembly_organic_mult = 0.1
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { has_tradition = tr_adaptability_finish }
+		}
+		modifier = {
+			planet_jobs_produces_mult = 0.05
+		}
+	}
+
+	# used by AI to estimate what will happen when we change the designation
+	ai_resource_conversion = {
+		consumer_goods = 2
+		alloys = 0
+
+		trigger = {
+			owner = {
+				country_uses_consumer_goods = yes
+			}
+		}
+	}
+
+	custom_tooltip = col_factory_custom
+
+	# Used by AI to estimate the current effects of this designation
+	ai_resource_current_conversion = {
+		consumer_goods = 0.5
+		alloys = -0.5
+
+		trigger = {
+			owner = {
+				country_uses_consumer_goods = yes
+			}
+		}
+	}
+
+	weight_modifier = {
+		base = 0
+	}
+}
+
+col_capital_trade = {
+	icon = GFX_colony_type_capital_trade
+
+	potential = {
+		is_capital = yes
+
+		exists = owner
+		owner = {
+			AND = {
+				OR = {
+					is_country_type = default
+					is_country_type = ascended_empire
+				}
+				is_gestalt = no
+
+				OR = {
+					is_ai = no
+					AND = {
+						years_passed > 25
+						num_owned_planets >= 5
+					}
+				}
+			}
+		}
+	}
+
+	planet_modifier = {
+		planet_stability_add = 5
+		planet_amenities_add = 10
+		pop_government_ethic_attraction = 1
+		planet_resettlement_unemployed_destination_mult = 0.1
+		trade_value_mult = 0.15
+	}
+
+	triggered_planet_modifier = {
+		potential = { uses_district_set = ring_world }
+		pop_growth_speed = 0.1
+		planet_pop_assembly_mult = 0.1
+		planet_pop_assembly_organic_mult = 0.1
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { has_tradition = tr_adaptability_finish }
+		}
+		modifier = {
+			planet_jobs_produces_mult = 0.05
+		}
+	}
+
+	weight_modifier = {
+		base = 0
+	}
+}
+
+col_capital_extraction = {
+	icon = GFX_colony_type_capital_extraction
+
+	potential = {
+		is_capital = yes
+
+		exists = owner
+		owner = {
+			AND = {
+				OR = {
+					is_country_type = default
+					is_country_type = ascended_empire
+				}
+				OR = {
+					is_ai = no
+					AND = {
+						years_passed > 25
+						num_owned_planets >= 5
+					}
+				}
+			}
+		}
+	}
+
+	planet_modifier = {
+		planet_stability_add = 5
+		planet_resettlement_unemployed_destination_mult = 0.1
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			owner = {
+				OR = {
+					is_country_type = default
+					is_country_type = ascended_empire
+				}
+				is_machine_empire = no
+			}
+		}
+		planet_jobs_worker_produces_mult = 0.15
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			owner = {
+				OR = {
+					is_country_type = default
+					is_country_type = ascended_empire
+				}
+				is_machine_empire = yes
+			}
+		}
+		planet_jobs_worker_produces_mult = 0.20
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			owner = {
+				OR = {
+					is_country_type = default
+					is_country_type = ascended_empire
+				}
+				is_gestalt = no
+			}
+		}
+		planet_amenities_add = 10
+		pop_government_ethic_attraction = 1
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			owner = {
+				OR = {
+					is_country_type = default
+					is_country_type = ascended_empire
+				}
+				is_gestalt = yes
+			}
+		}
+		planet_amenities_no_happiness_add = 10
+		planet_crime_no_happiness_add = -20
+	}
+
+	triggered_planet_modifier = {
+		potential = { uses_district_set = ring_world }
+		pop_growth_speed = 0.1
+		planet_pop_assembly_mult = 0.1
+		planet_pop_assembly_organic_mult = 0.1
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { has_tradition = tr_adaptability_finish }
+		}
+		modifier = {
+			planet_jobs_produces_mult = 0.05
+		}
+	}
+
+	weight_modifier = {
+		base = 0
+	}
+}

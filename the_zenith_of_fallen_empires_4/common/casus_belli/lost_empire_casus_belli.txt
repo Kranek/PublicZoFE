@@ -1,0 +1,139 @@
+##################
+# Lost Empire CB
+##################
+
+cb_banish_ascendancy = {
+	show_in_diplomacy = yes
+	show_notification = no
+	potential = {
+		zofe_sandbox = yes
+		OR = {
+			is_country_type = awakened_fallen_empire
+			is_country_type = ascended_empire
+			is_country_type = awakened_original_empire
+		}
+		NOR = {
+			has_valid_civic = civic_fanatic_purifiers
+			has_valid_civic = civic_hive_devouring_swarm
+			has_valid_civic = civic_machine_assimilator
+			has_valid_civic = civic_machine_terminator
+		}
+	}
+	is_valid = {
+		has_total_war_cb = yes
+		is_subject = no
+		NOT = { is_in_federation_with = from }
+		from = {
+			AND = {
+				OR = {
+					is_country_type = awakened_fallen_empire
+					is_country_type = ascended_empire
+				}
+				NOR = {
+					has_valid_civic = civic_fanatic_purifiers
+					has_valid_civic = civic_hive_devouring_swarm
+					has_valid_civic = civic_machine_assimilator
+					has_valid_civic = civic_machine_terminator
+				}
+			}
+		}
+		OR = {
+			opinion_level = { who = from level <= poor }
+			is_harming_relations_with = from
+			from = { has_rival = root }
+			ROOT = {
+				is_ai = no
+			}
+		}
+	}
+}
+
+
+cb_total_annihilation = {
+	show_in_diplomacy = yes
+	show_notification = no
+	potential = {
+		zofe_sandbox = yes
+		OR = {
+			AND = {
+				OR = {
+					is_country_type = ascended_empire
+					is_country_type = original_empire
+					is_country_type = awakened_original_empire
+					is_country_type = awakened_fallen_empire
+				}
+				NOR = {
+					has_valid_civic = civic_fanatic_purifiers
+					has_valid_civic = civic_hive_devouring_swarm
+					has_valid_civic = civic_machine_assimilator
+					has_valid_civic = civic_machine_terminator
+					has_valid_civic = civic_inwards_perfection
+					has_valid_civic = civic_barbaric_despoilers
+				}
+			}
+			has_country_flag = rebel_lost_empire_overlord
+		}
+	}
+	is_valid = {
+		has_total_war_cb = yes
+		NOT = { is_in_federation_with = from }
+		OR = {
+			from = {
+				OR = {
+					has_valid_civic = civic_fanatic_purifiers
+					has_valid_civic = civic_hive_devouring_swarm
+					has_valid_civic = civic_machine_assimilator
+					has_valid_civic = civic_machine_terminator
+				}
+			}
+			has_country_flag = rebel_lost_empire
+			AND = {
+				from = {
+					OR = {
+						is_country_type = ascended_empire
+						is_country_type = fallen_empire
+						is_country_type = awakened_fallen_empire
+					}
+				}
+				OR = {
+					is_country_type = original_empire
+					is_country_type = awakened_original_empire
+					has_opposing_fanatic_ethics = {
+						COUNTRY1 = root
+						COUNTRY2 = from
+					}
+					opinion_level = { who = from level <= terrible }
+					from = { has_rival = root }
+				}
+			}
+		}
+	}
+}
+
+cb_dismantle = {
+	show_in_diplomacy = no
+	show_notification = no
+	potential = {
+		zofe_sandbox = yes
+		is_country_type = default
+		NOR = {
+			has_valid_civic = civic_fanatic_purifiers
+			has_valid_civic = civic_hive_devouring_swarm
+			has_valid_civic = civic_machine_assimilator
+			has_valid_civic = civic_machine_terminator
+		}
+	}
+	is_valid = {
+		NAND = {
+			exists = overlord
+			overlord = { is_same_value = from }
+		}
+		from = {
+			OR = {
+				is_country_type = fallen_empire
+				is_country_type = lost_empire
+				is_country_type = original_empire
+			}
+		}
+	}
+}

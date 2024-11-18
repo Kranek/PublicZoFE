@@ -1,0 +1,79 @@
+###############################
+# Pop Faction Events
+# by Maximilian Olbers
+###############################
+
+namespace = factions
+
+# Killed Guardian
+country_event = {
+	id = factions.10
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		is_playable_country = yes
+		from = {
+			is_guardian_country = yes
+		}
+	}
+
+	immediate = {
+		set_country_flag = killed_guardian
+	}
+}
+
+# Established comms
+# via on_post_communications_established | this = country which established the communications; from = country communications were established with
+country_event = {
+	id = factions.11
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		OR = {
+			is_playable_country = yes
+			is_country_type = fallen_empire
+			is_country_type = awakened_fallen_empire
+			AND = {
+				is_country_type = primitive
+				current_awareness_level = full
+			}
+		}
+		from = {
+			is_playable_country = yes
+		}
+	}
+
+	immediate = {
+		set_timed_country_flag = {
+			flag = recent_comms_timed
+			days = @RecentCommsTimer
+		}
+		from = {
+			set_timed_country_flag = {
+				flag = recent_comms_timed
+				days = @RecentCommsTimer
+			}
+		}
+	}
+}
+
+# Invaded primitives
+country_event = {
+	id = factions.12
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		from = { is_country_type = primitive }
+		is_playable_country = yes
+	}
+
+	immediate = {
+		set_timed_country_flag = {
+			flag = recent_primitive_invasion
+			days = 7200 # 20 years
+		}
+	}
+}

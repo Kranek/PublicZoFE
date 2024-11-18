@@ -1,0 +1,14 @@
+4.0.10 Patch Notes
+
+*Changed ringworld's empire "precursor" trait to give +80 leader lifespawn instead of immortality and made it incompatible with enduring, venerable and fleeting traits.
+*Fixed Hedonist's faction name being empty.
+*Fixed some typos.
+*Fixed "The Chalice" ship component to now properly give shield hardening and PD multipliers.
+*Fixed some localization issues.
+*Fixed "The Quest for Dark Matter Power" event not firing.
+*FE will now properly punish an empire if they found out they are being spied on.
+*Updated Original portraits, made by Savitar.
+*Updated Original ship components, made by Savitar.
+*Fixed Original Technologies events not firing for Original People
+*Removed another 11 MTTH events relating to FE awakening, and another 2 relating to OE crisis.
+*Added more event fixes and added some AE country attributes to LE.

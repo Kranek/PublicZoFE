@@ -1,0 +1,15 @@
+original = {
+	species_class = ORIGINAL
+
+	portraits = {
+		original
+	}
+
+	non_randomized_portraits = {
+		"original"
+	}
+
+	non_pre_ftl_portraits = {
+		"original"
+	}
+}

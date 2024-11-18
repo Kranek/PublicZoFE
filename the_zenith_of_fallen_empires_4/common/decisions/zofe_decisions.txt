@@ -1,0 +1,1670 @@
+##########################################################################
+# Decisions
+##########################################################################
+
+# Mastery of Nature
+decision_ae_mastery_of_nature = {
+	owned_planets_only = yes
+	icon = decision_mastery_of_nature
+
+	enactment_time = 360
+	resources = {
+		category = decisions
+		cost = {
+			influence = 100
+			energy = 2000
+		}
+	}
+
+	prerequisites = {
+		"tech_mastery_of_nature"
+	}
+
+	potential = {
+		is_artificial = no
+		owner = {
+			has_technology = tech_mastery_of_nature
+			is_ascended_empire = yes
+			NOT = { has_ascension_perk = ap_mastery_of_nature }
+		}
+		NOT = { has_modifier = mastery_of_nature }
+	}
+
+	effect = {
+		add_modifier = {
+			modifier = mastery_of_nature
+			days = -1
+		}
+	}
+
+	ai_weight = {
+		weight = 5
+		modifier = {
+			factor = 0
+			free_district_slots > 0
+			num_pops < 50 #carrying capacity bonus always good at that stage
+		}
+	}
+}
+
+# Consecrate World Decision for Ascended Empires
+decision_ae_consecrated_worlds = {
+	icon = decision_consecrated_worlds
+	resources = {
+		category = decisions
+		cost = {
+			unity = 500
+		}
+	}
+
+	prerequisites = {
+		"tech_consecrated_worlds"
+	}
+
+	potential = {
+		exists = from
+		from = {
+			has_technology = tech_consecrated_worlds
+			is_ascended_empire = yes
+			OR = {
+				has_ethic = ethic_spiritualist
+				has_ethic = ethic_fanatic_spiritualist
+			}
+			NOT = { has_ascension_perk = ap_consecrated_worlds }
+		}
+		exists = space_owner
+		space_owner = { is_same_value = from }
+		is_star = no
+		is_artificial = no
+		is_ringworld = no
+		NOR = {
+			has_planet_flag = consecrated@from
+			has_modifier = consecrated_quality_1
+			has_modifier = consecrated_quality_2
+			has_modifier = consecrated_quality_3
+			has_modifier = consecrated_quality_4
+		}
+	}
+
+	allow = {
+		custom_tooltip = {
+			from = {
+				check_variable = {
+					which = num_consecrated_worlds
+					value < 3
+				}
+			}
+			fail_text = consecrated_worlds_too_many
+		}
+		custom_tooltip = {
+			NOT = { exists = owner }
+			fail_text = consecrated_worlds_planet_owned
+		}
+	}
+
+	effect = {
+		custom_tooltip = decision_consecrated_worlds_effects_custom
+		# determine quality tier, set variable
+		hidden_effect = {
+			set_planet_flag = consecrated@from
+			from = {
+				if = {
+					limit = { check_variable = { which = num_consecrated_worlds value < 1 }	}
+					set_variable = {
+						which = num_consecrated_worlds
+						value = 0
+					}
+				}
+				change_variable = {
+					which = num_consecrated_worlds
+					value = 1
+				}
+				if = {
+					limit = {
+						check_variable = {
+							which = consecrated_variable
+							value < 1
+						}
+					}
+					set_variable = {
+						which = consecrated_variable
+						value = 0
+					}
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						has_planet_flag = holy_world_1
+						has_planet_flag = holy_world_2
+						has_planet_flag = holy_world_3
+						has_planet_flag = holy_world_4
+					}
+					any_country = { has_country_flag = fallen_empire_2 }
+				}
+				random_country = {
+					limit = { has_country_flag = fallen_empire_2 }
+					add_opinion_modifier = {
+						who = from
+						modifier = opinion_worships_our_holy_world
+					}
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						is_planet_class = pc_asteroid
+						is_planet_class = pc_nuked
+						is_planet_class = pc_gas_giant
+						is_planet_class = pc_shielded
+						is_planet_class = pc_hive
+						is_planet_class = pc_machine
+						is_planet_class = pc_ai
+						is_planet_class = pc_city
+						is_planet_class = pc_relic
+					}
+				}
+				custom_tooltip = consecrated_worlds_unsuitable
+				random_list = {
+					80 = {
+						modifier = {
+							factor = 10
+							OR = {
+								is_planet_class = pc_hive
+								is_planet_class = pc_machine
+								is_planet_class = pc_ai
+								is_planet_class = pc_city
+								is_planet_class = pc_relic
+							}
+						}
+						add_modifier = {
+							modifier = consecrated_quality_1
+							days = -1
+						}
+
+						from = {
+							change_variable = {
+								which = consecrated_variable
+								value = 1
+							}
+						}
+					}
+					20 = {
+						add_modifier = {
+							modifier = consecrated_quality_2
+							days = -1
+						}
+						create_ambient_object = {
+							type = consecrated_planet_stage_1_object
+							location = this
+
+							use_3d_location = yes
+							entity_scale_to_size = yes
+						}
+
+						from = {
+							change_variable = {
+								which = consecrated_variable
+								value = 2
+							}
+						}
+					}
+					0 = {
+						add_modifier = {
+							modifier = consecrated_quality_3
+							days = -1
+						}
+						create_ambient_object = {
+							type = consecrated_planet_stage_2_object
+							location = this
+
+							use_3d_location = yes
+							entity_scale_to_size = yes
+						}
+
+						from = {
+							change_variable = {
+								which = consecrated_variable
+								value = 3
+							}
+						}
+					}
+					0 = {
+						add_modifier = {
+							modifier = consecrated_quality_4
+							days = -1
+						}
+						create_ambient_object = {
+							type = consecrated_planet_stage_3_object
+							location = this
+
+							use_3d_location = yes
+							entity_scale_to_size = yes
+						}
+
+						from = {
+							change_variable = {
+								which = consecrated_variable
+								value = 4
+							}
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = { uninhabitable_regular_planet = yes }
+				custom_tooltip = consecrated_worlds_unsuitable
+				random_list = {
+					10 = {
+						add_modifier = {
+							modifier = consecrated_quality_1
+							days = -1
+						}
+
+						from = {
+							change_variable = {
+								which = consecrated_variable
+								value = 1
+							}
+						}
+					}
+					70 = {
+						add_modifier = {
+							modifier = consecrated_quality_2
+							days = -1
+						}
+						create_ambient_object = {
+							type = consecrated_planet_stage_1_object
+							location = this
+
+							use_3d_location = yes
+							entity_scale_to_size = yes
+						}
+
+						from = {
+							change_variable = {
+								which = consecrated_variable
+								value = 2
+							}
+						}
+					}
+					20 = {
+						modifier = {
+						add = 20
+							AND = {
+								root.space_owner = {
+									has_origin = origin_toxic_knights
+								}
+								is_planet_class = pc_toxic
+							}
+							is_planet_class = pc_toxic
+						}
+						add_modifier = {
+							modifier = consecrated_quality_3
+							days = -1
+						}
+						create_ambient_object = {
+							type = consecrated_planet_stage_2_object
+							location = this
+
+							use_3d_location = yes
+							entity_scale_to_size = yes
+						}
+
+						from = {
+							change_variable = {
+								which = consecrated_variable
+								value = 3
+							}
+						}
+					}
+					0 = {
+						modifier = {
+							add = 20
+							AND = {
+								root.space_owner = {
+									has_origin = origin_toxic_knights
+								}
+								is_planet_class = pc_toxic
+							}
+						}
+						add_modifier = {
+							modifier = consecrated_quality_4
+							days = -1
+						}
+						create_ambient_object = {
+							type = consecrated_planet_stage_3_object
+							location = this
+
+							use_3d_location = yes
+							entity_scale_to_size = yes
+						}
+
+						from = {
+							change_variable = {
+								which = consecrated_variable
+								value = 4
+							}
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					habitable_planet = yes
+					NOT = { is_planet_class = pc_gaia }
+				}
+				custom_tooltip = consecrated_worlds_suitable
+				random_list = {
+					0 = {
+						add_modifier = {
+							modifier = consecrated_quality_1
+							days = -1
+						}
+
+						from = {
+							change_variable = {
+								which = consecrated_variable
+								value = 1
+							}
+						}
+					}
+					50 = {
+						add_modifier = {
+							modifier = consecrated_quality_2
+							days = -1
+						}
+						create_ambient_object = {
+							type = consecrated_planet_stage_1_object
+							location = this
+
+							use_3d_location = yes
+							entity_scale_to_size = yes
+						}
+
+						from = {
+							change_variable = {
+								which = consecrated_variable
+								value = 2
+							}
+						}
+					}
+					40 = {
+						add_modifier = {
+							modifier = consecrated_quality_3
+							days = -1
+						}
+						create_ambient_object = {
+							type = consecrated_planet_stage_2_object
+							location = this
+
+							use_3d_location = yes
+							entity_scale_to_size = yes
+						}
+
+						from = {
+							change_variable = {
+								which = consecrated_variable
+								value = 3
+							}
+						}
+					}
+					10 = {
+						add_modifier = {
+							modifier = consecrated_quality_4
+							days = -1
+						}
+						create_ambient_object = {
+							type = consecrated_planet_stage_3_object
+							location = this
+
+							use_3d_location = yes
+							entity_scale_to_size = yes
+						}
+
+						from = {
+							change_variable = {
+								which = consecrated_variable
+								value = 4
+							}
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = { is_planet_class = pc_gaia }
+				custom_tooltip = consecrated_worlds_perfect
+				random_list = {
+					0 = {
+						add_modifier = {
+							modifier = consecrated_quality_1
+							days = -1
+						}
+						from = {
+							change_variable = {
+								which = consecrated_variable
+								value = 1
+							}
+						}
+					}
+					0 = {
+						add_modifier = {
+							modifier = consecrated_quality_2
+							days = -1
+						}
+						create_ambient_object = {
+							type = consecrated_planet_stage_1_object
+							location = this
+
+							use_3d_location = yes
+							entity_scale_to_size = yes
+						}
+						from = {
+							change_variable = {
+								which = consecrated_variable
+								value = 2
+							}
+						}
+					}
+					0 = {
+						add_modifier = {
+							modifier = consecrated_quality_3
+							days = -1
+						}
+						create_ambient_object = {
+							type = consecrated_planet_stage_2_object
+							location = this
+
+							use_3d_location = yes
+							entity_scale_to_size = yes
+						}
+						from = {
+							change_variable = {
+								which = consecrated_variable
+								value = 3
+							}
+						}
+					}
+					100 = {
+						add_modifier = {
+							modifier = consecrated_quality_4
+							days = -1
+						}
+						create_ambient_object = {
+							type = consecrated_planet_stage_3_object
+							location = this
+
+							use_3d_location = yes
+							entity_scale_to_size = yes
+						}
+						from = {
+							change_variable = {
+								which = consecrated_variable
+								value = 4
+							}
+						}
+					}
+				}
+			}
+			# fallback
+			else = {
+				add_modifier = {
+					modifier = consecrated_quality_1
+					days = -1
+				}
+				from = {
+					change_variable = {
+						which = consecrated_variable
+						value = 1
+					}
+				}
+			}
+			# recalculate modifier
+			from = {
+				recalculate_consecrated_world_modifier = yes
+			}
+		}
+	}
+
+	ai_weight = {
+		weight = 0
+		modifier = {
+			weight = 10
+			habitable_planet = yes
+			NOT = {
+				space_owner = {
+					any_owned_species = {
+						prevprev = { habitability = { who = prev value > 0.35 }	}
+					}
+				}
+			}
+		}
+	}
+}
+
+# Revoke Consecration
+decision_ae_unconsecrated_worlds = {
+	icon = decision_unconsecrated_worlds
+	resources = {
+		category = decisions
+		cost = {
+			unity = 500
+		}
+	}
+
+	prerequisites = {
+		"tech_consecrated_worlds"
+	}
+
+	potential = {
+		exists = from
+		from = {
+			has_technology = tech_consecrated_worlds
+			is_ascended_empire = yes
+			OR = {
+				has_ethic = ethic_spiritualist
+				has_ethic = ethic_fanatic_spiritualist
+			}
+			NOT = { has_ascension_perk = ap_consecrated_worlds }
+		}
+		has_planet_flag = consecrated@from
+	}
+
+	allow = {
+		OR = {
+			has_modifier = consecrated_quality_1
+			has_modifier = consecrated_quality_2
+			has_modifier = consecrated_quality_3
+			has_modifier = consecrated_quality_4
+		}
+	}
+
+	effect = {
+		hidden_effect = {
+			from = {
+				change_variable = {
+					which = num_consecrated_worlds
+					value = -1
+				}
+			}
+			remove_planet_flag = consecrated@from
+			custom_tooltip = unconsecrated_world_tooltip
+			switch = {
+				trigger = has_modifier
+				consecrated_quality_4 = {
+					remove_modifier = consecrated_quality_4
+					solar_system = {
+						random_system_ambient_object = {
+							limit = {
+								is_ambient_object_type = consecrated_planet_stage_3_object
+							}
+							destroy_ambient_object = this
+						}
+					}
+					from = {
+						change_variable = {
+							which = consecrated_variable
+							value = -4
+						}
+					}
+				}
+				consecrated_quality_3 = {
+					remove_modifier = consecrated_quality_3
+					solar_system = {
+						random_system_ambient_object = {
+							limit = {
+								is_ambient_object_type = consecrated_planet_stage_2_object
+							}
+							destroy_ambient_object = this
+						}
+					}
+					from = {
+						change_variable = {
+							which = consecrated_variable
+							value = -3
+						}
+					}
+				}
+				consecrated_quality_2 = {
+					remove_modifier = consecrated_quality_2
+					solar_system = {
+						random_system_ambient_object = {
+							limit = {
+								is_ambient_object_type = consecrated_planet_stage_1_object
+							}
+							destroy_ambient_object = this
+						}
+					}
+					from = {
+						change_variable = {
+							which = consecrated_variable
+							value = -2
+						}
+					}
+				}
+				consecrated_quality_1 = {
+					remove_modifier = consecrated_quality_1
+					from = {
+						change_variable = {
+							which = consecrated_variable
+							value = -1
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						has_planet_flag = holy_world_1
+						has_planet_flag = holy_world_2
+						has_planet_flag = holy_world_3
+						has_planet_flag = holy_world_4
+					}
+					any_country = { has_country_flag = fallen_empire_2 }
+				}
+				random_country = {
+					limit = { has_country_flag = fallen_empire_2 }
+					remove_opinion_modifier = { # Currently removes all instances of this modifier, even if several have been added
+						who = from
+						modifier = opinion_worships_our_holy_world
+					}
+				}
+			}
+			from = {
+				recalculate_consecrated_world_modifier = yes
+				custom_tooltip = recalculates_consecrated_modifier
+			}
+		}
+	}
+}
+
+# Arcology Project for Ascended Empires
+# Arcology Project
+decision_ae_arcology_project = {
+	owned_planets_only = yes
+	icon = decision_arcology_project
+
+	enactment_time = 3600
+	resources = {
+		category = decisions
+		cost = {
+			influence = 200
+			minerals = 20000
+		}
+	}
+	
+	prerequisites = {
+		"tech_arcology_project"
+	}
+
+	potential = {
+		NOR = {
+			is_planet_class = pc_city
+			is_planet_class = pc_relic
+			has_modifier = resort_colony
+			has_modifier = penal_colony
+			has_modifier = slave_colony
+			has_modifier = pm_wenkwort_custodian
+		}
+		is_zofe_utopian_world = no
+		is_artificial = no
+		exists = owner
+		owner = { 
+			is_ascended_empire = yes
+			NOT = { has_ascension_perk = ap_arcology_project }
+		}
+	}
+
+	allow = {
+		if = {
+			limit = { owner = { is_ai = no } }
+			custom_tooltip = {
+				fail_text = decision_arcology_project_requirements
+				free_district_slots < 1
+				num_districts = { type = district_farming value < 1 }
+				num_districts = { type = district_mining value < 1 }
+				num_districts = { type = district_generator value < 1 }
+				num_districts = { type = district_farming_uncapped value < 1 }
+				num_districts = { type = district_mining_uncapped value < 1 }
+				num_districts = { type = district_generator_uncapped value < 1 }
+			}
+		}
+		num_uncleared_blockers < 1
+	}
+
+	effect = {
+		# Make city-planet
+		custom_tooltip = decision_arcology_project_effects
+		hidden_effect = {
+			clear_deposits = yes
+			set_industrial_focus_flags = yes
+			change_pc = pc_city
+			relic_world_conversion_effect = {
+				DISTRICT = district_arcology_housing
+				VARIABLE = num_housing_districts
+			}
+			relic_world_conversion_effect = {
+				DISTRICT = district_arcology_arms_industry
+				VARIABLE = num_industrial_districts
+			}
+			set_ecu_industrial_districts_effect = yes
+			set_planet_entity = {
+				entity = "city_planet_entity"
+				graphical_culture = owner
+			}
+			owner = {
+				country_event = { id = distar.201 } # port for living planet distar.197, triggers in event
+			}
+			planet_event = { id = mega.200 }
+			if = {
+				limit = {
+					OR = {
+						is_active_resolution = "resolution_ecology_environmental_control_board"
+						is_active_resolution = "resolution_ecology_paradise_initiative"
+					}
+				}
+				owner = {
+					set_timed_country_flag = { flag = resolution_breached_terraformed days = 3600 }
+				}
+			}
+		}
+	}
+
+	ai_weight = {
+		weight = 1
+		modifier = {
+			factor = 100
+			exists = owner
+			OR = {
+				num_pops >= 70
+				is_capital = yes
+			}
+		}
+	}
+}
+
+# Create FE Preserve
+decision_make_xeno_preserve = {
+	owned_planets_only = yes
+	icon = decision_slave_colony
+	
+	prerequisites = {
+		"tech_fallen_xeno_preserve"
+	}
+
+	resources = {
+		category = decisions
+		cost = {
+			influence = 100
+		}
+	}
+	
+	potential = {
+		is_capital = no
+		NOR = {
+			has_modifier = resort_colony
+			has_modifier = slave_colony
+			has_modifier = penal_colony
+		}
+		is_planet_class = pc_gaia
+		owner = { 
+			is_regular_empire = yes 
+			is_xenophile = yes
+		}
+		has_upgraded_capital = no
+		NOT = { 
+			owner = { 
+				any_owned_planet = { has_modifier = fe_xeno_preserve }
+			}
+		}
+	}
+	
+	allow = {
+		planet_size >= 20
+		custom_tooltip = {
+			fail_text = decision_fe_xeno_preserve_no_districts
+			num_districts = { type = any value < 1 }
+			num_buildings = { type = any value < 2 }
+		}
+	}
+	
+	effect = {
+		set_planet_name = "The Preserve"
+		add_modifier = {
+			modifier = fe_xeno_preserve
+			days = -1
+		}	
+		hidden_effect = {
+			remove_building = building_colony_shelter
+			add_building = building_fallen_xeno_preserve
+		}
+		hidden_effect = { validate_planet_buildings_and_districts = yes }
+	}
+	
+	ai_weight = {
+		weight = 0
+	}
+}
+
+decision_abolish_xeno_preserve = {
+	owned_planets_only = yes
+	icon = decision_slave_colony
+
+	resources = {
+		category = decisions
+		cost = {
+			influence = 250
+		}
+	}
+	
+	potential = {
+		has_modifier = fe_xeno_preserve
+	}
+	
+	effect = {
+		remove_modifier = fe_xeno_preserve	
+		hidden_effect = { validate_planet_buildings_and_districts = yes }
+	}
+	
+	ai_weight = {
+		weight = 0
+	}
+}
+
+decision_artifact_search = {
+	owned_planets_only = yes
+	sound = event_administrative_work
+	icon = decision_archaeological_dig
+
+	enactment_time = 90
+	potential = {
+		host_has_dlc = "Ancient Relics Story Pack"
+		has_planet_flag = fallen_empire_world
+		NOT = { has_planet_flag = artifacts_looted }
+		owner = { 
+			is_ascended_empire = yes
+		}
+	}
+
+	allow = {
+		OR = {
+			num_assigned_jobs = {
+				job = enforcer
+				value >= 1
+			}
+			num_assigned_jobs = {
+				job = patrol_drone
+				value >= 1
+			}
+		}
+	}
+
+	resources = {
+		category = decisions
+		cost = {
+			influence = 100
+		}
+	}
+	
+	effect = {
+		set_planet_flag = artifacts_looted
+		owner = {
+			add_resource = { minor_artifacts = 100 }
+		}
+	}
+	
+	ai_weight = {
+		weight = 10
+	}
+}
+
+decision_living_metal_apprenticeship = {
+	owned_planets_only = yes
+	sound = event_administrative_work
+	icon = decision_engineering_research
+
+	resources = {
+		category = decisions
+		cost = {
+			energy = 10000
+			unity = 500
+		}
+	}
+
+	potential = {
+		exists = owner
+		owner = { 
+			is_zofe_country = yes
+			has_technology = tech_synthetic_living_metal
+		}
+		has_active_building = building_synthetic_living_metal
+		NOT = { has_modifier = pm_living_metal_apprenticeship }
+	}
+	
+	allow = {
+		OR = {
+			num_assigned_jobs = {
+				job = ae_living_metal_smith
+				value >= 1
+			}
+			num_assigned_jobs = {
+				job = ae_living_metal_drone
+				value >= 1
+			}
+		}
+
+		OR = {
+			num_assigned_jobs = {
+				job = foundry
+				value >= 1
+			}
+			num_assigned_jobs = {
+				job = catalytic_technician
+				value >= 1
+			}
+			num_assigned_jobs = {
+				job = fabricator
+				value >= 1
+			}
+			num_assigned_jobs = {
+				job = alloy_drone
+				value >= 1
+			}
+			num_assigned_jobs = {
+				job = catalytic_drone
+				value >= 1
+			}
+		}
+	}
+
+	effect = {
+		custom_tooltip = decision_living_metal_apprenticeship_effects
+		add_modifier = { modifier = "pm_living_metal_apprenticeship" days = -1 }
+	}
+
+	ai_weight = {
+		weight = 0
+	}
+}
+
+decision_end_living_metal_apprenticeship = {
+	owned_planets_only = yes
+	sound = event_administrative_work
+	icon = decision_engineering_research
+
+	resources = {
+		category = decisions
+	}
+
+	potential = {
+		has_modifier = pm_living_metal_apprenticeship
+	}
+
+	effect = {
+		custom_tooltip = decision_end_living_metal_apprenticeship_effects
+		hidden_effect = {
+			remove_modifier = pm_living_metal_apprenticeship
+		}
+	}
+
+	ai_weight = {
+		weight = 1
+	}
+}
+
+decision_decadence = {
+	owned_planets_only = yes
+	sound = event_administrative_work
+	icon = decision_luxuries
+	
+	enactment_time = 360
+
+	resources = {
+		category = decisions
+		cost = {
+			trigger = {
+				count_owned_pop = {
+					limit = { has_pop_flag = decadent_pop }
+					count < 10
+				}
+			}
+			energy = 100
+			consumer_goods = 100
+			unity = 100
+		}
+		cost = {
+			trigger = {
+				count_owned_pop = {
+					limit = { has_pop_flag = decadent_pop }
+					count >= 10
+					count < 20
+				}
+			}
+			energy = 200
+			consumer_goods = 200
+			unity = 200
+		}
+		cost = {
+			trigger = {
+				count_owned_pop = {
+					limit = { has_pop_flag = decadent_pop }
+					count >= 20
+					count < 30
+				}
+			}
+			energy = 300
+			consumer_goods = 300
+			unity = 300
+		}
+		cost = {
+			trigger = {
+				count_owned_pop = {
+					limit = { has_pop_flag = decadent_pop }
+					count >= 30
+					count < 40
+				}
+			}
+			energy = 400
+			consumer_goods = 400
+			unity = 400
+		}
+		cost = {
+			trigger = {
+				count_owned_pop = {
+					limit = { has_pop_flag = decadent_pop }
+					count >= 40
+					count < 50
+				}
+			}
+			energy = 500
+			consumer_goods = 500
+			unity = 500
+		}
+		cost = {
+			trigger = {
+				count_owned_pop = {
+					limit = { has_pop_flag = decadent_pop }
+					count >= 50
+					count < 60
+				}
+			}
+			energy = 600
+			consumer_goods = 600
+			unity = 600
+		}
+		cost = {
+			trigger = {
+				count_owned_pop = {
+					limit = { has_pop_flag = decadent_pop }
+					count >= 60
+					count < 70
+				}
+			}
+			energy = 700
+			consumer_goods = 700
+			unity = 700
+		}
+		cost = {
+			trigger = {
+				count_owned_pop = {
+					limit = { has_pop_flag = decadent_pop }
+					count >= 70
+					count < 85
+				}
+			}
+			energy = 800
+			consumer_goods = 800
+			unity = 800
+		}
+		cost = {
+			trigger = {
+				count_owned_pop = {
+					limit = { has_pop_flag = decadent_pop }
+					count >= 85
+					count < 100
+				}
+			}
+			energy = 900
+			consumer_goods = 900
+			unity = 900
+		}
+		cost = {
+			trigger = {
+				count_owned_pop = {
+					limit = { has_pop_flag = decadent_pop }
+					count >= 100
+				}
+			}
+			energy = 1000
+			consumer_goods = 1000
+			unity = 1000
+		}
+	}
+
+	potential = {
+		exists = owner
+		owner = { 
+			is_country_type = ascended_empire
+			is_gestalt = no
+		}
+		has_planet_flag = decadence_decision_enabled
+	}
+	
+	allow = {
+		num_assigned_jobs = {
+			job = ae_hedonist
+			value >= 1
+		}
+	}
+
+	effect = {
+		custom_tooltip = decision_decadence_effects
+		remove_planet_flag = decadence_decision_enabled
+		hidden_effect = {
+			random_list = {
+				40 = { planet_event = { id = zofe.3001 } }
+				30 = { planet_event = { id = zofe.3002 } }
+				20 = { planet_event = { id = zofe.3003 } }
+				10 = { planet_event = { id = zofe.3004 } }
+			}
+		}
+	}
+
+	ai_weight = {
+		weight = 0
+	}
+}
+
+decision_decadence_hive = {
+	owned_planets_only = yes
+	sound = event_administrative_work
+	icon = decision_resources
+	
+	enactment_time = 360
+
+	resources = {
+		category = decisions
+		cost = {
+			trigger = {
+				count_owned_pop = {
+					limit = { has_pop_flag = decadent_pop }
+					count < 10
+				}
+			}
+			energy = 100
+			food = 100
+			unity = 100
+		}
+		cost = {
+			trigger = {
+				count_owned_pop = {
+					limit = { has_pop_flag = decadent_pop }
+					count >= 10
+					count < 20
+				}
+			}
+			energy = 200
+			food = 200
+			unity = 200
+		}
+		cost = {
+			trigger = {
+				count_owned_pop = {
+					limit = { has_pop_flag = decadent_pop }
+					count >= 20
+					count < 30
+				}
+			}
+			energy = 300
+			food = 300
+			unity = 300
+		}
+		cost = {
+			trigger = {
+				count_owned_pop = {
+					limit = { has_pop_flag = decadent_pop }
+					count >= 30
+					count < 40
+				}
+			}
+			energy = 400
+			food = 400
+			unity = 400
+		}
+		cost = {
+			trigger = {
+				count_owned_pop = {
+					limit = { has_pop_flag = decadent_pop }
+					count >= 40
+					count < 50
+				}
+			}
+			energy = 500
+			food = 500
+			unity = 500
+		}
+		cost = {
+			trigger = {
+				count_owned_pop = {
+					limit = { has_pop_flag = decadent_pop }
+					count >= 50
+					count < 60
+				}
+			}
+			energy = 600
+			food = 600
+			unity = 600
+		}
+		cost = {
+			trigger = {
+				count_owned_pop = {
+					limit = { has_pop_flag = decadent_pop }
+					count >= 60
+					count < 70
+				}
+			}
+			energy = 700
+			food = 700
+			unity = 700
+		}
+		cost = {
+			trigger = {
+				count_owned_pop = {
+					limit = { has_pop_flag = decadent_pop }
+					count >= 70
+					count < 85
+				}
+			}
+			energy = 800
+			food = 800
+			unity = 800
+		}
+		cost = {
+			trigger = {
+				count_owned_pop = {
+					limit = { has_pop_flag = decadent_pop }
+					count >= 85
+					count < 100
+				}
+			}
+			energy = 900
+			food = 900
+			unity = 900
+		}
+		cost = {
+			trigger = {
+				count_owned_pop = {
+					limit = { has_pop_flag = decadent_pop }
+					count >= 100
+				}
+			}
+			energy = 1000
+			food = 1000
+			unity = 1000
+		}
+	}
+
+	potential = {
+		exists = owner
+		owner = { 
+			is_country_type = ascended_empire
+			is_hive_empire = yes
+		}
+		has_planet_flag = decadence_decision_enabled
+	}
+	
+	allow = {
+		num_assigned_jobs = {
+			job = ae_confused_drone
+			value >= 1
+		}
+	}
+
+	effect = {
+		custom_tooltip = decision_decadence_hive_effects
+		remove_planet_flag = decadence_decision_enabled
+		hidden_effect = {
+			random_list = {
+				70 = { planet_event = { id = zofe.3011 } }
+				20 = { planet_event = { id = zofe.3012 } }
+				10 = { planet_event = { id = zofe.3013 } }
+			}
+		}
+	}
+
+	ai_weight = {
+		weight = 0
+	}
+}
+
+decision_decadence_machine = {
+	owned_planets_only = yes
+	sound = event_administrative_work
+	icon = decision_resources
+	
+	enactment_time = 360
+
+	resources = {
+		category = decisions
+		cost = {
+			trigger = {
+				count_owned_pop = {
+					limit = { has_pop_flag = decadent_pop }
+					count < 10
+				}
+			}
+			energy = 100
+			alloys = 100
+			unity = 100
+		}
+		cost = {
+			trigger = {
+				count_owned_pop = {
+					limit = { has_pop_flag = decadent_pop }
+					count >= 10
+					count < 20
+				}
+			}
+			energy = 200
+			alloys = 200
+			unity = 200
+		}
+		cost = {
+			trigger = {
+				count_owned_pop = {
+					limit = { has_pop_flag = decadent_pop }
+					count >= 20
+					count < 30
+				}
+			}
+			energy = 300
+			alloys = 300
+			unity = 300
+		}
+		cost = {
+			trigger = {
+				count_owned_pop = {
+					limit = { has_pop_flag = decadent_pop }
+					count >= 30
+					count < 40
+				}
+			}
+			energy = 400
+			alloys = 400
+			unity = 400
+		}
+		cost = {
+			trigger = {
+				count_owned_pop = {
+					limit = { has_pop_flag = decadent_pop }
+					count >= 40
+					count < 50
+				}
+			}
+			energy = 500
+			alloys = 500
+			unity = 500
+		}
+		cost = {
+			trigger = {
+				count_owned_pop = {
+					limit = { has_pop_flag = decadent_pop }
+					count >= 50
+					count < 60
+				}
+			}
+			energy = 600
+			alloys = 600
+			unity = 600
+		}
+		cost = {
+			trigger = {
+				count_owned_pop = {
+					limit = { has_pop_flag = decadent_pop }
+					count >= 60
+					count < 70
+				}
+			}
+			energy = 700
+			alloys = 700
+			unity = 700
+		}
+		cost = {
+			trigger = {
+				count_owned_pop = {
+					limit = { has_pop_flag = decadent_pop }
+					count >= 70
+					count < 85
+				}
+			}
+			energy = 800
+			alloys = 800
+			unity = 800
+		}
+		cost = {
+			trigger = {
+				count_owned_pop = {
+					limit = { has_pop_flag = decadent_pop }
+					count >= 85
+					count < 100
+				}
+			}
+			energy = 900
+			alloys = 900
+			unity = 900
+		}
+		cost = {
+			trigger = {
+				count_owned_pop = {
+					limit = { has_pop_flag = decadent_pop }
+					count >= 100
+				}
+			}
+			energy = 1000
+			alloys = 1000
+			unity = 1000
+		}
+	}
+
+	potential = {
+		exists = owner
+		owner = { 
+			is_country_type = ascended_empire
+			is_machine_empire = yes
+		}
+		has_planet_flag = decadence_decision_enabled
+	}
+	
+	allow = {
+		num_assigned_jobs = {
+			job = ae_maintenance_bot
+			value >= 1
+		}
+	}
+
+	effect = {
+		custom_tooltip = decision_decadence_machine_effects
+		remove_planet_flag = decadence_decision_enabled
+		hidden_effect = {
+			random_list = {
+				70 = { planet_event = { id = zofe.3021 } }
+				20 = { planet_event = { id = zofe.3022 } }
+				10 = { planet_event = { id = zofe.3023 } }
+			}
+		}
+	}
+
+	ai_weight = {
+		weight = 0
+	}
+}
+
+decision_cryo_chamber = {
+	owned_planets_only = yes
+	sound = event_administrative_work
+	icon = decision_politics
+	
+	enactment_time = 360
+
+	resources = {
+		category = decisions
+		cost = {
+			unity = 500
+		}
+	}
+
+	potential = {
+		zofe_sandbox = yes
+		exists = owner
+		owner = { is_zofe_country = yes }
+		has_active_building = building_fallen_ancient_cryo_chamber
+	}
+	
+	allow = {
+		num_pops > 5
+	}
+
+	effect = {
+		custom_tooltip = decision_cryo_chamber_effects
+		hidden_effect = {
+			random_owned_pop = { kill_pop = yes }
+			random_owned_pop = { kill_pop = yes }
+			random_owned_pop = { kill_pop = yes }
+			random_owned_pop = { kill_pop = yes }
+			random_owned_pop = { kill_pop = yes }
+		}
+	}
+
+	ai_weight = {
+		weight = 0
+	}
+}
+
+decision_utopian_vault = {
+	owned_planets_only = yes
+	sound = event_administrative_work
+	icon = decision_resources
+	
+	enactment_time = 360
+
+	resources = {
+		category = decisions
+		cost = {
+			sr_living_metal = 2000
+			sr_dark_matter = 500
+		}
+	}
+
+	potential = {
+		exists = owner
+		owner = { is_zofe_country = yes }
+		OR = {
+			is_planet_class = pc_utopian_gaia
+			is_planet_class = pc_utopian_city
+			is_planet_class = pc_utopian_ringworld
+			is_planet_class = pc_utopian_machine
+			is_planet_class = pc_utopian_machine_ringworld
+			is_planet_class = pc_utopian_hive
+			is_planet_class = pc_utopian_hive_ringworld
+			is_planet_class = pc_utopian_habitat
+		}
+	}
+
+	effect = {
+		custom_tooltip = decision_utopian_vault_effects
+		hidden_effect = {
+			add_deposit = d_utopian_vault
+		}
+	}
+
+	ai_weight = {
+		weight = 0
+	}
+}
+
+#World Architect Special
+# Create Terraforming Candidates
+decision_terraforming_candidates = {
+	icon = decision_cold_barren_planet
+
+	resources = {
+		category = decisions
+		cost = {
+			influence = 100
+		}
+	}
+
+	potential = {
+		exists = from
+		from = {
+			is_ascended_empire = yes
+			has_valid_civic = civic_world_architect
+		}
+		exists = space_owner
+		space_owner = { is_same_value = from }
+		OR = {
+			is_planet_class = pc_barren
+			is_planet_class = pc_barren_cold
+			is_planet_class = pc_frozen
+		}
+		NOT = { has_modifier = terraforming_candidate }
+	}
+
+	effect = {
+		custom_tooltip = decision_terraforming_candidates_tooltip
+		if = {
+			limit = {
+				OR = {
+					is_planet_class = pc_barren
+					is_planet_class = pc_barren_cold
+				}
+			}
+			add_modifier = { modifier = "terraforming_candidate" days = -1 }
+		}
+		if = {
+			limit = { is_planet_class = pc_frozen }
+			add_modifier = { modifier = "frozen_terraforming_candidate" days = -1 }
+		}
+	}
+
+	ai_weight = {
+		weight = 0
+	}
+}
+
+#World Architect Special
+# Repair Shattered Planets
+decision_planet_reconstruction = {
+	icon = decision_shattered_planet
+
+	resources = {
+		category = decisions
+		cost = {
+			influence = 100
+		}
+	}
+
+	potential = {
+		exists = from
+		from = {
+			is_ascended_empire = yes
+			has_valid_civic = civic_world_architect
+		}
+		exists = space_owner
+		space_owner = { is_same_value = from }
+		OR = {
+			is_planet_class = pc_shattered
+			is_planet_class = pc_broken
+		}
+		NOT = { has_modifier = planet_reconstruction_candidate }
+	}
+
+	effect = {
+		custom_tooltip = decision_planet_reconstruction_tooltip
+		add_modifier = { modifier = "planet_reconstruction_candidate" days = -1 }
+	}
+
+	ai_weight = {
+		weight = 0
+	}
+}
