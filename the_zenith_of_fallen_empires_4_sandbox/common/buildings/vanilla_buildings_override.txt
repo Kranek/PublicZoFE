@@ -432,6 +432,10 @@ building_clone_vats = {
 		}
 	}
 
+	allow = {
+		NOT = { has_building = building_fallen_clone_vat }
+	}
+
 	planet_modifier = {
 		planet_pop_assembly_organic_add = 3
 	}
@@ -531,9 +535,5 @@ building_clone_vats = {
 			}
 		}
 		text = tooltip_organic_and_artificial_assembly_warning
-	}
-
-	upgrades = {
-		building_fallen_clone_vat
 	}
 }

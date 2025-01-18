@@ -694,6 +694,7 @@ tech_fallen_clone_vat = {
 	weight = @tier5weight3
 
 	potential = {
+		zofe_sandbox = yes
 		OR = {
 			AND = {
 				is_zofe_country = no
@@ -1340,16 +1341,7 @@ tech_ascended_society_2 = {
 	potential = {
 		is_zofe_country = yes
 		societal_ascendance = yes
-		OR = {
-			has_ethic = ethic_fanatic_spiritualist
-			has_ethic = ethic_fanatic_materialist
-			has_ethic = ethic_fanatic_xenophile
-			has_ethic = ethic_fanatic_xenophobe
-			has_ethic = ethic_fanatic_militarist
-			has_ethic = ethic_fanatic_pacifist
-			has_ethic = ethic_fanatic_authoritarian
-			has_ethic = ethic_fanatic_egalitarian
-		}
+		is_fanatic = yes
 	}
 	
 	prerequisites = { "tech_ascended_society_1" }

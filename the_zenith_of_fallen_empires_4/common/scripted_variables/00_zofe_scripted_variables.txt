@@ -1,3 +1,8 @@
+# Modding
+@has_zofe_vanilla = 1
+@has_zofe_sandbox = 0
+
+
 @standard_min = 20 #26
 @standard_max = 30 #30
 

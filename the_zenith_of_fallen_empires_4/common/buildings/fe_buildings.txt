@@ -1516,13 +1516,9 @@ building_fallen_clone_vat = {
 
 	potential = {
 		exists = owner
-		
 		owner = {
-			AND = {
-				has_tradition = tr_genetics_adopt
-				has_technology = tech_fallen_clone_vat
-				zofe_sandbox = yes
-			}
+			has_tradition = tr_genetics_adopt
+			has_technology = tech_fallen_clone_vat
 		}
 		NOR = {
 			has_modifier = resort_colony
@@ -1561,6 +1557,10 @@ building_fallen_clone_vat = {
 				} 
 			}
 		}
+	}
+
+	allow = {
+		NOT = { has_building = building_clone_vats }
 	}
 
 	on_built = {

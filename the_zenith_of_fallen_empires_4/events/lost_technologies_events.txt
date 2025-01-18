@@ -372,7 +372,6 @@ country_event = {
 		}
 		allow = {
 			has_technology = tech_fallen_class_5_singularity
-			has_technology = tech_lost_technologies_1
 		}
 		add_research_option = tech_fallen_dark_matter_power_plant
 	}
@@ -386,7 +385,6 @@ country_event = {
 		}
 		allow = {
 			has_technology = tech_fallen_dimensional_harvester
-			has_technology = tech_lost_technologies_1
 		}
 		add_research_option = tech_fallen_autonomous_fabricator
 	}
@@ -400,7 +398,6 @@ country_event = {
 		}
 		allow = {
 			has_technology = tech_fallen_gourmet_center
-			has_technology = tech_lost_technologies_1
 		}
 		add_research_option = tech_fallen_agri_processing_complex
 	}
@@ -415,7 +412,6 @@ country_event = {
 		}
 		allow = {
 			has_technology = tech_fallen_opulent_plaza
-			has_technology = tech_lost_technologies_1
 		}
 		add_research_option = tech_fallen_opulent_tower
 	}
@@ -429,7 +425,6 @@ country_event = {
 		}
 		allow = {
 			has_technology = tech_fallen_nano_forge_2
-			has_technology = tech_lost_technologies_1
 		}
 		add_research_option = tech_fallen_pico_forge
 	}
@@ -443,7 +438,6 @@ country_event = {
 		}
 		allow = {
 			has_technology = tech_fallen_lab_2
-			has_technology = tech_lost_technologies_1
 		}
 		add_research_option = tech_fallen_lab_3
 	}
@@ -457,7 +451,6 @@ country_event = {
 		}
 		allow = {
 			has_technology = tech_fallen_aegis_complex_2
-			has_technology = tech_lost_technologies_1
 		}
 		add_research_option = tech_fallen_aegis_complex_3
 	}
@@ -471,7 +464,6 @@ country_event = {
 		}
 		allow = {
 			has_technology = tech_synthetic_dark_matter_2
-			has_technology = tech_lost_technologies_1
 		}
 		add_research_option = tech_synthetic_dark_matter_3
 	}

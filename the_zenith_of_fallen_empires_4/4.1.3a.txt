@@ -1,0 +1,9 @@
+# Change log of 18/11/2024
+
+## ZoFE 4.1.3a Patch
+
+Notes
+
+Fixes
+* Vanilla
+ - Fixed Lost Technology Automated Industry conditions.

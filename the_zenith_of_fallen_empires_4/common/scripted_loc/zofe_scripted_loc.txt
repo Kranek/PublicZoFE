@@ -93,7 +93,7 @@ defined_text = {
 			is_scope_valid = yes
 			is_gestalt = yes
 		}
-		localization_key = job_ae_zro_drone_drone
+		localization_key = job_ae_zro_drone
 	}
 	default = job_ae_zro_alchemist
 }

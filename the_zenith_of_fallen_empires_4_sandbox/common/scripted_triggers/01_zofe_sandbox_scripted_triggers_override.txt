@@ -5,7 +5,7 @@
 
 #For rare instances where you need to check for ZoFE Sandbox Mode before game starts.
 has_zofe_sandbox = {
-    always = yes
+	always = yes
 }
 
 ##Vanilla Overrides

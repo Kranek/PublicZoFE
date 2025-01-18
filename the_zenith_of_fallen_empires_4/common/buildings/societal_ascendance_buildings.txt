@@ -60,8 +60,8 @@ building_sacred_ground = {
 	show_tech_unlock_if = { is_spiritualist = yes }
 	
 	planet_modifier = {
-		pop_ethic_spiritualist_attraction_mult = 0.1
-		planet_researchers_produces_mult = 0.15
+		pop_ethic_spiritualist_attraction_mult = 0.15
+		planet_priests_unity_produces_add = 1
 		job_priest_add = 5
 	}
 	
@@ -85,6 +85,10 @@ building_sacred_ground = {
 	prerequisites = {
 		"tech_ascended_society_1"
 	}
+
+	# upgrades = {
+	# 	building_fallen_empyrean_shrine
+	# }
 	
 	triggered_desc = {
 		text = job_priest_effect_desc
@@ -105,7 +109,7 @@ building_fallen_empyrean_shrine = {
 	
 	potential = {
 		exists = owner
-		owner = { 
+		owner = {
 			OR = {
 				is_zofe_country = yes
 				is_fallen_empire = yes
@@ -135,6 +139,7 @@ building_fallen_empyrean_shrine = {
 	
 	planet_modifier = {
 		pop_ethic_spiritualist_attraction_mult = 0.3
+		planet_priests_unity_produces_add = 2
 	}
 	
 	triggered_planet_modifier = {
@@ -182,9 +187,6 @@ building_fallen_empyrean_shrine = {
 	prerequisites = {
 		"tech_ascended_society_2"
 	}
-		
-	upgrades = {
-	}
 	
 	ai_weight = {
 		weight = 50
@@ -228,8 +230,7 @@ building_technolith = {
 	show_tech_unlock_if = { is_materialist = yes }
 
 	planet_modifier = {
-		pop_ethic_materialist_attraction_mult = 0.1
-		planet_researchers_produces_mult = 0.15
+		pop_ethic_materialist_attraction_mult = 0.15
 	}
 	
 	resources = {
@@ -240,18 +241,22 @@ building_technolith = {
 		}
 		upkeep = {
 			energy = 10
-			rare_crystals = 1
+			exotic_gases = 1
 		}
 		produces = {
-			engineering_research = 5
-			physics_research = 5
-			society_research = 5
+			engineering_research = 15
+			physics_research = 15
+			society_research = 15
 		}
 	}	
 	
 	prerequisites = {
 		"tech_ascended_society_1"
 	}
+
+	# upgrades = {
+	# 	building_fallen_master_archive
+	# }
 	
 	ai_weight = {
 		weight = 5
@@ -259,7 +264,7 @@ building_technolith = {
 }
 
 
-#Tier 3
+#Tier 2
 building_fallen_master_archive = {
 	base_buildtime = @b7time
 	can_build = yes
@@ -287,7 +292,7 @@ building_fallen_master_archive = {
 	destroy_trigger = {
 		AND = {
 			exists = owner
-			owner = { 
+			owner = {
 				NOT = { has_ethic = ethic_fanatic_materialist }
 			}
 		}
@@ -298,7 +303,7 @@ building_fallen_master_archive = {
 	planet_modifier = {
 		pop_ethic_materialist_attraction_mult = 0.3
 		job_head_researcher_add = 2
-		job_researcher_add = 10	
+		job_researcher_add = 10
 	}
 	
 	triggered_desc = {
@@ -326,7 +331,7 @@ building_fallen_master_archive = {
 			society_research = 30
 		}
 	}
-			
+
 	prerequisites = {
 		"tech_ascended_society_2"
 	}
@@ -374,7 +379,7 @@ building_xeno_garden = {
 	show_tech_unlock_if = { is_xenophile = yes }
 	
 	planet_modifier = {
-		pop_ethic_xenophile_attraction_mult = 0.1
+		pop_ethic_xenophile_attraction_mult = 0.15
 		job_culture_worker_add = 5
 	}
 	
@@ -393,8 +398,6 @@ building_xeno_garden = {
 		}
 		produces = {
 			society_research = 25
-		}
-		produces = {
 			unity = 20
 		}
 	}
@@ -402,6 +405,10 @@ building_xeno_garden = {
 	prerequisites = {
 		"tech_ascended_society_1"
 	}
+
+	# upgrades = {
+	# 	building_xeno_culture_centre
+	# }
 	
 	ai_weight = {
 		weight = 5
@@ -477,7 +484,7 @@ building_xeno_culture_centre = {
 
 ##Xenophobe
 
-#Tier 2
+#Tier 1
 building_immigration_bureau = {
 	base_buildtime = @b6time
 	can_build = yes
@@ -504,7 +511,7 @@ building_immigration_bureau = {
 	destroy_trigger = {
 		AND = {
 			exists = owner
-			owner = { 
+			owner = {
 				is_xenophobe = no
 			}
 		}
@@ -513,7 +520,7 @@ building_immigration_bureau = {
 	show_tech_unlock_if = { is_xenophobe = yes }
 	
 	planet_modifier = {
-		pop_ethic_xenophobe_attraction_mult = 0.1
+		pop_ethic_xenophobe_attraction_mult = 0.15
 	}
 	
 	inline_script = {
@@ -544,7 +551,7 @@ building_immigration_bureau = {
 }
 
 
-#Tier 3
+#Tier 2
 building_altar_of_purity = {
 	base_buildtime = @b7time
 	can_build = yes
@@ -642,7 +649,7 @@ building_hunting_grounds = {
 	destroy_trigger = {
 		AND = {
 			exists = owner
-			owner = { 
+			owner = {
 				is_militarist = no
 			}
 		}
@@ -651,7 +658,7 @@ building_hunting_grounds = {
 	show_tech_unlock_if = { is_militarist = yes }
 	
 	planet_modifier = {
-		pop_ethic_militarist_attraction_mult = 0.1
+		pop_ethic_militarist_attraction_mult = 0.15
 		job_duelist_add = 5
 	}
 	
@@ -686,7 +693,7 @@ building_hunting_grounds = {
 	}
 }
 
-#Tier 3
+#Tier 2
 building_fallen_monument = {
 	base_buildtime = @b7time
 	can_build = yes
@@ -792,7 +799,7 @@ building_garden_of_eden = {
 	show_tech_unlock_if = { is_pacifist = yes }
 	
 	planet_modifier = {
-		pop_ethic_pacifist_attraction_mult = 0.1
+		pop_ethic_pacifist_attraction_mult = 0.15
 		job_farmer_add = 5
 	}
 	
@@ -810,10 +817,8 @@ building_garden_of_eden = {
 		}
 		produces = {
 			food = 25
-		}
-		produces = {
 			unity = 20
-		}		
+		}
 	}
 		
 	prerequisites = {
@@ -825,7 +830,7 @@ building_garden_of_eden = {
 	}
 }
 
-#Tier 3
+#Tier 2
 building_sky_trench = {
 	base_buildtime = @b7time
 	can_build = yes
@@ -853,7 +858,7 @@ building_sky_trench = {
 	destroy_trigger = {
 		AND = {
 			exists = owner
-			owner = { 
+			owner = {
 				NOT = { has_ethic = ethic_fanatic_pacifist }
 			}
 		}
@@ -882,8 +887,8 @@ building_sky_trench = {
 		produces = {
 			physics_research = 50
 			unity = 80
-		}		
-	}	
+		}
+	}
 		
 	prerequisites = {
 		"tech_ascended_society_2"
@@ -932,7 +937,7 @@ building_labor_camp = {
 	show_tech_unlock_if = { is_authoritarian = yes }
 	
 	planet_modifier = {
-		pop_ethic_authoritarian_attraction_mult = 0.1
+		pop_ethic_authoritarian_attraction_mult = 0.15
 		planet_jobs_slave_produces_mult = 0.15
 	}	
 	
@@ -942,7 +947,7 @@ building_labor_camp = {
 			minerals = @b6cost
 		}
 		upkeep = {
-			food = 10		
+			food = 10
 		}
 		produces = {
 			unity = 20
@@ -1008,7 +1013,7 @@ building_secret_police_hq = {
 			minerals = @b7cost
 		}
 		upkeep = {
-			energy = @b7upkeep		
+			energy = @b7upkeep
 		}
 		produces = {
 			unity = 80
@@ -1038,7 +1043,7 @@ building_civilian_teleportation = {
 	
 	potential = {
 		exists = owner
-		owner = { 
+		owner = {
 			is_zofe_country = yes
 			is_egalitarian = yes
 		}
@@ -1054,7 +1059,7 @@ building_civilian_teleportation = {
 	destroy_trigger = {
 		AND = {
 			exists = owner
-			owner = { 
+			owner = {
 				is_egalitarian = no
 			}
 		}
@@ -1063,14 +1068,14 @@ building_civilian_teleportation = {
 	show_tech_unlock_if = { is_egalitarian = yes }
 	
 	planet_modifier = {
-		pop_ethic_egalitarian_attraction_mult = 0.1
+		pop_ethic_egalitarian_attraction_mult = 0.15
 		pop_growth_from_immigration = 1.0
 		job_technician_add = 5
 	}
 	
 	triggered_desc = {
 		text = job_technician_effect_desc
-	}	
+	}
 	
 	resources = {
 		category = planet_buildings
@@ -1084,8 +1089,6 @@ building_civilian_teleportation = {
 		}
 		produces = {
 			physics_research = 25
-		}
-		produces = {
 			unity = 20
 		}
 	}
@@ -1129,7 +1132,7 @@ building_supreme_court = {
 	destroy_trigger = {
 		AND = {
 			exists = owner
-			owner = { 
+			owner = {
 				NOT = { has_ethic = ethic_fanatic_egalitarian }
 			}
 		}
@@ -1223,7 +1226,7 @@ building_fallen_ancient_cryo_chamber = {
 	triggered_desc = {
 		trigger = {
 			exists = owner
-			owner = { is_gestalt = no }		
+			owner = { is_gestalt = no }
 		}
 		text = job_clerk_effect_desc
 	}

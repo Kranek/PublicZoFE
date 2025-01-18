@@ -8211,7 +8211,7 @@ ship_event = {
 				set_owner = fromfrom.owner
 				set_fleet_settings = {
 					can_upgrade = no
-					can_change_composition = no
+					can_change_composition = yes
 				}
 			}
 		}
@@ -8230,6 +8230,7 @@ ship_event = {
 				set_owner = fromfrom.owner
 				set_fleet_settings = {
 					can_upgrade = no
+					can_change_composition = no
 				}
 			}
 		}

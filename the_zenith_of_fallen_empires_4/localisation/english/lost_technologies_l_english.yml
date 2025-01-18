@@ -222,6 +222,8 @@
  
  tech_dark_energy_sensors:0 "Dark Energy Sensor"
  tech_dark_energy_sensors_desc:0 "The Dark Energy Sensor harnesses dark energy to amplify its scopes, making it capable to detect all movements at a far greater range.\n\n§MThis Lost Technology was once thought irrecoverably lost to history.§!"
+ TECH_UNLOCK_DARK_ENERGY_SENSORS_TITLE:0 "§HUnlocks Component:§! $tech_dark_energy_sensors$"
+ TECH_UNLOCK_DARK_ENERGY_SENSORS_DESC:0 "§H$tech_dark_energy_sensors$§!\n$tech_dark_energy_sensors_desc$"
  
  DARK_ENERGY_POWER_BOOSTER:0 "Dark Energy Reactor Booster"
  DARK_ENERGY_POWER_BOOSTER_DESC:0 "The discovery of dark energy as a form of power allows for highly advanced reactor boosters that can greatly enhance ship reactors.\n\n§MThis Lost Technology was once thought irrecoverably lost to history.§!"

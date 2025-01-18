@@ -2946,12 +2946,7 @@ country_event = { # To infinity and beyond the event horizon
 			if = {
 				limit = { zofe_sandbox = yes }
 				make_lost_empire = yes
-				random_country = {
-					limit = {
-						is_same_value = event_target:cosmogenesis_empire
-					}
-					country_event = { id = zofe_cosmogenesis.1 days = 5 }
-				}
+				country_event = { id = zofe_cosmogenesis.1 days = 5 }
 			}
 			else = {
 				make_fallen_empire = yes
@@ -2959,6 +2954,7 @@ country_event = { # To infinity and beyond the event horizon
 			every_country = {
 				limit = {
 					is_playable_country = yes
+					NOT = { is_same_value = event_target:cosmogenesis_empire }
 				}
 				country_event = { id = crisis.7518 days = 5 }
 			}

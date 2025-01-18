@@ -781,6 +781,13 @@ tech_dark_energy_sensors = {
 
 	prerequisites = { "tech_lost_technologies_2" }
 
+	prereqfor_desc = {
+		component = {
+			title = "TECH_UNLOCK_DARK_ENERGY_SENSORS_TITLE"
+			desc = "TECH_UNLOCK_DARK_ENERGY_SENSORS_DESC"
+		}
+	}
+
 	ai_weight = {
 		factor = 20 #good component
 	}
