@@ -945,13 +945,30 @@ planet_event = {
 	}
 }
 
-#Succesful situation conversion
+#Succesful situation conversion notification
 planet_event = {
 	id = utopian_paradise.10
 	is_triggered_only = yes
 	hide_window = yes
 	
 	immediate = {
+		create_message = {
+			type = UTOPIAN_WORLD_CREATED
+			localization = MESSAGE_UTOPIAN_WORLD_CREATED
+			days = 30
+			target = root
+			recipient = root.owner
+			variable = {
+				type = name
+				localization = PLANET
+				scope = root
+			}
+			variable = {
+				type = name
+				localization = SYSTEM
+				scope = root.solar_system
+			}
+		}
 		create_utopian_world = yes
 		from = {
 			destroy_situation = this
@@ -976,137 +993,140 @@ planet_event = {
 		}
 	}
 }
-#Succesful situation notification
+#Succesful situation notification obsolote
 planet_event = {
 	id = utopian_paradise.11
-	title = utopian_paradise.11.name
-	desc = {
-		text = "utopian_paradise.11.desc.gaia"
-		trigger = {
-			owner = {
-				OR = {
-					is_gestalt = no
-					is_rogue_servitor = yes
-				}
-			}
-			has_planet_flag = gaia_world_to_convert
-		}
-	}
-	desc = {
-		text = "utopian_paradise.11.desc.hive"
-		trigger = {
-			owner = { is_hive_empire = yes }
-			has_planet_flag = hive_world_to_convert
-		}
-	}
-	desc = {
-		text = "utopian_paradise.11.desc.machine"
-		trigger = {
-			owner = { is_machine_empire = yes }
-			has_planet_flag = machine_world_to_convert
-		}
-	}
-	desc = {
-		text = "utopian_paradise.11.desc.city"
-		trigger = {
-			owner = {
-				OR = {
-					is_gestalt = no
-					is_rogue_servitor = yes
-				}
-			}
-			has_planet_flag = city_world_to_convert
-		}
-	}
-	desc = {
-		text = "utopian_paradise.11.desc.ring"
-		trigger = {
-			owner = {
-				OR = {
-					is_gestalt = no
-					is_rogue_servitor = yes
-				}
-			}
-			has_planet_flag = ring_world_to_convert
-		}
-	}
-	desc = {
-		text = "utopian_paradise.11.desc.hive.ring"
-		trigger = {
-			owner = { is_hive_empire = yes }
-			has_planet_flag = ring_world_to_convert
-		}
-	}
-	desc = {
-		text = "utopian_paradise.11.desc.machine.ring"
-		trigger = {
-			owner = {
-				is_machine_empire = yes
-				is_rogue_servitor = no
-			}
-			has_planet_flag = ring_world_to_convert
-		}
-	}
-	picture = GFX_evt_astral_rift_siege_on_paradise_baol
-	show_sound = event_cityscape
-	location = root
-
 	is_triggered_only = yes
+	hide_window = yes
+	immediate = {
 
-	option = {
-		name = {
-			trigger = { owner = { is_gestalt = no} }
-			text = "utopian_paradise.11.a"
-		}
-		name = {
-			trigger = { owner = { is_gestalt = yes } }
-			text = "utopian_paradise.11.a.gestalt"
-		}
+	}
+	# title = utopian_paradise.11.name
+	# desc = {
+	# 	text = "utopian_paradise.11.desc.gaia"
+	# 	trigger = {
+	# 		owner = {
+	# 			OR = {
+	# 				is_gestalt = no
+	# 				is_rogue_servitor = yes
+	# 			}
+	# 		}
+	# 		has_planet_flag = gaia_world_to_convert
+	# 	}
+	# }
+	# desc = {
+	# 	text = "utopian_paradise.11.desc.hive"
+	# 	trigger = {
+	# 		owner = { is_hive_empire = yes }
+	# 		has_planet_flag = hive_world_to_convert
+	# 	}
+	# }
+	# desc = {
+	# 	text = "utopian_paradise.11.desc.machine"
+	# 	trigger = {
+	# 		owner = { is_machine_empire = yes }
+	# 		has_planet_flag = machine_world_to_convert
+	# 	}
+	# }
+	# desc = {
+	# 	text = "utopian_paradise.11.desc.city"
+	# 	trigger = {
+	# 		owner = {
+	# 			OR = {
+	# 				is_gestalt = no
+	# 				is_rogue_servitor = yes
+	# 			}
+	# 		}
+	# 		has_planet_flag = city_world_to_convert
+	# 	}
+	# }
+	# desc = {
+	# 	text = "utopian_paradise.11.desc.ring"
+	# 	trigger = {
+	# 		owner = {
+	# 			OR = {
+	# 				is_gestalt = no
+	# 				is_rogue_servitor = yes
+	# 			}
+	# 		}
+	# 		has_planet_flag = ring_world_to_convert
+	# 	}
+	# }
+	# desc = {
+	# 	text = "utopian_paradise.11.desc.hive.ring"
+	# 	trigger = {
+	# 		owner = { is_hive_empire = yes }
+	# 		has_planet_flag = ring_world_to_convert
+	# 	}
+	# }
+	# desc = {
+	# 	text = "utopian_paradise.11.desc.machine.ring"
+	# 	trigger = {
+	# 		owner = {
+	# 			is_machine_empire = yes
+	# 			is_rogue_servitor = no
+	# 		}
+	# 		has_planet_flag = ring_world_to_convert
+	# 	}
+	# }
+	# picture = GFX_evt_astral_rift_siege_on_paradise_baol
+	# show_sound = event_cityscape
+	# location = root
+
+	# option = {
+	# 	name = {
+	# 		trigger = { owner = { is_gestalt = no} }
+	# 		text = "utopian_paradise.11.a"
+	# 	}
+	# 	name = {
+	# 		trigger = { owner = { is_gestalt = yes } }
+	# 		text = "utopian_paradise.11.a.gestalt"
+	# 	}
 		
-		trigger = {
-			OR = {
-				has_planet_flag = gaia_world_to_convert
-				has_planet_flag = hive_world_to_convert
-				has_planet_flag = machine_world_to_convert
-			}
-		}
-		owner = { add_resource = { unity = 1000 } }
-		hidden_effect = {
-			remove_planet_flag = gaia_world_to_convert
-			remove_planet_flag = hive_world_to_convert
-			remove_planet_flag = machine_world_to_convert
-		}
-	}
+	# 	trigger = {
+	# 		OR = {
+	# 			has_planet_flag = gaia_world_to_convert
+	# 			has_planet_flag = hive_world_to_convert
+	# 			has_planet_flag = machine_world_to_convert
+	# 		}
+	# 	}
+	# 	owner = { add_resource = { unity = 1000 } }
+	# 	hidden_effect = {
+	# 		remove_planet_flag = gaia_world_to_convert
+	# 		remove_planet_flag = hive_world_to_convert
+	# 		remove_planet_flag = machine_world_to_convert
+	# 	}
+	# }
 
-	option = {
-		name = "utopian_paradise.11.a.city"
-		trigger = {
-			owner = {
-				OR = {
-					is_gestalt = no
-					is_rogue_servitor = yes
-				}
-			}
-			has_planet_flag = city_world_to_convert
-		}
-		owner = { add_resource = { unity = 1000 } }
-		hidden_effect = { remove_planet_flag = city_world_to_convert }
-	}
-	option = {
-		name = {
-			trigger = { owner = { is_gestalt = no} }
-			text = "utopian_paradise.11.a.ring"
-		}
-		name = {
-			trigger = { owner = { is_gestalt = yes } }
-			text = "utopian_paradise.11.a.gestalt"
-		}
+	# option = {
+	# 	name = "utopian_paradise.11.a.city"
+	# 	trigger = {
+	# 		owner = {
+	# 			OR = {
+	# 				is_gestalt = no
+	# 				is_rogue_servitor = yes
+	# 			}
+	# 		}
+	# 		has_planet_flag = city_world_to_convert
+	# 	}
+	# 	owner = { add_resource = { unity = 1000 } }
+	# 	hidden_effect = { remove_planet_flag = city_world_to_convert }
+	# }
+	# option = {
+	# 	name = {
+	# 		trigger = { owner = { is_gestalt = no} }
+	# 		text = "utopian_paradise.11.a.ring"
+	# 	}
+	# 	name = {
+	# 		trigger = { owner = { is_gestalt = yes } }
+	# 		text = "utopian_paradise.11.a.gestalt"
+	# 	}
 
-		trigger = { has_planet_flag = ring_world_to_convert }
+	# 	trigger = { has_planet_flag = ring_world_to_convert }
 
-		owner = { add_resource = { unity = 1000 } }
-		hidden_effect = { remove_planet_flag = ring_world_to_convert }
-	}
+	# 	owner = { add_resource = { unity = 1000 } }
+	# 	hidden_effect = { remove_planet_flag = ring_world_to_convert }
+	# }
 }
 #Fail situation notification (no explosion)
 planet_event = {

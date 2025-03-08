@@ -1,7 +1,9 @@
 ﻿l_english:
  
- ap_galactic_ascendancy:0 "Galactic Ascendancy"
- ap_galactic_ascendancy_desc:0 "When we possess the technologies required to found a civilization that spans millennia, younger races will learn of our achievements for centuries to come."
+ ap_galactic_ascendancy:0 "$ap_galactic_ascendancy_base$"
+ ap_galactic_ascendancy_desc:0 "[AscensionPerkGalacticAscendancyDesc]"
+ ap_galactic_ascendancy_base:0 "Galactic Ascendancy"
+ ap_galactic_ascendancy_base_desc:0 "When we possess the technologies required to found a civilization that spans millennia, younger races will learn of our achievements for centuries to come."
  ap_galactic_consciousness:0 "Galactic Consciousness"
  ap_galactic_consciousness_desc:0 "When we possess the technologies required to found a civilization that spans millennia, our mind will unite the stars under a single entity."
  ap_galactic_intelligence:0 "Galactic Intelligence"
@@ -9,12 +11,12 @@
  
  # become_ascended_empire:0 "We will become an §HAscended Empire§!"
  # describe_ascended_empire:0 "\nAt the zenith of civilization, citizens are united by a single, fanatical ideal. §HAscended Empires§! will sire their own subjects like Awakened Empires and pursue their own vision of the galaxy.\n"
- become_ascended_empire:0 "We will become an ['concept_ascended_empire']"
+ become_ascended_empire:0 "We will become an ['concept_ascended_empire']."
  describe_ascended_empire:0 "\nAt the zenith of civilization, citizens are united by a single, fanatical ideal. §HAscended Empires§! will sire their own subjects like Awakened Empires and pursue their own vision of the galaxy.\n"
  
 #  become_galactic_ascendancy:0 "We will become a §HGalactic Ascendancy§!"
 #  describe_galactic_ascendancy:0 "\nAs we march to the zenith of civilization, our empire shall possess technologies that rival even that of the precursor empires, and become a §HGalactic Ascendancy§!.\n"
- become_galactic_ascendancy:0 "We will become a ['concept_galactic_ascendancy']"
+ become_galactic_ascendancy:0 "We will become a ['concept_galactic_ascendancy']."
  describe_galactic_ascendancy:0 "\nAs we march to the zenith of civilization, our empire shall possess technologies that rival even that of the precursor empires, and become a §HGalactic Ascendancy§!.\n"
  
  become_ascended_hive_mind:2 "We will become an §HAscended Empire§!"
@@ -41,9 +43,10 @@
  requires_min_navy_5:0 "$TRIGGER_FAIL$Requires our empire to have a minimum of §H1M§! fleet power."
  requires_min_navy_6:0 "$TRIGGER_FAIL$Requires our empire to have a minimum of §H2M§! fleet power."
  
- cosmo_ap_clear:0 "$TRIGGER_PASS$Cannot have ['concept_ap_cosmogenesis'] Ascension Perk."
+ not_has_crisis_ap:0 "$TRIGGER_PASS$[root.GetName] is not a ['concept_crisis_empire']."
+ cosmo_ap_clear:0 "$TRIGGER_PASS$[root.GetName] does not have the ['concept_cosmogenesis_empire'] Ascension Perk."
  cosmo_ap:0 "$TRIGGER_FAIL$Cannot have ['concept_ap_cosmogenesis'] Ascension Perk."
- nemesis_ap_clear:0 "$TRIGGER_PASS$Cannot have ['concept_ap_become_the_crisis'] Ascension Perk."
+ nemesis_ap_clear:0 "$TRIGGER_PASS$[root.GetName] does not have the ['concept_become_the_crisis'] Ascension Perk."
  nemesis_ap:0 "$TRIGGER_FAIL$Cannot have ['concept_ap_become_the_crisis'] Ascension Perk."
 
  too_many_ai:0 "$TRIGGER_FAIL$Too many AI Ascended Empires in the galaxy!"

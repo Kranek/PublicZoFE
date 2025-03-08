@@ -84,7 +84,7 @@ district_utopian_city = {
 		potential = {
 			exists = owner
 			owner = {
-				is_gestalt = yes
+				is_rogue_servitor = yes
 			}
 		}
 		modifier = {
@@ -94,7 +94,7 @@ district_utopian_city = {
 	triggered_desc = {
 		trigger = {
 			exists = owner
-			owner = { is_gestalt = yes }
+			owner = { is_rogue_servitor = yes }
 		}
 		text = job_patrol_drone_effect_desc
 	}
@@ -334,7 +334,7 @@ district_utopian_leisure = {
 			}
 		}
 		modifier = {
-			job_bio_trophy_add = 15
+			job_bio_trophy_add = 10
 		}
 	}
 	triggered_desc = {
@@ -678,7 +678,7 @@ district_utopian_foundry = {
 		potential = {
 			exists = owner
 			owner = { 
-				is_gestalt = yes
+				is_rogue_servitor = yes
 				has_technology = tech_synthetic_living_metal
 			}
 		}
@@ -702,7 +702,7 @@ district_utopian_foundry = {
 		trigger = {
 			exists = owner
 			owner = { 
-				is_gestalt = yes
+				is_rogue_servitor = yes
 				has_technology = tech_synthetic_living_metal
 			}
 		}
@@ -853,7 +853,7 @@ district_utopian_science_city = {
 		potential = {
 			exists = owner
 			owner = { 
-				is_gestalt = yes
+				is_rogue_servitor = yes
 			}
 		}
 		modifier = {
@@ -872,7 +872,7 @@ district_utopian_science_city = {
 	triggered_desc = {
 		trigger = {
 			exists = owner
-			owner = { is_gestalt = yes }
+			owner = { is_rogue_servitor = yes }
 		}
 		text = job_calculator_effect_desc
 	}
@@ -895,7 +895,7 @@ district_utopian_science_city = {
 		potential = {
 			exists = owner
 			owner = { 
-				is_gestalt = yes
+				is_rogue_servitor = yes
 				has_technology = tech_synthetic_dark_matter
 				NOT = { has_technology = tech_synthetic_dark_matter_2 }
 			}
@@ -923,7 +923,7 @@ district_utopian_science_city = {
 		potential = {
 			exists = owner
 			owner = { 
-				is_gestalt = yes
+				is_rogue_servitor = yes
 				has_technology = tech_synthetic_dark_matter_2
 				NOT = { has_technology = tech_synthetic_dark_matter_3 }
 			}
@@ -950,7 +950,7 @@ district_utopian_science_city = {
 		potential = {
 			exists = owner
 			owner = { 
-				is_gestalt = yes
+				is_rogue_servitor = yes
 				has_technology = tech_synthetic_dark_matter_3
 			}
 		}
@@ -974,7 +974,7 @@ district_utopian_science_city = {
 		trigger = {
 			exists = owner
 			owner = { 
-				is_gestalt = yes
+				is_rogue_servitor = yes
 				has_technology = tech_synthetic_dark_matter
 			}
 		}

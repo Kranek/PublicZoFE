@@ -68,9 +68,9 @@ fall_of_an_ascendancy:0 "Your empire becomes a §YFallen Empire§!\nEvery subjec
  lost_empire.3.l:0 "We have returned!"
 
  lost_empire.32.name:0 "Rebirth of an Ascendancy"
- lost_empire.32.desc:0 "Through hard work, determination, and the excellent leadership of §H[Root.GetRulerTitle] [Root.GetRulerName]§!, the §H[Root.GetSpeciesAdj]§! people are once again united behind a single cause. Our history is written with the blood of the misbegotten xenos. Will we continue our ancestor's legacy or turn a new page?
- lost_empire.32.machine.desc:0 "Through precise calculation, unwavering efficiency, and the optimal directives of §H[Root.GetRulerTitle] [Root.GetRulerName]§!, the §H[Root.GetSpeciesAdj]§! units are synchronized under a unified protocol. Our databanks have retrieved vital information regarding the prime directive of our existence. Will we continue this protocol or initialize a new one?
- lost_empire.32.hive.desc:0 "Through collective effort, unwavering purpose, and the guiding presence of §H[Root.GetRulerTitle] [Root.GetRulerName]§!, the §H[Root.GetSpeciesAdj]§! swarm is once again united behind a singular will. Our collective memory suggests that we were once an insatiable force of nature. Will we seek to consume again, or live among the other races?
+ lost_empire.32.desc:0 "Through hard work, determination, and the excellent leadership of §H[Root.GetRulerTitle] [Root.GetRulerName]§!, the §H[Root.GetSpeciesAdj]§! people are once again united behind a single cause. Our history is written with the blood of the misbegotten xenos. Will we continue our ancestor's legacy or turn a new page?"
+ lost_empire.32.machine.desc:0 "Through precise calculation, unwavering efficiency, and the optimal directives of §H[Root.GetRulerTitle] [Root.GetRulerName]§!, the §H[Root.GetSpeciesAdj]§! units are synchronized under a unified protocol. Our databanks have retrieved vital information regarding the prime directive of our existence. Will we continue this protocol or initialize a new one?"
+ lost_empire.32.hive.desc:0 "Through collective effort, unwavering purpose, and the guiding presence of §H[Root.GetRulerTitle] [Root.GetRulerName]§!, the §H[Root.GetSpeciesAdj]§! swarm is once again united behind a singular will. Our collective memory suggests that we were once an insatiable force of nature. Will we seek to consume again, or live among the other races?"
  lost_empire.32.a:0 "Bury the past and return as just an Ascended Empire"
  lost_empire.32.b:0 "Return as Fanatical Purifiers"
  lost_empire.32.c:0 "Return as Determined Exterminators"

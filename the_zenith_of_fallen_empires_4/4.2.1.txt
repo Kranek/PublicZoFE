@@ -1,0 +1,28 @@
+# Change log of 03/03/2025
+
+## ZoFE 4.2.1 Patch
+
+Notes
+
+Fixes
+* Vanilla
+ - Fixed conflicting localization entries.
+ - Fixed districts not being shown for rogue servitor empires on Utopian Worlds.
+ - Fixed Utopian World districts giving wrong jobs for rogue servitor empires.
+ - Fixed localization typos.
+
+Game Content and Changes
+* Vanilla
+ - Added conditional description for ascended_empires_subject.8 event.
+ - Removed original_people_on_action.2 from save load on-action.
+ - Added notification toast for successful Utopian World creation.
+ - Utopian Worlds rename to Paradise Worlds.
+ - Added game concept for Ring Worlds.
+ - Added game concept for Ring World segments.
+ - Added game concept for Ecumenopolis.
+ - Added game concept for Hive Worlds.
+ - Added game concept for Paradise Worlds.
+ - Added game concept for Automated Districts.
+ - Reworked Galactic Ascendancy tooltips.
+ - Added 3 extra stages to Twilight of a Fallen Empire.
+ - Added scripted localization to Galactic Ascendancy Ascension Perk.

@@ -152,10 +152,10 @@
  
  war_goal_wg_ascended_empire_counterattack:0 "$war_goal_wg_counterattack$"
  war_goal_wg_ascended_empire_counterattack_desc:0 "$war_goal_wg_counterattack_desc$"
- war_goal_wg_ascended_empire_counterattack_acquire_hint:0 "$war_goal_wg_counterattack_acquire_hint$"
+#  war_goal_wg_ascended_empire_counterattack_acquire_hint:0 "$war_goal_wg_counterattack_acquire_hint$"
  war_goal_wg_ascended_empire_renegade_containment:0 "$war_goal_wg_renegade_containment$"
  war_goal_wg_ascended_empire_renegade_containment_desc:0 "$war_goal_wg_renegade_containment_desc$"
- war_goal_wg_ascended_empire_renegade_containment_acquire_hint:0 "$war_goal_wg_renegade_containment_acquire_hint$"
+#  war_goal_wg_ascended_empire_renegade_containment_acquire_hint:0 "$war_goal_wg_renegade_containment_acquire_hint$"
  war_goal_wg_ascended_empire_end_threat_renegade_containment:0 "$war_goal_wg_end_threat_renegade_containment$"
  war_goal_wg_ascended_empire_end_threat_renegade_containment_desc:0 "$war_goal_wg_end_threat_renegade_containment_desc$"
  war_goal_wg_ascended_empire_megacorp_subjugate:0 "$war_goal_wg_megacorp_subjugate$"

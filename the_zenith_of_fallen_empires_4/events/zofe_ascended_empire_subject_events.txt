@@ -412,6 +412,24 @@ country_event = {
 			years = 6
 		}
 		save_event_target_as = NoobEmpire
+		if = {
+			limit = {
+				any_owned_leader = {
+					is_ruler = yes
+					has_skill < 5
+				}
+			}
+			set_timed_country_flag = {
+				flag = incompetent_ruler
+				days = 2
+			}
+		}
+		else = {
+			set_timed_country_flag = {
+				flag = competent_ruler
+				days = 2
+			}
+		}
 		random_country = {
 			limit = {
 				is_country_type = ascended_empire
@@ -477,13 +495,27 @@ country_event = {
 			}
 		}
 	}
-
 }
 
 country_event = {
 	id = ascended_empires_subject.8
 	title = ascended_empires_subject.8.name
-	desc = ascended_empires_subject.8.desc
+	desc = {
+		trigger = {
+			from = {
+				has_country_flag = incompetent_ruler
+			}
+		}
+		text = ascended_empires_subject.8.desc.incompetent
+	}
+	desc = {
+		trigger = {
+			from = {
+				has_country_flag = competent_ruler
+			}
+		}
+		text = ascended_empires_subject.8.desc.competent
+	}
 	is_triggered_only = yes
 	diplomatic = yes
 	picture_event_data = {

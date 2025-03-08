@@ -85,7 +85,7 @@ situation_zofe_ascension = {
 		on_select = {
 			custom_tooltip = ascension_low_priority_effect
 		}
-		icon = GFX_situation_approach_shrug
+		icon = GFX_situation_approach_balance_sheet
 		icon_background = GFX_situation_approach_bg_red
 		ai_weight = {
 			base = 10
@@ -284,7 +284,7 @@ situation_zofe_ascension = {
 		on_select = {
 			custom_tooltip = ascension_high_priority_effect
 		}
-		icon = GFX_situation_approach_research
+		icon = GFX_situation_approach_balance_sheet
 		icon_background = GFX_situation_approach_bg_green
 		ai_weight = {
 			base = 5

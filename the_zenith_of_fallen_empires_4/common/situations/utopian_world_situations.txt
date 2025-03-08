@@ -642,31 +642,6 @@ situation_utopian_world_creation = {
 		hidden_effect = {
 			target = {
 				set_planet_flag = utopian_world_situation_ongoing
-				if = {
-					limit = { is_gaia = yes }
-					set_planet_flag = gaia_world_to_convert
-				}
-				else_if = {
-					limit = { is_planet_class = pc_hive }
-					set_planet_flag = hive_world_to_convert
-				}
-				else_if = {
-					limit = { is_planet_class = pc_machine }
-					set_planet_flag = machine_world_to_convert
-				}
-				else_if = {
-					limit = { is_planet_class = pc_city }
-					set_planet_flag = city_world_to_convert
-				}
-				else_if = {
-					limit = {
-						OR = {
-							is_planet_class = pc_ringworld_habitable
-							is_planet_class = pc_cybrex
-						}
-					}
-					set_planet_flag = ring_world_to_convert
-				}
 			}
 		}
 	}
@@ -675,9 +650,6 @@ situation_utopian_world_creation = {
 			target = {
 				planet_event = {
 					id = utopian_paradise.10
-				}
-				planet_event = {
-					id = utopian_paradise.11
 				}
 			}
 			if = {
@@ -764,12 +736,6 @@ situation_utopian_world_creation = {
 						}
 					}
 				}
-
-				remove_planet_flag = gaia_world_to_convert
-				remove_planet_flag = hive_world_to_convert
-				remove_planet_flag = machine_world_to_convert
-				remove_planet_flag = city_world_to_convert
-				remove_planet_flag = ring_world_to_convert
 				clear_utopian_district = {
 					VARIABLE = num_district_utopian_housing
 				}
@@ -793,11 +759,6 @@ situation_utopian_world_creation = {
 		hidden_effect = {
 			target = {
 				remove_planet_flag = utopian_world_situation_ongoing
-				remove_planet_flag = gaia_world_to_convert
-				remove_planet_flag = hive_world_to_convert
-				remove_planet_flag = machine_world_to_convert
-				remove_planet_flag = city_world_to_convert
-				remove_planet_flag = ring_world_to_convert
 				clear_utopian_district = {
 					VARIABLE = num_district_utopian_housing
 				}

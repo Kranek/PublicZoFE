@@ -6,7 +6,10 @@ district_utopian_city_rw = {
 		exists = from
 		from = {
 			has_technology = tech_paradise_creation
-			is_regular_empire = yes
+			OR = {
+				is_regular_empire = yes
+				is_rogue_servitor = yes
+			}
 		}
 		uses_district_set = utopian_ringworld
 	}
@@ -80,6 +83,27 @@ district_utopian_city_rw = {
 			}
 		}
 		text = job_enforcer_effect_desc
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_rogue_servitor = yes
+			}
+		}
+		modifier = {
+			job_patrol_drone_add = 5
+		}
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_rogue_servitor = yes
+			}
+		}
+		text = job_patrol_drone_effect_desc
 	}
 	
 	triggered_planet_modifier = {
@@ -161,7 +185,10 @@ district_utopian_leisure_rw = {
 		exists = from
 		from = {
 			has_technology = tech_paradise_creation
-			is_regular_empire = yes
+			OR = {
+				is_regular_empire = yes
+				is_rogue_servitor = yes
+			}
 		}
 		uses_district_set = utopian_ringworld
 	}
@@ -315,7 +342,6 @@ district_utopian_leisure_rw = {
 	}
 	
 	planet_modifier = {
-		planet_housing_add = 25
 		planet_max_buildings_add = 1
 		planet_amenities_add = 50
 	}
@@ -328,7 +354,7 @@ district_utopian_leisure_rw = {
 			}
 		}
 		modifier = {
-			job_bio_trophy_add = 30
+			job_bio_trophy_add = 25
 		}
 	}
 	triggered_desc = {
@@ -349,6 +375,7 @@ district_utopian_leisure_rw = {
 			}
 		}
 		modifier = {
+			planet_housing_add = 25
 			job_trader_add = 8
 			job_culture_worker_add = 5
 			job_clerk_add = 24

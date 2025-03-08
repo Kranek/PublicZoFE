@@ -360,3 +360,46 @@ defined_text = {
 		localization_key = situation_zofe_decadence_machine_monthly_change_tooltip
 	}
 }
+
+# defined_text = {
+# 	name = AscensionPerkGalacticAscendancyTitle
+# 	text = {
+# 		trigger = {
+# 			is_gestalt = no
+# 		}
+# 		localization_key = ap_galactic_ascendancy_base
+# 	}
+# 	text = {
+# 		trigger = {
+# 			is_hive_empire = yes
+# 		}
+# 		localization_key = ap_galactic_consciousness
+# 	}
+# 	text = {
+# 		trigger = {
+# 			is_machine_empire = yes
+# 		}
+# 		localization_key = ap_galactic_intelligence
+# 	}
+# }
+defined_text = {
+	name = AscensionPerkGalacticAscendancyDesc
+	text = {
+		trigger = {
+			is_gestalt = no
+		}
+		localization_key = ap_galactic_ascendancy_base_desc
+	}
+	text = {
+		trigger = {
+			is_hive_empire = yes
+		}
+		localization_key = ap_galactic_consciousness_desc
+	}
+	text = {
+		trigger = {
+			is_machine_empire = yes
+		}
+		localization_key = ap_galactic_intelligence_desc
+	}
+}

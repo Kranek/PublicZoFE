@@ -8,6 +8,34 @@ concept_galactic_ascendancy = {
 	}
 }
 
+concept_utopian_world = {
+	alias = { concept_utopian_worlds }
+}
+
+concept_automated_district = {
+	alias = { concept_automated_districts }
+	icon = "gfx/interface/icons/district.dds"
+}
+
+concept_ringworld = {
+	alias = { concept_ringworlds }
+	icon = "gfx/interface/icons/concepts/planet_classes/pc_ringworld.dds"
+}
+
+concept_ringworld_segment = {
+	alias = { concept_ringworld_segments concept_pc_ringworld_habitable }
+	icon = "gfx/interface/icons/concepts/planet_classes/pc_ringworld.dds"
+}
+
+concept_pc_hive = {
+	icon = "gfx/interface/icons/concepts/planet_classes/pc_hive.dds"
+}
+
+concept_pc_city = {
+	alias = { concept_city_world }
+	icon = "gfx/interface/icons/concepts/planet_classes/pc_city.dds"
+}
+
 concept_ringworld_empire = {
 	icon = "gfx/interface/icons/traits/trait_ringworld_empire.dds"
 }
@@ -48,6 +76,47 @@ concept_default_country = {
 concept_crisis_empire = {
 	icon = "gfx/interface/icons/diplomacy/diplomacy_pathofblood.dds"
 	alias = { concept_crisis_empires }
+}
+
+concept_cosmogenesis_empire = {
+	icon = "gfx/interface/icons/ascension_perks/ap_cosmogenesis.dds"
+}
+
+concept_become_the_crisis = {
+	icon = "gfx/interface/icons/ascension_perks/ap_become_the_crisis.dds"
+}
+
+concept_menace = {
+	icon = "gfx/interface/icons/resources/menace.dds"
+}
+
+concept_advanced_logic = {
+	icon = "gfx/interface/icons/resources/advanced_logic.dds"
+}
+
+concept_crisis_level = {
+	alias = { concept_crisis_levels }
+	icon = "gfx/interface/icons/crisis/concept_crisis_level_1.dds"
+}
+
+concept_crisis_level_1 = {
+	icon = "gfx/interface/icons/crisis/concept_crisis_level_1.dds"
+}
+
+concept_crisis_level_2 = {
+	icon = "gfx/interface/icons/crisis/concept_crisis_level_2.dds"
+}
+
+concept_crisis_level_3 = {
+	icon = "gfx/interface/icons/crisis/concept_crisis_level_3.dds"
+}
+
+concept_crisis_level_4 = {
+	icon = "gfx/interface/icons/crisis/concept_crisis_level_4.dds"
+}
+
+concept_crisis_level_5 = {
+	icon = "gfx/interface/icons/crisis/concept_crisis_level_5.dds"
 }
 
 concept_powerful_empire = {

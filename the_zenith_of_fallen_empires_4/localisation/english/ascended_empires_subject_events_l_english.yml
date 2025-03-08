@@ -48,15 +48,14 @@
  ascended_empires_subject.7.b:0 "Pursue more diplomatic alternatives"
 
  ascended_empires_subject.8.name:0 "Communication from §H[NoobEmpire.GetName]§!"
- ascended_empires_subject.8.desc:0 "We are renegotiating the bad deal between us. It is very bad. You are killing our jobs, our economy, and you're taking advantage of us. You get everything you need, while we get no help on our rivals. Not fair! This has to stop, and believe me, I will make our country great again. And you will pay for it. On behalf of my people, I have drafted a new deal. Sign it."
- ascended_empires_subject.8.desc:1 "Greetings, overlord, we have come here to make a humble request. Our economy has been shrinking since we've accepted §H[AscendedEmpireOverlord.GetName]§! as our overlord. We request a renegotiated deal between our two nations. One that would elevate some of the pressure on our taxes. Surely an empire as great as your own can effort to be lenient on a humble subject."
+ ascended_empires_subject.8.desc.incompetent:0 "We are renegotiating the bad deal between us. It is very bad. You are killing our jobs, our economy, and you're taking advantage of us. You get everything you need, while we get no help on our rivals. Not fair! This has to stop, and believe me, I will make our country great again. And you will pay for it. On behalf of my people, I have drafted a new deal. Sign it."
+ ascended_empires_subject.8.desc.competent:0 "Greetings, overlord, we have come here to make a humble request. Our economy has been shrinking since we've accepted §H[AscendedEmpireOverlord.GetName]§! as our overlord. We request a renegotiated deal between our two nations. One that would elevate some of the pressure on our taxes. Surely an empire as great as your own can afford to be lenient on a humble subject."
  
  ascended_empires_subject.8.a:0 "Very well. A renegotiated deal you will have."
  ascended_empires_subject.8.b:0 "Who do you think you are talking to?"
+ #ascended_empires_subject.8.b:0 "We will review your request and come back to you."
  ascended_empires_subject_tooltip_8:0 "§Y[From.GetRulerTitle] [rulername.GetName] §Rdies§!.§!"
  ascended_empires_subject.8.c:0 "You would do well to remember who you are addressing, subject."
- ascended_empires_subject.8.a:1 "Very well. A renegotiated deal you will have."
- ascended_empires_subject.8.b:1 "We will review your request and come back to you."
  
  ascended_empires_subject.9.name:0 "Communication from §H[AscendedEmpireOverlord.GetName]§!"
  ascended_empires_subject.9.desc.renegotiated:0 "We have reviewed our options and deemed it best to agree to your proposal of renegotiating the deals between us. You will find this new deal a great deal more pleasant." 

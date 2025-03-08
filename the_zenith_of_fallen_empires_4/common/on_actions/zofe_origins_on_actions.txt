@@ -25,11 +25,11 @@ on_game_start = {
 	}
 }
 
-on_single_player_save_game_load = {
-	events = {
-		original_people_on_action.2
-	}
-}
+# on_single_player_save_game_load = {
+# 	events = {
+# 		original_people_on_action.2
+# 	}
+# }
 
 on_survey_planet = {
 	events = {

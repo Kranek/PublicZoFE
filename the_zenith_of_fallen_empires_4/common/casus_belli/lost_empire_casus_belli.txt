@@ -48,7 +48,6 @@ cb_banish_ascendancy = {
 	}
 }
 
-
 cb_total_annihilation = {
 	show_in_diplomacy = yes
 	show_notification = no

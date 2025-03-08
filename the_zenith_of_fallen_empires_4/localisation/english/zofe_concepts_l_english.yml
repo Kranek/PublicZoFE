@@ -2,38 +2,89 @@
  
  concept_ascended_empire:0 "Ascended Empire"
  concept_ascended_empires:0 "Ascended Empires"
- concept_ascended_empire_desc:0 "§HAscended Empires§! will create their own subjects like ['concept_awakened_empires'] and impose their vision upon the galaxy."
+ concept_ascended_empire_desc:0 "Ascended Empires will create their own subjects like ['concept_awakened_empires'] and impose their vision upon the galaxy."
 
  concept_default_country:0 "Default Empire"
- concept_default_country_desc:0 "A §HDefault Empire§! is what the player spawns in when the game starts."
+ concept_default_country_desc:0 "A Default Empire is what the player spawns in when the game starts."
 
  concept_galactic_ascendancy:0 "Galactic Ascendancy"
  concept_galactic_ascendancies:0 "Galactic Ascendancies"
- concept_galactic_ascendancy_desc:0 "§HGalactic Ascendancies§! possess technologies that rival even that of the ['concept_fallen_empires']."
+ concept_galactic_ascendancy_desc:0 "Galactic Ascendancies possess technologies that rival even that of the ['concept_fallen_empires']."
  
  concept_relative_power:0 "Relative Power"
- concept_relative_power_desc:0 "§HRelative Power§! is a measure of how much empires are ahead of one another in terms of ['concept_fleet_power'], ['concept_economic_power'] or ['concept_technology_level']."
+ concept_relative_power_desc:0 "Relative Power is a measure of how much empires are ahead of one another in terms of ['concept_fleet_power'], ['concept_economic_power'] or ['concept_technology_level']."
  
  concept_fleet_power:0 "Fleet Power"
- concept_fleet_power_desc:0 "§HFleet Power§! is the combined fleet power of every owned fleet."
+ concept_fleet_power_desc:0 "Fleet Power is the combined fleet power of every owned fleet."
 
  concept_economy:0 "Economy"
  concept_economic_power:0 "Economic Power"
- concept_economy_desc:0 "§HEconomic Power§! is a sum of all monthly income, including income from trade agreements. Monthly spending is not part of this score."
+ concept_economy_desc:0 "Economic Power is a sum of all monthly income, including income from trade agreements. Monthly spending is not part of this score."
 
  concept_technology_level:0 "Technology Level"
- concept_technology_level_desc:0 "§HTechnology Level§! is the combined base cost of all researched ['concept_technologies']. Repeatables provide less score."
+ concept_technology_level_desc:0 "Technology Level is the combined base cost of all researched ['concept_technologies']. Repeatables provide less score."
+
+ concept_utopian_world:0 "Paradise World"
+ concept_utopian_worlds:0 "Paradise Worlds"
+ concept_utopian_world_desc:0 "Paradise Worlds are perfected worlds, built upon the foundations of a ['concept_pc_gaia'], ['concept_pc_hive'], ['concept_pc_machine'], ['concept_pc_city'], or ['concept_ringworld'].\n\nUtopian Worlds have special £district£ ['concept_automated_districts']."
+
+ concept_automated_district:0 "Automated District"
+ concept_automated_districts:0 "Automated Districts"
+ concept_automated_district_desc:0 "Automated Districts are self-sustaining infrastructures that produces resources automatically without the need for assigning £job£ Jobs to £pops£ Pops. Found on ['concept_utopian_worlds'], these districts ensure continuous output with minimal intervention."
+
+ concept_pc_hive:0 "Hive World"
+ concept_pc_hive_desc:0 "- Base Habitability: §Y0%§!\n- $mod_planet_jobs_produces_mult$: §G+10%§!\n- $MOD_PLANET_MAX_BUILDINGS_ADD$: §G+12§!\n- $MOD_PLANET_RESETTLEMENT_UNEMPLOYED_DESTINATION_MULT$: §G+50%§!\n- $mod_job_spawning_drone_add$: §G+1§!\n\n§L$pc_hive_desc$§!"
+
+ concept_pc_city:0 "Ecumenopolis"
+ concept_city_world:0 "City World"
+ concept_pc_city_desc:0 "- Base Habitability: §G100%§!\n- $mod_planet_jobs_produces_mult$: §G+20%§!\n- $MOD_POP_GROWTH_SPEED$: §G+15%§!\n- $MOD_PLANET_POP_ASSEMBLY_MULT$: §G+15%§!\n- $MOD_PLANET_POP_ASSEMBLY_ORGANIC_MULT$: §G+15%§!\n- $MOD_PLANET_MAX_BUILDINGS_ADD$: §G+12§!\n- $MOD_PLANET_RESETTLEMENT_UNEMPLOYED_DESTINATION_MULT$: §G+50%§!\n\n§L$pc_city_desc$§!"
+
+ concept_ringworld:0 "Ring World"
+ concept_ringworlds:0 "Ring Worlds"
+ concept_ringworld_desc:0 "A Ring World is an immense artificial band encircling the system's sun, designed for vast habitation. Freed from planetary limitations, it offers unparalleled living space and efficiency. It is made up of ['concept_ringworld_segments']."
+
+ concept_ringworld_segment:0 "Ring World Segment"
+ concept_ringworld_segments:0 "Ring World Segments"
+ concept_pc_ringworld_habitable:0 "Ring Segment"
+ concept_ringworld_segment_desc:0 "- Base Habitability: §G100%§!\n- $MOD_PLANET_MAX_BUILDINGS_ADD$ §G+12§!\n- $MOD_PLANET_RESETTLEMENT_UNEMPLOYED_DESTINATION_MULT$: §G+50%§!\n\n§L$pc_ringworld_habitable_desc$§!"
 
  concept_playable_empire:0 "Playable Empire"
  concept_playable_empires:0 "Playable Empires"
- concept_playable_empire_desc:0 "A §HPlayable Empire§! is an empire that can be played by the player under normal circumstances. Such as:$NEW_LINE$- ['concept_default_country']$NEW_LINE$- ['concept_ascended_empire']$NEW_LINE$- ['concept_fallen_empire']"
+ concept_playable_empire_desc:0 "A Playable Empire is an empire that can be played by the player under normal circumstances:$NEW_LINE$- ['concept_default_country']$NEW_LINE$- ['concept_ascended_empire']$NEW_LINE$- ['concept_fallen_empire']"
 
  concept_powerful_empire:0 "Powerful Empire"
  concept_powerful_empires:0 "Powerful Empires"
- concept_powerful_empire_desc:0 "A §HPowerful Empire§! is §YEquivalent§! or §ROverwhelming§! in ['concept_relative_power'] or one of its subcategories compared to you."
+ concept_powerful_empire_desc:0 "A Powerful Empire is §YEquivalent§! or §ROverwhelming§! in ['concept_relative_power'] or one of its subcategories compared to you."
+
  concept_active_crisis:0 "Active Crisis"
  concept_active_crises:0 "Active Crises"
- concept_active_crisis_desc:0 "An §HActive Crisis§! is an ['concept_endgame_crisis'] or a ['concept_crisis_empire'] with a §UCalamity§! rating or higher."
+ concept_active_crisis_desc:0 "An Active Crisis is an ['concept_endgame_crisis'] or a ['concept_crisis_empire'] with a ['concept_crisis_level_4'] or ['concept_crisis_level_5'] rating that is actively ravaging the galaxy."
+
+ concept_crisis_level:0 "Crisis Level"
+ concept_crisis_levels:0 "Crisis Levels"
+ concept_crisis_level_desc:0 "Crisis Levels are gained by completing Special Projects or crisis objectives that grant either ['concept_menace'] or ['concept_advanced_logic'].\n\nThere are 5 levels:$NEW_LINE$- ['concept_crisis_level_1']$NEW_LINE$- ['concept_crisis_level_2']$NEW_LINE$- ['concept_crisis_level_3']$NEW_LINE$- ['concept_crisis_level_4']$NEW_LINE$- ['concept_crisis_level_5']"
+
+ concept_crisis_level_1:0 "Concern"
+ concept_crisis_level_1_desc:0 "Minor galactic awareness. No significant diplomatic penalties or hostilities."
+ concept_crisis_level_2:0 "Risk"
+ concept_crisis_level_2_desc:0 "Increased suspicion. Moderate Opinion penalties and some diplomatic friction."
+ concept_crisis_level_3:0 "Danger"
+ concept_crisis_level_3_desc:0 "Recognized as a growing threat. Stronger Opinion penalties, potential diplomatic isolation."
+ concept_crisis_level_4:0 "Calamity"
+ concept_crisis_level_4_desc:0 "Widespread alarm. Severe Opinion penalties, most empires view you as a major danger."
+ concept_crisis_level_5:0 "Existential Threat"
+ concept_crisis_level_5_desc:0 "Declared an Existential Threat. Maximum Opinion penalties, potential for §RTotal War§! between empires."
+
+ concept_cosmogenesis_empire:0 "Cosmogenesis"
+ concept_cosmogenesis_empire_desc:0 "Cosmogenesis empires generate ['concept_advanced_logic'] and complete Crisis Special Projects to advance.\n\n['concept_crisis_levels'] I to IV provide bonuses, unlike ['concept_become_the_crisis'], reaching ['concept_crisis_level_5'] does not trigger automatic §RTotal War§!."
+ concept_advanced_logic:0 "Advanced Logic"
+ concept_advanced_logic_desc:0 "Advanced Logic is gained by completing crisis objectives. The amount granted by each objective scales down with each empire present in the galaxy. Most of the hostility of this crisis is caused by Purging pops via the Synaptic Lathe; while this can be avoided, it will lead to much slower progression."
+
+ concept_become_the_crisis:0 "Galactic Nemesis"
+ concept_become_the_crisis_desc:0 "Galactic Nemesis empires generate ['concept_menace'] and complete Crisis Special Projects to advance.\n\n['concept_crisis_levels'] I to IV provide bonuses without many diplomatic restrictions, reaching ['concept_crisis_level_5'] the empire is treated as any ['concept_endgame_crisis']."
+ concept_menace:0 "Menace"
+ concept_menace_desc:0 "Menace is gained by completing crisis objectives. The amount granted by each objective is reduced if the galaxy is larger or more populated with empires."
+
  concept_crisis_empire:0 "Crisis Empire"
  concept_crisis_empires:0 "Crisis Empires"
- concept_crisis_empire_desc:0 "A §HCrisis Empire§! is a ['concept_playable_empire'] that has picked at least §H3§! ['concept_ascension_perks'] and has one of the following ['concept_ascension_perks']:$NEW_LINE$- ['concept_ap_cosmogenesis']$NEW_LINE$- ['concept_ap_become_the_crisis']."
+ concept_crisis_empire_desc:0 "Crisis Empires are ['concept_playable_empires'] that have picked the ['concept_become_the_crisis'] or ['concept_cosmogenesis_empire'] ['concept_ascension_perk']."

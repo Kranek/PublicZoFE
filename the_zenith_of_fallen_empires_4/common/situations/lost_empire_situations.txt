@@ -153,7 +153,7 @@ situation_zofe_decadence = {
 		on_select = {
 			custom_tooltip = decadence_low_priority_effect
 		}
-		icon = GFX_situation_approach_shrug
+		icon = GFX_situation_approach_influence
 		icon_background = GFX_situation_approach_bg_red
 		ai_weight = {
 			base = 0
@@ -168,7 +168,7 @@ situation_zofe_decadence = {
 	}
 	approach = {#Moderate Priority
 		name = approach_decadence_moderate_priority
-		icon = GFX_situation_approach_balance_sheet
+		icon = GFX_situation_approach_influence
 		icon_background = GFX_situation_approach_bg_yellow
 		default = yes
 		on_select = {
@@ -190,7 +190,7 @@ situation_zofe_decadence = {
 		on_select = {
 			custom_tooltip = decadence_high_priority_effect
 		}
-		icon = GFX_situation_approach_research
+		icon = GFX_situation_approach_influence
 		icon_background = GFX_situation_approach_bg_green
 		ai_weight = {
 			base = 0
@@ -1036,71 +1036,63 @@ situation_zofe_descension = {
 	start_value = 15
 
 	stages = {
-		deficit_first = {
+		stage_1 = {
 			icon = GFX_situation_stage_1
-			icon_background = GFX_situation_stage_frame_red
-			end = 25
-			on_first_enter = {
-			}
-			modifier = {
-				starbases_upkeep_mult = 0.1
-				ships_upkeep_mult = 0.1
-				starbase_shipyard_build_cost_mult = 0.1
-				starbase_shipyard_build_speed_mult = -0.1
-				country_naval_cap_mult = -0.1
-			}
-		}
-		deficit_second = {
-			icon = GFX_situation_stage_2
 			icon_background = GFX_situation_stage_frame_red
 			end = 50
 			on_first_enter = {
 			}
 			modifier = {
-				starbases_upkeep_mult = 0.2
-				ships_upkeep_mult = 0.2
-				starbase_shipyard_build_cost_mult = 0.2
-				starbase_shipyard_build_speed_mult = -0.2
-				country_naval_cap_mult = -0.2
+				planet_stability_add = -10
+				faction_approval = -0.2
+				country_unity_produces_mult = -0.2
 			}
 		}
-		deficit_third = {
-			icon = GFX_situation_stage_3
-			icon_background = GFX_situation_stage_frame_red
-			end = 75
-			on_first_enter = {
-			}
-			modifier = {
-				starbases_upkeep_mult = 0.33
-				ships_upkeep_mult = 0.33
-				starbase_shipyard_build_cost_mult = 0.33
-				starbase_shipyard_build_speed_mult = -0.33
-				country_naval_cap_mult = -0.33
-			}
-		}
-		deficit_fourth = {
-			icon = GFX_situation_stage_4
+		stage_2 = {
+			icon = GFX_situation_stage_2
 			icon_background = GFX_situation_stage_frame_red
 			end = 100
 			on_first_enter = {
 			}
 			modifier = {
-				starbases_upkeep_mult = 0.5
-				ships_upkeep_mult = 0.5
-				starbase_shipyard_build_cost_mult = 0.5
-				starbase_shipyard_build_speed_mult = -0.5
-				country_naval_cap_mult = -0.5
+				planet_stability_add = -15
+				faction_approval = -0.3
+				country_unity_produces_mult = -0.4
+			}
+		}
+		stage_3 = {
+			icon = GFX_situation_stage_3
+			icon_background = GFX_situation_stage_frame_red
+			end = 150
+			on_first_enter = {
+			}
+			modifier = {
+				planet_stability_add = -20
+				faction_approval = -0.4
+				country_unity_produces_mult = -0.6
+			}
+		}
+		stage_4 = {
+			icon = GFX_situation_stage_4
+			icon_background = GFX_situation_stage_frame_red
+			end = 200
+			on_first_enter = {
+			}
+			modifier = {
+				planet_stability_add = -25
+				faction_approval = -0.5
+				country_unity_produces_mult = -0.8
 			}
 		}
 	}
 
 	approach = {
-		name = deficit_approach_do_nothing
-		icon = GFX_situation_approach_this_is_fine
+		name = approach_decadence_low_priority
+		icon = GFX_situation_approach_fleet
 		icon_background = GFX_situation_approach_bg_red
 		default = yes
 		on_select = {
-			custom_tooltip = deficit_approach_do_nothing_tooltip
+			# custom_tooltip = deficit_approach_do_nothing_tooltip
 		}
 		ai_weight = {
 			base = 1
@@ -1120,20 +1112,19 @@ situation_zofe_descension = {
 			base = 0
 			modifier = {
 				add = 2
-				current_stage = deficit_third
+				current_stage = stage_3
 			}
 			modifier = {
 				add = 2
-				current_stage = deficit_fourth
+				current_stage = stage_4
 			}
 		}
 	}
 
 	monthly_progress = {
 		base = 0
-
 		modifier = {
-			add = 4
+			add = 6
 			desc = does_not_meet_ascendancy_fleet_power_requirement
 			owner = { is_at_war = no }
 			OR = {
@@ -1228,31 +1219,10 @@ situation_zofe_descension = {
 	}
 	
 	on_progress_complete = {
-		hidden_effect = { owner = { remove_country_flag = descension_ongoing } }
-		if = {
-			limit = { 
-				owner = { is_gestalt = no }
-			}
-			custom_tooltip = "become_lost_empire"
-			custom_tooltip = "describe_lost_empire"
-		}
-		if = {
-			limit = { 
-				owner = { is_hive_empire = yes }
-			}
-			custom_tooltip = "become_lost_hive_mind"
-			custom_tooltip = "describe_lost_hive_mind"
-		}
-		if = {
-			limit = {
-				owner = { is_machine_empire = yes }
-			}
-			custom_tooltip = "become_lost_machine"
-			custom_tooltip = "describe_lost_machine"
-		}
-		
+		custom_tooltip = "become_lost_empire"
 		hidden_effect = {
 			owner = {
+				remove_country_flag = descension_ongoing
 				country_event = { id = lost_empire.1000 }
 			}
 		}
@@ -1305,21 +1275,44 @@ situation_zofe_lost_empire = {
 		stage_1 = {
 			icon = GFX_situation_stage_1
 			icon_background = GFX_situation_stage_frame_green
-			end = 360
+			end = 180
 			modifier = {
-				planet_jobs_produces_mult = -0.75
-				all_technology_research_speed = -0.75
-				country_unity_produces_mult = -0.75
-				species_leader_exp_gain = -0.75
-				country_influence_produces_mult = -0.75
-				country_starbase_influence_cost_mult = 0.75
+				planet_jobs_produces_mult = -0.8
+				all_technology_research_speed = -0.8
+				country_unity_produces_mult = -0.8
+				species_leader_exp_gain = -0.8
+				country_influence_produces_mult = -0.8
+				country_starbase_influence_cost_mult = 0.8
 			}
-			#on_first_enter = {
-				#set_situation_flag = lost_empire_situation_stage_1_complete
-			#}
 		}
 		stage_2 = {
 			icon = GFX_situation_stage_2
+			icon_background = GFX_situation_stage_frame_green
+			end = 360
+			modifier = {
+				planet_jobs_produces_mult = -0.7
+				all_technology_research_speed = -0.7
+				country_unity_produces_mult = -0.7
+				species_leader_exp_gain = -0.7
+				country_influence_produces_mult = -0.7
+				country_starbase_influence_cost_mult = 0.7
+			}
+		}
+		stage_3 = {
+			icon = GFX_situation_stage_3
+			icon_background = GFX_situation_stage_frame_green
+			end = 540
+			modifier = {
+				planet_jobs_produces_mult = -0.6
+				all_technology_research_speed = -0.6
+				country_unity_produces_mult = -0.6
+				species_leader_exp_gain = -0.6
+				country_influence_produces_mult = -0.6
+				country_starbase_influence_cost_mult = 0.6
+			}
+		}
+		stage_4 = {
+			icon = GFX_situation_stage_4
 			icon_background = GFX_situation_stage_frame_green
 			end = 720
 			modifier = {
@@ -1331,17 +1324,30 @@ situation_zofe_lost_empire = {
 				country_starbase_influence_cost_mult = 0.5
 			}
 		}
-		stage_3 = {
-			icon = GFX_situation_stage_3
+		stage_5 = {
+			icon = GFX_situation_stage_5
+			icon_background = GFX_situation_stage_frame_green
+			end = 900
+			modifier = {
+				planet_jobs_produces_mult = -0.4
+				all_technology_research_speed = -0.4
+				country_unity_produces_mult = -0.4
+				species_leader_exp_gain = -0.4
+				country_influence_produces_mult = -0.4
+				country_starbase_influence_cost_mult = 0.4
+			}
+		}
+		stage_6 = {
+			icon = GFX_situation_stage_6
 			icon_background = GFX_situation_stage_frame_green
 			end = 1080
 			modifier = {
-				planet_jobs_produces_mult = -0.25
-				all_technology_research_speed = -0.25
-				country_unity_produces_mult = -0.25
-				species_leader_exp_gain = -0.25
-				country_influence_produces_mult = -0.25
-				country_starbase_influence_cost_mult = 0.25
+				planet_jobs_produces_mult = -0.3
+				all_technology_research_speed = -0.3
+				country_unity_produces_mult = -0.3
+				species_leader_exp_gain = -0.3
+				country_influence_produces_mult = -0.3
+				country_starbase_influence_cost_mult = 0.3
 			}
 		}
 	}
@@ -1464,6 +1470,12 @@ situation_zofe_lost_empire = {
 			any_country = {
 				NOT = { is_same_empire = owner }
 				is_zofe_fe = no
+				OR = {
+					is_country_type = default
+					is_country_type = ascended_empire
+					has_country_flag = ascended_empire
+					has_country_flag = ascending_empire
+				}
 				OR = {
 					relative_power = {
 						who = owner

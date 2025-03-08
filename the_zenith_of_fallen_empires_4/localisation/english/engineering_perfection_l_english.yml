@@ -162,20 +162,20 @@
  
  decision_paradise_creation_no_districts:0 "£trigger_no£ The planet must have full districts development."
  decision_paradise_creation_effect:0 "Starts Situation: §Y$situation_utopian_world_creation$§!"
- decision_paradise_creation_effects:0 "Turns the $pc_gaia$ into a beautiful §YUtopian World§!, becoming a true wonder of the universe. Unlocks special districts that support automated industries while allowing pops to live out the rest of their lives in self-deterministic ways.\n\n"
- decision_paradise_creation_2_effects:0 "Turns the $pc_city$ into a beautiful §YUtopian World§!, becoming a true wonder of the universe. Unlocks special districts that support automated industries while allowing pops to live out the rest of their lives in self-deterministic ways.\n\n"
- decision_paradise_creation_3_effects:0 "Turns the $pc_ringworld_habitable$ into a beautiful §YUtopian Ring World Segment§!, becoming a true wonder of the universe. Unlocks special districts that support automated industries.\n\n"
+ decision_paradise_creation_effects:0 "Turns the ['concept_pc_gaia'] into a beautiful ['concept_utopian_world'], becoming a true wonder of the universe. Unlocks special districts that support automated industries while allowing pops to live out the rest of their lives in self-deterministic ways.\n\n"
+ decision_paradise_creation_2_effects:0 "Turns the ['concept_pc_city'] into a beautiful ['concept_utopian_world'], becoming a true wonder of the universe. Unlocks special districts that support automated industries while allowing pops to live out the rest of their lives in self-deterministic ways.\n\n"
+ decision_paradise_creation_3_effects:0 "Turns the ['concept_ringworld'] into a beautiful ['concept_utopian_world'], becoming a true wonder of the universe. Unlocks special districts that support automated industries.\n\n"
 
- decision_paradise_creation_machine_effects:0 "Turns the $pc_machine$ into a §YLiving Metal World§!, becoming a true wonder of the universe. Unlocks special districts that support automated industries.\n\n"
- decision_paradise_creation_machine_2_effects:0 ""Turns the $pc_ringworld_habitable$ into a §YLiving Metal Ring World Segment§!, becoming a true wonder of the universe. Unlocks special districts that support automated industries.\n\n"
+ decision_paradise_creation_machine_effects:0 "Turns the ['concept_pc_machine'] into a ['concept_utopian_world'], becoming a true wonder of the universe. Unlocks special districts that support automated industries.\n\n"
+ decision_paradise_creation_machine_2_effects:0 "Turns the ['concept_ringworld'] into a ['concept_utopian_world'], becoming a true wonder of the universe. Unlocks special districts that support automated industries.\n\n"
 
- decision_paradise_creation_hive_effects:0 "Turns the $pc_hive$ into a §YUtopian Hive World§!, becoming a true wonder of the universe. Unlocks special districts that support automated industries.\n\n"
- decision_paradise_creation_hive_2_effects:0 ""Turns the $pc_ringworld_habitable$ into a §YUtopian Hive World§!, becoming a true wonder of the universe. Unlocks special districts that support automated industries.\n\n"
+ decision_paradise_creation_hive_effects:0 "Turns the ['concept_pc_hive'] into a ['concept_utopian_world'], becoming a true wonder of the universe. Unlocks special districts that support automated industries.\n\n"
+ decision_paradise_creation_hive_2_effects:0 "Turns the ['concept_ringworld'] into a ['concept_utopian_world'], becoming a true wonder of the universe. Unlocks special districts that support automated industries.\n\n"
 
  zofe_utopian_world_decisions:0 "Paradise Creation"
  
  decision_paradise_creation:0 "Paradise Creation"
- decision_paradise_creation_desc:0 "When nature is engineered to perfection, its unparalleled beauty among the known universe would be a fitting a legacy to leave for our young.	"
+ decision_paradise_creation_desc:0 "When nature is engineered to perfection, its unparalleled beauty among the known universe would be a fitting a legacy to leave for our young."
  
  decision_paradise_creation_city:0 "$decision_paradise_creation$"
  decision_paradise_creation_city_desc:0 "$decision_paradise_creation_desc$"
@@ -266,8 +266,8 @@
  dark_matter_district_3b_desc:0 "Five §Y$building_synthetic_dark_matter_3$§! have been installed in each district.\n\n"
  
  
- tech_paradise_creation:0 "Utopian Worlds"
- tech_paradise_creation_desc:0 "Combining our mastery in terraforming, landscaping and engineering, we can create a true wonder in the universe and a Utopian World for our citizens to live." 
+ tech_paradise_creation:0 "Paradise Creation"
+ tech_paradise_creation_desc:0 "Combining our mastery in terraforming, landscaping and engineering, we can create a true wonder in the universe and a Paradise World for our citizens to live." 
 
  tech_paradise_creation_machine:0 "Living Metal Worlds"
  tech_paradise_creation_machine_desc:0 "Combining our mastery in terraforming, materials and engineering, we can create a true wonder in the universe and a Living Metal World of extreme productivity." 
@@ -484,3 +484,10 @@
 
  d_failed_utopian_construction:0 "Failed Paradise Project"
  d_failed_utopian_construction_desc:0 "This planet was supposed to be a jewel of the galaxy, but due to complications the project has failed. The planet now bears heavy scars as a result."
+
+
+ # Messages
+ MESSAGE_UTOPIAN_WORLD_CREATED_TITLE:0 "Utopian World Created"
+ MESSAGE_UTOPIAN_WORLD_CREATED:4 "Converted $PLANET|H$ into a ['concept_utopian_world'] in the $SYSTEM|Y$ system."
+ MESSAGE_ALIEN_UTOPIAN_WORLD_CREATED_TITLE:0 "Alien Utopian World Created"
+ MESSAGE_ALIEN_UTOPIAN_WORLD_CREATED:1 "$COUNTRY|Y$ has created an $PLANET|H$ in the $SYSTEM|Y$ system."

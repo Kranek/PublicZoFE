@@ -109,7 +109,7 @@
  situation_zofe_decadence_hive_monthly_change_tooltip:0 "The progress of this §YSituation§! is dependent on the §YApproach§! we pick. Embrace the sickness to speed up our transition to a Fallen Empire."
  situation_zofe_decadence_hive_start:0 "Starts Situation: §Y$situation_zofe_decadence_hive$§!"
 
- become_lost_empire:2 "We will become a §HFallen Empire§!"
+ become_lost_empire:2 "We will become a ['concept_fallen_empires']"
  describe_lost_empire:0 "\nNo longer at the zenith of civilization, citizens nevertheless cling to their single, fanatical ideal. §HFallen Empires§! are content to sit within the comfort of its borders and observe the galaxy for its own amusement.\n"
  become_lost_hive_mind:2 "We will become an §HFallen Empire§!"
  describe_lost_hive_mind:0 "\nSuccumbed to the sickness, the abilities of the Mind has weakened. §HFallen Hive Minds§! will instead attempt to maintain connection to the remaining drones under its command to prevent further decay.\n"
@@ -165,7 +165,7 @@
  situation_zofe_descension_type:0 "The Fall of an Ascendancy"
  situation_zofe_descension:0 "The Fall of an Ascendancy"
  situation_zofe_descension_desc:0 "The lack of naval assets to maintain an Ascendancy leads to multiple questions regarding the future of [Owner.GetName] and its role within the wider galaxy."
- situation_zofe_descension_monthly_change_tooltip:0 "The progress of this §YSituation§! is dependent on the §YApproach§! we pick. Increase our the size of our fleets at once to avoid becoming a Fallen Empire."
+ situation_zofe_descension_monthly_change_tooltip:0 "The progress of this §YSituation§! is dependent on the §YApproach§! we pick. Increase the size of our navy to avoid becoming a ['concept_fallen_empire']."
  
  zofe_descension_fail_tooltip:0 "We will retain our status as an Ascendancy, backed by a large naval force."
  deficit_approach_rebuild_navy:0 "Invest in Ship Building"
