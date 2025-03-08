@@ -51,10 +51,10 @@ on_monthly_pulse_country = {
 # this = country
 on_yearly_pulse_country = {
 	events = {
-		zofe.16
-		zofe.17
-		lost_empire.1
-		lost_empire.100
+		zofe.16					#Insurance event for FE contact
+		zofe.17					#The Quest for Dark Matter Power Trigger
+		lost_empire.1			#Compare Decadent Pops against Healthy Pops - Yearly Pulse
+		# lost_empire.100
 		original_people.2
 		zofe_crisis.1002
 		zofe_crisis.1007
@@ -85,7 +85,14 @@ on_five_year_pulse_country = {
 		zofe_awakening.201
 		zofe_awakening.301
 		zofe_awakening.401
-	 }
+		ascended_empires_subject.1
+		ascended_empires_subject.3
+		ascended_empires_subject.5
+		ascended_empires_subject.7
+		ascended_empires_subject.10
+		ascended_empires_subject.13
+		ascended_empires_subject.19
+	}
 }
 
 # this = country
@@ -94,13 +101,6 @@ on_decade_pulse_country = {
 		fallen_technologies.3
 		lost_technologies.310
 		lost_empire.9
-		ascended_empires_subject.1
-		ascended_empires_subject.4
-		ascended_empires_subject.7
-		ascended_empires_subject.10
-		ascended_empires_subject.13
-		ascended_empires_subject.16
-		ascended_empires_subject.19
 		fallen_weaponry.902
 	}
 }

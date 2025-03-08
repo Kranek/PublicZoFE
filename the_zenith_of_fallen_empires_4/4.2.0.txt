@@ -1,0 +1,56 @@
+# Change log of 28/02/2025
+
+## ZoFE 4.2.0 Patch
+
+Notes
+
+Fixes
+* Vanilla
+ - Fixed Original Empire Sensor tech unlock tooltip.
+ - Fixed no sounds on Utopian Worlds.
+ - Fixed Original economic tech event not triggering in 10 years when you conquer the OE crisis worlds.
+ - If you pick Cosmogenesis or Become the Crisis AP if you somehow managed to pick Galactic Ascendancy AP beforehand, will now lock you out of ZoFE content if you only use base mod.
+ - Fixed on-abort not destroying the Ascension Situation.
+ - Fixed ZoFE buildings being destroyed when not intended.
+
+Game Content and Changes
+* Vanilla
+ - Bonuses you get from Archaeo Engineers Ascension Perk now show up in the ship designer.
+ - Reworked how the Utopian World creation decision works.
+ - Added Paradise Creation Situation instead of the decision planet build menu.
+ - Changed World Architect civic tooltip to reflect changes.
+ - Changed Ascension situation to use scripted localization.
+ - Changed Decadence Situation to use Scripted Localization.
+ - Decadence Situation has stricter and more punishing modifiers.
+ - Reworked subject events for Ascended Empires.
+ - Galactic Superpower civic now has as +25% ship build speed.
+ - Beacon of Prosperity now has +25% increased pop growth from immigration.
+ - Industrial Juggernaut civic automated production increased from +25% to +30% and automated production upkeep increased from -15% to -20%.
+ - Spymaster civic now has +3 to Defense Against Hostile Operations.
+ - Virtual Empires can no longer gain Utopian Worlds.
+ - Added a new Fallen Empire personality for machine empires.
+ - Gestalt Utopian Worlds can now produce their respective decadent pops.
+ - Removed +10% triggered happiness for hedonist pops.
+ - Extended stages of Twilight of a Lost Empire.
+ - Added progress multiplier for Twilight of a Lost Empire if there are countries that have a similar fleet power to you [exceptions include lost and fallen countries].
+ - Added progress multiplier if there's an active end-game or AP crisis.
+ - Empires that previously had rogue servitor, assimilator or extermination focused civics, can now reclaim it after Twilight of a Lost Empire.
+ - Changed Twilight of a Lost Empire name to Twilight of a Fallen Empire.
+ - Merged two yearly on-action events in the name of performance.
+ - Added game concept for Relative Power.
+ - Added game concept for Fleet Power.
+ - Added game concept for Economic Power.
+ - Added game concept for Techonology Level.
+ - Added game concept for Powerful Empires.
+ - Added game concept for Active Crisis.
+ - Added game concept for Crisis Empires.
+ - Added game concept for Ascended Empires.
+ - Added game concept for Galactic Ascendancies.
+ - Added game concept for Playable Empire.
+
+ Modding
+ * Added Scripted Effect create_utopian_world for modders to include their own planet class in.
+ * Added Scripted Trigger can_make_utopian for modders to include their own planet class in if they want the world to have utopian potential.
+ * Added Scripted Trigger can_produce_hedonists for modders to include their own planet class.
+ * Added Scripted Trigger can_produce_maintenance_bot for modders to include their own planet class.
+ * Added Scripted Trigger can_produce_confused_drone for modders to include their own planet class.

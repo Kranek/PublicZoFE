@@ -1,0 +1,87 @@
+soundeffect = {
+	name = pc_utopian_ringworld
+	sounds = {
+		sound = ringworld_pc_amb_01
+		sound = ringworld_pc_amb_02
+		sound = ringworld_pc_amb_03
+	}
+	max_audible = 1
+	max_audible_behaviour = fail
+	fade_out = 0.3
+}
+soundeffect = {
+	name = pc_utopian_hive_ringworld
+	sounds = {
+		sound = ringworld_pc_amb_01
+		sound = ringworld_pc_amb_02
+		sound = ringworld_pc_amb_03
+	}
+	max_audible = 1
+	max_audible_behaviour = fail
+	fade_out = 0.3
+}
+soundeffect = {
+	name = pc_utopian_machine_ringworld
+	sounds = {
+		sound = ringworld_pc_amb_01
+		sound = ringworld_pc_amb_02
+		sound = ringworld_pc_amb_03
+	}
+	max_audible = 1
+	max_audible_behaviour = fail
+	fade_out = 0.3
+}
+soundeffect = {
+	name = pc_utopian_gaia
+	volume = 0.35
+	loop = no
+	sounds = {
+		sound = pc_gaia_planet_01
+		sound = pc_gaia_planet_02
+		sound = pc_gaia_planet_03
+	}
+	playbackrate_random_offset = { -10.0 10.0 }
+	fade_out = 0.5
+	max_audible = 1
+	max_audible_behaviour = fail	
+}
+soundeffect = {
+	name = pc_utopian_machine
+	volume = 0.3
+	loop = no
+	sounds = {
+		sound = sfx_world_machine_show_planet_01
+		sound = sfx_world_machine_show_planet_02
+		sound = sfx_world_machine_show_planet_03
+	}
+	playbackrate_random_offset = { -10.0 10.0 }
+	fade_out = 0.3
+	max_audible = 1
+	max_audible_behaviour = fail
+}
+soundeffect = {
+	name = pc_utopian_hive
+	volume = 0.3
+	max_audible = 1
+	max_audible_behaviour = fail
+	playbackrate_random_offset = { -10.0 10.0 }
+	fade_out = 0.3
+	sounds = {
+		sound = sfx_world_hivemind_show_planet_01
+		sound = sfx_world_hivemind_show_planet_02
+		sound = sfx_world_hivemind_show_planet_03
+	}
+}
+soundeffect = {
+	name = pc_utopian_city
+	volume = 1.5
+	loop = no
+	sounds = {
+		sound = city_planet_01
+		sound = city_planet_02
+	}
+	playbackrate_random_offset = { -10.0 10.0 }
+	fade_out = 0.3
+	max_audible = 1
+	max_audible_behaviour = fail
+}

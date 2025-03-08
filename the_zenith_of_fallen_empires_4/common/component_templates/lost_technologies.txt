@@ -2065,9 +2065,10 @@ utility_component_template = {
 	}
 
 	custom_tooltip = tt_MEDIUM_DARK_ENERGY_SHIELD_AP
-	triggered_ship_modifier = {
+	triggered_ship_design_modifier  = {
 		potential = {
-			owner = { has_ascension_perk = ap_archaeoengineers }
+			exists = from
+			from = { has_ascension_perk = ap_archaeoengineers }
 		}
 		ship_shield_add = @zofe_shield_S7
 	}
@@ -2100,9 +2101,10 @@ utility_component_template = {
 	}
 
 	custom_tooltip = tt_LARGE_DARK_ENERGY_SHIELD_AP
-	triggered_ship_modifier = {
+	triggered_ship_design_modifier  = {
 		potential = {
-			owner = { has_ascension_perk = ap_archaeoengineers }
+			exists = from
+			from = { has_ascension_perk = ap_archaeoengineers }
 		}
 		ship_shield_add = @zofe_shield_M7
 	}
@@ -2135,9 +2137,10 @@ utility_component_template = {
 	}
 
 	custom_tooltip = tt_MEDIUM_DARK_ENERGY_SHIELD_AP
-	triggered_ship_modifier = {
+	triggered_ship_design_modifier  = {
 		potential = {
-			owner = { has_ascension_perk = ap_archaeoengineers }
+			exists = from
+			from = { has_ascension_perk = ap_archaeoengineers }
 		}
 		ship_shield_add = @zofe_shield_S7
 	}
@@ -2169,9 +2172,10 @@ utility_component_template = {
 	}
 
 	custom_tooltip = tt_LARGE_DARK_ENERGY_SHIELD_AP
-	triggered_ship_modifier = {
+	triggered_ship_design_modifier  = {
 		potential = {
-			owner = { has_ascension_perk = ap_archaeoengineers }
+			exists = from
+			from = { has_ascension_perk = ap_archaeoengineers }
 		}
 		ship_shield_add = @zofe_shield_M7
 	}
@@ -2238,9 +2242,10 @@ utility_component_template = {
 	}	
 
 	custom_tooltip = tt_MEDIUM_TITAN_ARMOR_AP
-	triggered_ship_modifier = {
+	triggered_ship_design_modifier  = {
 		potential = {
-			owner = { has_ascension_perk = ap_archaeoengineers }
+			exists = from
+			from = { has_ascension_perk = ap_archaeoengineers }
 		}
 		ship_armor_add = @zofe_armor_S7
 	}
@@ -2275,9 +2280,10 @@ utility_component_template = {
 	}	
 
 	custom_tooltip = tt_LARGE_TITAN_ARMOR_AP
-	triggered_ship_modifier = {
+	triggered_ship_design_modifier  = {
 		potential = {
-			owner = { has_ascension_perk = ap_archaeoengineers }
+						exists = from
+			from = { has_ascension_perk = ap_archaeoengineers }
 		}
 		ship_armor_add = @zofe_armor_M7
 	}
@@ -2314,9 +2320,10 @@ utility_component_template = {
 	}
 
 	custom_tooltip = tt_MEDIUM_TITAN_PLATING_AP
-	triggered_ship_modifier = {
+	triggered_ship_design_modifier  = {
 		potential = {
-			owner = { has_ascension_perk = ap_archaeoengineers }
+			exists = from
+			from = { has_ascension_perk = ap_archaeoengineers }
 		}
 		ship_hull_add = @zofe_hull_S7
 	}
@@ -2351,9 +2358,10 @@ utility_component_template = {
 	}
 
 	custom_tooltip = tt_LARGE_TITAN_PLATING_AP
-	triggered_ship_modifier = {
+	triggered_ship_design_modifier  = {
 		potential = {
-			owner = { has_ascension_perk = ap_archaeoengineers }
+			exists = from
+			from = { has_ascension_perk = ap_archaeoengineers }
 		}
 		ship_hull_add = @zofe_hull_M7
 	}

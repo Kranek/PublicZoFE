@@ -253,4 +253,110 @@ defined_text = {
 	}
 }
 
+defined_text = {
+	name = ZofeAscensionSituationTitle
+	text = {
+		trigger = {
+			owner = {
+				NOR = {
+					has_origin = origin_original_people
+					has_origin = origin_ringworld_empire
+				}
+			}
+		}
+		localization_key = situation_zofe_ascension_base
+	}
+	text = {
+		trigger = {
+			owner = {
+				has_origin = origin_ringworld_empire
+			}
+		}
+		localization_key = situation_re_ascension
+	}
+	text = {
+		trigger = {
+			owner = {
+				has_origin = origin_original_people
+			}
+		}
+		localization_key = situation_oe_ascension
+	}
+}
 
+defined_text = {
+	name = ZofeAscensionSituationDesc
+	text = {
+		trigger = {
+			owner = {
+				NOR = {
+					has_origin = origin_original_people
+					has_origin = origin_ringworld_empire
+				}
+			}
+		}
+		localization_key = situation_zofe_ascension_base_desc
+	}
+	text = {
+		trigger = {
+			owner = {
+				has_origin = origin_ringworld_empire
+			}
+		}
+		localization_key = situation_re_ascension_desc
+	}
+	text = {
+		trigger = {
+			owner = {
+				has_origin = origin_original_people
+			}
+		}
+		localization_key = situation_oe_ascension_desc
+	}
+}
+
+defined_text = {
+	name = ZofeDecadenceSituationTitle
+	text = {
+		trigger = { owner = { is_gestalt = no } }
+		localization_key = situation_zofe_decadence_base
+	}
+	text = {
+		trigger = { owner = { is_hive_empire = yes } }
+		localization_key = situation_zofe_decadence_hive
+	}
+	text = {
+		trigger = { owner = { is_machine_empire = yes } }
+		localization_key = situation_zofe_decadence_machine
+	}
+}
+defined_text = {
+	name = ZofeDecadenceSituationDesc
+	text = {
+		trigger = { owner = { is_gestalt = no } }
+		localization_key = situation_zofe_decadence_base_desc
+	}
+	text = {
+		trigger = { owner = { is_hive_empire = yes } }
+		localization_key = situation_zofe_decadence_hive_desc
+	}
+	text = {
+		trigger = { owner = { is_machine_empire = yes } }
+		localization_key = situation_zofe_decadence_machine_desc
+	}
+}
+defined_text = {
+	name = ZofeDecadenceSituationMonthly
+	text = {
+		trigger = { owner = { is_gestalt = no } }
+		localization_key = situation_zofe_decadence_base_monthly_change_tooltip
+	}
+	text = {
+		trigger = { owner = { is_hive_empire = yes } }
+		localization_key = situation_zofe_decadence_hive_monthly_change_tooltip
+	}
+	text = {
+		trigger = { owner = { is_machine_empire = yes } }
+		localization_key = situation_zofe_decadence_machine_monthly_change_tooltip
+	}
+}

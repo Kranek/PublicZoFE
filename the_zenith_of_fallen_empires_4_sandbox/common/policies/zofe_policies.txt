@@ -15,6 +15,8 @@ diplomatic_stance = {
 	potential = {
 		OR = {
 			is_playable_country = yes
+			is_country_type = original_empire
+			is_country_type = awakened_original_empire
 			is_country_type = fallen_empire
 			is_country_type = awakened_fallen_empire
 			is_country_type = primitive
@@ -36,6 +38,7 @@ diplomatic_stance = {
 			OR = {
 				is_playable_country = yes
 				is_country_type = awakened_fallen_empire
+				is_country_type = awakened_original_empire
 			}
 		}
 
@@ -148,6 +151,7 @@ diplomatic_stance = {
 				is_playable_country = yes
 				is_country_type = mirrored_country
 				is_country_type = awakened_fallen_empire
+				is_country_type = awakened_original_empire
 			}
 		}
 
@@ -441,6 +445,7 @@ diplomatic_stance = {
 		potential = {
 			OR = {
 				is_country_type = awakened_fallen_empire
+				is_country_type = awakened_original_empire
 				is_country_type = awakened_marauders
 				is_country_type = mirrored_country
 				is_playable_country = yes
@@ -751,6 +756,7 @@ diplomatic_stance = {
 
 		potential = {
 			OR = {
+				is_country_type = original_empire
 				is_country_type = fallen_empire
 				is_country_type = lost_empire
 			}

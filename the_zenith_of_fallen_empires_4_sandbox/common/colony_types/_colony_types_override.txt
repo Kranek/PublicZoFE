@@ -142,7 +142,6 @@ col_capital_factory = {
 					is_country_type = ascended_empire
 				}
 				country_uses_consumer_goods = yes
-
 				OR = {
 					is_ai = no
 					AND = {
@@ -275,7 +274,6 @@ col_capital_trade = {
 					is_country_type = ascended_empire
 				}
 				is_gestalt = no
-
 				OR = {
 					is_ai = no
 					AND = {

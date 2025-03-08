@@ -20,7 +20,7 @@ country_event = {
 	after = {
 		start_situation = {
 			type = situation_zofe_lost_empire
-			target = capital_scope	
+			target = root
 		}
 	}
 }

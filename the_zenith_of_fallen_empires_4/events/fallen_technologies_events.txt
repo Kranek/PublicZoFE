@@ -191,9 +191,12 @@ country_event = {
 		}
 		
 		#Starts Ascension Situation
-		start_situation = {
-			type = situation_zofe_ascension
-			target = root.capital_scope	
+		custom_tooltip = situation_zofe_ascension_start
+		hidden_effect = {
+			start_situation = {
+				type = situation_zofe_ascension
+				target = root
+			}
 		}
 		
 		hidden_effect = {
@@ -209,7 +212,7 @@ country_event = {
 	
 	#Purifier Response
 	option = {
-		name = fallen_technologies.1.purifier	
+		name = fallen_technologies.1.purifier
 		trigger = { 
 			has_valid_civic = civic_fanatic_purifiers
 			NOR = { 
@@ -219,9 +222,12 @@ country_event = {
 		}
 
 		#Starts Ascension Situation
-		start_situation = {
-			type = situation_zofe_ascension
-			target = root.capital_scope	
+		custom_tooltip = situation_zofe_ascension_start
+		hidden_effect = {
+			start_situation = {
+				type = situation_zofe_ascension
+				target = root
+			}
 		}
 		
 		hidden_effect = {
@@ -248,16 +254,19 @@ country_event = {
 		}
 		
 		#Starts Ascension Situation
-		start_situation = {
-			type = situation_zofe_ascension
-			target = root.capital_scope	
+		custom_tooltip = situation_zofe_ascension_start
+		hidden_effect = {
+			start_situation = {
+				type = situation_zofe_ascension
+				target = root
+			}
 		}
 		
 		hidden_effect = {
 			every_country = {					# Notify Players
 				limit = {
 					NOT = { is_same_value = root }
-					is_ai = no			
+					is_ai = no
 				}
 				country_event = { id = fallen_technologies.2 }
 			}
@@ -276,16 +285,19 @@ country_event = {
 		}
 		
 		#Starts Ascension Situation
-		start_situation = {
-			type = situation_zofe_ascension
-			target = root.capital_scope	
+		custom_tooltip = situation_zofe_ascension_start
+		hidden_effect = {
+			start_situation = {
+				type = situation_zofe_ascension
+				target = root
+			}
 		}
 		
 		hidden_effect = {
 			every_country = {					# Notify Players
 				limit = {
 					NOT = { is_same_value = root }
-					is_ai = no			
+					is_ai = no
 				}
 				country_event = { id = fallen_technologies.2 }
 			}
@@ -293,32 +305,32 @@ country_event = {
 	}
 	
 	#Crisis Aspirant Response
-	option = {
-		name = fallen_technologies.1.crisis	
-		trigger = { 
-			has_ascension_perk = ap_become_the_crisis
-			NOR = { 
-				has_origin = origin_ringworld_empire
-				has_origin = origin_original_people
-			}
-		}
+	# option = {
+	# 	name = fallen_technologies.1.crisis	
+	# 	trigger = { 
+	# 		has_ascension_perk = ap_become_the_crisis
+	# 		NOR = { 
+	# 			has_origin = origin_ringworld_empire
+	# 			has_origin = origin_original_people
+	# 		}
+	# 	}
 		
-		#Starts Ascension Situation
-		start_situation = {
-			type = situation_zofe_ascension
-			target = root.capital_scope	
-		}
+	# 	#Starts Ascension Situation
+	# 	start_situation = {
+	# 		type = situation_zofe_ascension
+	# 		target = root.capital_scope	
+	# 	}
 		
-		hidden_effect = {
-			every_country = {					# Notify Players
-				limit = {
-					NOT = { is_same_value = root }
-					is_ai = no			
-				}
-				country_event = { id = fallen_technologies.2 }
-			}
-		}
-	}
+	# 	hidden_effect = {
+	# 		every_country = {					# Notify Players
+	# 			limit = {
+	# 				NOT = { is_same_value = root }
+	# 				is_ai = no			
+	# 			}
+	# 			country_event = { id = fallen_technologies.2 }
+	# 		}
+	# 	}
+	# }
 	
 	#Ringworld Empire Response
 	option = {
@@ -326,16 +338,19 @@ country_event = {
 		trigger = { has_origin = origin_ringworld_empire }
 		
 		#Starts Ascension Situation
-		start_situation = {
-			type = situation_re_ascension
-			target = root.capital_scope	
+		custom_tooltip = situation_re_ascension_start
+		hidden_effect = {
+			start_situation = {
+				type = situation_zofe_ascension
+				target = root
+			}
 		}
 		
 		hidden_effect = {
 			every_country = {					# Notify Players
 				limit = {
 					NOT = { is_same_value = root }
-					is_ai = no			
+					is_ai = no
 				}
 				country_event = { id = fallen_technologies.2 }
 			}
@@ -348,16 +363,19 @@ country_event = {
 		trigger = { has_origin = origin_original_people }
 		
 		#Starts Ascension Situation
-		start_situation = {
-			type = situation_oe_ascension
-			target = root.capital_scope	
+		custom_tooltip = situation_oe_ascension_start
+		hidden_effect = {
+			start_situation = {
+				type = situation_zofe_ascension
+				target = root
+			}
 		}
 		
 		hidden_effect = {
 			every_country = {					# Notify Players
 				limit = {
 					NOT = { is_same_value = root }
-					is_ai = no			
+					is_ai = no
 				}
 				country_event = { id = fallen_technologies.2 }
 			}
@@ -624,9 +642,12 @@ country_event = {
 		}
 		
 		#Starts Ascension Situation
-		start_situation = {
-			type = situation_zofe_ascension
-			target = root.capital_scope	
+		custom_tooltip = situation_zofe_ascension_start
+		hidden_effect = {
+			start_situation = {
+				type = situation_zofe_ascension
+				target = root
+			}
 		}
 		
 		hidden_effect = {
@@ -652,9 +673,12 @@ country_event = {
 		}
 
 		#Starts Ascension Situation
-		start_situation = {
-			type = situation_zofe_ascension
-			target = root.capital_scope	
+		custom_tooltip = situation_zofe_ascension_start
+		hidden_effect = {
+			start_situation = {
+				type = situation_zofe_ascension
+				target = root
+			}
 		}
 		
 		hidden_effect = {
@@ -681,9 +705,12 @@ country_event = {
 		}
 		
 		#Starts Ascension Situation
-		start_situation = {
-			type = situation_zofe_ascension
-			target = root.capital_scope	
+		custom_tooltip = situation_zofe_ascension_start
+		hidden_effect = {
+			start_situation = {
+				type = situation_zofe_ascension
+				target = root
+			}
 		}
 		
 		hidden_effect = {
@@ -709,9 +736,12 @@ country_event = {
 		}
 		
 		#Starts Ascension Situation
-		start_situation = {
-			type = situation_zofe_ascension
-			target = root.capital_scope	
+		custom_tooltip = situation_zofe_ascension_start
+		hidden_effect = {
+			start_situation = {
+				type = situation_zofe_ascension
+				target = root
+			}
 		}
 		
 		hidden_effect = {
@@ -726,32 +756,32 @@ country_event = {
 	}
 	
 	#Crisis Aspirant Response
-	option = {
-		name = fallen_technologies.1.crisis	
-		trigger = { 
-			has_ascension_perk = ap_become_the_crisis
-			NOR = { 
-				has_origin = origin_ringworld_empire
-				has_origin = origin_original_people
-			}
-		}
+	# option = {
+	# 	name = fallen_technologies.1.crisis	
+	# 	trigger = { 
+	# 		has_ascension_perk = ap_become_the_crisis
+	# 		NOR = { 
+	# 			has_origin = origin_ringworld_empire
+	# 			has_origin = origin_original_people
+	# 		}
+	# 	}
 		
-		#Starts Ascension Situation
-		start_situation = {
-			type = situation_zofe_ascension
-			target = root.capital_scope	
-		}
+	# 	#Starts Ascension Situation
+	# 	start_situation = {
+	# 		type = situation_zofe_ascension
+	# 		target = root.capital_scope	
+	# 	}
 		
-		hidden_effect = {
-			every_country = {					# Notify Players
-				limit = {
-					NOT = { is_same_value = root }
-					is_ai = no			
-				}
-				country_event = { id = fallen_technologies.2 }
-			}
-		}
-	}
+	# 	hidden_effect = {
+	# 		every_country = {					# Notify Players
+	# 			limit = {
+	# 				NOT = { is_same_value = root }
+	# 				is_ai = no			
+	# 			}
+	# 			country_event = { id = fallen_technologies.2 }
+	# 		}
+	# 	}
+	# }
 	
 	#Ringworld Empire Response
 	option = {
@@ -759,9 +789,12 @@ country_event = {
 		trigger = { has_origin = origin_ringworld_empire }
 		
 		#Starts Ascension Situation
-		start_situation = {
-			type = situation_zofe_ascension
-			target = root.capital_scope	
+		custom_tooltip = situation_re_ascension_start
+		hidden_effect = {
+			start_situation = {
+				type = situation_zofe_ascension
+				target = root
+			}
 		}
 		
 		hidden_effect = {
@@ -781,9 +814,12 @@ country_event = {
 		trigger = { has_origin = origin_original_people }
 		
 		#Starts Ascension Situation
-		start_situation = {
-			type = situation_zofe_ascension
-			target = root.capital_scope	
+		custom_tooltip = situation_oe_ascension_start
+		hidden_effect = {
+			start_situation = {
+				type = situation_zofe_ascension
+				target = root
+			}
 		}
 		
 		hidden_effect = {

@@ -626,7 +626,7 @@ country_event = {
 		#Starts Dark Matter Situation
 		start_situation = {
 			type = situation_zofe_dark_matter
-			target = root.capital_scope	
+			target = root
 		}
 		
 		hidden_effect = {

@@ -7,9 +7,14 @@
  ap_galactic_intelligence:0 "Galactic Intelligence"
  ap_galactic_intelligence_desc:0 "When we possess the technologies required to found a civilization that spans millennia, our intelligence will unite the stars under a single processor core."
  
- become_ascended_empire:2 "We will become an §HAscended Empire§!"
+ # become_ascended_empire:0 "We will become an §HAscended Empire§!"
+ # describe_ascended_empire:0 "\nAt the zenith of civilization, citizens are united by a single, fanatical ideal. §HAscended Empires§! will sire their own subjects like Awakened Empires and pursue their own vision of the galaxy.\n"
+ become_ascended_empire:0 "We will become an ['concept_ascended_empire']"
  describe_ascended_empire:0 "\nAt the zenith of civilization, citizens are united by a single, fanatical ideal. §HAscended Empires§! will sire their own subjects like Awakened Empires and pursue their own vision of the galaxy.\n"
- become_galactic_ascendancy:0 "We will become a §HGalactic Ascendancy§!"
+ 
+#  become_galactic_ascendancy:0 "We will become a §HGalactic Ascendancy§!"
+#  describe_galactic_ascendancy:0 "\nAs we march to the zenith of civilization, our empire shall possess technologies that rival even that of the precursor empires, and become a §HGalactic Ascendancy§!.\n"
+ become_galactic_ascendancy:0 "We will become a ['concept_galactic_ascendancy']"
  describe_galactic_ascendancy:0 "\nAs we march to the zenith of civilization, our empire shall possess technologies that rival even that of the precursor empires, and become a §HGalactic Ascendancy§!.\n"
  
  become_ascended_hive_mind:2 "We will become an §HAscended Empire§!"

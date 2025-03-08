@@ -634,6 +634,13 @@ tech_original_empire_sensors = {
 	
 	prerequisites = { "tech_original_technologies_2" }
 
+	prereqfor_desc = {
+		component = {
+			title = "TECH_UNLOCK_ORIGINAL_EMPIRE_SENSORS_TITLE"
+			desc = "TECH_UNLOCK_ORIGINAL_EMPIRE_SENSORS_DESC"
+		}
+	}
+
 	ai_weight = {
 		factor = 20 #good component
 	}

@@ -1625,66 +1625,14 @@ tech_paradise_creation = {
 	cost = 100000
 	tier = 7
 	category = { statecraft }
-	prerequisites = { "tech_fallen_technologies_6" "tech_fallen_class_5_singularity" "tech_fallen_dimensional_harvester" "tech_fallen_nano_forge_2" "tech_fallen_gourmet_center" "tech_fallen_opulent_plaza" }
-	weight = 0
-	is_rare = yes
-	
-	potential = {
-		is_zofe_country = yes
-		engineering_perfection = yes
-		OR = {
-			is_gestalt = no
-			has_valid_civic = civic_machine_servitor
-		}
-	}
-	
-	modifier = {
-		country_resource_max_add = 200000
-	}
-
-	ai_weight = {
-		factor = 6		#Ascension is good
-	}
-}
-
-tech_paradise_creation_machine = {
-	area = society
-	cost = 100000
-	tier = 7
-	category = { statecraft }
-	prerequisites = { "tech_fallen_technologies_6" "tech_fallen_class_5_singularity" "tech_fallen_dimensional_harvester" "tech_fallen_nano_forge_2" }
-	weight = 0
-	is_rare = yes
-	
-	potential = {
-		is_zofe_country = yes
-		engineering_perfection = yes
-		is_machine_empire = yes
-		NOT = { has_valid_civic = civic_machine_servitor }
-	}
-	
-	modifier = {
-		country_resource_max_add = 200000
-	}
-
-	ai_weight = {
-		factor = 6		#Ascension is good
-	}
-}
-
-tech_paradise_creation_hive = {
-	area = society
-	cost = 100000
-	tier = 7
-	category = { statecraft }
 	prerequisites = { "tech_fallen_technologies_6" "tech_fallen_class_5_singularity" "tech_fallen_dimensional_harvester" "tech_fallen_nano_forge_2" "tech_fallen_gourmet_center" }
 	weight = 0
 	is_rare = yes
 	
 	potential = {
 		is_zofe_country = yes
+		is_virtual_empire = no
 		engineering_perfection = yes
-		is_hive_empire = yes
 	}
 	
 	modifier = {

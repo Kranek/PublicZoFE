@@ -1,4 +1,4 @@
-# Change log of 18/01/2024
+# Change log of 18/01/2025
 
 ## ZoFE 4.1.4 Patch
 
@@ -10,17 +10,17 @@ Fixes
  - Restriced Fallen Clone Vat tech to Sandbox.
  - Fixed bug that allowed players to construct the Fallen Clone Vat and vanilla Clone Vat.
  - Fixed Dark Energy Sensor tech unlock tooltip.
-
-* Sandbox
-
-Game Content and Changes
-* Vanilla
- - Tweaked Societal buildings.
  - Fixed wrong jobs on Utopian Ring and City worlds for Rogue Servitors.
  - Fixed Ship gift event options being switched up.
 
 * Sandbox
- - Fixed Cosmogenesis Remnant Fate event triggering for Cosmo empire.
+- Fixed Cosmogenesis Remnant Fate event triggering for Cosmo empire.
+
+Game Content and Changes
+* Vanilla
+ - Tweaked Societal buildings.
+
+* Sandbox
 
 Suggestions Added
 

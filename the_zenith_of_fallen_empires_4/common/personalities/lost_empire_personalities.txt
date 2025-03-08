@@ -388,7 +388,7 @@ lost_empire_hive_mind = {
 	}
 }
 
-lost_empire_machine = { 
+lost_empire_servitor = {
 	aggressiveness = 1.0
 	trade_willingness = 0.5
 	bravery = 2.0
@@ -418,6 +418,45 @@ lost_empire_machine = {
 	allow = {
 		is_lost_empire = yes
 		is_machine_empire = yes
+		is_rogue_servitor = yes
+	}
+	
+	weight_modifier = {
+		weight = 100
+	}
+}
+
+lost_empire_machine = {
+	aggressiveness = 1.0
+	trade_willingness = 0.5
+	bravery = 2.0
+	combat_bravery = 1.25
+	
+	threat_modifier = 0.0
+	threat_others_modifier = 0.33
+	friction_modifier = 0.0
+
+	behaviour = {
+		conqueror = no
+		subjugator = no
+		liberator = no
+		opportunist = no
+		slaver = no
+		uplifter = no
+		purger = yes
+		dominator = no
+		infiltrator = no
+		robot_exploiter = no
+		robot_liberator = yes
+		propagator = no
+		multispecies = no
+		enigmatic = yes # special for machine fallen empires
+	}
+	
+	allow = {
+		is_lost_empire = yes
+		is_machine_empire = yes
+		is_rogue_servitor = no
 	}
 	
 	weight_modifier = {

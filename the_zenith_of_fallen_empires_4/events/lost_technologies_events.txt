@@ -256,86 +256,27 @@ country_event = {
 			location = root.capital_scope
 			owner = root
 		}
-    }
+	}
 	
 	option = {
 		name = "lost_technologies.1001.e"
 		trigger = {
 			engineering_perfection = yes
-			has_technology = tech_fallen_class_5_singularity
-			has_technology = tech_fallen_dimensional_harvester
-			has_technology = tech_fallen_gourmet_center
-			has_technology = tech_fallen_opulent_plaza
-			has_technology = tech_fallen_nano_forge_2
-			OR = {
-				is_gestalt = no
-				has_valid_civic = civic_machine_servitor
-			}
+			automated_industries = yes
+			has_all_tech_for_utopian_worlds = yes
 			NOR = {
 				has_country_flag = utopian_worlds_unlocked
 				has_country_flag = utopian_world_situation_started
-				has_technology = tech_paradise_creation
-				has_tech_option = tech_paradise_creation
 			}
 		}
 		set_country_flag = utopian_worlds_unlocked
 		set_country_flag = utopian_world_situation_started
 		start_situation = {
 			type = situation_utopian_paradise
-			target = root.capital_scope
+			target = root
 		}
 	}
 	
-	option = {
-		name = "lost_technologies.1001.f"
-		trigger = {
-			engineering_perfection = yes
-			has_technology = "tech_fallen_technologies_6"
-			has_technology = "tech_fallen_class_5_singularity"
-			has_technology = "tech_fallen_dimensional_harvester"
-			has_technology = "tech_fallen_nano_forge_2"
-			is_machine_empire = yes
-			NOT = { has_valid_civic = civic_machine_servitor }
-			NOR = {
-				has_country_flag = utopian_worlds_unlocked
-				has_country_flag = utopian_world_situation_started
-				has_technology = tech_paradise_creation_machine
-				has_tech_option = tech_paradise_creation_machine
-			}
-		}
-		set_country_flag = utopian_worlds_unlocked
-		set_country_flag = utopian_world_situation_started
-		start_situation = {
-			type = situation_utopian_paradise
-			target = root.capital_scope
-		}
-    }
-	
-	option = {
-		name = "lost_technologies.1001.g"
-		trigger = {
-			engineering_perfection = yes
-			has_technology = "tech_fallen_technologies_6"
-			has_technology = "tech_fallen_class_5_singularity"
-			has_technology = "tech_fallen_dimensional_harvester"
-			has_technology = "tech_fallen_nano_forge_2"
-			has_technology = "tech_fallen_gourmet_center"
-			is_hive_empire = yes
-			NOR = { 
-				has_country_flag = utopian_worlds_unlocked
-				has_country_flag = utopian_world_situation_started
-				has_technology = tech_paradise_creation_hive
-				has_tech_option = tech_paradise_creation_hive
-			}
-		}
-		set_country_flag = utopian_worlds_unlocked
-		set_country_flag = utopian_world_situation_started
-		start_situation = {
-			type = situation_utopian_paradise
-			target = root.capital_scope
-		}
-    }
-
 	option = {
 		name = "lost_technologies.1001.h"
 		trigger = {
@@ -344,7 +285,7 @@ country_event = {
 		}
 		custom_tooltip = artifact_components_upgrade_tooltip
 		set_country_flag = artifact_components_upgrade_unlocked
-    }
+	}
 	
 	option = {
 		name = "lost_technologies.1001.x"

@@ -15,11 +15,12 @@ civic_galactic_superpower = {
 	}
 	random_weight = { base = 500 }
 	modifier = {
+		country_government_civic_points_add = 1
 		ship_weapon_damage = 0.25
 		ship_weapon_range_mult = 0.25
+		starbase_shipyard_build_speed_mult = 0.25
 		country_naval_cap_mult = 0.25
 		diplo_weight_naval_mult = 0.25
-		country_government_civic_points_add = 1
 	}
 }
 
@@ -33,11 +34,12 @@ civic_beacon_of_prosperity = {
 	}
 	random_weight = { base = 500 }
 	modifier = {
+		country_government_civic_points_add = 1
 		planet_stability_add = 25
 		planet_jobs_produces_mult = 0.25
 		planet_jobs_upkeep_mult = -0.25
+		pop_growth_from_immigration = 0.25
 		diplo_weight_economy_mult = 0.25
-		country_government_civic_points_add = 1
 	}
 }
 
@@ -51,11 +53,11 @@ civic_industrial_juggernaut = {
 	}
 	random_weight = { base = 500 }
 	modifier = {
-		planet_zofe_automated_buildings_produces_mult = 0.25
-		planet_zofe_automated_districts_produces_mult = 0.25
-		planet_zofe_automated_buildings_upkeep_mult = -0.10
-		planet_zofe_automated_districts_upkeep_mult = -0.10
 		country_government_civic_points_add = 1
+		planet_zofe_automated_buildings_produces_mult = 0.30
+		planet_zofe_automated_districts_produces_mult = 0.30
+		planet_zofe_automated_buildings_upkeep_mult = -0.15
+		planet_zofe_automated_districts_upkeep_mult = -0.15
 	}
 }
 
@@ -69,12 +71,11 @@ civic_world_architect = {
 	}
 	random_weight = { base = 500 }
 	modifier = {
+		country_government_civic_points_add = 1
 		terraform_speed_mult = 1
 		megastructure_build_speed_mult = 1
-		zofe_utopian_world_decisions_cost_mult = -0.50
-		planet_decision_enact_speed_mult = 0.50
-		country_government_civic_points_add = 1
 	}
+	custom_tooltip_with_modifiers = civic_world_architect_effect
 }
 
 civic_spymaster = {
@@ -89,6 +90,7 @@ civic_spymaster = {
 	modifier = { 
 		envoys_add = 3
 		espionage_operation_skill_add = 3
+		espionage_hostile_operation_difficulty_add = 3
 		ship_cloaking_strength_add = 3
 		ship_cloaking_detection_add = 3
 		country_government_civic_points_add = 1
@@ -105,11 +107,11 @@ civic_all_seeing_eye = {
 	}
 	random_weight = { base = 500 }
 	modifier = {
+		country_government_civic_points_add = 1
 		starbase_shipyard_build_speed_mult = 0.25
 		planet_building_build_speed_mult = 0.25
 		planet_jobs_upkeep_mult = -0.25
 		country_war_exhaustion_mult = -0.25
-		country_government_civic_points_add = 1
 	}
 }
 
@@ -123,11 +125,11 @@ civic_all_seeing_machine = {
 	}
 	random_weight = { base = 500 }
 	modifier = {
+		country_government_civic_points_add = 1
 		starbase_shipyard_build_speed_mult = 0.25
 		planet_building_build_speed_mult = 0.25
 		planet_jobs_upkeep_mult = -0.25
 		country_war_exhaustion_mult = -0.25
-		country_government_civic_points_add = 1
 	}
 }
 

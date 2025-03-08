@@ -26,7 +26,7 @@ country_event = {
 		export_trigger_value_to_variable = {
 			trigger = pop_percentage
 			parameters = {
-				limit = { 
+				limit = {
 					OR = {
 						has_job = ae_hedonist
 						has_job = ae_maintenance_bot
@@ -36,61 +36,60 @@ country_event = {
 			}
 			variable = var_decadent_pops_percent
 		}
-		if = {
-			limit = {
-				is_gestalt = no
-				check_variable = {
-					which = var_decadent_pops_percent
-					value >= 0.15
-				}
-			}
-			
-			#Starts Decadence Situation
-			start_situation = {
-				type = situation_zofe_decadence
-				target = root.capital_scope	
-			}
 
-		}
 		if = {
 			limit = {
-				is_machine_empire = yes
-				check_variable = {
-					which = var_decadent_pops_percent
-					value >= 0.15
+				has_country_flag = decadence_ascendancy_action_gained
+			}
+			if = {
+				limit = {
+					check_variable = {
+						which = var_decadent_pops_percent
+						value >= 0.15
+					}
+				}
+				start_situation = {	#Starts Decadence Situation
+					type = situation_zofe_decadence
+					target = root
 				}
 			}
-			
-			#Starts Machine Decadence Situation
-			start_situation = {
-				type = situation_zofe_decadence_machine
-				target = root.capital_scope	
-			}
-		}
-		if = {
-			limit = {
-				is_hive_empire = yes
-				check_variable = {
-					which = var_decadent_pops_percent
-					value >= 0.15
+			else_if = {
+				limit = {
+					check_variable = {
+						which = var_decadent_pops_percent
+						value < 0.15
+					}
 				}
-			}
-			
-			#Starts Hive Decadence Situation
-			start_situation = {
-				type = situation_zofe_decadence_hive
-				target = root.capital_scope	
+				clear_variable = var_decadent_pops_percent
 			}
 		}
-		
 		else_if = {
 			limit = {
+				NOT = { has_country_flag = decadence_ascendancy_action_gained }
 				check_variable = {
 					which = var_decadent_pops_percent
-					value < 0.15
+					value >= 0.10
 				}
 			}
-			clear_variable = var_decadent_pops_percent
+			if = {
+				limit = {
+					is_gestalt = no
+				}
+				set_country_flag = decadence_ascendancy_action_gained
+				country_event = { id = zofe.3 }
+			}
+			if = {
+				limit = {
+					is_hive_empire = yes
+				}
+				set_country_flag = decadence_ascendancy_action_gained
+				country_event = { id = zofe.30 }
+			}
+			if = {
+				limit = { is_machine_empire = yes }
+				set_country_flag = decadence_ascendancy_action_gained
+				country_event = { id = zofe.300 }
+			}
 		}
 	}
 }
@@ -138,7 +137,7 @@ country_event = {
 		#Starts Descension Situation
 		start_situation = {
 			type = situation_zofe_descension
-			target = root.capital_scope	
+			target = root
 		}
 	}
 }
@@ -195,6 +194,10 @@ country_event = {
 		remove_national_focus_flags = yes
 		remove_country_flag = lost_empire
 		set_country_flag = ascended_empire
+		set_timed_country_flag = {
+			flag = ascended_empire_no_decadence
+			years = 20
+		}
 	}
 	option = {
 		name = lost_empire.3.superpower						# Galactic Superpower
@@ -382,7 +385,6 @@ country_event = {
 			}
 		}
 	}
-
 	option = {
 		name = lost_empire.3.juggernaut						# Industrial Juggernaut
 		trigger = {
@@ -475,8 +477,7 @@ country_event = {
 				has_ascension_perk = ap_executive_vigor	
 			}
 		}
-	}
-	
+	}	
 	option = {
 		name = lost_empire.3.architect						# World Architect
 		trigger = {
@@ -670,7 +671,6 @@ country_event = {
 			}
 		}
 	}
-	
 	option = {
 		name = lost_empire.3.hive						# All Seeing Eye
 		trigger = {
@@ -740,7 +740,6 @@ country_event = {
 			factor = 1000			
 		}
 	}
-	
 	option = {
 		name = lost_empire.3.machine						# All Seeing Machine
 		trigger = {
@@ -811,205 +810,8 @@ country_event = {
 			factor = 1000			
 		}
 	}
-
-	option = {
-		name = lost_empire.3.servitor						# Servitor
-		trigger = {
-			is_machine_empire = yes
-		}
-		custom_tooltip = "all_seeing_servitor"
-		add_resource = { unity = 200000 }
-		remove_country_flag = rogue_servitor
-		force_add_civic = civic_all_seeing_machine
-		force_add_civic = civic_machine_servitor
-		set_country_flag = ascended_machine
-		if = {
-			limit = { zofe_sandbox = yes }
-			hidden_effect = {
-				remove_lost_empire_civics = yes
-				set_government_cooldown = no
-			}
-			set_country_type = ascended_empire
-		}
-		
-		hidden_effect = {
-			from = {
-				destroy_situation = this
-			}
-			if = {
-				limit = { zofe_sandbox = yes }
-				add_ascended_empire_energy = yes
-				add_ascended_empire_minerals = yes
-				add_ascended_empire_food = yes
-				add_ascended_empire_consumer_goods = yes
-				add_ascended_empire_alloys = yes
-				add_ascended_empire_unity = yes
-				add_ascended_empire_volatile_motes = yes
-				add_ascended_empire_exotic_gases = yes
-				add_ascended_empire_rare_crystals = yes
-				add_ascended_empire_sr_dark_matter = yes
-				add_ascended_empire_sr_zro = yes
-				add_ascended_empire_sr_living_metal = yes
-				add_ascended_empire_nanites = yes
-				add_ascended_empire_minor_artifacts = yes
-				add_ascended_empire_astral_threads = yes
-				add_ascended_empire_influence = yes
-
-				add_ascended_empire_specimens = yes
-			}
-
-			if = {
-				limit = { zofe_vanilla = yes }
-				every_country = {					# Notify Players
-					limit = {
-						NOT = { is_same_value = root }
-						is_ai = no			
-					}
-					country_event = { id = lost_empire.31 }
-				}
-			}
-			if = {
-				limit = { zofe_sandbox = yes }
-				every_country = {					# Notify Players
-					limit = {
-						NOT = { is_same_value = root }
-						is_ai = no			
-					}
-					country_event = { id = lost_empire.31 }
-				}
-			}
-		}
-		ai_chance = {										# AI chance
-			factor = 1000			
-		}
-	}
-
-	# option = {
-	# 	name = lost_empire.3.servitor						# Assimilator
-	# 	trigger = {
-	# 		is_machine_empire = yes
-	# 	}
-	# 	custom_tooltip = "all_seeing_assimilator"
-	# 	add_resource = { unity = 200000 }
-	# 	remove_country_flag = rogue_servitor
-	# 	force_add_civic = civic_all_seeing_machine
-	# 	force_add_civic = civic_machine_servitor
-	# 	set_country_flag = ascended_machine
-	# 	if = {
-	# 		limit = { zofe_sandbox = yes }
-	# 		hidden_effect = {
-	# 			remove_lost_empire_civics = yes
-	# 			set_government_cooldown = no
-	# 		}
-	# 		set_country_type = ascended_empire
-	# 	}
-		
-	# 	hidden_effect = {
-	# 		from = {
-	# 			destroy_situation = this
-	# 		}
-		# add_ascended_empire_energy = yes
-		# add_ascended_empire_minerals = yes
-		# add_ascended_empire_food = yes
-		# add_ascended_empire_consumer_goods = yes
-		# add_ascended_empire_alloys = yes
-		# add_ascended_empire_unity = yes
-		# add_ascended_empire_volatile_motes = yes
-		# add_ascended_empire_exotic_gases = yes
-		# add_ascended_empire_rare_crystals = yes
-		# add_ascended_empire_sr_dark_matter = yes
-		# add_ascended_empire_sr_zro = yes
-		# add_ascended_empire_sr_living_metal = yes
-		# add_ascended_empire_nanites = yes
-		# add_ascended_empire_minor_artifacts = yes
-		# add_ascended_empire_astral_threads = yes
-		# add_ascended_empire_influence = yes
-			
-	# 		if = {
-	# 			limit = { zofe_vanilla = yes }
-	# 			every_country = {					# Notify Players
-	# 				limit = {
-	# 					NOT = { is_same_value = root }
-	# 					is_ai = no			
-	# 				}
-	# 				country_event = { id = lost_empire.31 }
-	# 			}
-	# 		}
-	# 		if = {
-	# 			limit = { zofe_sandbox = yes }
-	# 			every_country = {					# Notify Players
-	# 				limit = {
-	# 					NOT = { is_same_value = root }
-	# 					is_ai = no			
-	# 				}
-	# 				country_event = { id = lost_empire.31 }
-	# 			}
-	# 		}
-	# 	}
-	# 	ai_chance = {										# AI chance
-	# 		factor = 1000			
-	# 	}
-	# }
-	
-	# option = {
-	# 	name = fallen_technologies.1000.x						# No National Focus Selected	
-	# 		add_resource = { unity = 200000 }
-	# 		set_country_flag = no_national_focus
-	# 		if = {
-	# 			limit = { zofe_sandbox = yes }
-				# hidden_effect = {
-				# 	remove_lost_empire_civics = yes
-				# 	set_government_cooldown = no
-				# }
-	# 			set_country_type = ascended_empire
-	# 		}
-		
-	# 	hidden_effect = {
-	# 		from = {
-	# 			destroy_situation = this
-	# 		}	
-	# 		add_ascended_empire_energy = yes
-	# 		add_ascended_empire_minerals = yes
-	# 		add_ascended_empire_food = yes
-	# 		add_ascended_empire_consumer_goods = yes
-	# 		add_ascended_empire_alloys = yes
-	# 		add_ascended_empire_unity = yes
-	# 		add_ascended_empire_volatile_motes = yes
-	# 		add_ascended_empire_exotic_gases = yes
-	# 		add_ascended_empire_rare_crystals = yes
-	# 		add_ascended_empire_sr_dark_matter = yes
-	# 		add_ascended_empire_sr_zro = yes
-	# 		add_ascended_empire_sr_living_metal = yes
-	# 		add_ascended_empire_nanites = yes
-	# 		add_ascended_empire_minor_artifacts = yes
-	# 		add_ascended_empire_influence = yes
-			
-	# 		if = {
-	# 			limit = { zofe_vanilla = yes }
-	# 			every_country = {					# Notify Players
-	# 				limit = {
-	# 					NOT = { is_same_value = root }
-	# 					is_ai = no			
-	# 				}
-	# 				country_event = { id = lost_empire.31 }
-	# 			}
-	# 		}
-	# 		if = {
-	# 			limit = { zofe_sandbox = yes }
-	# 			every_country = {					# Notify Players
-	# 				limit = {
-	# 					NOT = { is_same_value = root }
-	# 					is_ai = no			
-	# 				}
-	# 				country_event = { id = lost_empire.31 }
-	# 			}
-	# 		}
-	# 	}
-	# 	ai_chance = {										# AI chance
-	# 		factor = 10			
-	# 	}
-	# }
 }
+
 #Notifies players
 country_event = {
 	id = lost_empire.31
@@ -1028,6 +830,102 @@ country_event = {
 	}
 }
 
+#Empires that had unique civics can reclaim it
+country_event = {
+	id = lost_empire.32
+	title = lost_empire.32.name
+	desc = {
+		trigger = {
+			is_gestalt = no
+		}
+		text = lost_empire.32.desc
+	}
+	desc = {
+		trigger = {
+			is_machine_empire = yes
+		}
+		text = lost_empire.32.machine.desc
+	}
+	desc = {
+		trigger = {
+			is_hive_empire = yes
+		}
+		text = lost_empire.32.hive.desc
+	}
+	picture = GFX_evt_fallen_empire
+	is_triggered_only = yes
+
+	#Fanatic Purifier
+	option = {
+		name = lost_empire.32.a
+		trigger = {
+			is_gestalt = no
+			has_country_flag = fanatic_purifiers
+		}
+		force_add_civic = civic_fanatic_purifiers
+	}
+
+	#Determined Exterminator
+	option = {
+		name = lost_empire.32.b
+		trigger = {
+			is_machine_empire = yes
+			has_country_flag = machine_terminator
+		}
+		force_add_civic = civic_machine_terminator
+	}
+
+	#Rogue Servitor
+	option = {
+		name = lost_empire.32.c
+		trigger = {
+			is_machine_empire = yes
+			has_country_flag = rogue_servitor
+		}
+		force_add_civic = civic_machine_servitor
+	}
+
+	#Assimilator
+	option = {
+		name = lost_empire.32.d
+		trigger = {
+			is_machine_empire = yes
+			has_country_flag = machine_assimilator
+		}
+		force_add_civic = civic_machine_assimilator
+	}
+
+	#Devouring Swarm
+	option = {
+		name = lost_empire.32.e
+		trigger = {
+			is_hive_empire = yes
+			has_country_flag = hive_devouring_swarm
+		}
+		force_add_civic = civic_hive_devouring_swarm
+	}
+
+	#We should abandon our ways
+	option = {
+		name = lost_empire.32.f
+		hidden_effect = {
+			remove_country_flag = fanatic_purifiers
+			remove_country_flag = machine_terminator
+			remove_country_flag = rogue_servitor
+			remove_country_flag = machine_assimilator
+			remove_country_flag = hive_devouring_swarm
+		}
+	}
+
+	after = {
+		remove_country_flag = fanatic_purifiers
+		remove_country_flag = machine_terminator
+		remove_country_flag = rogue_servitor
+		remove_country_flag = machine_assimilator
+		remove_country_flag = hive_devouring_swarm
+	}
+}
+
 # Lost Empire gets some fleet back
 country_event = {
 	id = lost_empire.5
@@ -1035,10 +933,6 @@ country_event = {
 	desc = lost_empire.5.desc
 	picture = GFX_evt_fallen_empire
 	is_triggered_only = yes
-	
-#	mean_time_to_happen = {
-#		months = 1
-#	}
 	
 	trigger = {
 		is_country_type = lost_empire
@@ -1054,6 +948,22 @@ country_event = {
 			capital_scope = {
 				create_lost_empire_reinforcements = yes
 			}
+		}
+	}
+}
+
+#Triggers Situation again after fail
+country_event = {
+	id = lost_empire.6
+	title = ok
+	desc = ok
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		start_situation = {
+			type = situation_zofe_lost_empire
+			target = root
 		}
 	}
 }
@@ -1114,10 +1024,6 @@ country_event = {
 			}
 		}
 	}
-	
-#	mean_time_to_happen = {
-#		years = 20
-#	}
 	
 	option = {
 		name = lost_empire.9.a
@@ -1485,82 +1391,152 @@ country_event = {
 # }
 
 #Compare Decadent Pops against Healthy Pops - Yearly Pulse
-country_event = {
-	id = lost_empire.100
-	is_triggered_only = yes
-	hide_window = yes
+# country_event = {
+# 	id = lost_empire.100
+# 	is_triggered_only = yes
+# 	hide_window = yes
 	
-	trigger = {
-		zofe_sandbox = yes
-		is_country_type = ascended_empire
-		ascended_empire_decadence = yes
-		NOT = { has_country_flag = ascended_empire_no_decadence }
-		NOT = { has_country_flag = decadence_ongoing }
-		NOT = { has_country_flag = recent_decadence_situation }
-		NOT = { has_country_flag = decadence_ascendancy_action_gained }
-	}
+# 	trigger = {
+# 		zofe_sandbox = yes
+# 		is_country_type = ascended_empire
+# 		ascended_empire_decadence = yes
+# 		NOT = { has_country_flag = ascended_empire_no_decadence }
+# 		NOT = { has_country_flag = decadence_ongoing }
+# 		NOT = { has_country_flag = recent_decadence_situation }
+# 		NOT = { has_country_flag = decadence_ascendancy_action_gained }
+# 	}
 	
-	immediate = {
-		# Calculate percentage of decadent pops
-		# Determine Decadent Pop percentage of Empire.
-		export_trigger_value_to_variable = {
-			trigger = pop_percentage
-			parameters = {
-				limit = { 
-					OR = {
-						has_job = ae_hedonist
-						has_job = ae_maintenance_bot
-						has_job = ae_confused_drone
-					}
-				}
-			}
-			variable = var_decadent_pops_percent
-		}
-		if = {
-			limit = {
-				is_gestalt = no
-				check_variable = {
-					which = var_decadent_pops_percent
-					value >= 0.10
-				}
-			}
-			set_country_flag = decadence_ascendancy_action_gained
-			country_event = { id = zofe.3 }
-		}
-		if = {
-			limit = {
-				is_hive_empire = yes
-				check_variable = {
-					which = var_decadent_pops_percent
-					value >= 0.10
-				}
-			}
-			set_country_flag = decadence_ascendancy_action_gained
-			country_event = { id = zofe.30 }
-		}
-		if = {
-			limit = {
-				is_machine_empire = yes
-				check_variable = {
-					which = var_decadent_pops_percent
-					value >= 0.10
-				}
-			}
-			set_country_flag = decadence_ascendancy_action_gained
-			country_event = { id = zofe.300 }
-		}
+# 	immediate = {
+# 		# Calculate percentage of decadent pops
+# 		# Determine Decadent Pop percentage of Empire.
+# 		export_trigger_value_to_variable = {
+# 			trigger = pop_percentage
+# 			parameters = {
+# 				limit = { 
+# 					OR = {
+# 						has_job = ae_hedonist
+# 						has_job = ae_maintenance_bot
+# 						has_job = ae_confused_drone
+# 					}
+# 				}
+# 			}
+# 			variable = var_decadent_pops_percent
+# 		}
+# 		if = {
+# 			limit = {
+# 				is_gestalt = no
+# 				check_variable = {
+# 					which = var_decadent_pops_percent
+# 					value >= 0.10
+# 				}
+# 			}
+# 			set_country_flag = decadence_ascendancy_action_gained
+# 			country_event = { id = zofe.3 }
+# 		}
+# 		if = {
+# 			limit = {
+# 				is_hive_empire = yes
+# 				check_variable = {
+# 					which = var_decadent_pops_percent
+# 					value >= 0.10
+# 				}
+# 			}
+# 			set_country_flag = decadence_ascendancy_action_gained
+# 			country_event = { id = zofe.30 }
+# 		}
+# 		if = {
+# 			limit = {
+# 				is_machine_empire = yes
+# 				check_variable = {
+# 					which = var_decadent_pops_percent
+# 					value >= 0.10
+# 				}
+# 			}
+# 			set_country_flag = decadence_ascendancy_action_gained
+# 			country_event = { id = zofe.300 }
+# 		}
 
-		else_if = {
-			limit = {
-				check_variable = {
-					which = var_decadent_pops_percent
-					value < 0.10
-				}
-			}
-			clear_variable = var_decadent_pops_percent
-		}
-	}
-}
+# 		else_if = {
+# 			limit = {
+# 				check_variable = {
+# 					which = var_decadent_pops_percent
+# 					value < 0.10
+# 				}
+# 			}
+# 			clear_variable = var_decadent_pops_percent
+# 		}
+# 	}
+# }
+
+#To work on
+#Checks for powerful empires - Yearly Pulse
+# country_event = {
+# 	id = lost_empire.100
+# 	title = ok
+# 	desc = ok
+# 	hide_window = yes
+# 	is_triggered_only = yes
+
+# 	trigger = {
+# 		any_country = {
+# 			NOT = { is_same_empire = prev }
+# 			is_zofe_fe = no
+# 			OR = {
+# 				relative_power = {
+# 					who = this
+# 					category = all
+# 					value >= equivalent
+# 				}
+# 				relative_power = {
+# 					who = this
+# 					category = fleet
+# 					value >= equivalent
+# 				}
+# 				relative_power = {
+# 					who = this
+# 					category = economy
+# 					value >= equivalent
+# 				}
+# 				relative_power = {
+# 					who = this
+# 					category = technology
+# 					value >= equivalent
+# 				}
+# 			}
+# 		}
+# 	}
+
+# 	immediate = {
+# 		every_country = {
+# 			limit = {
+# 				NOT = { is_same_empire = prev }
+# 				is_zofe_fe = no
+# 				OR = {
+# 					relative_power = {
+# 						who = this
+# 						category = all
+# 						value >= equivalent
+# 					}
+# 					relative_power = {
+# 						who = this
+# 						category = fleet
+# 						value >= equivalent
+# 					}
+# 					relative_power = {
+# 						who = this
+# 						category = economy
+# 						value >= equivalent
+# 					}
+# 					relative_power = {
+# 						who = this
+# 						category = technology
+# 						value >= equivalent
+# 					}
+# 				}
+# 			}
+# 		}
+# 	}
+# }
 
 #New Fallen Empire - via Situation
 country_event = {
@@ -1666,14 +1642,18 @@ country_event = {
 			}
 			set_graphical_culture = fallen_machine
 		}
+
+		if = {
+			limit = {
+				has_civic = civic_fanatic_purifiers
+			}
+			set_country_flag = fanatic_purifiers
+		}
+		
+
 		set_country_type = lost_empire
 		set_country_flag = lost_empire
 		remove_country_flag = ascended_empire
-		
-		if = {
-			limit = { has_valid_civic = civic_machine_servitor }
-			set_country_flag = rogue_servitor
-		}
 
 		every_subject = {
 			set_subject_of = {
@@ -1689,71 +1669,62 @@ country_event = {
 				}
 			}
 			if = {
-				limit = {			
+				limit = {
 					has_ethic = ethic_fanatic_spiritualist
 				}
 				every_owned_pop = { pop_change_ethic = "ethic_spiritualist" }
 			}
 			if = {
-				limit = {			
+				limit = {
 					has_ethic = ethic_fanatic_materialist
 				}
 				every_owned_pop = { pop_change_ethic = "ethic_materialist" }
 			}
 			if = {
-				limit = {			
+				limit = {
 					has_ethic = ethic_fanatic_xenophile
 				}
 				every_owned_pop = { pop_change_ethic = "ethic_xenophile" }
 			}
 			if = {
-				limit = {			
+				limit = {
 					has_ethic = ethic_fanatic_xenophobe
 				}
 				every_owned_pop = { pop_change_ethic = "ethic_xenophobe" }
 			}
 			if = {
-				limit = {			
+				limit = {
 					has_ethic = ethic_fanatic_militarist
 				}
 				every_owned_pop = { pop_change_ethic = "ethic_militarist" }
 			}
 			if = {
-				limit = {			
+				limit = {
 					has_ethic = ethic_fanatic_pacifist
 				}
 				every_owned_pop = { pop_change_ethic = "ethic_pacifist" }
 			}
 			if = {
-				limit = {			
+				limit = {
 					has_ethic = ethic_fanatic_authoritarian
 				}
 				every_owned_pop = { pop_change_ethic = "ethic_authoritarian" }
 			}
 			if = {
-				limit = {			
+				limit = {
 					has_ethic = ethic_fanatic_egalitarian
 				}
 				every_owned_pop = { pop_change_ethic = "ethic_egalitarian" }
 			}
 			if = {
 				limit = {
-					NOR = {
-						has_ethic = ethic_fanatic_spiritualist
-						has_ethic = ethic_fanatic_materialist
-						has_ethic = ethic_fanatic_xenophile
-						has_ethic = ethic_fanatic_xenophobe
-						has_ethic = ethic_fanatic_militarist
-						has_ethic = ethic_fanatic_pacifist
-						has_ethic = ethic_fanatic_authoritarian
-						has_ethic = ethic_fanatic_egalitarian
-						is_gestalt = yes
-					}
+					is_fanatic = yes
+					is_gestalt = no
 				}
 				every_owned_pop = { pop_change_ethic = "ethic_xenophobe" }
 			}
 			if = {
-				limit = { 
+				limit = {
 					has_ethic = "ethic_spiritualist"
 					OR = {
 						has_ethic = ethic_fanatic_materialist
@@ -1900,7 +1871,7 @@ country_event = {
 		every_country = {					# Notify Players
 			limit = {
 				NOT = { is_same_value = root }
-				is_ai = no			
+				is_ai = no
 			}
 			country_event = { id = lost_empire.200 }
 		}
@@ -1910,7 +1881,7 @@ country_event = {
 		#Starts Lost Empire Situation
 		start_situation = {
 			type = situation_zofe_lost_empire
-			target = capital_scope
+			target = root
 		}
 	}
 }
@@ -1981,14 +1952,28 @@ country_event = {
 			}
 			set_graphical_culture = fallen_machine
 		}
-		set_country_type = lost_empire
-		set_country_flag = lost_empire
-		remove_country_flag = ascended_empire
-		
+
 		if = {
 			limit = { has_valid_civic = civic_machine_servitor }
 			set_country_flag = rogue_servitor
 		}
+		if = {
+			limit = {
+				has_civic = civic_machine_terminator
+			}
+			set_country_flag = machine_terminator 
+		}
+		if = {
+			limit = {
+				has_civic = civic_machine_assimilator
+			}
+			set_country_flag = machine_assimilator
+		}
+
+
+		set_country_type = lost_empire
+		set_country_flag = lost_empire
+		remove_country_flag = ascended_empire
 
 		every_subject = {
 			set_subject_of = {
@@ -2038,7 +2023,7 @@ country_event = {
 		#Starts Lost Empire Situation
 		start_situation = {
 			type = situation_zofe_lost_empire
-			target = capital_scope	
+			target = root
 		}
 	}
 }
@@ -2109,6 +2094,14 @@ country_event = {
 			}
 			set_graphical_culture = fallen_hive_mind
 		}
+		
+		if = {
+			limit = {
+				has_civic = civic_hive_devouring_swarm
+			}
+			set_country_flag = hive_devouring_swarm 
+		}
+
 		set_country_type = lost_empire
 		set_country_flag = lost_empire
 		remove_country_flag = ascended_empire
@@ -2161,7 +2154,7 @@ country_event = {
 		#Starts Lost Empire Situation
 		start_situation = {
 			type = situation_zofe_lost_empire
-			target = capital_scope
+			target = root
 		}
 	}
 }
@@ -2257,9 +2250,32 @@ country_event = {
 				set_graphical_culture = fallen_machine
 			}
 			if = {
-				limit = { has_valid_civic = civic_machine_servitor }
+				limit = {
+					has_civic = civic_fanatic_purifiers
+				}
+				set_country_flag = fanatic_purifiers
+			}
+			if = {
+				limit = { has_civic = civic_machine_servitor }
 				set_country_flag = rogue_servitor
-				force_remove_civic = civic_machine_servitor
+			}
+			if = {
+				limit = {
+					has_civic = civic_machine_terminator
+				}
+				set_country_flag = machine_terminator 
+			}
+			if = {
+				limit = {
+					has_civic = civic_machine_assimilator
+				}
+				set_country_flag = machine_assimilator
+			}
+			if = {
+				limit = {
+					has_civic = civic_hive_devouring_swarm
+				}
+				set_country_flag = hive_devouring_swarm 
 			}
 			set_country_type = lost_empire
 			set_country_flag = lost_empire
@@ -2497,7 +2513,7 @@ country_event = {
 		#Starts Lost Empire Situation
 		start_situation = {
 			type = situation_zofe_lost_empire
-			target = capital_scope	
+			target = root
 		}
 	}
 }
@@ -2799,7 +2815,7 @@ country_event = {
 		#Starts Lost Empire Situation
 		start_situation = {
 			type = situation_zofe_lost_empire
-			target = capital_scope	
+			target = root
 		}
 	}
 }

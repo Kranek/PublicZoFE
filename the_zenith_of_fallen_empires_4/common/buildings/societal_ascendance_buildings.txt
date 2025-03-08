@@ -301,7 +301,6 @@ building_fallen_master_archive = {
 	show_tech_unlock_if = { has_ethic = ethic_fanatic_materialist }
 	
 	planet_modifier = {
-		pop_ethic_materialist_attraction_mult = 0.3
 		job_head_researcher_add = 2
 		job_researcher_add = 10
 	}

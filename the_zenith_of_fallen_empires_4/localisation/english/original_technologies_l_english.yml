@@ -76,6 +76,8 @@
  tech_original_empire_thruster_desc:0 "Seemingly defying the laws of physics to a whole new level, the Original Empire Thrusters provide greater maneuverability than was previously thought possible.\n\n§HThis Technology belonged to the Original Empire.§!"
  tech_original_empire_sensors:0 "Original Empire Sensors"
  tech_original_empire_sensors_desc:0 "These sensors are capable of accurately detecting all ship movements within an entire sector of the galaxy.\n\n§HThis Technology belonged to the Original Empire.§!"
+ TECH_UNLOCK_ORIGINAL_EMPIRE_SENSORS_TITLE:0 "§HUnlocks Component:§! $tech_original_empire_sensors$"
+ TECH_UNLOCK_ORIGINAL_EMPIRE_SENSORS_DESC:0 "§H$tech_original_empire_sensors$§!\n$tech_original_empire_sensors_desc$"
  tech_original_empire_shield_disabler:0 "Original Empire Shield Disabler"
  tech_original_empire_shield_disabler_desc:0 "Mounted exclusively on §HGoliaths§!, Original Empire's Shield Disabler nullifies all enemy shields within its range.\n\n§HThis Technology belonged to the Original Empire.§!"
  tech_original_empire_controls_jammer:0 "Original Empire Controls Jammer"

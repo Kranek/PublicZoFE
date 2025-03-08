@@ -143,3 +143,51 @@ d_utopian_vault = {
 		weight = 0
 	}
 }
+
+d_failed_utopian_construction = {
+	time = 1800
+	icon = d_city_ruins
+
+	is_for_colonizable = yes
+	category = deposit_cat_blockers
+
+	potential = { always = no }
+
+	planet_modifier = {
+		planet_stability_add = -2
+		pop_growth_speed = -0.5
+		pop_happiness = -0.25
+		planet_building_build_speed_mult = -0.75
+	}
+
+	resources = {
+		category = deposit_blockers
+		cost = {
+			energy = 40000
+			minerals = 20000
+			sr_living_metal = 10000
+			sr_dark_matter = 2500
+		}
+	}
+	resources = {
+		category = planet_deposits
+		produces = {
+			sr_living_metal = 2
+		}
+	}
+}
+
+d_living_metal_utopian_fail = {
+	resources = {
+		category = orbital_mining_deposits
+		produces = {
+			sr_living_metal = 5
+		}
+	}
+	station = shipclass_mining_station
+	is_for_colonizable = no
+
+	drop_weight = {
+		weight = 0
+	}
+}

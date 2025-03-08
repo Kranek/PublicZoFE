@@ -32,46 +32,13 @@ country_event = {
 
 	
 	trigger = {
-		is_ascended_empire = yes
+		has_all_tech_for_utopian_worlds = yes
 		is_ai = no
-		OR = {
-			AND = {
-				OR = {
-					is_gestalt = no
-					has_valid_civic = civic_machine_servitor
-				}
-				has_technology = tech_fallen_class_5_singularity
-				has_technology = tech_fallen_dimensional_harvester
-				has_technology = tech_fallen_gourmet_center
-				has_technology = tech_fallen_opulent_plaza
-				has_technology = tech_fallen_nano_forge_2
-			}
-			AND = {
-				is_hive_empire = yes
-				has_technology = tech_fallen_class_5_singularity
-				has_technology = tech_fallen_dimensional_harvester
-				has_technology = tech_fallen_gourmet_center
-				has_technology = tech_fallen_nano_forge_2
-			}
-			AND = {
-				is_machine_empire = yes
-				NOT = { has_valid_civic = civic_machine_servitor }
-				has_technology = tech_fallen_class_5_singularity
-				has_technology = tech_fallen_dimensional_harvester
-				has_technology = tech_fallen_nano_forge_2
-			}
-		}
 		automated_industries = yes
 		engineering_perfection = yes
-		NOT = { has_country_flag = utopian_worlds_unlocked }
-		NOT = { has_country_flag = utopian_world_situation_available }
 		NOR = {
-			has_technology = tech_paradise_creation
-			has_tech_option = tech_paradise_creation
-			has_technology = tech_paradise_creation_machine
-			has_tech_option = tech_paradise_creation_machine
-			has_technology = tech_paradise_creation_hive
-			has_tech_option = tech_paradise_creation_hive
+			has_country_flag = utopian_worlds_unlocked
+			has_country_flag = utopian_world_situation_available
 		}
 	}
 	
@@ -165,7 +132,7 @@ country_event = {
 		set_country_flag = utopian_world_situation_started
 		start_situation = {
 			type = situation_utopian_paradise
-			target = root.capital_scope
+			target = root
 		}
 	}
 	
@@ -482,231 +449,723 @@ situation_event = {
 		}
 	}
 
-	option = { 
+	option = {
 		name = utopian_paradise.5.a
-		if = {
-			limit = {
-				owner = {
-					OR = {
-						is_gestalt = no
-						has_valid_civic = civic_machine_servitor
-					}
-				}
-			}
-			owner = {
-				give_technology = { tech = tech_paradise_creation }
-				add_resource = { influence = 100 }
-			}
+		owner = {
+			give_technology = { tech = tech_paradise_creation }
+			add_resource = { influence = 100 }
 		}
-		if = {
-			limit = {
-				owner = {
-					is_machine_empire = yes
-					NOT = { has_valid_civic = civic_machine_servitor }
-				}
-			}
+	}
+}
+
+
+
+#Situation start notification
+planet_event = {
+	id = utopian_paradise.8
+	title = utopian_paradise.8.name
+	desc = utopian_paradise.8.desc
+	is_triggered_only = yes
+	picture = GFX_evt_announcement
+	show_sound = event_cityscape
+	location = root
+
+	option = {
+		name = utopian_paradise.8.a
+		custom_tooltip = decision_paradise_creation_effect
+		hidden_effect = {
 			owner = {
-				give_technology = { tech = tech_paradise_creation_machine }
-				add_resource = { influence = 100 }
-			}
-		}
-		if = {
-			limit = {
-				owner = {
-					is_hive_empire = yes
+				start_situation = {
+					type = situation_utopian_world_creation
+					target = root
 				}
-			}
-			owner = {
-				give_technology = { tech = tech_paradise_creation_hive }
-				add_resource = { influence = 100 }
 			}
 		}
 	}
 }
+
+# Sets variable for district conversion
+planet_event = {
+	id = utopian_paradise.9
+	title = utopian_paradise.9.name
+	desc = utopian_paradise.9.desc
+	is_triggered_only = yes
+	picture = {
+		trigger = {
+			is_gaia = yes
+		}
+		picture = GFX_evt_gaia
+	}
+	picture = {
+		trigger = {
+			is_planet_class = pc_hive
+		}
+		picture = GFX_evt_infested
+	}
+	picture = {
+		trigger = {
+			is_planet_class = pc_machine
+		}
+		picture = GFX_evt_contingency_planet
+	}
+	picture = {
+		trigger = {
+			is_planet_class = pc_city
+		}
+		picture = GFX_evt_metropolis
+	}
+	picture = {
+		trigger = {
+			is_ringworld = yes
+		}
+		picture = GFX_evt_ringworld
+	}
+	show_sound = event_cityscape
+	location = root
+
+	#Housing
+	option = {
+		name = {
+			trigger = { is_gaia = yes }
+			text = "utopian_paradise.9.gaia.a"
+		}
+		name = {
+			trigger = { is_planet_class = pc_hive }
+			text = "utopian_paradise.9.hive.a"
+		}
+		name = {
+			trigger = { is_planet_class = pc_machine }
+			text = "utopian_paradise.9.machine.a"
+		}
+		name = {
+			trigger = {
+				is_ringworld = yes
+				owner = { is_gestalt = no }
+			}
+			text = "utopian_paradise.9.ring.a"
+		}
+		name = {
+			trigger = {
+				is_ringworld = yes
+				owner = { is_hive_empire = yes }
+			}
+			text = "utopian_paradise.9.hive.ring.a"
+		}
+		name = {
+			trigger = {
+				is_ringworld = yes
+				owner = { is_machine_empire = yes }
+			}
+			text = "utopian_paradise.9.machine.ring.a"
+		}
+		custom_tooltip = district_utopian_housing_add_effect
+		if = {
+			limit = {
+				OR = {
+					is_gaia = yes
+					is_planet_class = pc_hive
+					is_planet_class = pc_machine
+				}
+			}
+			owner = {
+				add_resource = {
+					minerals = -4000
+					sr_living_metal = -2000
+				}
+			}
+		}
+		else_if = {
+			limit = { is_planet_class = pc_city }
+			owner = {
+				add_resource = {
+					minerals = -8000
+					sr_living_metal = -4000
+				}
+			}
+		}
+		else_if = {
+			limit = { is_ringworld = yes }
+			owner = {
+				add_resource = {
+					minerals = -20000
+					sr_living_metal = -10000
+				}
+			}
+		}
+		hidden_effect = {
+			set_utopian_district = {
+				VARIABLE = num_district_utopian_housing
+			}
+		}
+	}
 	
+	#Leisure
+	option = {
+		name = {
+			trigger = { is_gaia = yes }
+			text = "utopian_paradise.9.gaia.b"
+		}
+		name = {
+			trigger = { is_planet_class = pc_city }
+			text = "utopian_paradise.9.city.b"
+		}
+		name = {
+			trigger = { is_ringworld = yes }
+			text = "utopian_paradise.9.ring.b"
+		}
+		custom_tooltip = district_idyllic_spaces_add_effect
+		trigger = { owner = { is_gestalt = no } }
+		if = {
+			limit = { is_gaia = yes }
+			owner = {
+				add_resource = {
+					minerals = -4000
+					sr_living_metal = -2000
+				}
+			}
+		}
+		else_if = {
+			limit = { is_planet_class = pc_city }
+			owner = {
+				add_resource = {
+					minerals = -8000
+					sr_living_metal = -4000
+				}
+			}
+		}
+		else_if = {
+			limit = { is_ringworld = yes }
+			owner = {
+				add_resource = {
+					minerals = -20000
+					sr_living_metal = -10000
+				}
+			}
+		}
+		hidden_effect = {
+			set_utopian_district = {
+				VARIABLE = num_district_utopian_leisure
+			}
+		}
+	}
 
+	#Financial or Production
+	option = {
+		name = {
+			trigger = { is_gaia = yes }
+			text = "utopian_paradise.9.gaia.c"
+		}
+		name = {
+			trigger = { is_planet_class = pc_hive }
+			text = "utopian_paradise.9.hive.c"
+		}
+		name = {
+			trigger = { is_planet_class = pc_machine }
+			text = "utopian_paradise.9.machine.c"
+		}
+		name = {
+			trigger = { is_planet_class = pc_city }
+			text = "utopian_paradise.9.city.c"
+		}
+		name = {
+			trigger = {
+				is_ringworld = yes
+				owner = { is_gestalt = no }
+			}
+			text = "utopian_paradise.9.ring.c"
+		}
+		name = {
+			trigger = {
+				is_ringworld = yes
+				owner = { is_hive_empire = yes }
+			}
+			text = "utopian_paradise.9.hive.ring.c"
+		}
+		name = {
+			trigger = {
+				is_ringworld = yes
+				owner = { is_machine_empire = yes }
+			}
+			text = "utopian_paradise.9.machine.ring.c"
+		}
+		if = {
+			limit = { is_planet_class = pc_city }
+			custom_tooltip = district_utopian_financial_add_effect
+		}
+		else = {
+			custom_tooltip = district_utopian_production_add_effect
+		}
+		if = {
+			limit = {
+				OR = {
+					is_gaia = yes
+					is_planet_class = pc_hive
+					is_planet_class = pc_machine
+				}
+			}
+			owner = {
+				add_resource = {
+					minerals = -4000
+					sr_living_metal = -2000
+				}
+			}
+		}
+		else_if = {
+			limit = { is_planet_class = pc_city }
+			owner = {
+				add_resource = {
+					minerals = -8000
+					sr_living_metal = -4000
+				}
+			}
+		}
+		else_if = {
+			limit = { is_ringworld = yes }
+			owner = {
+				add_resource = {
+					minerals = -20000
+					sr_living_metal = -10000
+				}
+			}
+		}
+		hidden_effect = {
+			set_utopian_district = {
+				VARIABLE = num_district_utopian_production
+			}
+		}
+	}
 
-#Utopian Paradise Complete (Gaia)
-planet_event = {
-	id = utopian_paradise.100
-	title = utopian_paradise.100.name
-	desc = utopian_paradise.100.desc
-	picture = GFX_evt_gaia
-	show_sound = event_cityscape
-	location = root
+	#Manufacture
+	option = {
+		name = {
+			trigger = { is_gaia = yes }
+			text = "utopian_paradise.9.gaia.d"
+		}
+		name = {
+			trigger = { is_planet_class = pc_hive }
+			text = "utopian_paradise.9.hive.d"
+		}
+		name = {
+			trigger = { is_planet_class = pc_machine }
+			text = "utopian_paradise.9.machine.d"
+		}
+		name = {
+			trigger = { is_planet_class = pc_city }
+			text = "utopian_paradise.9.city.d"
+		}
+		name = {
+			trigger = {
+				is_ringworld = yes
+				owner = { is_gestalt = no }
+			}
+			text = "utopian_paradise.9.ring.d"
+		}
+		name = {
+			trigger = {
+				is_ringworld = yes
+				owner = { is_hive_empire = yes }
+			}
+			text = "utopian_paradise.9.hive.ring.d"
+		}
+		name = {
+			trigger = {
+				is_ringworld = yes
+				owner = { is_machine_empire = yes }
+			}
+			text = "utopian_paradise.9.machine.ring.d"
+		}
+		custom_tooltip = district_utopian_manufacture_add_effect
+		if = {
+			limit = {
+				OR = {
+					is_gaia = yes
+					is_planet_class = pc_hive
+					is_planet_class = pc_machine
+				}
+			}
+			owner = {
+				add_resource = {
+					minerals = -4000
+					sr_living_metal = -2000
+				}
+			}
+		}
+		else_if = {
+			limit = { is_planet_class = pc_city }
+			owner = {
+				add_resource = {
+					minerals = -8000
+					sr_living_metal = -4000
+				}
+			}
+		}
+		else_if = {
+			limit = { is_ringworld = yes }
+			owner = {
+				add_resource = {
+					minerals = -20000
+					sr_living_metal = -10000
+				}
+			}
+		}
+		hidden_effect = {
+			set_utopian_district = {
+				VARIABLE = num_district_utopian_manufacture
+			}
+		}
+	}
 
-	is_triggered_only = yes
-
-	trigger = {
-		is_planet_class = pc_utopian_gaia
+	#Science
+	option = {
+		name = {
+			trigger = { is_gaia = yes }
+			text = "utopian_paradise.9.gaia.e"
+		}
+		name = {
+			trigger = { is_planet_class = pc_hive }
+			text = "utopian_paradise.9.hive.e"
+		}
+		name = {
+			trigger = { is_planet_class = pc_machine }
+			text = "utopian_paradise.9.machine.e"
+		}
+		name = {
+			trigger = { is_planet_class = pc_city }
+			text = "utopian_paradise.9.city.e"
+		}
+		name = {
+			trigger = {
+				is_ringworld = yes
+				owner = { is_gestalt = no }
+			}
+			text = "utopian_paradise.9.ring.e"
+		}
+		name = {
+			trigger = {
+				is_ringworld = yes
+				owner = { is_hive_empire = yes }
+			}
+			text = "utopian_paradise.9.hive.ring.e"
+		}
+		name = {
+			trigger = {
+				is_ringworld = yes
+				owner = { is_machine_empire = yes }
+			}
+			text = "utopian_paradise.9.machine.ring.e"
+		}
+		custom_tooltip = district_utopian_science_add_effect
+		if = {
+			limit = {
+				OR = {
+					is_gaia = yes
+					is_planet_class = pc_hive
+					is_planet_class = pc_machine
+				}
+			}
+			owner = {
+				add_resource = {
+					minerals = -4000
+					sr_living_metal = -2000
+				}
+			}
+		}
+		else_if = {
+			limit = { is_planet_class = pc_city }
+			owner = {
+				add_resource = {
+					minerals = -8000
+					sr_living_metal = -4000
+				}
+			}
+		}
+		else_if = {
+			limit = { is_ringworld = yes }
+			owner = {
+				add_resource = {
+					minerals = -20000
+					sr_living_metal = -10000
+				}
+			}
+		}
+		hidden_effect = {
+			set_utopian_district = {
+				VARIABLE = num_district_utopian_science
+			}
+		}
 	}
 
 	option = {
-		name = utopian_paradise.100.a
+		name = utopian_paradise.9.f
 		owner = {
-			add_resource = { unity = 1000 }
+			from = {
+				add_situation_progress = 50
+			}
+		}
+	}
+
+	option = {
+		name = utopian_paradise.9.g
+		if = {
+			limit = {
+				OR = {
+					is_gaia = yes
+					is_planet_class = pc_hive
+					is_planet_class = pc_machine
+				}
+			}
+			owner = {
+				add_resource = {
+					influence = 50
+					sr_living_metal = 1000
+					minerals = 2000
+				}
+			}
+		}
+		else_if = {
+			limit = { is_planet_class = pc_city }
+			owner = {
+				add_resource = {
+					influence = 100
+					sr_living_metal = 2000
+					minerals = 4000
+				}
+			}
+		}
+		else_if = {
+			limit = { is_ringworld = yes }
+			owner = {
+				add_resource = {
+					influence = 250
+					sr_living_metal = 5000
+					minerals = 10000
+				}
+			}
 		}
 	}
 }
 
-#Utopian Paradise Complete (City)
+#Succesful situation conversion
 planet_event = {
-	id = utopian_paradise.200
-	title = utopian_paradise.200.name
-	desc = utopian_paradise.200.desc
-	picture = GFX_evt_city_planet
-	show_sound = event_cityscape
-	location = root
-
+	id = utopian_paradise.10
 	is_triggered_only = yes
-
-	trigger = {
-		is_planet_class = pc_utopian_city
+	hide_window = yes
+	
+	immediate = {
+		create_utopian_world = yes
+		from = {
+			destroy_situation = this
+		}
 	}
 
-	option = {
-		name = utopian_paradise.200.a
-		owner = {
-			add_resource = { unity = 2000 }
+	after = {
+		clear_utopian_district = {
+			VARIABLE = num_district_utopian_housing
+		}
+		clear_utopian_district = {
+			VARIABLE = num_district_utopian_leisure
+		}
+		clear_utopian_district = {
+			VARIABLE = num_district_utopian_production
+		}
+		clear_utopian_district = {
+			VARIABLE = num_district_utopian_manufacture
+		}
+		clear_utopian_district = {
+			VARIABLE = num_district_utopian_science
 		}
 	}
 }
-
-#Utopian Paradise Complete (Ringworld)
+#Succesful situation notification
 planet_event = {
-	id = utopian_paradise.300
-	title = utopian_paradise.300.name
-	desc = utopian_paradise.300.desc
-	picture = GFX_evt_ringworld
+	id = utopian_paradise.11
+	title = utopian_paradise.11.name
+	desc = {
+		text = "utopian_paradise.11.desc.gaia"
+		trigger = {
+			owner = {
+				OR = {
+					is_gestalt = no
+					is_rogue_servitor = yes
+				}
+			}
+			has_planet_flag = gaia_world_to_convert
+		}
+	}
+	desc = {
+		text = "utopian_paradise.11.desc.hive"
+		trigger = {
+			owner = { is_hive_empire = yes }
+			has_planet_flag = hive_world_to_convert
+		}
+	}
+	desc = {
+		text = "utopian_paradise.11.desc.machine"
+		trigger = {
+			owner = { is_machine_empire = yes }
+			has_planet_flag = machine_world_to_convert
+		}
+	}
+	desc = {
+		text = "utopian_paradise.11.desc.city"
+		trigger = {
+			owner = {
+				OR = {
+					is_gestalt = no
+					is_rogue_servitor = yes
+				}
+			}
+			has_planet_flag = city_world_to_convert
+		}
+	}
+	desc = {
+		text = "utopian_paradise.11.desc.ring"
+		trigger = {
+			owner = {
+				OR = {
+					is_gestalt = no
+					is_rogue_servitor = yes
+				}
+			}
+			has_planet_flag = ring_world_to_convert
+		}
+	}
+	desc = {
+		text = "utopian_paradise.11.desc.hive.ring"
+		trigger = {
+			owner = { is_hive_empire = yes }
+			has_planet_flag = ring_world_to_convert
+		}
+	}
+	desc = {
+		text = "utopian_paradise.11.desc.machine.ring"
+		trigger = {
+			owner = {
+				is_machine_empire = yes
+				is_rogue_servitor = no
+			}
+			has_planet_flag = ring_world_to_convert
+		}
+	}
+	picture = GFX_evt_astral_rift_siege_on_paradise_baol
 	show_sound = event_cityscape
 	location = root
 
 	is_triggered_only = yes
 
-	trigger = {
-		is_planet_class = pc_utopian_ringworld
+	option = {
+		name = {
+			trigger = { owner = { is_gestalt = no} }
+			text = "utopian_paradise.11.a"
+		}
+		name = {
+			trigger = { owner = { is_gestalt = yes } }
+			text = "utopian_paradise.11.a.gestalt"
+		}
+		
+		trigger = {
+			OR = {
+				has_planet_flag = gaia_world_to_convert
+				has_planet_flag = hive_world_to_convert
+				has_planet_flag = machine_world_to_convert
+			}
+		}
+		owner = { add_resource = { unity = 1000 } }
+		hidden_effect = {
+			remove_planet_flag = gaia_world_to_convert
+			remove_planet_flag = hive_world_to_convert
+			remove_planet_flag = machine_world_to_convert
+		}
 	}
 
 	option = {
-		name = utopian_paradise.300.a
-		owner = {
-			add_resource = { unity = 5000 }
+		name = "utopian_paradise.11.a.city"
+		trigger = {
+			owner = {
+				OR = {
+					is_gestalt = no
+					is_rogue_servitor = yes
+				}
+			}
+			has_planet_flag = city_world_to_convert
+		}
+		owner = { add_resource = { unity = 1000 } }
+		hidden_effect = { remove_planet_flag = city_world_to_convert }
+	}
+	option = {
+		name = {
+			trigger = { owner = { is_gestalt = no} }
+			text = "utopian_paradise.11.a.ring"
+		}
+		name = {
+			trigger = { owner = { is_gestalt = yes } }
+			text = "utopian_paradise.11.a.gestalt"
+		}
+
+		trigger = { has_planet_flag = ring_world_to_convert }
+
+		owner = { add_resource = { unity = 1000 } }
+		hidden_effect = { remove_planet_flag = ring_world_to_convert }
+	}
+}
+#Fail situation notification (no explosion)
+planet_event = {
+	id = utopian_paradise.12
+	title = utopian_paradise.12.name
+	desc = utopian_paradise.12.desc
+	is_triggered_only = yes
+	picture = GFX_evt_announcement
+	show_sound = event_cityscape
+	location = root
+
+	option = {
+		name = utopian_paradise.12.a
+		add_blocker = {
+			type = d_failed_utopian_construction
+		}
+		hidden_effect = {
+			from = {
+				destroy_situation = this
+			}
 		}
 	}
 }
-
-#Utopian Paradise Machine Complete (Machine)
+#Fail situation notification (explosion)
 planet_event = {
-	id = utopian_paradise.400
-	title = utopian_paradise.400.name
-	desc = utopian_paradise.400.desc
-	picture = GFX_evt_ai_planet
-	show_sound = event_cityscape
+	id = utopian_paradise.13
+	title = utopian_paradise.13.name
+	desc = utopian_paradise.13.desc
+	is_triggered_only = yes
+	picture = GFX_evt_shattered_planet
+	show_sound = event_super_explosion
 	location = root
 
-	is_triggered_only = yes
-
-	trigger = {
-		is_planet_class = pc_utopian_machine
-	}
-
 	option = {
-		name = utopian_paradise.400.a
-		owner = {
-			add_resource = { unity = 1000 }
-		}
-	}
-}
+		name = utopian_paradise.13.a
 
-#Utopian Paradise Machine Complete (Ringworld)
-planet_event = {
-	id = utopian_paradise.500
-	title = utopian_paradise.500.name
-	desc = utopian_paradise.500.desc
-	picture = GFX_evt_ringworld
-	show_sound = event_cityscape
-	location = root
-
-	is_triggered_only = yes
-
-	trigger = {
-		is_planet_class = pc_utopian_machine_ringworld
-	}
-
-	option = {
-		name = utopian_paradise.500.a
-		owner = {
-			add_resource = { unity = 5000 }
-		}
-	}
-}
-
-#Utopian Paradise Hive Complete (Hive)
-planet_event = {
-	id = utopian_paradise.600
-	title = utopian_paradise.600.name
-	desc = utopian_paradise.600.desc
-	picture = GFX_evt_infested
-	show_sound = event_cityscape
-	location = root
-
-	is_triggered_only = yes
-
-	trigger = {
-		is_planet_class = pc_utopian_hive
-	}
-
-	option = {
-		name = utopian_paradise.600.a
-		owner = {
-			add_resource = { unity = 1000 }
-		}
-	}
-}
-
-#Utopian Paradise Hive Complete (Ringworld)
-planet_event = {
-	id = utopian_paradise.700
-	title = utopian_paradise.700.name
-	desc = utopian_paradise.700.desc
-	picture = GFX_evt_ringworld
-	show_sound = event_cityscape
-	location = root
-
-	is_triggered_only = yes
-
-	trigger = {
-		is_planet_class = pc_utopian_hive_ringworld
-	}
-
-	option = {
-		name = utopian_paradise.700.a
-		owner = {
-			add_resource = { unity = 5000 }
-		}
-	}
-}
-
-
-#Utopian Paradise Complete (Habitat)
-planet_event = {
-	id = utopian_paradise.800
-	title = utopian_paradise.800.name
-	desc = utopian_paradise.800.desc
-	picture = GFX_evt_habitat
-	show_sound = event_cityscape
-	location = root
-
-	is_triggered_only = yes
-
-	trigger = {
-		is_planet_class = pc_utopian_habitat
-	}
-
-	option = {
-		name = utopian_paradise.800.a
-		owner = {
-			add_resource = { unity = 1000 }
+		hidden_effect = {
+			if = {
+				limit = { is_ringworld = yes }
+				every_owned_pop = {
+					kill_pop = yes
+				}
+				destroy_colony = yes
+				change_pc = pc_ringworld_habitable_damaged
+				clear_deposits = yes
+				add_deposit = d_living_metal_utopian_fail
+			}
+			else = {
+				every_owned_pop = {
+					kill_pop = yes
+				}
+				destroy_colony = yes
+				change_pc = pc_broken
+				clear_deposits = yes
+				add_deposit = d_living_metal_utopian_fail
+			}
+			from = {
+				destroy_situation = this
+			}
 		}
 	}
 }

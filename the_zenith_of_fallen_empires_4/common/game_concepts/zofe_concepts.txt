@@ -1,6 +1,17 @@
+concept_ascended_empire = {
+	alias = { concept_ascended_empires }
+}
+
+concept_galactic_ascendancy = {
+	alias = {
+		concept_galactic_ascendancies
+	}
+}
+
 concept_ringworld_empire = {
 	icon = "gfx/interface/icons/traits/trait_ringworld_empire.dds"
 }
+
 concept_original_trait = {
 	icon = "gfx/interface/icons/traits/trait_original.dds"
 }
@@ -19,4 +30,44 @@ concept_ap_cosmogenesis = {
 
 concept_ap_become_the_crisis = {
 	icon = "gfx/interface/icons/ascension_perks/ap_become_the_crisis.dds"
+}
+
+concept_active_crisis = {
+	icon = "gfx/interface/icons/diplomacy/diplomacy_pathofblood.dds"
+	alias = { concept_active_crises }
+}
+
+concept_playable_empire = {
+	alias = { concept_playable_empires }
+}
+
+concept_default_country = {
+	
+}
+
+concept_crisis_empire = {
+	icon = "gfx/interface/icons/diplomacy/diplomacy_pathofblood.dds"
+	alias = { concept_crisis_empires }
+}
+
+concept_powerful_empire = {
+	icon = "gfx/interface/icons/diplomacy/diplomacy_pathofchains.dds"
+	alias = { concept_powerful_empires }
+}
+
+concept_relative_power = {
+	icon = "gfx/interface/icons/diplomacy/relative_power_icon.dds"
+}
+
+concept_fleet_power = {
+	icon = "gfx/interface/icons/fleet_size_icon.dds"
+}
+
+concept_economy = {
+	icon = "gfx/interface/icons/resources/trade_value.dds"
+	alias = { concept_economic_power }
+}
+
+concept_technology_level = {
+	icon = "gfx/interface/icons/text_icons/icon_research.dds"
 }

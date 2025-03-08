@@ -131,7 +131,10 @@ planet_event = {
 	
 	trigger = {
 		has_planet_flag = original_empire_world
-		original_owner = no
+		owner = {
+			is_zofe_oe = no
+			NOT = { has_origin = origin_original_people }
+		}
 		OR = {
 			has_building = building_original_empire_sun_generator
 			has_building = building_original_empire_siphoner
@@ -149,7 +152,6 @@ planet_event = {
 			}
 			has_technology = tech_original_empire_power_core
 			has_all_lost_tech_buildings = yes
-			has_technology = tech_fallen_aegis_complex_3
 			NOT = { has_country_flag = original_people_buildings }
 		}
 	}
@@ -338,7 +340,7 @@ event = {
 		}
 	}
 		
-	immediate = {	
+	immediate = {
 	
 		##No Original People Origin
 		

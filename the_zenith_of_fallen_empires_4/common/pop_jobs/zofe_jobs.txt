@@ -26,7 +26,7 @@ ae_hedonist = {
 		OR = {
 			has_pop_flag = decadent_pop
 			planet = {
-				has_modifier = "pm_Utopian_Paradise"
+				can_produce_hedonists = yes
 			}
 		}
 	}
@@ -42,13 +42,6 @@ ae_hedonist = {
 		}
 	}
 	
-	triggered_pop_modifier = {
-		potential = {
-			is_organic_species = yes
-		}
-		pop_happiness = 0.1
-	}
-	
 	weight = {
 		weight = 0.1
 		modifier = {
@@ -56,7 +49,7 @@ ae_hedonist = {
 			NOR = {
 				has_pop_flag = decadent_pop
 				planet = {
-					has_modifier = "pm_Utopian_Paradise"
+					can_produce_hedonists = yes
 				}
 			}
 		}
@@ -92,7 +85,7 @@ ae_maintenance_bot = {
 		OR = {
 			has_pop_flag = decadent_pop
 			planet = {
-				has_modifier = "pm_Utopian_Paradise"
+				can_produce_maintenance_bot = yes
 			}
 		}
 	}
@@ -111,7 +104,7 @@ ae_maintenance_bot = {
 			NOR = {
 				has_pop_flag = decadent_pop
 				planet = {
-					has_modifier = "pm_Utopian_Paradise"
+					can_produce_maintenance_bot = yes
 				}
 			}
 		}
@@ -146,7 +139,7 @@ ae_confused_drone = {
 		OR = {
 			has_pop_flag = decadent_pop
 			planet = {
-				has_modifier = "pm_Utopian_Paradise"
+				can_produce_confused_drone = yes
 			}
 		}
 	}
@@ -166,7 +159,7 @@ ae_confused_drone = {
 			NOR = {
 				has_pop_flag = decadent_pop
 				planet = {
-					has_modifier = "pm_Utopian_Paradise"
+					can_produce_confused_drone = yes
 				}
 			}
 		}

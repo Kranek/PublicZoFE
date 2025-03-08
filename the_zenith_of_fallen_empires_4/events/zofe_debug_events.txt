@@ -133,30 +133,10 @@ country_event = {
 			limit = { has_global_flag = ascended_empire_decadence_enabled_5 }
 			set_timed_country_flag = { flag = ascended_empire_no_decadence years = 300 }
 		}
-		if = {
-			limit = {
-				NOR = {
-					has_origin = origin_ringworld_empire
-					has_origin = origin_original_people
-				}
-			}
+		hidden_effect = {
 			start_situation = {
 				type = situation_zofe_ascension
-				target = root.capital_scope	
-			}
-		}
-		if = {
-			limit = { has_origin = origin_ringworld_empire }
-			start_situation = {
-				type = situation_re_ascension
-				target = root.capital_scope	
-			}
-		}
-		if = {
-			limit = { has_origin = origin_original_people }
-			start_situation = {
-				type = situation_oe_ascension
-				target = root.capital_scope	
+				target = root
 			}
 		}
 	}
@@ -168,8 +148,8 @@ country_event = {
 		
 		start_situation = {
 			type = situation_zofe_dark_matter
-			target = root.capital_scope	
-		}		
+			target = root
+		}
 	}
 	
 	#ZoFE Utopian Situation
@@ -179,35 +159,19 @@ country_event = {
 		
 		start_situation = {
 			type = situation_utopian_paradise
-			target = root.capital_scope	
-		}		
+			target = root
+		}
 	}
 	
 	#ZoFE Decadence Situation
 	option = {
 		name = "zofe_debug.101.decadence"
 		custom_tooltip = zofe_decadence_situation_tooltip
-		
-		if = {
-			limit = { is_gestalt = no }
+		hidden_effect = {
 			start_situation = {
 				type = situation_zofe_decadence
-				target = root.capital_scope	
-			}		
-		}
-		if = {
-			limit = { is_machine_empire = yes }
-			start_situation = {
-				type = situation_zofe_decadence_machine
-				target = root.capital_scope	
-			}		
-		}
-		if = {
-			limit = { is_hive_empire = yes }
-			start_situation = {
-				type = situation_zofe_decadence_hive
-				target = root.capital_scope	
-			}		
+				target = root
+			}	
 		}
 	}
 	
@@ -218,8 +182,8 @@ country_event = {
 		
 		start_situation = {
 			type = situation_zofe_descension
-			target = root.capital_scope	
-		}		
+			target = root
+		}
 	}
 
 	#ZoFE Lost Empire Situation
@@ -229,12 +193,12 @@ country_event = {
 		
 		start_situation = {
 			type = situation_zofe_lost_empire
-			target = root.capital_scope	
-		}		
+			target = root
+		}
 	}
 	
 	option = {
-		name = "zofe_menu.101.exit"		
+		name = "zofe_menu.101.exit"
 		hidden_effect = {
 			country_event = { id = zofe_debug.1 days = 0 }
 		}
@@ -1656,11 +1620,8 @@ country_event = {
 	
 	immediate = {
 		give_technology = { tech = tech_paradise_creation }
-		give_technology = { tech = tech_paradise_creation_machine }
-		give_technology = { tech = tech_paradise_creation_hive }
 		add_resource = { sr_living_metal = 50000 }
 	}
-		
 	
 	option = {
 		name = "zofe_debug.6.a"

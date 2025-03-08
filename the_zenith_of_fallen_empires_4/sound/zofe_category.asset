@@ -1,0 +1,24 @@
+category = {
+	name = "Effects"
+	soundeffects = {
+	pc_utopian_hive
+	pc_utopian_machine
+	pc_utopian_gaia
+	pc_utopian_city
+	pc_utopian_ringworld
+	pc_utopian_hive_ringworld
+	pc_utopian_machine_ringworld
+}
+
+compressor = 
+	{
+		enabled = yes
+		pregain = 2.0
+		postgain = 1.5
+		ratio = 10.0
+		threshold = -8.0
+		attacktime = 0.30
+		releasetime = 0.020
+	}
+ 
+}

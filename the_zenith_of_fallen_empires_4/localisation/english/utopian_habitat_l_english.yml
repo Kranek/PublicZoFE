@@ -58,6 +58,6 @@
  district_utopian_science_hab_desc:0 "The Utopian Science District is home to [GetScientistPlural] and [GetResearchers] alike, all working towards the betterment of our empire."
  district_utopian_science_hab_plural:0 "Utopian Science Districts"
 
- utopian_paradise.800.name:0 "A New §HUtopian Habitat§!: [Root.GetName]"
- utopian_paradise.800.desc:0 "Upon stripping the habitat of imperfections and the aged districts we had built previously, our §HUtopian World§! is at last complete.\n\nOur [GetEngineerPlural] have created the perfect paradise, where evergreen gardens, glorious silver dome villages and floating sky homes form the backdrop to sophisticated home and garden districts, created using Living Metal which can be shaped and repurposed as the population expands. Downtown districts are designed to support our growing automated industries and the latest technologies.\n\nFrom this day forth, [Root.GetName] shall be known as a wonder of the universe."
- utopian_paradise.800.a:0 "A Utopian Home... amongst the stars!"
+ utopian_paradise.900.name:0 "A New §HUtopian Habitat§!: [Root.GetName]"
+ utopian_paradise.900.desc:0 "Upon stripping the habitat of imperfections and the aged districts we had built previously, our §HUtopian World§! is at last complete.\n\nOur [GetEngineerPlural] have created the perfect paradise, where evergreen gardens, glorious silver dome villages and floating sky homes form the backdrop to sophisticated home and garden districts, created using Living Metal which can be shaped and repurposed as the population expands. Downtown districts are designed to support our growing automated industries and the latest technologies.\n\nFrom this day forth, [Root.GetName] shall be known as a wonder of the universe."
+ utopian_paradise.900.a:0 "A Utopian Home... amongst the stars!"

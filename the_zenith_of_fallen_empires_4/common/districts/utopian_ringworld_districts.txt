@@ -4,26 +4,28 @@ district_utopian_city_rw = {
 	
 	show_on_uncolonized = {
 		exists = from
-		from = { is_regular_empire = yes }
-		has_modifier = pm_Utopian_Paradise
+		from = {
+			has_technology = tech_paradise_creation
+			is_regular_empire = yes
+		}
 		uses_district_set = utopian_ringworld
 	}
 	
 	potential = {
 		exists = owner
-		owner = { 
+		owner = {
+			has_technology = tech_paradise_creation
 			OR = {
 				is_regular_empire = yes
 				is_rogue_servitor = yes
 			}
 		}
-		has_modifier = pm_Utopian_Paradise
 		uses_district_set = utopian_ringworld
 	}
 	
 	allow = {
-		has_modifier = pm_Utopian_Paradise
-	}	
+		
+	}
 	
 	resources = {
 		category = planet_districts_cities
@@ -157,25 +159,27 @@ district_utopian_leisure_rw = {
 	
 	show_on_uncolonized = {
 		exists = from
-		from = { is_regular_empire = yes }
-		has_modifier = pm_Utopian_Paradise
+		from = {
+			has_technology = tech_paradise_creation
+			is_regular_empire = yes
+		}
 		uses_district_set = utopian_ringworld
 	}
 	
 	potential = {
 		exists = owner
-		owner = { 
+		owner = {
+			has_technology = tech_paradise_creation
 			OR = {
 				is_regular_empire = yes
 				is_rogue_servitor = yes
 			}
 		}
-		has_modifier = pm_Utopian_Paradise
 		uses_district_set = utopian_ringworld
 	}
 	
 	allow = {
-		has_modifier = pm_Utopian_Paradise
+		
 	}	
 	
 	triggered_desc = {
@@ -443,25 +447,27 @@ district_utopian_production_rw = {
 	
 	show_on_uncolonized = {
 		exists = from
-		from = { is_regular_empire = yes }
-		has_modifier = pm_Utopian_Paradise
+		from = {
+			has_technology = tech_paradise_creation
+			is_regular_empire = yes
+		}
 		uses_district_set = utopian_ringworld
 	}
 	
 	potential = {
 		exists = owner
-		owner = { 
+		owner = {
+			has_technology = tech_paradise_creation
 			OR = {
 				is_regular_empire = yes
 				is_rogue_servitor = yes
 			}
 		}
-		has_modifier = pm_Utopian_Paradise
 		uses_district_set = utopian_ringworld
 	}
 	
 	allow = {
-		has_modifier = pm_Utopian_Paradise
+		
 	}	
 	
 	triggered_desc = {
@@ -778,25 +784,27 @@ district_utopian_foundry_rw = {
 	
 	show_on_uncolonized = {
 		exists = from
-		from = { is_regular_empire = yes }
-		has_modifier = pm_Utopian_Paradise
+		from = {
+			has_technology = tech_paradise_creation
+			is_regular_empire = yes
+		}
 		uses_district_set = utopian_ringworld
 	}
 	
 	potential = {
 		exists = owner
-		owner = { 
+		owner = {
+			has_technology = tech_paradise_creation
 			OR = {
 				is_regular_empire = yes
 				is_rogue_servitor = yes
 			}
 		}
-		has_modifier = pm_Utopian_Paradise
 		uses_district_set = utopian_ringworld
 	}
 	
 	allow = {
-		has_modifier = pm_Utopian_Paradise
+		
 	}	
 	
 	triggered_desc = {
@@ -1023,25 +1031,27 @@ district_utopian_science_rw = {
 	
 	show_on_uncolonized = {
 		exists = from
-		from = { is_regular_empire = yes }
-		has_modifier = pm_Utopian_Paradise
+		from = {
+			has_technology = tech_paradise_creation
+			is_regular_empire = yes
+		}
 		uses_district_set = utopian_ringworld
 	}
 	
 	potential = {
 		exists = owner
-		owner = { 
+		owner = {
+			has_technology = tech_paradise_creation
 			OR = {
 				is_regular_empire = yes
 				is_rogue_servitor = yes
 			}
 		}
-		has_modifier = pm_Utopian_Paradise
 		uses_district_set = utopian_ringworld
 	}
 	
 	allow = {
-		has_modifier = pm_Utopian_Paradise
+		
 	}	
 	
 	resources = {

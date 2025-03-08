@@ -139,6 +139,55 @@ zofe_settings_confirmed = {
 	has_global_flag = zofe_settings_confirmed
 }
 
+
+
+#Checks if there's either an AP crisis with a crisis level of 4 or above or an end-game crisis active in the galaxy.
+has_active_crisis = {
+	OR = {
+		has_crisis = yes
+		# has_global_flag = ai_invasion_happened
+		# has_global_flag = extradimensional_invasion_happened
+		# has_global_flag = prethoryn_invasion_happened
+		# has_global_flag = synth_queen_happened
+		any_country = {
+			OR = {
+				has_crisis_level = crisis_level_4
+				has_crisis_level = crisis_level_5
+				has_crisis_level = crisis_cosmogenesis_level_4
+				has_crisis_level = crisis_cosmogenesis_level_5
+			}
+		}
+	}
+}
+
+#Checks if EMPIRE1 is equal or higher in all or at least one category compared to EMPIRE2
+# is_powerful_empire = {
+# 	$EMPIRE1$ = {
+# 		OR = {
+# 			relative_power = {
+# 				who = $EMPIRE2$
+# 				category = all
+# 				value >= equivalent
+# 			}
+# 			relative_power = {
+# 				who = $EMPIRE2$
+# 				category = fleet
+# 				value >= equivalent
+# 			}
+# 			relative_power = {
+# 				who = $EMPIRE2$
+# 				category = economy
+# 				value >= equivalent
+# 			}
+# 			relative_power = {
+# 				who = $EMPIRE2$
+# 				category = technology
+# 				value >= equivalent
+# 			}
+# 		}
+# 	}
+# }
+
 #Is Ascended Empire Trigger supports both ascended_empire country type and default (or any other) country type with the flag.
 is_ascended_empire = {
 	OR = {
@@ -262,6 +311,30 @@ has_a_ae_tech = {
 		has_technology = tech_fallen_market_2
 		has_technology = tech_fallen_security_2
 		has_technology = tech_fallen_silo_2
+	}
+}
+
+has_all_tech_for_utopian_worlds = {
+	is_virtual_empire = no
+	OR = {
+		is_ascended_empire = yes
+		is_lost_empire = yes
+	}
+	NOR = {
+		has_technology = tech_paradise_creation
+		has_tech_option = tech_paradise_creation
+	}
+	has_technology = tech_synthetic_living_metal
+	has_technology = tech_fallen_class_5_singularity
+	has_technology = tech_fallen_dimensional_harvester
+	has_technology = tech_fallen_gourmet_center
+	has_technology = tech_fallen_nano_forge_2
+	has_technology = tech_fallen_lab
+	has_technology = tech_fallen_sky_dome
+	if = {
+		limit = { is_regular_empire = yes }
+		has_technology = tech_fallen_market
+		has_technology = tech_fallen_opulent_plaza
 	}
 }
 
@@ -549,6 +622,14 @@ is_zofe_utopian_city = {
 	is_planet_class = pc_utopian_city
 }
 
+is_basic_utopian_planet = {
+	OR = {
+		is_planet_class = pc_utopian_gaia
+		is_planet_class = pc_utopian_hive
+		is_planet_class = pc_utopian_machine
+	}
+}
+
 is_zofe_utopian_habitat = {
 	is_planet_class = pc_utopian_habitat
 }
@@ -573,11 +654,42 @@ is_zofe_utopian_ring = {
 	}
 }
 
-is_gaia = {
-	optimize_memory
+can_produce_hedonists = {
+	OR = {
+		is_planet_class = pc_utopian_city
+		is_planet_class = pc_utopian_gaia
+		is_planet_class = pc_utopian_ringworld
+	}
+}
+
+can_produce_maintenance_bot = {
+	OR = {
+		is_planet_class = pc_utopian_machine
+		is_planet_class = pc_utopian_machine_ringworld
+	}
+}
+
+can_produce_confused_drone = {
+	OR = {
+		is_planet_class = pc_utopian_hive
+		is_planet_class = pc_utopian_hive_ringworld
+	}
+}
+
+#Checks if the planet can be made into an utopian world
+can_make_utopian = {
 	OR = {
 		is_planet_class = pc_gaia
+		is_planet_class = pc_hive
+		is_planet_class = pc_machine
+		is_planet_class = pc_city
+		is_planet_class = pc_ringworld_habitable
+		is_planet_class = pc_cybrex
 	}
+}
+
+is_gaia = {
+	is_planet_class = pc_gaia
 }
 
 ascendancy_communications = {
@@ -691,17 +803,15 @@ ascendancy_has_hyperlane = {
 }
 
 ascendancy_subject_neighbors = {
-	AND = {
-		ascendancy_communications = yes
-		any_neighbor_country = {
-			has_overlord = root
-		}
-		NOR = {
-			is_neighbor_of = root
-			is_in_federation_with = root
-		}
-		is_subject = no
+	ascendancy_communications = yes
+	any_neighbor_country = {
+		has_overlord = root
 	}
+	NOR = {
+		is_neighbor_of = root
+		is_in_federation_with = root
+	}
+	is_subject = no
 }
 
 #Does not contain full list, only those techs that can be potentially researched by cosmo crisis
@@ -746,22 +856,6 @@ is_rogue_servitor = {
 	OR = {
 		has_valid_civic = civic_machine_servitor
 		has_country_flag = rogue_servitor
-	}
-}
-
-is_extermination_focused = {
-	OR = {
-		has_valid_civic = civic_fanatic_purifiers
-		has_valid_civic = civic_hive_devouring_swarm
-		has_valid_civic = civic_machine_assimilator
-		has_valid_civic = civic_machine_terminator
-	}
-}
-
-is_isolationist_or_raider = {
-	OR = {
-		has_valid_civic = civic_inwards_perfection
-		has_valid_civic = civic_barbaric_despoilers
 	}
 }
 

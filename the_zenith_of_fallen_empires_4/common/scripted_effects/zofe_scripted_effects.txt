@@ -557,6 +557,319 @@ add_ascended_empire_influence = {
 	clear_variable = influence_stockpile_var
 }
 
+###Utopian situation
+
+set_utopian_district = {
+	if = {
+		limit = {
+			is_variable_set = $VARIABLE$
+		}
+		change_variable = {
+			which = $VARIABLE$
+			value = 1
+		}
+	}
+	else = {
+		set_variable = {
+			which = $VARIABLE$
+			value = 1
+		}
+	}
+}
+
+add_utopian_district = {
+	if = {
+		limit = {
+			is_variable_set = $VARIABLE$
+			check_variable = {
+				which = $VARIABLE$
+				value > 0
+			}
+		}
+		while = {
+			count = $VARIABLE$
+			add_district = $DISTRICT$
+		}
+	}
+}
+
+clear_utopian_district = {
+	if = {
+		limit = {
+			is_variable_set = $VARIABLE$
+		}
+		clear_variable = $VARIABLE$
+	}
+}
+
+#Scripted effect for modders to include their own planet class in
+create_utopian_world = {
+	if = {
+		limit = { is_gaia = yes }
+		if = {
+			limit = {
+				owner = {
+					OR = {
+						is_gestalt = no
+						is_rogue_servitor = yes
+					}
+				}
+			}
+			clear_deposits = yes
+			validate_planet_buildings_and_districts = yes
+			change_pc = pc_utopian_gaia
+			add_deposit = d_singing_towers
+			add_deposit = d_golden_fields
+			add_modifier = {
+				modifier = pm_Utopian_Paradise
+				days = -1
+			}
+			add_utopian_district = {
+				VARIABLE = num_district_utopian_housing
+				DISTRICT = district_utopian_housing
+			}
+			add_utopian_district = {
+				VARIABLE = num_district_utopian_leisure
+				DISTRICT = district_idyllic_spaces
+			}
+			add_utopian_district = {
+				VARIABLE = num_district_utopian_production
+				DISTRICT = district_utopian_production
+			}
+			add_utopian_district = {
+				VARIABLE = num_district_utopian_manufacture
+				DISTRICT = district_utopian_manufacture
+			}
+			add_utopian_district = {
+				VARIABLE = num_district_utopian_science
+				DISTRICT = district_utopian_science
+			}
+		}
+	}
+	else_if = {
+		limit = { is_planet_class = pc_hive }
+		if = {
+			limit = { owner = { is_hive_empire = yes } }
+			clear_deposits = yes
+			validate_planet_buildings_and_districts = yes
+			change_pc = pc_utopian_hive
+			add_modifier = {
+				modifier = pm_Utopian_Paradise_Hive
+				days = -1
+			}
+			add_utopian_district = {
+				VARIABLE = num_district_utopian_housing
+				DISTRICT = district_utopian_hive
+			}
+			add_utopian_district = {
+				VARIABLE = num_district_utopian_production
+				DISTRICT = district_utopian_hive_production
+			}
+			add_utopian_district = {
+				VARIABLE = num_district_utopian_manufacture
+				DISTRICT = district_utopian_hive_foundry
+			}
+			add_utopian_district = {
+				VARIABLE = num_district_utopian_science
+				DISTRICT = district_utopian_hive_science
+			}
+		}
+	}
+	else_if = {
+		limit = { is_planet_class = pc_machine }
+		if = {
+			limit = {
+				owner = {
+					is_machine_empire = yes
+					is_rogue_servitor = no
+				}
+			}
+			clear_deposits = yes
+			validate_planet_buildings_and_districts = yes
+			change_pc = pc_utopian_machine
+			add_modifier = {
+				modifier = pm_Utopian_Paradise_Machine
+				days = -1
+			}
+			add_utopian_district = {
+				VARIABLE = num_district_utopian_housing
+				DISTRICT = district_utopian_machine_nexus
+			}
+			add_utopian_district = {
+				VARIABLE = num_district_utopian_production
+				DISTRICT = district_utopian_machine_production
+			}
+			add_utopian_district = {
+				VARIABLE = num_district_utopian_manufacture
+				DISTRICT = district_utopian_machine_foundry
+			}
+			add_utopian_district = {
+				VARIABLE = num_district_utopian_science
+				DISTRICT = district_utopian_machine_science
+			}
+		}
+	}
+	else_if = {
+		limit = { is_planet_class = pc_city }
+		if = {
+			limit = {
+				owner = {
+					OR = {
+						is_gestalt = no
+						is_rogue_servitor = yes
+					}
+				}
+			}
+			clear_deposits = yes
+			validate_planet_buildings_and_districts = yes
+			change_pc = pc_utopian_city
+			add_deposit = d_golden_spire
+			add_deposit = d_ornate_streets
+			add_modifier = {
+				modifier = pm_Utopian_Paradise
+				days = -1
+			}
+			add_utopian_district = {
+				VARIABLE = num_district_utopian_housing
+				DISTRICT = district_utopian_city
+			}
+			add_utopian_district = {
+				VARIABLE = num_district_utopian_leisure
+				DISTRICT = district_utopian_leisure
+			}
+			add_utopian_district = {
+				VARIABLE = num_district_utopian_production
+				DISTRICT = district_utopian_financial
+			}
+			add_utopian_district = {
+				VARIABLE = num_district_utopian_manufacture
+				DISTRICT = district_utopian_foundry
+			}
+			add_utopian_district = {
+				VARIABLE = num_district_utopian_science
+				DISTRICT = district_utopian_science_city
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			OR = {
+				is_planet_class = pc_ringworld_habitable
+				is_planet_class = pc_cybrex
+			}
+		}
+		if = {
+			limit = {
+				owner = {
+					OR = {
+						is_gestalt = no
+						is_rogue_servitor = yes
+					}
+				}
+			}
+			clear_deposits = yes
+			validate_planet_buildings_and_districts = yes
+			change_pc = pc_utopian_ringworld
+			set_planet_entity = {
+				entity = "ringworld_habitable_entity_01_entity"
+				graphical_culture = root
+			}
+			add_deposit = d_magnificent_waterfalls
+			add_deposit = d_endless_fields
+			add_modifier = {
+				modifier = pm_Utopian_Paradise
+				days = -1
+			}
+			add_utopian_district = {
+				VARIABLE = num_district_utopian_housing
+				DISTRICT = district_utopian_city_rw
+			}
+			add_utopian_district = {
+				VARIABLE = num_district_utopian_leisure
+				DISTRICT = district_utopian_leisure_rw
+			}
+			add_utopian_district = {
+				VARIABLE = num_district_utopian_production
+				DISTRICT = district_utopian_production_rw
+			}
+			add_utopian_district = {
+				VARIABLE = num_district_utopian_manufacture
+				DISTRICT = district_utopian_foundry_rw
+			}
+			add_utopian_district = {
+				VARIABLE = num_district_utopian_science
+				DISTRICT = district_utopian_science_rw
+			}
+		}
+		if = {
+			limit = { owner = { is_hive_empire = yes } }
+			clear_deposits = yes
+			validate_planet_buildings_and_districts = yes
+			change_pc = pc_utopian_hive_ringworld
+			add_modifier = {
+				modifier = pm_Utopian_Paradise_Hive
+				days = -1
+			}
+			add_utopian_district = {
+				VARIABLE = num_district_utopian_housing
+				DISTRICT = district_rw_utopian_hive
+			}
+			add_utopian_district = {
+				VARIABLE = num_district_utopian_production
+				DISTRICT = district_utopian_hive_production_rw
+			}
+			add_utopian_district = {
+				VARIABLE = num_district_utopian_manufacture
+				DISTRICT = district_utopian_hive_foundry_rw
+			}
+			add_utopian_district = {
+				VARIABLE = num_district_utopian_science
+				DISTRICT = district_utopian_hive_science_rw
+			}
+		}
+		if = {
+			limit = {
+				owner = {
+					is_machine_empire = yes
+					is_rogue_servitor = no
+				}
+			}
+			clear_deposits = yes
+			validate_planet_buildings_and_districts = yes
+			change_pc = pc_utopian_machine_ringworld
+			set_planet_entity = {
+				entity = "ringworld_habitable_entity_01_entity"
+				graphical_culture = root
+			}
+			add_modifier = {
+				modifier = pm_Utopian_Paradise_Machine
+				days = -1
+			}
+			add_utopian_district = {
+				VARIABLE = num_district_utopian_housing
+				DISTRICT = district_rw_utopian_machine_nexus
+			}
+			add_utopian_district = {
+				VARIABLE = num_district_utopian_production
+				DISTRICT = district_utopian_machine_production_rw
+			}
+			add_utopian_district = {
+				VARIABLE = num_district_utopian_manufacture
+				DISTRICT = district_utopian_machine_foundry_rw
+			}
+			add_utopian_district = {
+				VARIABLE = num_district_utopian_science
+				DISTRICT = district_utopian_machine_science_rw
+			}
+		}
+	}
+	remove_planet_flag = utopian_world_situation_ongoing
+	add_modifier = {
+		modifier = pm_Living_Metal_Architecture
+		days = -1
+	}
+}
+
 ###Ascendancy Affairs
 
 set_affairs_office_assistant = {
@@ -591,10 +904,10 @@ set_affairs_office_assistant = {
 }
 
 clear_affairs_office_assistant = {
-    if = {
-        limit = { exists = event_target:ascendancy_affairs_office_assistant }
-        clear_global_event_target = ascendancy_affairs_office_assistant
-    }
+	if = {
+		limit = { exists = event_target:ascendancy_affairs_office_assistant }
+		clear_global_event_target = ascendancy_affairs_office_assistant
+	}
 }
 
 clear_ascendancy_affairs_targets = {

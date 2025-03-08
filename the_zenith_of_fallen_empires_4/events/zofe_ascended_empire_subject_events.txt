@@ -6,102 +6,66 @@
 
 namespace = ascended_empires_subject
 
+#To-do change all instances of these events to 5 year pulse 
+#Add ai weight to events
 
 # Ascended Empire asks for scientist
 country_event = {
 	id = ascended_empires_subject.1
-	title = OK
-	desc = OK
-	
-	hide_window = yes
+	title = ascended_empires_subject.1.name
+	desc = ascended_empires_subject.1.desc
+	picture = GFX_evt_star_chart
 	is_triggered_only = yes
-	
-	trigger = {		
-		is_country_type = default
-		NOT = { has_country_flag = ascended_empire_asked_scientist }
-		NOT = { has_country_flag = ascended_empire_intelligence }
-		NOT = { has_country_flag = ascended_empire_fleet_exercise }
-		NOT = { has_ethic = ethic_gestalt_consciousness }
-		is_at_war = no
-		
-		any_owned_leader = {
-			leader_class = scientist
-			has_skill > 4
-		}
-		
-		has_technology = "tech_mega_engineering"
+
+	trigger = {
+		is_country_type = ascended_empire
+		is_gestalt = no
 		
 		any_country = {
-			is_country_type = ascended_empire
-			is_overlord_to = root
-			NOT = { has_ethic = ethic_gestalt_consciousness }
-			NOT = { has_country_flag = subject_event_scientist_happened }
-		}
-	}
-	
-#	mean_time_to_happen = {
-#		years = 50
-#		modifier = {
-#			factor = 0.75
-#			has_technology = tech_mega_engineering
-#		}		
-#		modifier = {
-#			factor = 0.5
-#			OR = {
-#				has_technology = tech_dark_matter_power_core
-#				has_technology = tech_ascension_theory
-#				has_technology = tech_gateway_construction
-#			}
-#		}
-#		modifier = {
-#			factor = 0.25
-#			AND = {
-#				has_technology = tech_dark_matter_power_core
-#				has_technology = tech_ascension_theory
-#				has_technology = tech_gateway_construction
-#			}
-#		}
-#	}
-	
-	immediate = {
-		set_country_flag = ascended_empire_asked_scientist
-		
-		random_owned_leader ={
-			limit = {
+			is_country_type = default
+			is_gestalt = no
+			has_overlord = root
+			any_owned_leader = {
 				leader_class = scientist
-				has_skill > 4		
+				has_skill > 4
 			}
-			save_event_target_as = AscendedEmpireScientistTarget
-		}
-
-		save_event_target_as = NoobEmpire
-	
-		random_country = {
-			limit = { 
-				is_country_type = ascended_empire
-				is_overlord_to = root
-			}
-			set_country_flag = subject_event_scientist_happened
-			save_event_target_as = AscendedEmpireOverlord
-			event_target:AscendedEmpireOverlord = { country_event = { id = ascended_empires_subject.2 } }
+			NOT = { has_country_flag = scientist_nab_event_happened }
 		}
 	}
-}
 
-country_event = {
-	id = ascended_empires_subject.2
-	title = ascended_empires_subject.2.name
-	desc = ascended_empires_subject.2.desc
-	picture = GFX_evt_star_chart
-	
-	is_triggered_only = yes
-	
+	immediate = {
+		save_event_target_as = AscendedEmpireOverlord
+		random_country = {
+			limit = {
+				is_country_type = default
+				is_gestalt = no
+				has_overlord = root
+				NOT = { has_country_flag = scientist_nab_event_happened }
+			}
+			save_event_target_as = NoobEmpire
+			set_timed_country_flag = {
+				flag = scientist_nab_event_happened
+				years = 6
+			}
+			random_owned_leader = {
+				limit = {
+					leader_class = scientist
+					has_skill > 4
+				}
+				save_event_target_as = AscendedEmpireScientistTarget
+			}
+		}
+	}
+
 	option = {
-		name = ascended_empires_subject.2.a
+		name = ascended_empires_subject.1.a
 		hidden_effect = {
 		event_target:NoobEmpire = {
-			set_country_flag = nabbed_scientist
-			country_event = { id = ascended_empires_subject.3 }
+			set_timed_country_flag = {
+				flag = nabbed_scientist
+				days = 2
+			}
+			country_event = { id = ascended_empires_subject.2 }
 		}
 		event_target:AscendedEmpireScientistTarget = { 
 				kill_leader = {
@@ -111,27 +75,42 @@ country_event = {
 			}
 		}
 	}
+
 	option = {
-		name = ascended_empires_subject.2.b
+		name = ascended_empires_subject.1.b
 		hidden_effect = {
 			event_target:NoobEmpire = {
-				set_country_flag = science_sabotaged
-				country_event = { id = ascended_empires_subject.3 }
+				set_timed_country_flag = {
+					flag = science_sabotaged
+					days = 2
+				}
+				country_event = { id = ascended_empires_subject.2 }
 			}
 		}
 	}
+
 	option = {
-		name = ascended_empires_subject.2.c
+		name = ascended_empires_subject.1.c
 	}
 }
 
 country_event = {
-	id = ascended_empires_subject.3
-	title = ascended_empires_subject.3.name
-	
+	id = ascended_empires_subject.2
+	title = ascended_empires_subject.2.name
+	desc = {
+		text = ascended_empires_subject.2.desc.scientist
+		trigger = {
+			has_country_flag = nabbed_scientist
+		}
+	}
+	desc = {
+		text = ascended_empires_subject.2.desc.sabotage
+		trigger = {
+			has_country_flag = science_sabotaged
+		}
+	}
 	is_triggered_only = yes
 	diplomatic = yes
-	
 	picture_event_data = {
 		portrait = event_target:AscendedEmpireOverlord
 		planet_background = event_target:AscendedEmpireOverlord
@@ -139,44 +118,25 @@ country_event = {
 		city_level = event_target:AscendedEmpireOverlord
 		room = event_target:AscendedEmpireOverlord
 	}
-	
-	desc = {
-		text = ascended_empires_subject.3.desc.scientist
-		trigger = {
-			has_country_flag = nabbed_scientist
-			NOT = { has_country_flag = science_sabotaged }
-		}
-	}
-	
-	desc = {
-		text = ascended_empires_subject.3.desc.sabotage
-		trigger = {
-			has_country_flag = science_sabotaged
-			NOT = { has_country_flag = nabbed_scientist }
-		}
-	}
-	
 
 	option = {
-		name = ascended_empires_subject.3.a
+		name = ascended_empires_subject.2.a
 		trigger = {
 			has_country_flag = nabbed_scientist
-			NOT = { has_country_flag = science_sabotaged }
 		}
 	}
-	
+
 	option = {
-		name = ascended_empires_subject.3.b
+		name = ascended_empires_subject.2.b
 		trigger = {
 			has_country_flag = science_sabotaged
-			NOT = { has_country_flag = nabbed_scientist }
 		}
 		hidden_effect = {
-			event_target:NoobEmpire = { 
+			event_target:NoobEmpire = {
 				add_modifier = {
 					modifier = science_sabotaged
 					days = 3600
-				}	
+				}
 			}
 		}
 	}
@@ -184,110 +144,83 @@ country_event = {
 
 # Ascended Empire receives report of a terror attack.
 country_event = {
-	id = ascended_empires_subject.4
-	title = OK
-	desc = OK
-	
-	hide_window = yes
+	id = ascended_empires_subject.3
+	title = ascended_empires_subject.3.name
+	desc = ascended_empires_subject.3.desc
+	picture = GFX_evt_metropolis
 	is_triggered_only = yes
-	
+
 	trigger = {
-		is_country_type = default
-		NOT = { has_country_flag = ascended_empire_intelligence }
-		NOT = { has_country_flag = ascended_empire_asked_scientist }
-		NOT = { has_country_flag = ascended_empire_fleet_exercise }
-		is_at_war = no
-		
-		any_owned_pop = {
-			pop_has_ethic = ethic_spiritualist
-		}
+		is_country_type = ascended_empire
 		
 		any_country = {
-			is_country_type = ascended_empire
-			is_overlord_to = root
-			NOT = { has_ethic = ethic_gestalt_consciousness }
-			NOT = { has_country_flag = subject_event_terror_happened }
+			is_country_type = default
+			has_overlord = root
+			is_gestalt = no
+			NOT = { has_country_flag = terror_attack_happened }
 		}
 	}
-	
-#	mean_time_to_happen = {
-#		years = 50		
-#	}
-	
+
 	immediate = {
-		set_country_flag = ascended_empire_intelligence
-
-		save_event_target_as = NoobEmpire
-	
+		save_event_target_as = AscendedEmpireOverlord
 		random_country = {
-			limit = { 
-				is_country_type = ascended_empire
-				is_overlord_to = root
+			limit = {
+				is_country_type = default
+				has_overlord = root
+				is_gestalt = no
+				NOT = { has_country_flag = terror_attack_happened }
 			}
-			set_country_flag = subject_event_terror_happened
-			save_event_target_as = AscendedEmpireOverlord
-			event_target:AscendedEmpireOverlord = { country_event = { id = ascended_empires_subject.5 } }
+			save_event_target_as = NoobEmpire
+			set_timed_country_flag = {
+				flag = terror_attack_happened
+				years = 6
+			}
 		}
 	}
-}
 
-country_event = {
-	id = ascended_empires_subject.5
-	title = ascended_empires_subject.5.name
-	desc = ascended_empires_subject.5.desc
-	picture = GFX_evt_metropolis
-	
-	is_triggered_only = yes
-	
 	option = {
-		name = ascended_empires_subject.5.a
+		name = ascended_empires_subject.3.a
 		hidden_effect = {
 			event_target:NoobEmpire = {
 				set_country_flag = terror_attack_informed
-				country_event = { id = ascended_empires_subject.6 }
+				country_event = { id = ascended_empires_subject.4 }
 			}
 		}
 	}
+
 	option = {
-		name = ascended_empires_subject.5.b
+		name = ascended_empires_subject.3.b
 		hidden_effect = {
 			event_target:NoobEmpire = {
 				set_country_flag = terror_attack_not_informed
-				country_event = { id = ascended_empires_subject.6 }
+				country_event = { id = ascended_empires_subject.4 }
 			}
 		}
 	}
 }
 
 country_event = {
-	id = ascended_empires_subject.6
-	title = ascended_empires_subject.6.name
-	picture = GFX_evt_smugglers_in_bar
-	is_triggered_only = yes
-	
-	
+	id = ascended_empires_subject.4
+	title = ascended_empires_subject.4.name
 	desc = {
-		text = ascended_empires_subject.6.desc.informed
+		text = ascended_empires_subject.4.desc.informed
 		trigger = {
 			has_country_flag = terror_attack_informed
-			NOT = { has_country_flag = terror_attack_not_informed }
 		}
 	}
-	
 	desc = {
-		text = ascended_empires_subject.6.desc.not_informed
+		text = ascended_empires_subject.4.desc.not_informed
 		trigger = {
 			has_country_flag = terror_attack_not_informed
-			NOT = { has_country_flag = terror_attack_informed }
 		}
 	}
-	
+	picture = GFX_evt_smugglers_in_bar
+	is_triggered_only = yes
 
 	option = {
-		name = ascended_empires_subject.6.a
+		name = ascended_empires_subject.4.a
 		trigger = {
 			has_country_flag = terror_attack_informed
-			NOT = { has_country_flag = terror_attack_not_informed }
 		}
 		random_owned_pop = {
 			limit = {
@@ -298,16 +231,15 @@ country_event = {
 	}
 	
 	option = {
-		name = ascended_empires_subject.6.b
+		name = ascended_empires_subject.4.b
 		trigger = {
 			has_country_flag = terror_attack_not_informed
-			NOT = { has_country_flag = terror_attack_informed }
 		}
 		event_target:NoobEmpire = {
 			add_modifier = {
 					modifier = national_mourning
 					days = 180
-			}	
+			}
 			capital_scope = {
 				add_planet_devastation = 20
 				random_owned_pop = { kill_pop = yes }
@@ -322,102 +254,90 @@ country_event = {
 
 # Ascended Empire Fleet Exercise
 country_event = {
-	id = ascended_empires_subject.7
-	title = OK
-	desc = OK
-	
-	hide_window = yes
-	is_triggered_only = yes
-	
-	trigger = {
-		is_country_type = default
-		NOT = { has_country_flag = ascended_empire_asked_scientist }
-		NOT = { has_country_flag = ascended_empire_intelligence }
-		NOT = { has_country_flag = ascended_empire_fleet_exercise }
-		is_at_war = no
-		
-		fleet_power > 50000
-		
-		any_country = {
-			is_country_type = ascended_empire
-			is_overlord_to = root
-			NOT = { has_ethic = ethic_gestalt_consciousness }
-			NOT = { has_country_flag = subject_event_fleet_happened }
-		}
-	}
-	
-#	mean_time_to_happen = {
-#		years = 50
-#		modifier = {
-#			factor = 0.75
-#			fleet_power > 40000
-#		}		
-#		modifier = {
-#			factor = 0.5
-#			fleet_power > 60000
-#		}
-#		modifier = {
-#			factor = 0.25
-#			fleet_power > 80000
-#		}
-#	}
-	
-	immediate = {
-		set_country_flag = ascended_empire_fleet_exercise
-
-		save_event_target_as = NoobEmpire
-	
-		random_country = {
-			limit = { 
-				is_country_type = ascended_empire
-				is_overlord_to = root
-			}
-			set_country_flag = subject_event_fleet_happened
-			save_event_target_as = AscendedEmpireOverlord
-			event_target:AscendedEmpireOverlord = { country_event = { id = ascended_empires_subject.8 } }
-		}
-	}
-}
-
-country_event = {
-	id = ascended_empires_subject.8
-	title = ascended_empires_subject.8.name
-	desc = ascended_empires_subject.8.desc
+	id = ascended_empires_subject.5
+	title = ascended_empires_subject.5.name
+	desc = ascended_empires_subject.5.desc
 	picture = GFX_evt_fleet_neutral
 	
 	is_triggered_only = yes
 	
-	option = {
-		name = ascended_empires_subject.8.a
-		hidden_effect = {
-			event_target:NoobEmpire = {
-				set_country_flag = fleet_exercised
-				country_event = { id = ascended_empires_subject.9 }
+	trigger = {
+		is_country_type = ascended_empire
+		is_gestalt = no
+		is_at_war = no
+
+		any_country = {
+			is_country_type = default
+			fleet_power > 50000
+			has_overlord = root
+			NOT = { has_country_flag = subject_event_fleet_happened }
+		}
+	}
+	
+	immediate = {
+		save_event_target_as = AscendedEmpireOverlord
+	
+		random_country = {
+			limit = {
+				is_country_type = default
+				has_overlord = root
+				NOT = { has_country_flag = subject_event_fleet_happened }
+			}
+			save_event_target_as = NoobEmpire
+			set_timed_country_flag = {
+				flag = subject_event_fleet_happened
+				years = 6
 			}
 		}
 	}
 	option = {
-		name = ascended_empires_subject.8.b
+		name = ascended_empires_subject.5.a
 		hidden_effect = {
 			event_target:NoobEmpire = {
-				set_country_flag = fleet_sabotaged
-				country_event = { id = ascended_empires_subject.9 }
+				set_timed_country_flag = {
+					flag = fleet_exercised
+					days = 2
+				}
+				country_event = { id = ascended_empires_subject.6 }
 			}
 		}
 	}
 	option = {
-		name = ascended_empires_subject.8.c
+		name = ascended_empires_subject.5.b
+		hidden_effect = {
+			event_target:NoobEmpire = {
+				set_timed_country_flag = {
+					flag = fleet_sabotaged
+					days = 2
+				}
+				country_event = { id = ascended_empires_subject.6 }
+			}
+		}
+	}
+	option = {
+		name = ascended_empires_subject.5.c
 	}
 }
-	
 
 country_event = {
-	id = ascended_empires_subject.9
-	title = ascended_empires_subject.9.name
-	
+	id = ascended_empires_subject.6
+	title = ascended_empires_subject.6.name
+	desc = {
+		text = ascended_empires_subject.6.desc.fleet_exercised
+		trigger = {
+			has_country_flag = fleet_exercised
+			NOT = { has_country_flag = fleet_sabotaged }
+		}
+	}
+	desc = {
+		text = ascended_empires_subject.6.desc.fleet_sabotaged
+		trigger = {
+			has_country_flag = fleet_sabotaged
+			NOT = { has_country_flag = fleet_exercised }
+		}
+	}
 	is_triggered_only = yes
 	diplomatic = yes
-	
 	picture_event_data = {
 		portrait = event_target:AscendedEmpireOverlord
 		planet_background = event_target:AscendedEmpireOverlord
@@ -425,52 +345,36 @@ country_event = {
 		city_level = event_target:AscendedEmpireOverlord
 		room = event_target:AscendedEmpireOverlord
 	}
-	
-	desc = {
-		text = ascended_empires_subject.9.desc.fleet_exercised
-		trigger = {
-			has_country_flag = fleet_exercised
-			NOT = { has_country_flag = fleet_sabotaged }
-		}
-	}
-	
-	desc = {
-		text = ascended_empires_subject.9.desc.fleet_sabotaged
-		trigger = {
-			has_country_flag = fleet_sabotaged
-			NOT = { has_country_flag = fleet_exercised }
-		}
-	}
-	
+
 
 	option = {
-		name = ascended_empires_subject.9.a
+		name = ascended_empires_subject.6.a
 		trigger = {
 			has_country_flag = fleet_exercised
 			NOT = { has_country_flag = fleet_sabotaged }
 		}
 		hidden_effect = {
-			event_target:NoobEmpire = { 
+			event_target:NoobEmpire = {
 				add_modifier = {
 					modifier = fleet_exercised
 					days = 3600
-				}	
+				}
 			}
 		}
 	}
 	
 	option = {
-		name = ascended_empires_subject.9.b
+		name = ascended_empires_subject.6.b
 		trigger = {
 			has_country_flag = fleet_sabotaged
 			NOT = { has_country_flag = fleet_exercised }
 		}
 		hidden_effect = {
-			event_target:NoobEmpire = { 
+			event_target:NoobEmpire = {
 				add_modifier = {
 					modifier = fleet_sabotaged
 					days = 3600
-				}	
+				}
 			}
 		}
 	}
@@ -478,90 +382,110 @@ country_event = {
 
 # Subject wants to renegotiate deal with Ascended Empire
 country_event = {
-	id = ascended_empires_subject.10
-	title = OK
-	desc = OK
-	
-	hide_window = yes
+	id = ascended_empires_subject.7
+	title = ascended_empires_subject.7.name
+	desc = ascended_empires_subject.7.desc
 	is_triggered_only = yes
-	
+
 	trigger = {
 		is_country_type = default
+		is_subject = yes
 		NOT = { has_country_flag = ascended_empire_renegotiation }
-		NOT = { has_country_flag = ascended_empire_compensation }
-		NOT = { has_country_flag = ascended_empire_nabs_fleet }
-		is_gestalt = no
-		is_at_war = no
-		
-		AND = {
+		OR = {
+			is_ai = no
+			has_deficit_situation = yes
+			is_disloyal_to = overlord
 			any_owned_leader = {
 				is_ruler = yes
 				has_skill < 5
 			}
-			OR = {
+		}
+		any_country = {
+			is_country_type = ascended_empire
+			has_subject = root
+		}
+	}
+
+	immediate = {
+		set_timed_country_flag = {
+			flag = ascended_empire_renegotiation
+			years = 6
+		}
+		save_event_target_as = NoobEmpire
+		random_country = {
+			limit = {
+				is_country_type = ascended_empire
+				has_subject = root
+			}
+			save_event_target_as = AscendedEmpireOverlord
+		}
+	}
+
+	option = {
+		name = ascended_empires_subject.7.a
+		ai_chance = {
+			base = 10
+			modifier = {
+				factor = 5
+				relative_power = {
+					who = event_target:AscendedEmpireOverlord
+					category = fleet
+					value >= equivalent
+				}
+			}
+			modifier = {
+				factor = 10
+				any_owned_leader = {
+					is_ruler = yes
+					has_skill < 5
+				}
+			}
+			modifier = {
+				factor = 2
+				opinion = {
+					who = event_target:AscendedEmpireOverlord
+					value < 100
+				}
+			}
+			modifier = {
+				factor = 5
 				has_deficit_situation = yes
+			}
+			modifier = {
+				factor = 2
 				is_disloyal_to = overlord
 			}
 		}
-		
-		any_country = {
-			is_country_type = ascended_empire
-			is_overlord_to = root
-			is_gestalt = no
-			NOT = { has_country_flag = subject_event_negotiation_happened }
-		}
-	}
-	
-#	mean_time_to_happen = {
-#		years = 100
-#		modifier = {
-#			factor = 0.75
-#			any_owned_leader = {
-#				is_ruler = yes
-#				has_skill < 4
-#			}
-#		}		
-#		modifier = {
-#			factor = 0.5
-#			any_owned_leader = {
-#				is_ruler = yes
-#				has_skill < 3
-#			}
-#		}
-#		modifier = {
-#			factor = 0.25
-#			any_owned_leader = {
-#				is_ruler = yes
-#				has_skill < 2
-#			}
-#		}
-#	}
-	
-	immediate = {
-		set_country_flag = ascended_empire_renegotiation
-
-		save_event_target_as = NoobEmpire
-	
-		random_country = {
-			limit = { 
-				is_country_type = ascended_empire
-				is_overlord_to = root
+		hidden_effect = {
+			event_target:AscendedEmpireOverlord = {
+				country_event = {
+					id = ascended_empires_subject.8
+				}
 			}
-			set_country_flag = subject_event_negotiation_happened
-			save_event_target_as = AscendedEmpireOverlord
-			event_target:AscendedEmpireOverlord = { country_event = { id = ascended_empires_subject.11 } }
 		}
 	}
+	option = {
+		name = ascended_empires_subject.7.b
+		ai_chance = {
+			base = 10
+			modifier = {
+				factor = 10
+				opinion = {
+					who = event_target:AscendedEmpireOverlord
+					value >= 100
+				}
+			}
+		}
+	}
+
 }
 
 country_event = {
-	id = ascended_empires_subject.11
-	title = ascended_empires_subject.11.name
-	desc = ascended_empires_subject.11.desc
-	
+	id = ascended_empires_subject.8
+	title = ascended_empires_subject.8.name
+	desc = ascended_empires_subject.8.desc
 	is_triggered_only = yes
 	diplomatic = yes
-	
 	picture_event_data = {
 		portrait = event_target:NoobEmpire
 		planet_background = event_target:NoobEmpire
@@ -571,36 +495,77 @@ country_event = {
 	}
 	
 	option = {
-		name = ascended_empires_subject.11.a
+		name = ascended_empires_subject.8.a
+		ai_chance = {
+			base = 10
+			modifier = {
+				factor = 5
+				opinion = {
+					who = event_target:NoobEmpire
+					value >= 100
+				}
+			}
+		}
 		hidden_effect = {
 			event_target:NoobEmpire = {
-				set_country_flag = deal_renegotiated
-				country_event = { id = ascended_empires_subject.12 }
+				set_timed_country_flag = {
+					flag = deal_renegotiated
+					days = 2
+				}
+				country_event = { id = ascended_empires_subject.9 }
 			}
 		}
 	}
 	option = {
-		name = ascended_empires_subject.11.b
-		custom_tooltip = ascended_empires_subject_tooltip_11
+		name = ascended_empires_subject.8.b
+		custom_tooltip = ascended_empires_subject_tooltip_8
+		ai_chance = {
+			base = 10
+			modifier = {
+				factor = 5
+				opinion = {
+					who = event_target:NoobEmpire
+					value < 100
+				}
+			}
+		}
 		hidden_effect = {
 			event_target:NoobEmpire = {
-				set_country_flag = ruler_assassinated
-				country_event = { id = ascended_empires_subject.12 }
+				set_timed_country_flag = {
+					flag = ruler_assassinated
+					days = 2
+				}
+				country_event = { id = ascended_empires_subject.9 }
 			}
 		}
 	}
 	option = {
-		name = ascended_empires_subject.11.c
+		ai_chance = {
+			base = 10
+		}
+		name = ascended_empires_subject.8.c
 	}
 }
 
 country_event = {
-	id = ascended_empires_subject.12
-	title = ascended_empires_subject.12.name
-	
+	id = ascended_empires_subject.9
+	title = ascended_empires_subject.9.name
+	desc = {
+		text = ascended_empires_subject.9.desc.renegotiated
+		trigger = {
+			has_country_flag = deal_renegotiated
+			NOT = { has_country_flag = ruler_assassinated }
+		}
+	}
+	desc = {
+		text = ascended_empires_subject.9.desc.assassination
+		trigger = {
+			has_country_flag = ruler_assassinated
+			NOT = { has_country_flag = deal_renegotiated }
+		}
+	}
 	is_triggered_only = yes
 	diplomatic = yes
-	
 	picture_event_data = {
 		portrait = event_target:AscendedEmpireOverlord
 		planet_background = event_target:AscendedEmpireOverlord
@@ -608,26 +573,9 @@ country_event = {
 		city_level = event_target:AscendedEmpireOverlord
 		room = event_target:AscendedEmpireOverlord
 	}
-	
-	desc = {
-		text = ascended_empires_subject.12.desc.renegotiated
-		trigger = {
-			has_country_flag = deal_renegotiated
-			NOT = { has_country_flag = ruler_assassinated }
-		}
-	}
-	
-	desc = {
-		text = ascended_empires_subject.12.desc.assassination
-		trigger = {
-			has_country_flag = ruler_assassinated
-			NOT = { has_country_flag = deal_renegotiated }
-		}
-	}
-	
 
 	option = {
-		name = ascended_empires_subject.12.a
+		name = ascended_empires_subject.9.a
 		trigger = {
 			has_country_flag = deal_renegotiated
 			NOT = { has_country_flag = ruler_assassinated }
@@ -643,13 +591,13 @@ country_event = {
 				add_modifier = {
 					modifier = renegotiated_deal
 					days = 3600
-				}	
+				}
 			}
 		}
 	}
 	
 	option = {
-		name = ascended_empires_subject.12.b
+		name = ascended_empires_subject.9.b
 		trigger = {
 			has_country_flag = ruler_assassinated
 			NOT = { has_country_flag = deal_renegotiated }
@@ -665,68 +613,102 @@ country_event = {
 
 # Subject seeks compensation from Ascended Empire
 country_event = {
-	id = ascended_empires_subject.13
-	title = OK
-	desc = OK
-	
-	hide_window = yes
+	id = ascended_empires_subject.10
+	title = ascended_empires_subject.10.name
+	desc = ascended_empires_subject.10.desc
 	is_triggered_only = yes
-	
-	trigger = {		
+
+	trigger = {
 		is_country_type = default
-		NOT = { has_country_flag = ascended_empire_renegotiation }
 		NOT = { has_country_flag = ascended_empire_compensation }
-		NOT = { has_country_flag = ascended_empire_nabs_fleet }
 		is_at_war = no
-		
+		is_subject = yes
+
 		any_country = {
 			is_country_type = ascended_empire
-			is_overlord_to = root
-			NOT = { has_ethic = ethic_gestalt_consciousness }
-			NOT = { has_country_flag = subject_event_compensation_happened }
-		}
-		root = {
-			has_opinion_modifier = { who = overlord modifier = opinion_declared_war }
+			is_gestalt = no
+			has_subject = root
+			root = {
+				has_opinion_modifier = {
+					who = prev
+					modifier = opinion_declared_war
+				}
+			}
 		}
 	}
-	
-#	mean_time_to_happen = {
-#		years = 100
-#		modifier = {
-#			factor = 0.75
-#			fleet_power < 20000
-#		}		
-#		modifier = {
-#			factor = 0.5
-#			fleet_power < 10000
-#		}
-#	}
-	
-	immediate = {
-		set_country_flag = ascended_empire_compensation
 
+	immediate = {
 		save_event_target_as = NoobEmpire
-	
+		set_timed_country_flag = {
+			flag = ascended_empire_compensation
+			years = 6
+		}
 		random_country = {
-			limit = { 
+			limit = {
 				is_country_type = ascended_empire
-				is_overlord_to = root
+				is_gestalt = no
+				has_subject = root
 			}
-			set_country_flag = subject_event_compensation_happened
 			save_event_target_as = AscendedEmpireOverlord
-			event_target:AscendedEmpireOverlord = { country_event = { id = ascended_empires_subject.14 } }
+		}
+	}
+
+	option = {
+		name = ascended_empires_subject.10.a
+		ai_chance = {
+			base = 10
+			modifier = {
+				factor = 5
+				relative_power = {
+					who = event_target:AscendedEmpireOverlord
+					category = fleet
+					value >= equivalent
+				}
+			}
+			modifier = {
+				factor = 10
+				any_owned_leader = {
+					is_ruler = yes
+					has_skill < 5
+				}
+			}
+			modifier = {
+				factor = 2
+				opinion = {
+					who = event_target:AscendedEmpireOverlord
+					value < 100
+				}
+			}
+		}
+		hidden_effect = {
+			event_target:AscendedEmpireOverlord = {
+				country_event = {
+					id = ascended_empires_subject.11
+				}
+			}
+		}
+	}
+	option = {
+		name = ascended_empires_subject.10.b
+		ai_chance = {
+			base = 10
+			modifier = {
+				factor = 10
+				opinion = {
+					who = event_target:AscendedEmpireOverlord
+					value >= 100
+				}
+			}
 		}
 	}
 }
 
 country_event = {
-	id = ascended_empires_subject.14
-	title = ascended_empires_subject.14.name
-	desc = ascended_empires_subject.14.desc
-	
+	id = ascended_empires_subject.11
+	title = ascended_empires_subject.11.name
+	desc = ascended_empires_subject.11.desc
 	is_triggered_only = yes
 	diplomatic = yes
-	
 	picture_event_data = {
 		portrait = event_target:NoobEmpire
 		planet_background = event_target:NoobEmpire
@@ -734,43 +716,93 @@ country_event = {
 		city_level = event_target:NoobEmpire
 		room = event_target:NoobEmpire
 	}
-	
+
 	option = {
-		name = ascended_empires_subject.14.a
+		name = ascended_empires_subject.11.a
 		trigger = {
 			resource_stockpile_compare = { resource = minerals value >= 10000 }
 			resource_stockpile_compare = { resource = energy value >= 10000 }
 		}
-		hidden_effect = {
-		event_target:NoobEmpire = {
-			set_country_flag = compensation_made
-			country_event = { id = ascended_empires_subject.15 }
+		ai_chance = {
+			base = 10
+			modifier = {
+				factor = 5
+				opinion = {
+					who = event_target:NoobEmpire
+					value >= 100
+				}
+			}
 		}
+		hidden_effect = {
+			event_target:NoobEmpire = {
+				set_timed_country_flag = {
+					flag = compensation_made
+					days = 2
+				}
+				country_event = { id = ascended_empires_subject.12 }
+			}
 		}
 	}
 	option = {
-		name = ascended_empires_subject.14.b
-		hidden_effect = {
-		event_target:NoobEmpire = {
-			set_country_flag = tribunal_held
-			country_event = { id = ascended_empires_subject.15 }
+		name = ascended_empires_subject.11.b
+		ai_chance = {
+			base = 10
+			modifier = {
+				factor = 2
+				opinion = {
+					who = event_target:NoobEmpire
+					value >= 100
+				}
+			}
+			modifier = {
+				factor = 4
+				is_pacifist = yes
+			}
 		}
+		hidden_effect = {
+			event_target:NoobEmpire = {
+				set_timed_country_flag = {
+					flag = tribunal_held
+					days = 2
+				}
+				country_event = { id = ascended_empires_subject.12 }
+			}
 		}
 	}
 	option = {
-		name = ascended_empires_subject.14.c
+		name = ascended_empires_subject.11.c
+		ai_chance = {
+			base = 10
+			modifier = {
+				factor = 5
+				opinion = {
+					who = event_target:NoobEmpire
+					value < 100
+				}
+			}
+		}
 	}
 }
 
-	
-
 country_event = {
-	id = ascended_empires_subject.15
-	title = ascended_empires_subject.15.name
-	
+	id = ascended_empires_subject.12
+	title = ascended_empires_subject.12.name
+	desc = {
+		text = ascended_empires_subject.12.desc.compensation
+		trigger = {
+			has_country_flag = compensation_made
+			NOT = { has_country_flag = tribunal_held }
+		}
+	}
+	desc = {
+		text = ascended_empires_subject.12.desc.tribunal
+		trigger = {
+			has_country_flag = tribunal_held
+			NOT = { has_country_flag = compensation_made }
+		}
+	}
 	is_triggered_only = yes
 	diplomatic = yes
-	
 	picture_event_data = {
 		portrait = event_target:AscendedEmpireOverlord
 		planet_background = event_target:AscendedEmpireOverlord
@@ -779,25 +811,9 @@ country_event = {
 		room = event_target:AscendedEmpireOverlord
 	}
 	
-	desc = {
-		text = ascended_empires_subject.15.desc.compensation
-		trigger = {
-			has_country_flag = compensation_made
-			NOT = { has_country_flag = tribunal_held }
-		}
-	}
-	
-	desc = {
-		text = ascended_empires_subject.15.desc.tribunal
-		trigger = {
-			has_country_flag = tribunal_held
-			NOT = { has_country_flag = compensation_made }
-		}
-	}
-	
 
 	option = {
-		name = ascended_empires_subject.15.a
+		name = ascended_empires_subject.12.a
 		trigger = {
 			has_country_flag = compensation_made
 			NOT = { has_country_flag = tribunal_held }
@@ -807,7 +823,7 @@ country_event = {
 				add_resource = { minerals = 10000 }
 				add_resource = { energy = 10000 }
 			}
-			event_target:AscendedEmpireOverlord = { 
+			event_target:AscendedEmpireOverlord = {
 				add_resource = { minerals = -10000 }
 				add_resource = { energy = -10000 }
 			}
@@ -815,114 +831,131 @@ country_event = {
 	}
 	
 	option = {
-		name = ascended_empires_subject.15.b
+		name = ascended_empires_subject.12.b
 		trigger = {
 			has_country_flag = tribunal_held
 			NOT = { has_country_flag = compensation_made }
 		}
 		event_target:NoobEmpire = { 
 			add_modifier = {
-					modifier = justice_for_us
-					days = 3600
-				}		
+				modifier = justice_for_us
+				days = 3600
+			}
 		}
 		event_target:AscendedEmpireOverlord = { 
-				add_modifier = {
-					modifier = military_tribunal
-					days = 3600
-				}		
+			add_modifier = {
+				modifier = military_tribunal
+				days = 3600
+			}
 		}
 	}
 }
 
 # Ascended Empire nabs subject's fleets
 country_event = {
-	id = ascended_empires_subject.16
-	title = OK
-	desc = OK
-	
-	hide_window = yes
+	id = ascended_empires_subject.13
+	title = ascended_empires_subject.13.name
+	desc = ascended_empires_subject.13.desc
+	picture = GFX_evt_federation_fleet
 	is_triggered_only = yes
 	
-	trigger = {		
-		is_country_type = default
-		NOT = { has_country_flag = ascended_empire_renegotiation }
-		NOT = { has_country_flag = ascended_empire_compensation }
-		NOT = { has_country_flag = ascended_empire_nabs_fleet }
-		
-		is_at_war = no
-		
-		fleet_power > 70000
+	trigger = {
+		is_country_type = ascended_empire
+		is_gestalt = no
 		
 		any_country = {
-			is_country_type = ascended_empire
-			is_overlord_to = root
-			NOT = { has_ethic = ethic_gestalt_consciousness }
-			NOT = { has_country_flag = subject_event_nabs_fleet_happened }
+			is_country_type = default
+			has_overlord = root
+			fleet_power > 70000
+			NOT = { has_country_flag = ascended_empire_nab_event }
 		}
 	}
-	
-#	mean_time_to_happen = {
-#		years = 100
-#		modifier = {
-#			factor = 0.75
-#			fleet_power > 100000
-#		}		
-#		modifier = {
-#			factor = 0.5
-#			fleet_power > 120000
-#		}
-#		modifier = {
-#			factor = 0.25
-#			fleet_power > 150000
-#		}
-#	}
-	
-	immediate = {
-		set_country_flag = ascended_empire_nabs_fleet
-		
-		save_event_target_as = NoobEmpire
-	
-		random_country = {
-			limit = { 
-				is_country_type = ascended_empire
-				is_overlord_to = root
-			}
-			set_country_flag = subject_event_nabs_fleet_happened
-			save_event_target_as = AscendedEmpireOverlord
-			event_target:AscendedEmpireOverlord = { country_event = { id = ascended_empires_subject.17 } }
-		}
-	}
-}
 
-country_event = {
-	id = ascended_empires_subject.17
-	title = ascended_empires_subject.17.name
-	desc = ascended_empires_subject.17.desc
-	picture = GFX_evt_federation_fleet
-	
-	is_triggered_only = yes
-	
-	option = {
-		name = ascended_empires_subject.17.a
-		hidden_effect = {
-		event_target:NoobEmpire = {
-			set_country_flag = nabbed_fleet
-			country_event = { id = ascended_empires_subject.18 }
+	immediate = {
+		save_event_target_as = AscendedEmpireOverlord
+		random_country = {
+			limit = {
+				is_country_type = default
+				has_overlord = root
+				fleet_power > 70000
+				NOT = { has_country_flag = ascended_empire_nabs_fleet }
+			}
+			set_timed_country_flag = {
+				flag = ascended_empire_nab_event
+				years = 6
+			}
+			save_event_target_as = NoobEmpire
 		}
+	}
+
+	option = {
+		name = ascended_empires_subject.13.a
+		ai_chance = {
+			base = 10
+			modifier = {
+				factor = 2
+				opinion = {
+					who = event_target:NoobEmpire
+					value < 100
+				}
+			}
+			modifier = {
+				factor = 3
+				opinion = {
+					who = event_target:NoobEmpire
+					value < 100
+				}
+				used_naval_capacity_percent < 0.75
+			}
+		}
+		hidden_effect = {
+			event_target:NoobEmpire = {
+				set_timed_country_flag = {
+					flag = nabbed_fleet
+					days = 2
+				}
+				country_event = { id = ascended_empires_subject.14 }
+			}
 		}
 	}
 	option = {
-		name = ascended_empires_subject.17.b
-		hidden_effect = {
-		event_target:NoobEmpire = {
-			set_country_flag = destroyed_fleet
-			country_event = { id = ascended_empires_subject.18 }
+		name = ascended_empires_subject.13.b
+		ai_chance = {
+			base = 10
+			modifier = {
+				factor = 2
+				opinion = {
+					who = event_target:NoobEmpire
+					value < 100
+				}
+			}
+			modifier = {
+				factor = 3
+				used_naval_capacity_percent > 0.75
+			}
 		}
+		hidden_effect = {
+			event_target:NoobEmpire = {
+				set_timed_country_flag = {
+					flag = destroyed_fleet
+					days = 2
+				}
+				country_event = { id = ascended_empires_subject.14 }
+			}
 		}
 	}
 	option = {
-		name = ascended_empires_subject.17.c
+		name = ascended_empires_subject.13.c
+		ai_chance = {
+			base = 1
+			modifier = {
+				factor = 100
+				opinion = {
+					who = event_target:NoobEmpire
+					value >= 400
+				}
+			}
+		}
 		event_target:NoobEmpire = {
 			set_subject_of = {
 				who = none
@@ -934,15 +967,37 @@ country_event = {
 		}
 	}
 	option = {
-		name = ascended_empires_subject.17.d
+		name = ascended_empires_subject.13.d
+		ai_chance = {
+			base = 10
+			modifier = {
+				factor = 5
+				opinion = {
+					who = event_target:NoobEmpire
+					value >= 100
+				}
+			}
+		}
 	}
 }
-	
 
 country_event = {
-	id = ascended_empires_subject.18
-	title = ascended_empires_subject.18.name
-	
+	id = ascended_empires_subject.14
+	title = ascended_empires_subject.14.name
+	desc = {
+		text = ascended_empires_subject.14.desc.nabbed_fleet
+		trigger = {
+			has_country_flag = nabbed_fleet
+			NOT = { has_country_flag = destroyed_fleet }
+		}
+	}
+	desc = {
+		text = ascended_empires_subject.14.desc.destroyed_fleet
+		trigger = {
+			has_country_flag = destroyed_fleet
+			NOT = { has_country_flag = nabbed_fleet }
+		}
+	}
 	is_triggered_only = yes
 	diplomatic = yes
 	
@@ -954,31 +1009,14 @@ country_event = {
 		room = event_target:AscendedEmpireOverlord
 	}
 	
-	desc = {
-		text = ascended_empires_subject.18.desc.nabbed_fleet
-		trigger = {
-			has_country_flag = nabbed_fleet
-			NOT = { has_country_flag = destroyed_fleet }
-		}
-	}
-	
-	desc = {
-		text = ascended_empires_subject.18.desc.destroyed_fleet
-		trigger = {
-			has_country_flag = destroyed_fleet
-			NOT = { has_country_flag = nabbed_fleet }
-		}
-	}
-	
-
 	option = {
-		name = ascended_empires_subject.18.a
+		name = ascended_empires_subject.14.a
 		trigger = {
 			has_country_flag = nabbed_fleet
 			NOT = { has_country_flag = destroyed_fleet }
 		}
 		hidden_effect = {
-			event_target:NoobEmpire = {					
+			event_target:NoobEmpire = {
 				every_owned_fleet = {
 					limit = {
 						any_owned_ship = {
@@ -992,13 +1030,13 @@ country_event = {
 	}
 	
 	option = {
-		name = ascended_empires_subject.18.b
+		name = ascended_empires_subject.14.b
 		trigger = {
 			has_country_flag = destroyed_fleet
 			NOT = { has_country_flag = nabbed_fleet }
 		}
 		hidden_effect = {
-			event_target:NoobEmpire = { 
+			event_target:NoobEmpire = {
 				every_owned_fleet = {
 					limit = {
 						any_owned_ship = {
@@ -1021,29 +1059,18 @@ country_event = {
 	hide_window = yes
 	is_triggered_only = yes
 	
-	trigger = {	
+	trigger = {
 		host_has_dlc = "Ancient Relics Story Pack"
 		is_country_type = fallen_empire
 		any_country = {
 			is_country_type = ascended_empire
-			is_overlord_to = root
+			has_subject = root
 		}
 		NOT = { has_country_flag = fe_minor_artifacts_deal }
 		is_at_war = no
 		num_owned_planets >= 3
 	}
 	
-#	mean_time_to_happen = {
-#		years = 100
-#		modifier = {
-#			factor = 0.5
-#			fleet_power < 40000
-#		}	
-#		modifier = {
-#			factor = 0.1
-#			fleet_power < 20000
-#		}
-#	}
 	
 	immediate = {
 		set_country_flag = fe_minor_artifacts_deal
@@ -1053,7 +1080,7 @@ country_event = {
 		random_country = {
 			limit = { 
 				is_country_type = ascended_empire
-				is_overlord_to = root
+				has_subject = root
 			}
 			save_event_target_as = AscendedEmpireOverlord
 			event_target:AscendedEmpireOverlord = { country_event = { id = ascended_empires_subject.20 } }

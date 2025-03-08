@@ -44,7 +44,6 @@ building_fallen_class_4_singularity = {
 							zofe_sandbox = yes
 							has_country_flag = class_4_singularity_can_build
 						}
-						has_origin = origin_ringworld_empire
 					}
 				}
 			}
@@ -71,6 +70,10 @@ building_fallen_class_4_singularity = {
 				}
 			}
 		}
+	}
+
+	destroy_trigger = {
+		always = no
 	}
 
 	resources = {
@@ -137,7 +140,6 @@ building_fallen_dimensional_fabricator = {
 							zofe_sandbox = yes
 							has_country_flag = dimensional_fabricator_can_build
 						}
-						has_origin = origin_ringworld_empire
 					}
 				}
 			}
@@ -164,6 +166,10 @@ building_fallen_dimensional_fabricator = {
 				}
 			}
 		}
+	}
+
+	destroy_trigger = {
+		always = no
 	}
 
 	resources = {
@@ -361,6 +367,10 @@ building_fallen_affluence_center = {
 		}
 	}
 
+	destroy_trigger = {
+		always = no
+	}
+
 	resources = {
 		category = planet_zofe_automated_buildings
 		cost = {
@@ -461,6 +471,10 @@ building_fallen_nano_forge = {
 				}
 			}
 		}
+	}
+
+	destroy_trigger = {
+		always = no
 	}
 
 	resources = {
@@ -569,10 +583,6 @@ building_fallen_sky_dome = {
 	
 	category = amenity
 	
-	destroy_trigger = {
-		always = no
-	}
-	
 	potential = {
 		exists = owner
 		owner = {
@@ -615,6 +625,10 @@ building_fallen_sky_dome = {
 				}
 			}
 		}
+	}
+
+	destroy_trigger = {
+		always = no
 	}
 	
 	planet_modifier = {
@@ -1378,6 +1392,7 @@ building_fallen_assembly = {
 		exists = owner
 		owner = {
 			is_zofe_country = no
+			is_machine_empire = no
 			OR = {
 				is_regular_empire = no
 				has_policy_flag = robots_outlawed

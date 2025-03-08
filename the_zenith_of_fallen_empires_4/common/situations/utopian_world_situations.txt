@@ -257,3 +257,564 @@ situation_utopian_paradise = {
 		}
 	}
 }
+
+situation_utopian_world_creation = {
+	complete_icon_frame = GFX_situation_outcome_frame_green
+	complete_icon = GFX_situation_outcome_positive
+	fail_icon_frame = GFX_situation_outcome_frame_red
+	fail_icon = GFX_situation_outcome_negative
+	picture = {
+		trigger = {
+			target = { is_planet_class = pc_gaia }
+		}
+		picture = GFX_evt_gaia
+	}
+	picture = {
+		trigger = {
+			target = { is_planet_class = pc_hive }
+		}
+		picture = GFX_evt_infested
+	}
+	picture = {
+		trigger = {
+			target = { is_planet_class = pc_machine }
+		}
+		picture = GFX_evt_ai_planet
+	}
+	picture = {
+		trigger = {
+			target = { is_planet_class = pc_city }
+		}
+		picture = GFX_evt_city_planet
+	}
+	picture = {
+		trigger = {
+			target = {
+				OR = {
+					is_planet_class = pc_ringworld_habitable
+					is_planet_class = pc_cybrex
+				}
+			}
+		}
+		picture = GFX_evt_ringworld
+	}
+
+	category = positive
+
+	modifier = {
+		# planet_building_build_speed_mult = -0.75
+	}
+
+	on_monthly = {
+		
+	}
+
+	stages = {
+		stage_1 = {
+			icon = GFX_situation_stage_1
+			icon_background = GFX_situation_stage_frame_green
+			end = 100
+			modifier = {
+				country_physics_research_produces_mult = -0.5
+				country_society_research_produces_mult = -0.5
+				country_engineering_research_produces_mult = -0.5
+			}
+			# on_first_enter = { target = { planet_event = { id = utopian_paradise.9 } } }
+			custom_tooltip = situation_utopian_world_creation_stage_1_tooltip
+		}
+		stage_2 = {
+			icon = GFX_situation_stage_2
+			icon_background = GFX_situation_stage_frame_green
+			end = 200
+			modifier = {
+				country_physics_research_produces_mult = -0.25
+				country_society_research_produces_mult = -0.25
+				country_engineering_research_produces_mult = -0.25
+			}
+			on_first_enter = { target = { planet_event = { id = utopian_paradise.9 } } }
+			custom_tooltip = situation_utopian_world_creation_stage_2_tooltip
+		}
+		stage_3 = {
+			icon = GFX_situation_stage_3
+			icon_background = GFX_situation_stage_frame_green
+			end = 300
+			modifier = {
+				country_physics_research_produces_mult = -0.25
+				country_society_research_produces_mult = -0.25
+				country_engineering_research_produces_mult = -0.25
+			}
+			target_modifier = {
+				planet_building_build_speed_mult = -0.50
+			}
+			on_first_enter = { target = { planet_event = { id = utopian_paradise.9 } } }
+			custom_tooltip = situation_utopian_world_creation_stage_3_tooltip
+		}
+		stage_4 = {
+			icon = GFX_situation_stage_4
+			icon_background = GFX_situation_stage_frame_green
+			end = 400
+			target_modifier = {
+				planet_building_build_speed_mult = -0.75
+			}
+			on_first_enter = { target = { planet_event = { id = utopian_paradise.9 } } }
+			custom_tooltip = situation_utopian_world_creation_stage_4_tooltip
+		}
+		stage_5 = {
+			icon = GFX_situation_stage_5
+			icon_background = GFX_situation_stage_frame_green
+			end = 500
+			target_modifier = {
+				planet_building_build_speed_mult = 0.25
+			}
+			on_first_enter = { target = { planet_event = { id = utopian_paradise.9 } } }
+			custom_tooltip = situation_utopian_world_creation_stage_5_tooltip
+		}
+		stage_6 = {
+			icon = GFX_situation_stage_6
+			icon_background = GFX_situation_stage_frame_green
+			end = 600
+			target_modifier = {
+				planet_building_build_speed_mult = 0.50
+			}
+			on_first_enter = { target = { planet_event = { id = utopian_paradise.9 } } }
+			custom_tooltip = situation_utopian_world_creation_stage_6_tooltip
+		}
+	}
+
+	approach = {
+		name = approach_utopian_creation_low_priority
+		icon = GFX_situation_approach_balance_sheet
+		icon_background = GFX_situation_approach_bg_red
+		on_select = {
+			if = {
+				limit = {
+					owner = {
+						OR = {
+							has_actual_deficit = {
+								RESOURCE = influence
+							}
+							has_actual_deficit = {
+								RESOURCE = sr_living_metal
+							}
+						}
+					}
+				}
+				custom_tooltip = utopian_paradise_creation_deficit_effect
+			}
+			else = {
+				custom_tooltip = utopian_paradise_creation_low_priority_effect
+			}
+		}
+		triggered_target_modifier = {
+			potential = {
+				owner = { is_gestalt = no }
+			}
+			planet_stability_add = -25
+			pop_happiness = -0.5
+		}
+		triggered_target_modifier = {
+			potential = {
+				owner = { is_gestalt = yes }
+			}
+			planet_stability_add = -25
+		}
+	}
+	approach = {
+		name = approach_utopian_creation_medium_priority
+		icon = GFX_situation_approach_balance_sheet
+		icon_background = GFX_situation_approach_bg_yellow
+		default = yes
+		on_select = {
+			custom_tooltip = utopian_paradise_creation_medium_priority_effect
+		}
+		resources = {
+			category = situations
+			upkeep = {
+				trigger = {
+					target = {
+						OR = {
+							is_gaia = yes
+							is_planet_class = pc_hive
+							is_planet_class = pc_machine
+						}
+					}
+				}
+				influence = 0.25
+				sr_living_metal = 50
+			}
+			upkeep = {
+				trigger = {
+					target = {
+						is_planet_class = pc_city
+					}
+				}
+				influence = 0.5
+				sr_living_metal = 75
+			}
+			upkeep = {
+				trigger = {
+					target = {
+						OR = {
+							is_planet_class = pc_cybrex
+							is_planet_class = pc_ringworld_habitable
+						}
+					}
+				}
+				influence = 1.25
+				sr_living_metal = 100
+			}
+		}
+	}
+	approach = {
+		name = approach_utopian_creation_high_priority
+		icon = GFX_situation_approach_balance_sheet
+		icon_background = GFX_situation_approach_bg_green
+		on_select = {
+			custom_tooltip = utopian_paradise_creation_high_priority_effect
+		}
+		resources = {
+			category = situations
+			upkeep = {
+				trigger = {
+					target = {
+						OR = {
+							is_gaia = yes
+							is_planet_class = pc_hive
+							is_planet_class = pc_machine
+						}
+					}
+				}
+				influence = 0.5
+				sr_living_metal = 100
+			}
+			upkeep = {
+				trigger = {
+					target = {
+						is_planet_class = pc_city
+					}
+				}
+				influence = 1.0
+				sr_living_metal = 150
+			}
+			upkeep = {
+				trigger = {
+					target = {
+						OR = {
+							is_planet_class = pc_cybrex
+							is_planet_class = pc_ringworld_habitable
+						}
+					}
+				}
+				influence = 2.5
+				sr_living_metal = 200
+			}
+		}
+	}
+
+	monthly_progress = {
+		base = 0
+		modifier = {
+			add = -2.5
+			owner = {
+				has_actual_deficit = {
+					RESOURCE = influence
+				}
+			}
+			desc = influence_deficit
+		}
+		modifier = {
+			add = -6.5
+			owner = {
+				has_actual_deficit = {
+					RESOURCE = sr_living_metal
+				}
+			}
+			desc = living_metal_deficit
+		}
+		modifier = {
+			add = 6
+			target = {
+				OR = {
+					is_gaia = yes
+					is_planet_class = pc_hive
+					is_planet_class = pc_machine
+				}
+			}
+			current_situation_approach = approach_utopian_creation_high_priority
+			desc = string_current_approach
+		}
+		modifier = {
+			add = 3
+			OR = {
+				AND = {
+					target = {
+						is_planet_class = pc_city
+					}
+					current_situation_approach = approach_utopian_creation_high_priority
+				}
+				AND = {
+					target = {
+						OR = {
+							is_gaia = yes
+							is_planet_class = pc_hive
+							is_planet_class = pc_machine
+						}
+					}
+					current_situation_approach = approach_utopian_creation_medium_priority
+				}
+			}
+			desc = string_current_approach
+		}
+		modifier = {
+			add = 1.5
+			target = {
+				is_planet_class = pc_city
+			}
+			current_situation_approach = approach_utopian_creation_medium_priority
+			desc = string_current_approach
+		}
+		modifier = {
+			add = 1.25
+			target = {
+				OR = {
+					is_planet_class = pc_cybrex
+					is_planet_class = pc_ringworld_habitable
+				}
+			}
+			current_situation_approach = approach_utopian_creation_high_priority
+			desc = string_current_approach
+		}
+		modifier = {
+			add = 0.625
+			target = {
+				OR = {
+					is_planet_class = pc_cybrex
+					is_planet_class = pc_ringworld_habitable
+				}
+			}
+			current_situation_approach = approach_utopian_creation_medium_priority
+			desc = string_current_approach
+		}
+		modifier = {
+			mult = 2
+			owner = {
+				has_valid_civic = civic_world_architect
+				NOR = {
+					has_actual_deficit = {
+						RESOURCE = influence
+					}
+					has_actual_deficit = {
+						RESOURCE = sr_living_metal
+					}
+				}
+			}
+			NOT = { current_situation_approach = approach_utopian_creation_low_priority }
+			desc = world_architect_effect
+		}
+		modifier = {
+			factor = 0
+			NOT = {
+				owner = {
+					OR = {
+						has_actual_deficit = {
+							RESOURCE = influence
+						}
+						has_actual_deficit = {
+							RESOURCE = sr_living_metal
+						}
+					}
+				}
+			}
+			current_situation_approach = approach_utopian_creation_low_priority
+			desc = string_current_approach
+		}
+	}
+
+	abort_trigger = {
+		OR = {
+			NOT = { exists = target.owner }
+			target.owner = { NOT = { is_same_value = root.owner } }
+		}
+	}
+
+
+	on_start = {
+		hidden_effect = {
+			target = {
+				set_planet_flag = utopian_world_situation_ongoing
+				if = {
+					limit = { is_gaia = yes }
+					set_planet_flag = gaia_world_to_convert
+				}
+				else_if = {
+					limit = { is_planet_class = pc_hive }
+					set_planet_flag = hive_world_to_convert
+				}
+				else_if = {
+					limit = { is_planet_class = pc_machine }
+					set_planet_flag = machine_world_to_convert
+				}
+				else_if = {
+					limit = { is_planet_class = pc_city }
+					set_planet_flag = city_world_to_convert
+				}
+				else_if = {
+					limit = {
+						OR = {
+							is_planet_class = pc_ringworld_habitable
+							is_planet_class = pc_cybrex
+						}
+					}
+					set_planet_flag = ring_world_to_convert
+				}
+			}
+		}
+	}
+	on_progress_complete = {
+		hidden_effect = {
+			target = {
+				planet_event = {
+					id = utopian_paradise.10
+				}
+				planet_event = {
+					id = utopian_paradise.11
+				}
+			}
+			if = {
+				limit = {
+					owner = {
+						OR = {
+							is_gestalt = no
+							is_rogue_servitor = yes
+						}
+					}
+					target = {
+						is_gaia = yes
+					}
+				}
+				custom_tooltip = decision_paradise_creation_effects
+			}
+			if = {
+				limit = {
+					owner = { is_hive_empire = yes }
+					target = {
+						is_planet_class = pc_hive
+					}
+				}
+				custom_tooltip = decision_paradise_creation_hive_effects
+			}
+			if = {
+				limit = {
+					owner = {
+						is_machine_empire = yes
+						is_rogue_servitor = no
+					}
+					target = {
+						is_planet_class = pc_machine
+					}
+				}
+				custom_tooltip = decision_paradise_creation_machine_effects
+			}
+			if = {
+				limit = {
+					owner = {
+						OR = {
+							is_gestalt = no
+							is_rogue_servitor = yes
+						}
+					}
+					target = {
+						is_planet_class = pc_city
+					}
+				}
+				custom_tooltip = decision_paradise_creation_2_effects
+			}
+			if = {
+				limit = {
+					target = {
+						OR = {
+							is_planet_class = pc_ringworld_habitable
+							is_planet_class = pc_cybrex
+						}
+					}
+				}
+				custom_tooltip = decision_paradise_creation_3_effects
+			}
+		}
+	}
+	on_fail = {
+		hidden_effect = {
+			target = {
+				remove_planet_flag = utopian_world_situation_ongoing
+				random_list = {
+					50 = {
+						modifier = {
+							factor = 3
+							owner = {
+								has_civic = civic_world_architect
+							}
+						}
+						planet_event = {
+							id = utopian_paradise.12
+						}
+					}
+					50 = {
+						planet_event = {
+							id = utopian_paradise.13
+						}
+					}
+				}
+
+				remove_planet_flag = gaia_world_to_convert
+				remove_planet_flag = hive_world_to_convert
+				remove_planet_flag = machine_world_to_convert
+				remove_planet_flag = city_world_to_convert
+				remove_planet_flag = ring_world_to_convert
+				clear_utopian_district = {
+					VARIABLE = num_district_utopian_housing
+				}
+				clear_utopian_district = {
+					VARIABLE = num_district_utopian_leisure
+				}
+				clear_utopian_district = {
+					VARIABLE = num_district_utopian_production
+				}
+				clear_utopian_district = {
+					VARIABLE = num_district_utopian_manufacture
+				}
+				clear_utopian_district = {
+					VARIABLE = num_district_utopian_science
+				}
+			}
+		}
+		custom_tooltip = paradise_creation_fail_effect
+	}
+	on_abort = {
+		hidden_effect = {
+			target = {
+				remove_planet_flag = utopian_world_situation_ongoing
+				remove_planet_flag = gaia_world_to_convert
+				remove_planet_flag = hive_world_to_convert
+				remove_planet_flag = machine_world_to_convert
+				remove_planet_flag = city_world_to_convert
+				remove_planet_flag = ring_world_to_convert
+				clear_utopian_district = {
+					VARIABLE = num_district_utopian_housing
+				}
+				clear_utopian_district = {
+					VARIABLE = num_district_utopian_leisure
+				}
+				clear_utopian_district = {
+					VARIABLE = num_district_utopian_production
+				}
+				clear_utopian_district = {
+					VARIABLE = num_district_utopian_manufacture
+				}
+				clear_utopian_district = {
+					VARIABLE = num_district_utopian_science
+				}
+			}
+			destroy_situation = this
+		}
+	}
+}

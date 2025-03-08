@@ -32,12 +32,12 @@ ap_galactic_ascendancy = {
 		if = {
 			limit = { zofe_sandbox = yes }
 			custom_tooltip = "become_ascended_empire"
-			custom_tooltip = "describe_ascended_empire"
+			# custom_tooltip = "describe_ascended_empire"
 		}
-		if = {
+		else_if = {
 			limit = { zofe_vanilla = yes }
 			custom_tooltip = "become_galactic_ascendancy"
-			custom_tooltip = "describe_galactic_ascendancy"
+			# custom_tooltip = "describe_galactic_ascendancy"
 		}
 
 		hidden_effect = {
@@ -255,13 +255,13 @@ ap_galactic_consciousness = {
 	on_enabled = {
 		if = {
 			limit = { zofe_sandbox = yes }
-			custom_tooltip = "become_ascended_hive_mind"
-			custom_tooltip = "describe_ascended_hive_mind"
+			custom_tooltip = "become_ascended_empire"
+			# custom_tooltip = "describe_ascended_empire"
 		}
-		if = {
+		else_if = {
 			limit = { zofe_vanilla = yes }
-			custom_tooltip = "become_galactic_consciousness"
-			custom_tooltip = "describe_galactic_consciousness"
+			custom_tooltip = "become_galactic_ascendancy"
+			# custom_tooltip = "describe_galactic_ascendancy"
 		}
 
 		hidden_effect = {
@@ -479,13 +479,13 @@ ap_galactic_intelligence = {
 	on_enabled = {
 		if = {
 			limit = { zofe_sandbox = yes }
-			custom_tooltip = "become_ascended_machine"
-			custom_tooltip = "describe_ascended_machine"
+			custom_tooltip = "become_ascended_empire"
+			# custom_tooltip = "describe_ascended_empire"
 		}
-		if = {
+		else_if = {
 			limit = { zofe_vanilla = yes }
-			custom_tooltip = "become_galactic_intelligence"
-			custom_tooltip = "describe_galactic_intelligence"
+			custom_tooltip = "become_galactic_ascendancy"
+			# custom_tooltip = "describe_galactic_ascendancy"
 		}
 
 		hidden_effect = {

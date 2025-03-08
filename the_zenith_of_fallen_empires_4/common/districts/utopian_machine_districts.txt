@@ -6,26 +6,26 @@ district_utopian_machine_nexus = {
 	
 	show_on_uncolonized = {
 		exists = from
-		from = { 
+		from = {
+			has_technology = tech_paradise_creation
 			is_machine_empire = yes
-			NOT = { has_valid_civic = civic_machine_servitor }
+			is_rogue_servitor = no
 		}
-		has_modifier = pm_Utopian_Paradise_Machine
 		uses_district_set = utopian_machine_world
 	}
 	
 	potential = {
 		exists = owner
-		owner = { 
+		owner = {
+			has_technology = tech_paradise_creation
 			is_machine_empire = yes
-			NOT = { has_valid_civic = civic_machine_servitor }
+			is_rogue_servitor = no
 		}
-		has_modifier = pm_Utopian_Paradise_Machine
 		uses_district_set = utopian_machine_world
 	}
 	
 	allow = {
-		has_modifier = pm_Utopian_Paradise_Machine
+		
 	}	
 	
 	resources = {
@@ -92,26 +92,26 @@ district_utopian_machine_production = {
 	
 	show_on_uncolonized = {
 		exists = from
-		from = { 
+		from = {
+			has_technology = tech_paradise_creation
 			is_machine_empire = yes
-			NOT = { has_valid_civic = civic_machine_servitor }
+			is_rogue_servitor = no
 		}
-		has_modifier = pm_Utopian_Paradise_Machine
 		uses_district_set = utopian_machine_world
 	}
 	
 	potential = {
 		exists = owner
-		owner = { 
+		owner = {
+			has_technology = tech_paradise_creation
 			is_machine_empire = yes
-			NOT = { has_valid_civic = civic_machine_servitor }
+			is_rogue_servitor = no
 		}
-		has_modifier = pm_Utopian_Paradise_Machine
 		uses_district_set = utopian_machine_world
 	}
 	
 	allow = {
-		has_modifier = pm_Utopian_Paradise_Machine
+		
 	}	
 	
 	triggered_desc = {
@@ -426,26 +426,26 @@ district_utopian_machine_foundry = {
 	
 	show_on_uncolonized = {
 		exists = from
-		from = { 
+		from = {
+			has_technology = tech_paradise_creation
 			is_machine_empire = yes
-			NOT = { has_valid_civic = civic_machine_servitor }
+			is_rogue_servitor = no
 		}
-		has_modifier = pm_Utopian_Paradise_Machine
 		uses_district_set = utopian_machine_world
 	}
 	
 	potential = {
 		exists = owner
-		owner = { 
+		owner = {
+			has_technology = tech_paradise_creation
 			is_machine_empire = yes
-			NOT = { has_valid_civic = civic_machine_servitor }
+			is_rogue_servitor = no
 		}
-		has_modifier = pm_Utopian_Paradise_Machine
 		uses_district_set = utopian_machine_world
 	}
 	
 	allow = {
-		has_modifier = pm_Utopian_Paradise_Machine
+		
 	}	
 	
 	triggered_desc = {
@@ -670,26 +670,26 @@ district_utopian_machine_science = {
 	
 	show_on_uncolonized = {
 		exists = from
-		from = { 
+		from = {
+			has_technology = tech_paradise_creation
 			is_machine_empire = yes
-			NOT = { has_valid_civic = civic_machine_servitor }
+			is_rogue_servitor = no
 		}
-		has_modifier = pm_Utopian_Paradise_Machine
 		uses_district_set = utopian_machine_world
 	}
 	
 	potential = {
 		exists = owner
-		owner = { 
+		owner = {
+			has_technology = tech_paradise_creation
 			is_machine_empire = yes
-			NOT = { has_valid_civic = civic_machine_servitor }
+			is_rogue_servitor = no
 		}
-		has_modifier = pm_Utopian_Paradise_Machine
 		uses_district_set = utopian_machine_world
 	}
 	
 	allow = {
-		has_modifier = pm_Utopian_Paradise_Machine
+		
 	}
 	
 	resources = {

@@ -5,7 +5,7 @@
  col_ae_colony_utopian:0 "Utopian World"
  col_ae_colony_utopian_desc:0 "A Utopian World of an Ascended Empire."
  col_ae_capital_utopian_machine:0 "Ascended Machine Capital"
- col_ae_capital_utopian_machine_desc:0 "The Living Metal Machine World Capital of an Ascended Machine Empire."
+ col_ae_capital_utopian_machine_desc:0 "The Living Metal Machine Capital of an Ascended Machine Empire."
  col_ae_colony_utopian_machine:0 "Ascended Machine World"
  col_ae_colony_utopian_machine_desc:0 "A Living Metal Machine World of an Ascended Machine Empire."
  col_ae_capital_utopian_hive:0 "Utopian Hive Capital"
@@ -161,10 +161,10 @@
  pc_utopian_hive_ringworld_adj:0 "$pc_ringworld_habitable_adj$"
  
  decision_paradise_creation_no_districts:0 "£trigger_no£ The planet must have full districts development."
- 
+ decision_paradise_creation_effect:0 "Starts Situation: §Y$situation_utopian_world_creation$§!"
  decision_paradise_creation_effects:0 "Turns the $pc_gaia$ into a beautiful §YUtopian World§!, becoming a true wonder of the universe. Unlocks special districts that support automated industries while allowing pops to live out the rest of their lives in self-deterministic ways.\n\n"
  decision_paradise_creation_2_effects:0 "Turns the $pc_city$ into a beautiful §YUtopian World§!, becoming a true wonder of the universe. Unlocks special districts that support automated industries while allowing pops to live out the rest of their lives in self-deterministic ways.\n\n"
- decision_paradise_creation_3_effects:0 "Turns the $pc_ringworld_habitable$ into a beautiful §YUtopian Ring World Segment§!, becoming a true wonder of the universe. Unlocks special districts that support automated industries while allowing pops to live out the rest of their lives in self-deterministic ways.\n\n"
+ decision_paradise_creation_3_effects:0 "Turns the $pc_ringworld_habitable$ into a beautiful §YUtopian Ring World Segment§!, becoming a true wonder of the universe. Unlocks special districts that support automated industries.\n\n"
 
  decision_paradise_creation_machine_effects:0 "Turns the $pc_machine$ into a §YLiving Metal World§!, becoming a true wonder of the universe. Unlocks special districts that support automated industries.\n\n"
  decision_paradise_creation_machine_2_effects:0 ""Turns the $pc_ringworld_habitable$ into a §YLiving Metal Ring World Segment§!, becoming a true wonder of the universe. Unlocks special districts that support automated industries.\n\n"
@@ -175,7 +175,7 @@
  zofe_utopian_world_decisions:0 "Paradise Creation"
  
  decision_paradise_creation:0 "Paradise Creation"
- decision_paradise_creation_desc:0 "When nature is engineered to perfection, its unparalleled beauty among the known universe would be a fitting a legacy to leave for our young. Utopian Paradise Worlds are created from §Y$pc_gaia$§!, §Y$pc_city$§! or §Y$pc_ringworld_habitable$§!."
+ decision_paradise_creation_desc:0 "When nature is engineered to perfection, its unparalleled beauty among the known universe would be a fitting a legacy to leave for our young.	"
  
  decision_paradise_creation_city:0 "$decision_paradise_creation$"
  decision_paradise_creation_city_desc:0 "$decision_paradise_creation_desc$"
@@ -268,7 +268,7 @@
  
  tech_paradise_creation:0 "Utopian Worlds"
  tech_paradise_creation_desc:0 "Combining our mastery in terraforming, landscaping and engineering, we can create a true wonder in the universe and a Utopian World for our citizens to live." 
- 
+
  tech_paradise_creation_machine:0 "Living Metal Worlds"
  tech_paradise_creation_machine_desc:0 "Combining our mastery in terraforming, materials and engineering, we can create a true wonder in the universe and a Living Metal World of extreme productivity." 
  
@@ -291,7 +291,6 @@
  pm_New_Utopian_World_Hive:0 "New Utopian Hive World"
  pm_New_Utopian_World_Hive_desc:0 "The living metal wreath on this new Utopian Hive World is still in its infancy, making it more malleable and permissive for construction. Temporary housing and facilities are constantly being made and destroyed on an on-need basis."
  
- pm_Utopian_Paradise:0 "Utopian Paradise"
  pm_living_metal_apprenticeship:0 "Living Metal Apprenticeships"
  pm_living_metal_apprenticeship_desc:0 "All [GetAlloyProducerPlural] now work night shifts at the $building_synthetic_living_metal$ to learn more about the exquisite craft of animating Living Metal."
  
@@ -351,36 +350,115 @@
  utopian_paradise_moderate_priority_effect:0 "We will provide moderate investments to give this project the resources it needs."
  utopian_paradise_high_priority_effect:0 "Spare no expense. The sooner we complete the project, the sooner our empire can begin a new era of prosperity."
  
+ situation_utopian_world_creation:0 "Paradise Creation"
+ situation_utopian_world_creation_type:0 "$situation_utopian_world_creation$"
+ situation_utopian_world_creation_desc:0 "Through careful planning and advanced terraforming, §Y[target.GetName]§! will be molded into a flawless utopia. Self-sustaining ecosystems and automated systems will handle all production, freeing its inhabitants from labor and ushering in an era of effortless prosperity."
+ situation_utopian_world_creation_monthly_change_tooltip:0 "The progress of this §YSituation§! is dependent on the §YApproach§! we pick."
+ paradise_creation_fail_effect:0 "The dream of a perfect world crumbles, twisting ambition into disaster, potentially leaving the planet forever altered in unforeseen and possibly §Rcatastrophic§! ways."
+ world_architect_effect:0 "We are ['civic:civic_world_architect', World Architects]"
+ approach_utopian_creation_high_priority:0 "Grand Funding"
+ utopian_paradise_creation_high_priority_effect:0 "$utopian_paradise_high_priority_effect$\n"
+
+ approach_utopian_creation_medium_priority:0 "Moderate Funding"
+ utopian_paradise_creation_medium_priority_effect:0 "$utopian_paradise_moderate_priority_effect$\n"
+
+ approach_utopian_creation_low_priority:0 "No Funding"
+ utopian_paradise_creation_low_priority_effect:0 "The project is to be put on hold, our priority lies elsewhere.\n"
+ utopian_paradise_creation_deficit_effect:0 "We can no longer finance this project."
+
+ situation_utopian_world_creation_stage_1_tooltip:0 "The project is underway. As the §YSituation§! advances, we can steer the planet's development towards an outcome that we find most desirable."
+ situation_utopian_world_creation_stage_2_tooltip:0 "Our research and development team will evaluate our initial options, giving us a glimpse of our future utopian paradise."
+ situation_utopian_world_creation_stage_3_tooltip:0 "After years of meticulous planning and execution, we have reached another important breakthrough. Our researchers have listed primary objectives for the application of §Y$sr_living_metal$§!."
+ situation_utopian_world_creation_stage_4_tooltip:0 "Due to the massive scale of our project, more departments have been incorporated in the process. Our engineers have further sophisticated the application of §Y$sr_living_metal$§!, for now replacing old planetary infrastructure, and later on, all manners of infrastructure."
+ situation_utopian_world_creation_stage_5_tooltip:0 "Our efforts have shown remarkable results. The application of §Y$sr_living_metal$§! has permeated all layers of this planet, and soon, we will be able to enjoy the fruits of our labor."
+ situation_utopian_world_creation_stage_6_tooltip:0 "We have reached the final stage of our great project. Soon, we will be able to live in our own self-made paradise and never more suffer."
+
+ utopian_paradise.8.name:0 "Creating Utopia"
+ utopian_paradise.8.desc:0 "The time has come to turn a bold vision into reality. With advanced technologies and innovative designs, the plan to transform the planet into a self-sustaining paradise begins now. The process will be long and challenging, but if successful, the result will be nothing short of a perfect world."
+ utopian_paradise.8.a:0 "The first steps toward paradise begin now."
+
+ utopian_paradise.9.name:0 "Shaping Utopia"
+ utopian_paradise.9.desc:0 "The core of [root.GetName] is taking form, its potential vast and untapped. As work continues, [Owner.GetScientistPlural] present a rare opportunity to lay the foundation for additional districts that will define the planet's future. Whether focused on industry, research or housing."
  
- utopian_paradise.100.name:0 "A New §HUtopian World§!: [Root.GetName]"
- utopian_paradise.100.desc:0 "Upon stripping the planet of imperfections and the aged infrastructure we had built previously, our §HUtopian World§! is at last complete.\n\nOur [Owner.GetEngineerPlural] have created the perfect paradise, where lush mountains form the backdrop to sophisticated housing districts, created using Living Metal which can be shaped and repurposed as the population expands. Downtown districts are designed to support our growing automated industries and the latest technologies.\n\nFrom this day forth, [Root.GetName] shall be known as a wonder of the universe."
- utopian_paradise.100.a:0 "It is...beautiful."
+ utopian_paradise.9.gaia.a:0 "More §Y$district_utopian_housing_plural$§! will benefit our nation."
+ utopian_paradise.9.hive.a:0 "More §Y$district_utopian_hive_plural$§! will benefit the Mind."
+ utopian_paradise.9.machine.a:0 "More §Y$district_utopian_machine_nexus_plural$§! will benefit the Machine Intelligence."
+ utopian_paradise.9.city.a:0 "More §Y$district_utopian_city_plural$§! will benefit our nation."
+ utopian_paradise.9.ring.a:0 "More §Y$district_utopian_city_rw_plural$§! will benefit our nation."
+ utopian_paradise.9.hive.ring.a:0 "More §Y$district_rw_utopian_hive_plural$§! will benefit the Mind."
+ utopian_paradise.9.machine.ring.a:0 "More §Y$district_rw_utopian_machine_nexus_plural$§! will benefit the Machine Intelligence."
+
+ district_utopian_housing_add_effect:0 "§G+1§! §YHousing District§! after the §YSituation§! concludes successfully."
+
+ utopian_paradise.9.gaia.b:0 "More §Y$district_idyllic_spaces_plural$§! will benefit our nation."
+ utopian_paradise.9.city.b:0 "More §Y$district_utopian_leisure_plural$§! will benefit our nation."
+ utopian_paradise.9.ring.b:0 "More §Y$district_utopian_leisure_rw_plural$§! will benefit our nation."
+
+ district_idyllic_spaces_add_effect:0 "§G+1§! §YLeisure District§! after the §YSituation§! concludes successfully."
+
+ utopian_paradise.9.gaia.c:0 "More §Y$district_utopian_production_plural$§! will benefit our nation."
+ utopian_paradise.9.hive.c:0 "More §Y$district_utopian_hive_production_plural$§! will benefit the Mind."
+ utopian_paradise.9.machine.c:0 "More §Y$district_utopian_machine_production_plural$§! will benefit the Machine Intelligence."
+ utopian_paradise.9.city.c:0 "More §Y$district_utopian_financial_plural$§! will benefit our nation."
+ utopian_paradise.9.ring.c:0 "More §Y$district_utopian_production_rw_plural$§! will benefit our nation."
+ utopian_paradise.9.hive.ring.c:0 "More §Y$district_utopian_hive_production_rw_plural$§! will benefit the Mind."
+ utopian_paradise.9.machine.ring.c:0 "More §Y$district_utopian_machine_production_rw_plural$§! will benefit the Machine Intelligence."
  
- utopian_paradise.200.name:0 "A New §HUtopian Ecumenopolis§!: [Root.GetName]"
- utopian_paradise.200.desc:0 "Upon stripping the planet of imperfections and the aged arcologies we had built previously, our §HUtopian Ecumenopolis§! is at last complete.\n\nOur [Owner.GetEngineerPlural] have created the perfect paradise, where golden spires form the backdrop to utopian city districts, created using Living Metal which can be shaped and repurposed as the population expands. Downtown, financial arcologies store and invest massive amount of the empire's and the citizens' wealth, with the returns from these investments fueling the lifestyle of this utopian city.\n\nFrom this day forth, [Root.GetName] shall be known as a wonder of the universe."
- utopian_paradise.200.a:0 "Our Utopian City is finished!"
+
+ district_utopian_production_add_effect:0 "§G+1§! §YAutomated Production District§! after the §YSituation§! concludes successfully."
+ district_utopian_financial_add_effect:0 "§G+1§! §YFinancial District§! after the §YSituation§! concludes successfully."
+
+ utopian_paradise.9.gaia.d:0 "More §Y$district_utopian_manufacture_plural$§! will benefit our nation."
+ utopian_paradise.9.hive.d:0 "More §Y$district_utopian_hive_foundry_plural$§! will benefit the Mind."
+ utopian_paradise.9.machine.d:0 "More §Y$district_utopian_machine_foundry_plural$§! will benefit the Machine Intelligence."
+ utopian_paradise.9.city.d:0 "More §Y$district_utopian_foundry_plural$§! will benefit our nation."
+ utopian_paradise.9.ring.d:0 "More §Y$district_utopian_foundry_rw_plural$§! will benefit our nation."
+ utopian_paradise.9.hive.ring.d:0 "More §Y$district_utopian_hive_foundry_rw_plural$§! will benefit the Mind."
+ utopian_paradise.9.machine.ring.d:0 "More §Y$district_utopian_machine_foundry_rw_plural$§! will benefit the Machine Intelligence."
+
+ district_utopian_manufacture_add_effect:0 "§G+1§! §YAutomated Manufacture District§! after the §YSituation§! concludes successfully."
  
- utopian_paradise.300.name:0 "A New §HUtopian Ringworld Segment§!: [Root.GetName]"
- utopian_paradise.300.desc:0 "Upon stripping the planet of imperfections and the aged segments we had built previously, our §HUtopian Ringworld Segment§! is at last complete.\n\nOur [Owner.GetEngineerPlural] have created the perfect paradise, where scenic landscapes form the backdrop to utopian city segments, created using Living Metal which can be shaped and repurposed as the population expands. Downtown, leisure segments form the greatest concentration of entertainment the galaxy had ever seen, while the science segments are always open to eager citizens wanting to dabble in strange experiments.\n\nFrom this day forth, [Root.GetName] shall be known as a wonder of the universe."
- utopian_paradise.300.a:0 "It is a wonderous paradise."
+ utopian_paradise.9.gaia.e:0 "More §Y$district_utopian_science_plural$§! will benefit our nation."
+ utopian_paradise.9.hive.e:0 "More §Y$district_utopian_hive_science_plural$§! will benefit the Mind."
+ utopian_paradise.9.machine.e:0 "More §Y$district_utopian_machine_science_plural$§! will benefit the Machine Intelligence."
+ utopian_paradise.9.city.e:0 "More §Y$district_utopian_science_city_plural$§! will benefit our nation."
+ utopian_paradise.9.ring.e:0 "More §Y$district_utopian_science_rw_plural$§! will benefit our nation."
+ utopian_paradise.9.hive.ring.e:0 "More §Y$district_utopian_hive_science_rw_plural$§! will benefit the Mind."
+ utopian_paradise.9.machine.ring.e:0 "More §Y$district_utopian_machine_science_rw_plural$§! will benefit the Machine Intelligence."
+
+ district_utopian_science_add_effect:0 "§G+1§! §YScience District§! after the §YSituation§! concludes successfully."
  
- utopian_paradise.400.name:0 "A New §HLiving Metal Machine World§!: [Root.GetName]"
- utopian_paradise.400.desc:0 "Upon stripping the planet of imperfections and the aged infrastructure we had built previously, our §HLiving Metal Machine World§! is at last complete.\n\nOur drones have created the perfect planet for our machine intelligence, using Living Metal which can be shaped and repurposed as our needs expand. Various districts are designed to support our growing automated industries and the latest technologies.\n\nFrom this day forth, [Root.GetName] shall be known as a wonder of the universe."
- utopian_paradise.400.a:0 "It is at last complete."
+ utopian_paradise.9.f:0 "Invest the resources into the project."
+
+ utopian_paradise.9.g:0 "We don't need more districts."
+ dont_add_district_effect:0 "dont_add_district_effect"
+
+ utopian_paradise.11.name:0 "A New §HUtopian World§!: [Root.GetName]"
+ utopian_paradise.11.desc.gaia:0 "Upon stripping the planet of imperfections and the aged infrastructure we had built previously, our §HUtopian World§! is at last complete.\n\nOur [Owner.GetEngineerPlural] have created the perfect paradise, where lush mountains form the backdrop to sophisticated housing districts, created using Living Metal which can be shaped and repurposed as the population expands. Downtown districts are designed to support our growing automated industries and latest technological advances.\n\nFrom this day forth, [Root.GetName] shall be known as a wonder of the universe."
+ utopian_paradise.11.a:0 "It is...beautiful."
+
+ utopian_paradise.11.desc.city:0 "Upon stripping the planet of imperfections and the aged arcologies we had built previously, our §HUtopian Ecumenopolis§! is at last complete.\n\nOur [Owner.GetEngineerPlural] have created the perfect paradise, where golden spires form the backdrop to utopian city districts, created using Living Metal which can be shaped and repurposed as the population expands. Downtown, financial arcologies store and invest massive amount of the empire's and the citizens' wealth, with the returns from these investments fueling the lifestyle of this utopian city.\n\nFrom this day forth, [Root.GetName] shall be known as a wonder of the universe."
+ utopian_paradise.11.a.city:0 "Our Utopian City is finished!"
+
+ utopian_paradise.11.desc.ring:0 "Upon stripping the planet of imperfections and the aged segments we had built previously, our §HUtopian Ringworld Segment§! is at last complete.\n\nOur [Owner.GetEngineerPlural] have created the perfect paradise, where scenic landscapes form the backdrop to utopian city segments, created using Living Metal which can be shaped and repurposed as the population expands. Downtown, leisure segments form the greatest concentration of entertainment the galaxy had ever seen, while the science segments are always open to eager citizens wanting to dabble in strange experiments.\n\nFrom this day forth, [Root.GetName] shall be known as a wonder of the universe."
+ utopian_paradise.11.a.ring:0 "It is a wonderous paradise."
+
+ utopian_paradise.11.desc.machine:0 "Upon stripping the planet of imperfections and the aged infrastructure we had built previously, our §HLiving Metal Machine World§! is at last complete.\n\nOur drones have created the perfect planet for our machine intelligence, using Living Metal which can be shaped and repurposed as our needs expand. Various districts are designed to support our growing automated industries and the latest technologies.\n\nFrom this day forth, [Root.GetName] shall be known as a wonder of the universe."
+ utopian_paradise.11.desc.machine.ring:0 "Upon stripping the planet of imperfections and the aged segments we had built previously, our §HLiving Metal Machine Ring World Segment§! is at last complete.\n\nOur drones have created the perfect construction using Living Metal which can be shaped and repurposed as our needs expand. Various districts are designed to support our growing automated industries and the latest technologies.\n\nFrom this day forth, [Root.GetName] shall be known as a wonder of the universe."
  
- utopian_paradise.500.name:0 "A New §HLiving Metal Ring World Segment§!: [Root.GetName]"
- utopian_paradise.500.desc:0 "Upon stripping the planet of imperfections and the aged segments we had built previously, our §HLiving Metal Machine Ring World Segment§! is at last complete.\n\nOur drones have created the perfect construction using Living Metal which can be shaped and repurposed as our needs expand. Various districts are designed to support our growing automated industries and the latest technologies.\n\nFrom this day forth, [Root.GetName] shall be known as a wonder of the universe."
- utopian_paradise.500.a:0 "Excellent." 
- 
- utopian_paradise.600.name:0 "A New §HUtopian Hive World§!: [Root.GetName]"
- utopian_paradise.600.desc:0 "Upon stripping the planet of imperfections and the aged infrastructure we had built previously, our §HUtopian Hive World§! is at last complete.\n\nOur drones have created the perfect planet for our hive mind, using Living Metal which can be shaped and repurposed as our needs expand. Various districts are designed to support our growing automated industries and the latest technologies.\n\nFrom this day forth, [Root.GetName] shall be known as a wonder of the universe."
- utopian_paradise.600.a:0 "It is at last complete."
- 
- utopian_paradise.700.name:0 "A New §HUtopian Hive Ring World Segment§!: [Root.GetName]"
- utopian_paradise.700.desc:0 "Upon stripping the planet of imperfections and the aged segments we had built previously, our §HUtopian Hive Ring World Segment§! is at last complete.\n\nOur drones have created the perfect construction using Living Metal which can be shaped and repurposed as our needs expand. Various districts are designed to support our growing automated industries and the latest technologies.\n\nFrom this day forth, [Root.GetName] shall be known as a wonder of the universe."
- utopian_paradise.700.a:0 "Excellent." 
- 
- 
+ utopian_paradise.11.desc.hive:0 "Upon stripping the planet of imperfections and the aged infrastructure we had built previously, our §HUtopian Hive World§! is at last complete.\n\nOur drones have created the perfect planet for our hive mind, using Living Metal which can be shaped and repurposed as our needs expand. Various districts are designed to support our growing automated industries and the latest technologies.\n\nFrom this day forth, [Root.GetName] shall be known as a wonder of the universe."
+ utopian_paradise.11.desc.hive.ring:0 "Upon stripping the planet of imperfections and the aged segments we had built previously, our §HUtopian Hive Ring World Segment§! is at last complete.\n\nOur drones have created the perfect construction using Living Metal which can be shaped and repurposed as our needs expand. Various districts are designed to support our growing automated industries and the latest technologies.\n\nFrom this day forth, [Root.GetName] shall be known as a wonder of the universe."
+
+ utopian_paradise.11.a.gestalt:0 "It is at last complete."
+
+ utopian_paradise.12.name:0 "Pride before the Fall."
+ utopian_paradise.12.desc:0 "The grand vision has crumbled. In our arrogance, we thought we could create utopia, but despite every effort, [root.GetName] remains largely unchanged. The project has taken its toll, leaving anomalies of nightmarish proportions. For the next decade, [root.GetName] will suffer from these side effects according to our [Owner.GetScientistPlural]."
+ utopian_paradise.12.a:0 "Unfortunate."
+
+ utopian_paradise.13.name:0 "Echoes of a Lost World"
+ utopian_paradise.13.desc:0 "The project to reshape the planet has gone catastrophically wrong. In a violent release of energy, [root.GetName] fractured and exploded, leaving nothing but floating remnants in orbit. What remains, however, is a wealth of living metal deposits. Strange, valuable, and ripe for mining. The debris may signify the end of one dream, but it opens a new font of opportunity elsewhere."
+ utopian_paradise.13.a:0 "Extract what we can."
+
  d_singing_towers:0 "Singing Towers"
  d_singing_towers_desc:0 "It was said that the wind passing through the cave systems would harmonise with the cave's crystal layers, creating interweaving melodies that seem to sing across the valley. The endless, beautiful music often attract visitors who choose to stay at the luxurious hotels nearby."
  
@@ -402,3 +480,7 @@
  d_utopian_vault:0 "Utopian Resource Silo"
  d_utopian_vault_desc:0 "The Utopian Resource Silo uses the latest dimensional technologies, finding space where none existed previously. It allows the storage of excess materials to be recovered in times of need."
  
+ d_living_metal_utopian_fail:0 "£sr_living_metal£ §Y+5§!"
+
+ d_failed_utopian_construction:0 "Failed Paradise Project"
+ d_failed_utopian_construction_desc:0 "This planet was supposed to be a jewel of the galaxy, but due to complications the project has failed. The planet now bears heavy scars as a result."
