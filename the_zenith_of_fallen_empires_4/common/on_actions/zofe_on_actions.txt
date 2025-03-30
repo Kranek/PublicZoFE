@@ -23,7 +23,6 @@ on_monthly_pulse_country = {
 	events = {
 		zofe.14
 		lost_empire.2
-		lost_empire.5
 		original_people.100
 		original_people.200
 		original_people.300
@@ -85,13 +84,16 @@ on_five_year_pulse_country = {
 		zofe_awakening.201
 		zofe_awakening.301
 		zofe_awakening.401
-		ascended_empires_subject.1
-		ascended_empires_subject.3
-		ascended_empires_subject.5
-		ascended_empires_subject.7
-		ascended_empires_subject.10
-		ascended_empires_subject.13
-		ascended_empires_subject.19
+	}
+	random_events = {
+		100 = 0
+		10 = ascended_empires_subject.1
+		10 = ascended_empires_subject.3
+		10 = ascended_empires_subject.5
+		10 = ascended_empires_subject.7
+		10 = ascended_empires_subject.10
+		10 = ascended_empires_subject.13
+		10 = ascended_empires_subject.19
 	}
 }
 

@@ -692,6 +692,58 @@ is_gaia = {
 	is_planet_class = pc_gaia
 }
 
+has_stockpile_for_utopian_district = {
+	if = {
+		limit = {
+			OR = {
+				is_gaia = yes
+				is_planet_class = pc_hive
+				is_planet_class = pc_machine
+			}
+			owner = {
+				resource_stockpile_compare = {
+					resource = minerals
+					value >= 4000
+				}
+				resource_stockpile_compare = {
+					resource = sr_living_metal
+					value >= 2000
+				}
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			is_planet_class = pc_city
+			owner = {
+				resource_stockpile_compare = {
+					resource = minerals
+					value >= 8000
+				}
+				resource_stockpile_compare = {
+					resource = sr_living_metal
+					value >= 4000
+				}
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			is_ringworld = yes
+			owner = {
+				resource_stockpile_compare = {
+					resource = minerals
+					value >= 20000
+				}
+				resource_stockpile_compare = {
+					resource = sr_living_metal
+					value >= 10000
+				}
+			}
+		}
+	}
+}
+
 ascendancy_communications = {
 	is_country_type = default
 	is_primitive = no

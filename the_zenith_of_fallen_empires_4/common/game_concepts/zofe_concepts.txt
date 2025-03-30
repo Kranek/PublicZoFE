@@ -73,6 +73,11 @@ concept_default_country = {
 	
 }
 
+# concept_decadent_pop = {
+# 	alias = { concept_decadent_pops }
+# 	icon = "gfx/interface/icons/jobs/job_ae_hedonist.dds"
+# }
+
 concept_crisis_empire = {
 	icon = "gfx/interface/icons/diplomacy/diplomacy_pathofblood.dds"
 	alias = { concept_crisis_empires }

@@ -26,6 +26,12 @@ event = {
 country_event = {
 	id = zofe_action.3
 	title = zofe_action.3.name
+	message_desc = action.37.message
+	picture = GFX_evt_fallen_empire
+	show_sound = event_planetary_riot
+	location = from
+	is_triggered_only = yes
+	
 	desc = {
 		trigger = {
 			from = { is_gestalt = no }
@@ -38,10 +44,6 @@ country_event = {
 		}
 		text = zofe_action.3.desc.gestalt
 	}
-	picture = GFX_evt_fallen_empire
-	show_sound = event_planetary_riot
-	location = from
-	is_triggered_only = yes
 
 	trigger = {
 		is_country_type = lost_empire

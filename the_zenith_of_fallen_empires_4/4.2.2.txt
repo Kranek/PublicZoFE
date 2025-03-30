@@ -1,0 +1,19 @@
+# Change log of 27/03/2025
+
+## ZoFE 4.2.2 Patch
+
+Notes
+
+Fixes
+* Vanilla
+- Fixed Lost Empire Fleet Reinforcements event not triggering.
+- Fixed border removal option not working in Ascendancy Affairs Office.
+- Molten Worlds that have arc furnace are no longer valid candidates for planet experiments in the Living Metal Experiments situation.
+- Paradise Creation district choices can't be selected if you can't afford it.
+
+Game Content and Changes
+* Vanilla
+ - Moved subject events to random 5 year pulse.
+ - Decadence Situation now takes into account your population percentage, how many have decadent tendencies.
+
+

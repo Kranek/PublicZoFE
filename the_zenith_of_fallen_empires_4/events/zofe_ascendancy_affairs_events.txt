@@ -14091,7 +14091,7 @@ country_event = {
 		from = {
 			save_event_target_as = fallen_empire_humiliator
 		}
-		lost_empire_cleanse_border_worlds_effect = yes
+		fallen_empire_cleanse_border_worlds_effect = yes
 		fallen_empire_humiliate_effect = yes
 		hidden_effect = {
 			from = {

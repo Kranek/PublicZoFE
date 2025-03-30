@@ -927,7 +927,7 @@ country_event = {
 }
 
 # Lost Empire gets some fleet back
-country_event = {
+situation_event = {
 	id = lost_empire.5
 	title = lost_empire.5.name
 	desc = lost_empire.5.desc
@@ -935,18 +935,22 @@ country_event = {
 	is_triggered_only = yes
 	
 	trigger = {
-		is_country_type = lost_empire
-		is_at_war = no
-		fleet_power < 20000
-		NOT = { has_country_flag = lost_empire_fleet_spawn }
+		owner = {
+			NOT = { has_country_flag = lost_empire_fleet_spawn }
+			is_country_type = lost_empire
+			is_at_war = no
+			fleet_power < 20000
+		}
 	}
 	
 	option = {
 		name = lost_empire.5.a
 		hidden_effect = {
-			set_timed_country_flag = { flag = lost_empire_fleet_spawn days = 3600 }	
-			capital_scope = {
-				create_lost_empire_reinforcements = yes
+			owner = {
+				set_timed_country_flag = { flag = lost_empire_fleet_spawn days = 3600 }	
+				capital_scope = {
+					create_lost_empire_reinforcements = yes
+				}
 			}
 		}
 	}
@@ -1020,7 +1024,7 @@ country_event = {
 		is_subject = yes
 		NOT = {
 			any_country = {
-				is_overlord_to = root
+				has_subject = root
 			}
 		}
 	}
@@ -1366,6 +1370,31 @@ country_event = {
 					NOT = { has_job = ae_confused_drone }
 				}
 				set_pop_flag = decadent_pop
+			}
+		}
+	}
+}
+
+#Checks decadent pops if the situation is active for accurate numbers
+situation_event = {
+	id = lost_empire.100
+	is_triggered_only = yes
+	hide_window = yes
+
+	immediate = {
+		owner = {
+			export_trigger_value_to_variable = {
+				trigger = pop_percentage
+				parameters = {
+					limit = {
+						OR = {
+							has_job = ae_hedonist
+							has_job = ae_maintenance_bot
+							has_job = ae_confused_drone
+						}
+					}
+				}
+				variable = var_decadent_pops_percent
 			}
 		}
 	}

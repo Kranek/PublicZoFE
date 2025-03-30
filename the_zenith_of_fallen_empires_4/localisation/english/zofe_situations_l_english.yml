@@ -109,7 +109,7 @@
  situation_zofe_decadence_hive_monthly_change_tooltip:0 "The progress of this §YSituation§! is dependent on the §YApproach§! we pick. Embrace the sickness to speed up our transition to a Fallen Empire."
  situation_zofe_decadence_hive_start:0 "Starts Situation: §Y$situation_zofe_decadence_hive$§!"
 
- become_lost_empire:2 "We will become a ['concept_fallen_empires']"
+ become_lost_empire:2 "We will become a ['concept_fallen_empire']"
  describe_lost_empire:0 "\nNo longer at the zenith of civilization, citizens nevertheless cling to their single, fanatical ideal. §HFallen Empires§! are content to sit within the comfort of its borders and observe the galaxy for its own amusement.\n"
  become_lost_hive_mind:2 "We will become an §HFallen Empire§!"
  describe_lost_hive_mind:0 "\nSuccumbed to the sickness, the abilities of the Mind has weakened. §HFallen Hive Minds§! will instead attempt to maintain connection to the remaining drones under its command to prevent further decay.\n"
@@ -156,6 +156,10 @@
  war_during_decadence:0 "We are at war! It will unite our empire for a time"
  war_during_decadence_machine:0 "We are at war! The virus is suppressed by overdrives in other functions for now"
  war_during_decadence_hive:0 "We are at war! The senses of the Mind is temporarily heightened, surpressing the spread of the sickness"
+ decadent_percentage_1:0 "Decadent Pops"
+ decadent_percentage_2:0 "$decadent_percentage_1$"
+ decadent_percentage_3:0 "$decadent_percentage_1$"
+ decadent_percentage_4:0 "$decadent_percentage_1$"
 
  living_standard_utopian_effect:0 "We must make lasting changes in our living standard policy for other reforms to spring forth."
  

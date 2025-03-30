@@ -338,6 +338,7 @@ situation_event = {
 			random_planet_within_border = {
 				limit = {
 					is_planet_class = pc_molten
+					NOT = { has_planet_flag = has_arc_furnace }
 					NOT = { exists = archaeological_site }
 					NOT = { has_planet_flag = suppress_archaeological_sites }
 				}
@@ -525,6 +526,9 @@ planet_event = {
 
 	#Housing
 	option = {
+		allow = {
+			has_stockpile_for_utopian_district = yes
+		}
 		name = {
 			trigger = { is_gaia = yes }
 			text = "utopian_paradise.9.gaia.a"
@@ -601,6 +605,9 @@ planet_event = {
 	
 	#Leisure
 	option = {
+		allow = {
+			has_stockpile_for_utopian_district = yes
+		}
 		name = {
 			trigger = { is_gaia = yes }
 			text = "utopian_paradise.9.gaia.b"
@@ -651,6 +658,9 @@ planet_event = {
 
 	#Financial or Production
 	option = {
+		allow = {
+			has_stockpile_for_utopian_district = yes
+		}
 		name = {
 			trigger = { is_gaia = yes }
 			text = "utopian_paradise.9.gaia.c"
@@ -737,6 +747,9 @@ planet_event = {
 
 	#Manufacture
 	option = {
+		allow = {
+			has_stockpile_for_utopian_district = yes
+		}
 		name = {
 			trigger = { is_gaia = yes }
 			text = "utopian_paradise.9.gaia.d"
@@ -817,6 +830,9 @@ planet_event = {
 
 	#Science
 	option = {
+		allow = {
+			has_stockpile_for_utopian_district = yes
+		}
 		name = {
 			trigger = { is_gaia = yes }
 			text = "utopian_paradise.9.gaia.e"
@@ -897,15 +913,9 @@ planet_event = {
 
 	option = {
 		name = utopian_paradise.9.f
-		owner = {
-			from = {
-				add_situation_progress = 50
-			}
+		allow = {
+			has_stockpile_for_utopian_district = yes
 		}
-	}
-
-	option = {
-		name = utopian_paradise.9.g
 		if = {
 			limit = {
 				OR = {
@@ -916,9 +926,8 @@ planet_event = {
 			}
 			owner = {
 				add_resource = {
-					influence = 50
-					sr_living_metal = 1000
-					minerals = 2000
+					minerals = -4000
+					sr_living_metal = -2000
 				}
 			}
 		}
@@ -926,9 +935,8 @@ planet_event = {
 			limit = { is_planet_class = pc_city }
 			owner = {
 				add_resource = {
-					influence = 100
-					sr_living_metal = 2000
-					minerals = 4000
+					minerals = -8000
+					sr_living_metal = -4000
 				}
 			}
 		}
@@ -936,12 +944,56 @@ planet_event = {
 			limit = { is_ringworld = yes }
 			owner = {
 				add_resource = {
-					influence = 250
-					sr_living_metal = 5000
-					minerals = 10000
+					minerals = -20000
+					sr_living_metal = -10000
 				}
 			}
 		}
+		owner = {
+			from = {
+				add_situation_progress = 50
+			}
+		}
+	}
+
+	option = {
+		name = utopian_paradise.9.g
+		# if = {
+		# 	limit = {
+		# 		OR = {
+		# 			is_gaia = yes
+		# 			is_planet_class = pc_hive
+		# 			is_planet_class = pc_machine
+		# 		}
+		# 	}
+		# 	owner = {
+		# 		add_resource = {
+		# 			influence = 50
+		# 			sr_living_metal = 1000
+		# 			minerals = 2000
+		# 		}
+		# 	}
+		# }
+		# else_if = {
+		# 	limit = { is_planet_class = pc_city }
+		# 	owner = {
+		# 		add_resource = {
+		# 			influence = 100
+		# 			sr_living_metal = 2000
+		# 			minerals = 4000
+		# 		}
+		# 	}
+		# }
+		# else_if = {
+		# 	limit = { is_ringworld = yes }
+		# 	owner = {
+		# 		add_resource = {
+		# 			influence = 250
+		# 			sr_living_metal = 5000
+		# 			minerals = 10000
+		# 		}
+		# 	}
+		# }
 	}
 }
 
