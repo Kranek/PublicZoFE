@@ -15,44 +15,43 @@ country_event = {
 	location = from
 	
 	trigger = {
+		NOT = { has_country_flag = automated_industries_upgraded }
 		is_zofe_country = yes
+		automated_industries = yes
 		has_technology = tech_fallen_technologies_1
 		has_technology = tech_fallen_technologies_6
-		automated_industries = yes
-		OR = {
-			has_technology = tech_fallen_class_4_singularity
-			has_technology = tech_fallen_dimensional_fabricator
-			has_technology = tech_fallen_affluence_center
-			has_technology = tech_fallen_nourishment_center
-			has_technology = tech_fallen_nano_forge
-		}
-		NOT = { has_country_flag = automated_industries_upgraded }
+		has_technology = tech_fallen_class_4_singularity
+		has_technology = tech_fallen_dimensional_fabricator
+		has_technology = tech_fallen_affluence_center
+		has_technology = tech_fallen_nourishment_center
+		has_technology = tech_fallen_nano_forge
 	}
+	is_triggered_only = yes
 		
 		
-	mean_time_to_happen = {
-		years = 50
-		modifier = {
-			factor = 0.5
-			has_technology = tech_fallen_class_4_singularity
-		}
-		modifier = {
-			factor = 0.5
-			has_technology = tech_fallen_dimensional_fabricator
-		}
-		modifier = {
-			factor = 0.5
-			has_technology = tech_fallen_affluence_center
-		}
-		modifier = {
-			factor = 0.5
-			has_technology = tech_fallen_nourishment_center
-		}
-		modifier = {
-			factor = 0.5
-			has_technology = tech_fallen_nano_forge
-		}
-	}
+	# mean_time_to_happen = {
+	# 	years = 50
+	# 	modifier = {
+	# 		factor = 0.5
+	# 		has_technology = tech_fallen_class_4_singularity
+	# 	}
+	# 	modifier = {
+	# 		factor = 0.5
+	# 		has_technology = tech_fallen_dimensional_fabricator
+	# 	}
+	# 	modifier = {
+	# 		factor = 0.5
+	# 		has_technology = tech_fallen_affluence_center
+	# 	}
+	# 	modifier = {
+	# 		factor = 0.5
+	# 		has_technology = tech_fallen_nourishment_center
+	# 	}
+	# 	modifier = {
+	# 		factor = 0.5
+	# 		has_technology = tech_fallen_nano_forge
+	# 	}
+	# }
 		
 	
 	immediate = {

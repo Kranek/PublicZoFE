@@ -1,30 +1,30 @@
-#####################################################
-#      		ZoFE Ringworld Empire On Action Events
-#		  				  By Kolyn
-#####################################################
+# #####################################################
+# #      		ZoFE Ringworld Empire On Action Events
+# #		  				  By Kolyn
+# #####################################################
 
 namespace = ringworld_empires_on_action
 
-#event = {
-#	id = ringworld_empires_on_action.1
-#	hide_window = yes
-#	is_triggered_only = yes
-#	
-#	immediate = {
-#		
-#		every_planet = {
-#			limit = { 
-#				AND = {
-#					NOT = { is_planet_class = pc_ringworld_habitable }
-#					has_planet_flag = ringworld_start
-#				}
-#			}
-#	
-#			change_pc = pc_ringworld_habitable
-#			
-#		}	
-#	}
-#}
+# #event = {
+# #	id = ringworld_empires_on_action.1
+# #	hide_window = yes
+# #	is_triggered_only = yes
+# #	
+# #	immediate = {
+# #		
+# #		every_planet = {
+# #			limit = { 
+# #				AND = {
+# #					NOT = { is_planet_class = pc_ringworld_habitable }
+# #					has_planet_flag = ringworld_start
+# #				}
+# #			}
+# #	
+# #			change_pc = pc_ringworld_habitable
+# #			
+# #		}	
+# #	}
+# #}
 
 ### Empire init - add technologies and resources
 country_event = {
@@ -32,294 +32,111 @@ country_event = {
 	hide_window = yes
 	is_triggered_only = yes
 
+	trigger = {
+		has_origin = origin_ringworld_empire
+	}
+
 	immediate = {
-		if = {
-			limit = {
-				any_owned_planet = {
-					has_planet_flag = ringworld_start
-				}
-			}
-			add_resource = { energy = 1900	}
-			add_resource = { minerals = 1900 }
-			add_resource = { alloys = 900	}
-			add_resource = { food = 800 }
-			add_resource = { consumer_goods = 900 }
-			add_resource = { influence = 400 }
-		}
+		add_resource = { energy = 1900 }
+		add_resource = { minerals = 1900 }
+		add_resource = { alloys = 900 }
+		add_resource = { food = 800 }
+		add_resource = { consumer_goods = 900 }
+		add_resource = { influence = 400 }
+		save_global_event_target_as = ringworld_empire
 	}
 }
 
-### Remove district
+# ### Remove district
 planet_event = {
 	id = ringworld_empires_on_action.3
 	hide_window = yes
 	is_triggered_only = yes
 
+	trigger = {
+		owner = { has_origin = origin_ringworld_empire }
+	}
+
 	immediate = {
-		if = {
-			limit = { has_planet_flag = ringworld_start }
+		# set_planet_size = 25
 
-			set_planet_size = 25
-			clear_blockers = yes
-			add_deposit = d_ancient_bombardment_craters
-			add_deposit = d_ancient_battlefield
-		
-			add_deposit = d_ancestor_ruins
-			add_deposit = d_ancestor_ruins
+		add_deposit = d_ancient_bombardment_craters
+		add_deposit = d_ancient_battlefield
+		add_deposit = d_ancestor_ruins
+		add_deposit = d_ancestor_ruins
+		add_deposit = d_ancestor_mineral_vault
+		add_deposit = d_ancestor_ship_graveyard
 
-			add_deposit = d_ancestor_mineral_vault
-			add_deposit = d_ancestor_ship_graveyard
-			
-			add_modifier = {
-				modifier = ringworld_empire_homeworld
-				days = 5
-			}
-		}
-		if = {
-			limit = { has_planet_flag = ringworld_start }
-			
-			add_deposit = d_arcane_generator
-			add_deposit = d_ancestor_archives
-			add_deposit = d_segment_rubble_1
-			add_deposit = d_segment_rubble_2
-			add_deposit = d_segment_rubble_3
-			add_deposit = d_segment_rubble_4
-			add_deposit = d_decrepit_tunnels_1
-			add_deposit = d_decrepit_tunnels_2
-			add_deposit = d_decrepit_tunnels_3
-		}		
-		if = {
-			limit = {
-				has_planet_flag = ringworld_start
-				has_district = district_city
-			}
-			remove_district = district_city
-		}
-		if = {
-			limit = {
-				has_planet_flag = ringworld_start
-				has_district = district_city
-			}
-			remove_district = district_city	
-		}
-		if = {
-			limit = {
-				has_planet_flag = ringworld_start
-				has_district = district_city
-			}
-			remove_district = district_city	
-		}
-		if = {
-			limit = {
-				has_planet_flag = ringworld_start
-				has_district = district_city
-			}
-			remove_district = district_city	
-		}
-		if = {
-			limit = {
-				has_planet_flag = ringworld_start
-				has_district = district_hive
-			}
-			remove_district = district_hive	
-		}
-		if = {
-			limit = {
-				has_planet_flag = ringworld_start
-				has_district = district_hive
-			}
-			remove_district = district_hive	
-		}
-		if = {
-			limit = {
-				has_planet_flag = ringworld_start
-				has_district = district_hive
-			}
-			remove_district = district_hive	
-		}
-		if = {
-			limit = {
-				has_planet_flag = ringworld_start
-				has_district = district_hive
-			}
-			remove_district = district_hive	
-		}
-		if = {
-			limit = {
-				has_planet_flag = ringworld_start
-				has_district = district_nexus
-			}
-			remove_district = district_nexus
-		}
-		if = {
-			limit = {
-				has_planet_flag = ringworld_start
-				has_district = district_nexus
-			}
-			remove_district = district_nexus
-		}
-		if = {
-			limit = {
-				has_planet_flag = ringworld_start
-				has_district = district_nexus
-			}
-			remove_district = district_nexus
-		}
-		if = {
-			limit = {
-				has_planet_flag = ringworld_start
-				has_district = district_nexus
-			}
-			remove_district = district_nexus
-		}
-		if = {
-			limit = {
-				has_planet_flag = ringworld_start
-				has_district = district_generator
-			}
-			remove_district = district_generator
-		}
-		if = {
-			limit = {
-				has_planet_flag = ringworld_start
-				has_district = district_generator
-			}
-			remove_district = district_generator
-		}
-		if = {
-			limit = {
-				has_planet_flag = ringworld_start
-				has_district = district_generator
-			}
-			remove_district = district_generator
-		}
-		if = {
-			limit = {
-				has_planet_flag = ringworld_start
-				has_district = district_generator
-			}
-			remove_district = district_generator
-		}
-		if = {
-			limit = {
-				has_planet_flag = ringworld_start
-				has_district = district_farming
-			}
-			remove_district = district_farming
-		}
-		if = {
-			limit = {
-				has_planet_flag = ringworld_start
-				has_district = district_farming
-			}
-			remove_district = district_farming
-		}
-		if = {
-			limit = {
-				has_planet_flag = ringworld_start
-				has_district = district_farming
-			}
-			remove_district = district_farming
-		}
-		if = {
-			limit = {
-				has_planet_flag = ringworld_start
-				has_district = district_farming
-			}
-			remove_district = district_farming
-		}
-		if = {
-			limit = {
-				has_planet_flag = ringworld_start
-				has_district = district_mining
-			}
-			remove_district = district_mining
-		}
-		if = {
-			limit = {
-				has_planet_flag = ringworld_start
-				has_district = district_mining
-			}
-			remove_district = district_mining
-		}
-		if = {
-			limit = {
-				has_planet_flag = ringworld_start
-				has_district = district_mining
-			}
-			remove_district = district_mining
-		}
-		if = {
-			limit = {
-				has_planet_flag = ringworld_start
-				has_district = district_mining
-			}
-			remove_district = district_mining
+		add_deposit = d_segment_rubble_1
+		add_deposit = d_segment_rubble_2
+		add_deposit = d_segment_rubble_3
+		add_deposit = d_segment_rubble_4
+		add_deposit = d_decrepit_tunnels_1
+		add_deposit = d_decrepit_tunnels_1
+		add_deposit = d_decrepit_tunnels_1
 
-		}
 		if = {
 			limit = {
-				has_planet_flag = ringworld_start
-				has_district = district_industrial
+				owner = {
+					OR = {
+						has_valid_civic = civic_machine_assimilator
+						has_valid_civic = civic_machine_servitor
+					}
+				}
 			}
-			remove_district = district_industrial
+
+			if = {
+				limit = {
+					owner = {
+						last_created_species = { is_lithoid = yes }
+					}
+				}
+				owner = {
+					set_country_flag = lithoid_subspecies
+				}
+			}
+			else = {
+				owner = {
+					set_country_flag = non_lithoid_subspecies
+				}
+			}
 		}
+
+		#Add Genesis Guides Deposit
 		if = {
 			limit = {
-				has_planet_flag = ringworld_start
-				has_district = district_industrial
+				owner = { is_guided_sapience_empire = yes }
 			}
-			remove_district = district_industrial
+			add_district_and_planet_size_if_needed_effect = {
+				district = district_farming_uncapped
+			}
 		}
+		#Tactical Cogitators
 		if = {
 			limit = {
-				has_planet_flag = ringworld_start
-				has_district = district_industrial
+				owner = {
+					has_valid_civic = civic_machine_tactical_algorithms
+				}
 			}
-			remove_district = district_industrial
-		}
-		if = {
-			limit = {
-				has_planet_flag = ringworld_start
-				has_district = district_industrial
+			owner = {
+				give_technology = {
+					tech = tech_centralized_command
+					message = no
+				}
 			}
-			remove_district = district_industrial
+			add_building = building_military_academy
 		}
+
 		if = {
 			limit = {
 				owner = { is_regular_empire = yes }
-				has_planet_flag = ringworld_start
 			}
 
 			# total - 24 jobs
 
 			# 3 jobs
-			add_district_and_planet_size_if_needed_effect = {
-				district = district_city
-			}
-
-			if = {
-				limit = {
-					owner = { NOT = { has_valid_civic = civic_agrarian_idyll } }
-				}
-				while = {
-					count = 3
-					add_district_and_planet_size_if_needed_effect = {
-						district = district_city
-					}
-				}
-			}
-			else = {
-				while = {
-					count = 3
-					add_district_and_planet_size_if_needed_effect = {
-						district = district_farming_uncapped
-					}
-				}
-			}
-
-			if = {
-				limit = { owner = { is_megacorp = yes } }
+			while = {
+				count = 4
 				add_district_and_planet_size_if_needed_effect = {
 					district = district_city
 				}
@@ -330,7 +147,10 @@ planet_event = {
 				limit = {
 					owner = {
 						OR = {
-							is_lithoid_empire = no
+							NOR = {
+								is_lithoid_empire = yes
+								is_individual_machine = yes
+							}
 							has_country_flag = non_lithoid_subspecies
 						}
 					}
@@ -343,7 +163,11 @@ planet_event = {
 				}
 				if = {
 					limit = {
-						owner = { has_origin = origin_default }
+						owner = {
+							has_origin = origin_default
+							is_eager_explorer_empire = no
+							is_individual_machine = no
+						}
 					}
 					add_district_and_planet_size_if_needed_effect = {
 						district = district_farming_uncapped
@@ -368,9 +192,7 @@ planet_event = {
 			}
 
 			# 2 jobs
-			add_district_and_planet_size_if_needed_effect = {
-				district = district_srw_commercial
-			}
+			add_building = building_factory_1
 
 			# 4 jobs
 			add_district_and_planet_size_if_needed_effect = {
@@ -388,36 +210,77 @@ planet_event = {
 				}
 			}
 
-#			# 3 jobs
-#			add_building = building_capital
+			# 3 jobs
+			add_building = building_capital
 
-#			# 2 jobs
-#			add_building = building_bureaucratic_1
+			# 2 jobs
+			if = {
+				limit = { owner = { is_spiritualist = no } }
+				add_building = building_bureaucratic_1
+			}
+			# 2 jobs
+			if = {
+				limit = {
+					owner = {
+						is_spiritualist = yes
+						OR = {
+							has_valid_civic = civic_death_cult
+							has_valid_civic = civic_death_cult_corporate
+						}
+					}
+				}
+				add_building = building_sacrificial_temple_1
+			}
+			# 2 jobs
+			if = {
+				limit = {
+					owner = {
+						is_spiritualist = yes
+						NOT = { has_valid_civic = civic_death_cult }
+					}
+				}
+				add_building = building_temple
+			}
 
-#			# 2 jobs
-#			if = {
-#				limit = {
-#					owner = {
-#						has_valid_civic = civic_reanimated_armies
-#					}
-#				}
-#				add_building = building_dread_encampment
-#
-#				solar_system = { #Necromancers do not give engineering. So make sure there's some readily-accessible engineering
-#					random_system_planet = {
-#						limit = {
-#							has_deposit_for = shipclass_research_station
-#							has_deposit = d_engineering_5
-#						}
-#						# Total size 15 deposit as the Irreparable Damage is normally a size 5 and non-Shattered Ring starts get an additional two size 6 deposits.
-#						add_deposit = d_engineering_10
-#					}
-#				}
-#			}
-#			else = {
-#				add_building = building_research_lab_1
-#			}
+			# 2 jobs
+			if = {
+				limit = {
+					owner = {
+						is_low_tech_start = no
+					}
+				}
+				if = {
+					limit = {
+						owner = {
+							has_valid_civic = civic_reanimated_armies
+						}
+					}
+					add_building = building_dread_encampment
 
+					solar_system = { #Necromancers do not give engineering. So make sure there's some readily-accessible engineering
+						random_system_planet = {
+							limit = {
+								has_deposit_for = shipclass_research_station
+								has_deposit = d_engineering_5
+							}
+							# Total size 15 deposit as the Irreparable Damage is normally a size 5 and non-Shattered Ring starts get an additional two size 6 deposits.
+							add_deposit = d_engineering_10
+						}
+					}
+				}
+				else = {
+					add_building = building_research_lab_1
+				}
+			}
+
+			if = {
+				limit = {
+					owner = {
+						has_valid_civic = civic_permanent_employment
+					}
+				}
+				add_building = building_posthumous_employment_center
+			}
 			# 4-5 jobs
 			if = {
 				limit = {
@@ -429,10 +292,9 @@ planet_event = {
 					limit = {
 						owner = {
 							is_spiritualist = no
-							has_valid_civic = civic_pleasure_seekers
+							is_pleasure_seeker = yes
 						}
 					}
-					remove_building = building_holo_theatres
 					add_building = building_holo_theatres
 					add_district_and_planet_size_if_needed_effect = {
 						district = district_srw_commercial
@@ -442,10 +304,12 @@ planet_event = {
 					limit = {
 						owner = {
 							is_spiritualist = yes
-							has_valid_civic = civic_death_cult
+							OR = {
+								has_valid_civic = civic_death_cult
+								has_valid_civic = civic_death_cult_corporate
+							}
 						}
 					}
-					remove_building = building_sacrificial_temple_1
 					add_building = building_sacrificial_temple_1
 					add_district_and_planet_size_if_needed_effect = {
 						district = district_srw_commercial
@@ -458,23 +322,34 @@ planet_event = {
 							is_spiritualist = yes
 						}
 					}
-					remove_building = building_temple
 					add_building = building_temple
 					add_district_and_planet_size_if_needed_effect = {
 						district = district_srw_commercial
 					}
 				}
-				else = {
-					remove_building = building_commercial_zone
-					add_building = building_commercial_zone
+				else_if = { #Aug Bazaar building
+					limit = {
+						owner = {
+							has_valid_civic = civic_augmentation_bazaars
+						}
+					}
+					add_building = building_augmentation_bazaars
 				}
+				else = {
+					add_building = building_holo_theatres
+				}
+			}
+			if = {
+				limit = {
+					owner = { is_individual_machine = yes }
+				}
+				add_building = building_machine_assembly_plant
 			}
 		}
 
 		if = {
 			limit = {
 				owner = { is_hive_empire = yes }
-				has_planet_flag = ringworld_start
 			}
 
 			# 9 jobs
@@ -488,8 +363,10 @@ planet_event = {
 			# 6-9 jobs
 			if = {
 				limit = {
-					owner = { is_lithoid_empire = no }
-					has_planet_flag = ringworld_start
+					owner = {
+						is_lithoid_empire = no
+						is_individual_machine = no
+					}
 				}
 				while = {
 					count = 2
@@ -529,30 +406,45 @@ planet_event = {
 			}
 
 			# 5 jobs
-#			add_building = building_hive_capital
+			add_building = building_hive_capital
 
 			# 2 jobs
-#			add_building = building_research_lab_1
+			if = {
+				limit = {
+					owner = {
+						is_low_tech_start = no
+					}
+				}
+				add_building = building_research_lab_1
+			}
 
 			# 2 jobs
-#			add_building = building_hive_node
+			add_building = building_hive_node
 
 			# 1 job
-#			add_building = building_spawning_pool
+			if = {
+				limit = {
+					owner = { has_origin = origin_progenitor_hive }
+				}
+				add_building = building_offspring_nest
+			}
+			else = {
+				add_building = building_spawning_pool
+			}
+
+			# 1 job
+			add_building = building_hive_warren
 		}
 
 		# Replace capital building for machine empires
 		if = {
-			limit = { 
-				owner = { is_machine_empire = yes }
-				has_planet_flag = ringworld_start
-			}
+			limit = { owner = { is_machine_empire = yes } }
 
 			# total - 27 jobs
 
 			# 3 jobs
 			while = {
-				count = 3
+				count = 2
 				add_district_and_planet_size_if_needed_effect = {
 					district = district_nexus
 				}
@@ -564,16 +456,26 @@ planet_event = {
 			}
 
 			# 6 jobs
-#			add_building = building_machine_capital
+			add_building = building_machine_capital
 
 			# 1 job
-#			add_building = building_machine_assembly_plant
+			add_building = building_machine_assembly_plant
 
 			# 2 job
-#			add_building = building_uplink_node
+			if = {
+				limit = { owner = { NOT = { has_valid_civic = civic_machine_servitor } } }
+				add_building = building_uplink_node
+			}
 
 			# 2 jobs
-#			add_building = building_research_lab_1
+			if = {
+				limit = {
+					owner = {
+						is_low_tech_start = no
+					}
+				}
+				add_building = building_research_lab_1
+			}
 
 			# 4 jobs
 			add_district_and_planet_size_if_needed_effect = {
@@ -590,7 +492,7 @@ planet_event = {
 
 			#Assimilators
 			if = {
-				limit = { owner = { has_civic = civic_machine_assimilator } has_planet_flag = ringworld_start }
+				limit = { owner = { has_civic = civic_machine_assimilator } }
 				remove_district = district_generator_uncapped
 				if = {
 					limit = { owner = { has_country_flag = lithoid_subspecies } }
@@ -607,7 +509,7 @@ planet_event = {
 
 			#Servitors
 			if = {
-				limit = { owner = { has_civic = civic_machine_servitor } has_planet_flag = ringworld_start }
+				limit = { owner = { has_civic = civic_machine_servitor } }
 				if = {
 					limit = { owner = { has_country_flag = lithoid_subspecies } }
 					add_district_and_planet_size_if_needed_effect = {
@@ -619,25 +521,16 @@ planet_event = {
 						district = district_farming_uncapped
 					}
 				}
-#				add_district_and_planet_size_if_needed_effect = {
-#					district = district_nexus
-#				}
-#				add_building = building_organic_sanctuary
-			}
-		}
-		
-		if = {
-			limit = { has_planet_flag = ringworld_start }
-			add_building = building_fallen_class_4_singularity
-			add_building = building_fallen_dimensional_fabricator
-			remove_modifier = ringworld_empire_homeworld
-			owner = {
-				random_owned_pop = { 
-					limit = { is_unemployed = yes }
-					kill_pop = yes
+				add_district_and_planet_size_if_needed_effect = {
+					district = district_nexus
 				}
+				add_building = building_organic_sanctuary
 			}
 		}
+		add_building = building_fallen_class_4_singularity
+		add_building = building_fallen_dimensional_fabricator
+		set_planet_flag = ringworld_start
+		generate_start_pops = yes
 	}
 }
 

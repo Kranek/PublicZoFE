@@ -1631,7 +1631,9 @@ tech_paradise_creation = {
 	
 	potential = {
 		is_zofe_country = yes
-		is_virtual_empire = no
+		NOT = {
+			has_tradition = tr_virtuality_adopt
+		}
 		engineering_perfection = yes
 	}
 	

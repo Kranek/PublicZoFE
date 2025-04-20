@@ -69,9 +69,12 @@ country_event = {
 	trigger = {
 		is_country_type = fallen_empire
 		NOT = { has_ethic = ethic_gestalt_consciousness }
-		any_country = {
+		# any_country = {
+		# 	is_ascended_empire = yes
+		# 	has_origin = origin_original_people
+		# }
+		event_target:original_people = {
 			is_ascended_empire = yes
-			has_origin = origin_original_people
 		}
 	}
 	
@@ -81,14 +84,16 @@ country_event = {
 
 	immediate = {
 		# Notify players
-		
-		every_country = {
-			limit = {
-				is_ai = no
-				has_origin = origin_original_people
-			}
+		event_target:original_people = {
 			country_event = { id = original_people.3 }
 		}
+		# every_country = {
+		# 	limit = {
+		# 		is_ai = no
+		# 		has_origin = origin_original_people
+		# 	}
+		# 	country_event = { id = original_people.3 }
+		# }
 	}
 }
 
@@ -179,14 +184,21 @@ country_event = {
 		NOT = { has_ethic = ethic_gestalt_consciousness }
 		NOT = { has_country_flag = wrath_of_the_ancients }
 		is_at_war = no
-		any_country = {
+		event_target:original_people = {
 			OR = {
 				is_ascended_empire = yes
 				has_country_flag = bad_oe
 			}
-			has_origin = origin_original_people
 			NOT = { has_country_flag = new_ascended_empire }
 		}
+		# any_country = {
+		# 	OR = {
+		# 		is_ascended_empire = yes
+		# 		has_country_flag = bad_oe
+		# 	}
+		# 	has_origin = origin_original_people
+		# 	NOT = { has_country_flag = new_ascended_empire }
+		# }
 	}
 	
 	mean_time_to_happen = {
@@ -318,19 +330,32 @@ country_event = {
 				country_event = { id = original_people.9 }
 			}
 		}
-		
-		random_country = {
-			limit = { 
-				OR = {
-					is_ascended_empire = yes
-					has_country_flag = bad_oe
-				}
-				has_origin = origin_original_people
-				NOT = { has_country_flag = new_ascended_empire }
-			}
-			save_event_target_as = OriginalPeople
+
+		event_target:original_people = {
+			# if = {
+			# 	limit = {
+			# 		OR = {
+			# 			is_ascended_empire = yes
+			# 			has_country_flag = bad_oe
+			# 		}
+			# 		NOT = { has_country_flag = new_ascended_empire }
+			# 	}
+			# }
 			country_event = { id = original_people.50 }
 		}
+		
+		# random_country = {
+		# 	limit = {
+		# 		OR = {
+		# 			is_ascended_empire = yes
+		# 			has_country_flag = bad_oe
+		# 		}
+		# 		has_origin = origin_original_people
+		# 		NOT = { has_country_flag = new_ascended_empire }
+		# 	}
+		# 	save_event_target_as = OriginalPeople
+		# 	country_event = { id = original_people.50 }
+		# }
 	}
 }
 
@@ -356,7 +381,7 @@ country_event = {
 		hidden_effect = { 
 			from = {
 				declare_war = {
-					target = event_target:OriginalPeople
+					target = event_target:original_people
 					name = "NAME_The_Wrath_Of_The_Ancients"
 					attacker_war_goal = "wg_total_annihilation"
 				}
@@ -379,7 +404,7 @@ country_event = {
 		hidden_effect = { 
 			from = {
 				declare_war = {
-					target = event_target:OriginalPeople
+					target = event_target:original_people
 					name = "NAME_The_Wrath_Of_The_Ancients"
 					attacker_war_goal = "wg_total_annihilation"
 				}
@@ -402,7 +427,7 @@ country_event = {
 		hidden_effect = { 
 			from = {
 				declare_war = {
-					target = event_target:OriginalPeople
+					target = event_target:original_people
 					name = "NAME_The_Wrath_Of_The_Ancients"
 					attacker_war_goal = "wg_total_annihilation"
 				}
@@ -545,25 +570,40 @@ event = {
 	title = OK
 	desc = OK
 	hide_window = yes
-	
 	is_triggered_only = yes
 	
-	fire_only_once = yes
+	# fire_only_once = yes
 	
+	# trigger = {
+	# 	any_country = {
+	# 		is_gestalt = no
+	# 		is_country_type = fallen_empire
+	# 		is_at_war = yes
+	# 		any_war = {
+	# 			any_defender = {
+	# 				is_same_value = prevprev
+	# 			}
+	# 			any_attacker = {
+	# 				is_country_type = default
+	# 				is_ascended_empire = no
+	# 				has_origin = origin_original_people
+	# 			}
+	# 		}
+	# 	}
+	# }
+
 	trigger = {
-		any_country = {
-			is_gestalt = no
-			is_country_type = fallen_empire
-			is_at_war = yes
-			any_war = {
-				any_defender = {
-					is_same_value = prevprev
-				}
-				any_attacker = {
-					is_country_type = default
-					is_ascended_empire = no
-					has_origin = origin_original_people
-				}
+		NOT = {
+			has_global_flag = oe_declared_war_pre_ascension
+		}
+		from = {
+			any_attacker = {
+				is_same_value = event_target:original_people
+				is_ascended_empire = no
+			}
+			any_defender = {
+				is_country_type = fallen_empire
+				is_gestalt = no
 			}
 		}
 	}
@@ -581,14 +621,23 @@ event = {
 			country_event = { id = fallen_empires.13 }
 			country_event = { id = original_people.4 }
 		}
-		every_country =  {
-			limit = { 
-				is_country_type = default
-				is_ascended_empire = no
-				has_origin = origin_original_people
+		event_target:original_people = {
+			if = {
+				limit = {
+					is_ascended_empire = no
+				}
+				set_country_flag = bad_oe
 			}
-			set_country_flag = bad_oe
-		}	
+		}
+		set_global_flag = oe_declared_war_pre_ascension
+		# every_country = {
+		# 	limit = {
+		# 		is_country_type = default
+		# 		is_ascended_empire = no
+		# 		has_origin = origin_original_people
+		# 	}
+		# 	set_country_flag = bad_oe
+		# }
 	}
 }
 
@@ -664,10 +713,10 @@ country_event = {
 		owner = {
 			add_monthly_resource_mult = {
 				resource = engineering_research
-     			value = @tier1researchreward
-     			min = @tier1researchmin
-     			max = @tier1researchmax
-     		}
+	 			value = @tier1researchreward
+	 			min = @tier1researchmin
+	 			max = @tier1researchmax
+	 		}
 		}
 	}
 }
@@ -728,8 +777,6 @@ fleet_event = {
 		}
 	}
 }
-
-#Original People Digsite 2
 
 #Original People Digsite 2
 country_event = {

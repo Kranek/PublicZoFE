@@ -431,7 +431,7 @@ country_event = {
 }
 
 
-situation_event = {
+country_event = {
 	id = utopian_paradise.5
 	title = utopian_paradise.5.name
 	desc = utopian_paradise.5.desc
@@ -444,9 +444,10 @@ situation_event = {
 		set_situation_locked = yes
 	}
 	after = {
-		set_situation_locked = no
 		hidden_effect = {
-			destroy_situation = this
+			from = {
+				destroy_situation = this
+			}
 		}
 	}
 

@@ -1188,7 +1188,7 @@ ascendancy_get_large_cache = {
 
 lost_technology_insights_gained = {
 	if = {
-		limit = { 
+		limit = {
 			NOR = {
 				has_modifier = lost_technology_insights_1
 				has_modifier = lost_technology_insights_2
@@ -1212,116 +1212,93 @@ lost_technology_insights_gained = {
 			days = -1
 		}
 	}
-	else_if = {
-		limit = { has_modifier = lost_technology_insights_1 }
-		remove_modifier = "lost_technology_insights_1"
-		add_modifier = {
-			modifier = lost_technology_insights_2
-			days = -1
-		}
-	}
-	else_if = {
-		limit = { has_modifier = lost_technology_insights_2 }
-		remove_modifier = "lost_technology_insights_2"
-		add_modifier = {
-			modifier = lost_technology_insights_3
-			days = -1
-		}
-	}
-	else_if = {
-		limit = { has_modifier = lost_technology_insights_3 }
-		remove_modifier = "lost_technology_insights_3"
-		add_modifier = {
-			modifier = lost_technology_insights_4
-			days = -1
-		}
-	}
-	else_if = {
-		limit = { has_modifier = lost_technology_insights_4 }
-		remove_modifier = "lost_technology_insights_4"
-		add_modifier = {
-			modifier = lost_technology_insights_5
-			days = -1
-		}
-	}
-	else_if = {
-		limit = { has_modifier = lost_technology_insights_5 }
-		remove_modifier = "lost_technology_insights_5"
-		add_modifier = {
-			modifier = lost_technology_insights_6
-			days = -1
-		}
-	}
-	else_if = {
-		limit = { has_modifier = lost_technology_insights_6 }
-		remove_modifier = "lost_technology_insights_6"
-		add_modifier = {
-			modifier = lost_technology_insights_7
-			days = -1
-		}
-	}
-	else_if = {
-		limit = { has_modifier = lost_technology_insights_7 }
-		remove_modifier = "lost_technology_insights_7"
-		add_modifier = {
-			modifier = lost_technology_insights_8
-			days = -1
-		}
-	}
-	else_if = {
-		limit = { has_modifier = lost_technology_insights_8 }
-		remove_modifier = "lost_technology_insights_8"
-		add_modifier = {
-			modifier = lost_technology_insights_9
-			days = -1
-		}
-	}
-	else_if = {
-		limit = { has_modifier = lost_technology_insights_9 }
-		remove_modifier = "lost_technology_insights_9"
-		add_modifier = {
-			modifier = lost_technology_insights_10
-			days = -1
-		}
-	}
-	else_if = {
-		limit = { has_modifier = lost_technology_insights_10 }
-		remove_modifier = "lost_technology_insights_10"
-		add_modifier = {
-			modifier = lost_technology_insights_11
-			days = -1
-		}
-	}
-	else_if = {
-		limit = { has_modifier = lost_technology_insights_11 }
-		remove_modifier = "lost_technology_insights_11"
-		add_modifier = {
-			modifier = lost_technology_insights_12
-			days = -1
-		}
-	}
-	else_if = {
-		limit = { has_modifier = lost_technology_insights_12 }
-		remove_modifier = "lost_technology_insights_12"
-		add_modifier = {
-			modifier = lost_technology_insights_13
-			days = -1
-		}
-	}
-	else_if = {
-		limit = { has_modifier = lost_technology_insights_13 }
-		remove_modifier = "lost_technology_insights_13"
-		add_modifier = {
-			modifier = lost_technology_insights_14
-			days = -1
-		}
-	}
-	else_if = {
-		limit = { has_modifier = lost_technology_insights_14 }
-		remove_modifier = "lost_technology_insights_14"
-		add_modifier = {
-			modifier = lost_technology_insights_15
-			days = -1
+	else = {
+		switch = {
+			trigger = has_modifier
+			lost_technology_insights_1 = {
+				remove_modifier = lost_technology_insights_1
+				add_modifier = {
+					modifier = lost_technology_insights_2
+				}
+			}
+			lost_technology_insights_2 = {
+				remove_modifier = lost_technology_insights_2
+				add_modifier = {
+					modifier = lost_technology_insights_3
+				}
+			}
+			lost_technology_insights_3 = {
+				remove_modifier = lost_technology_insights_3
+				add_modifier = {
+					modifier = lost_technology_insights_4
+				}
+			}
+			lost_technology_insights_4 = {
+				remove_modifier = lost_technology_insights_4
+				add_modifier = {
+					modifier = lost_technology_insights_5
+				}
+			}
+			lost_technology_insights_5 = {
+				remove_modifier = lost_technology_insights_5
+				add_modifier = {
+					modifier = lost_technology_insights_6
+				}
+			}
+			lost_technology_insights_6 = {
+				remove_modifier = lost_technology_insights_6
+				add_modifier = {
+					modifier = lost_technology_insights_7
+				}
+			}
+			lost_technology_insights_7 = {
+				remove_modifier = lost_technology_insights_7
+				add_modifier = {
+					modifier = lost_technology_insights_8
+				}
+			}
+			lost_technology_insights_8 = {
+				remove_modifier = lost_technology_insights_8
+				add_modifier = {
+					modifier = lost_technology_insights_9
+				}
+			}
+			lost_technology_insights_9 = {
+				remove_modifier = lost_technology_insights_9
+				add_modifier = {
+					modifier = lost_technology_insights_10
+				}
+			}
+			lost_technology_insights_10 = {
+				remove_modifier = lost_technology_insights_10
+				add_modifier = {
+					modifier = lost_technology_insights_11
+				}
+			}
+			lost_technology_insights_11 = {
+				remove_modifier = lost_technology_insights_11
+				add_modifier = {
+					modifier = lost_technology_insights_12
+				}
+			}
+			lost_technology_insights_12 = {
+				remove_modifier = lost_technology_insights_12
+				add_modifier = {
+					modifier = lost_technology_insights_13
+				}
+			}
+			lost_technology_insights_13 = {
+				remove_modifier = lost_technology_insights_13
+				add_modifier = {
+					modifier = lost_technology_insights_14
+				}
+			}
+			lost_technology_insights_14 = {
+				remove_modifier = lost_technology_insights_14
+				add_modifier = {
+					modifier = lost_technology_insights_15
+				}
+			}
 		}
 	}
 }
@@ -1347,6 +1324,100 @@ add_large_minor_artifacts_deposit = {
 	from = {
 		planet = {
 			add_deposit = d_artifacts_planet_3
+		}
+	}
+}
+
+# Adds one decadent pop to a planet
+add_decadent_pop = {
+	if = {
+		limit = { is_gestalt = no }
+		switch = {
+			trigger = has_modifier
+			promoted_hedonist = {
+				set_timed_country_flag = { flag = recent_hedonist days = 30 }
+			}
+			suppressed_hedonist = {
+				set_timed_country_flag = { flag = recent_hedonist days = 90 }
+			}
+			default = {
+				set_timed_country_flag = { flag = recent_hedonist days = 60 }
+			}
+		}
+		random_owned_planet = {
+			limit = {
+				any_owned_pop = {
+					is_sapient = yes
+					has_citizenship_rights = yes
+					# is_pop_category = worker
+					NOT = {	is_pop_category = ruler }
+					is_enslaved = no
+					is_being_purged = no
+					is_robot_pop = no
+					is_being_assimilated = no
+					NOT = { has_pop_flag = decadent_pop }
+					NOT = { has_job = ae_hedonist }
+				}
+			}
+			random_owned_pop = {
+				limit = {
+					is_sapient = yes
+					has_citizenship_rights = yes
+					# is_pop_category = worker
+					NOT = {	is_pop_category = ruler }
+					is_enslaved = no
+					is_being_purged = no
+					is_robot_pop = no
+					is_being_assimilated = no
+					NOT = { has_pop_flag = decadent_pop }
+					NOT = { has_job = ae_hedonist }
+				}
+				set_pop_flag = decadent_pop
+				random_list = {
+					75 = {}
+					25 = {
+						unemploy_pop = yes
+					}
+				}
+			}
+		}
+	}
+	else = {
+		set_timed_country_flag = { flag = recent_hedonist days = 60 }
+		switch = {
+			trigger = has_authority
+			auth_hive_mind = {
+				random_owned_pop = {
+					limit = {
+						is_hive_species = yes
+						NOT = { has_pop_flag = decadent_pop }
+						NOT = { has_job = ae_maintenance_bot }
+					}
+					set_pop_flag = decadent_pop
+					random_list = {
+						75 = {}
+						25 = {
+							unemploy_pop = yes
+						}
+					}
+				}
+			}
+			auth_machine_intelligence = {
+				random_owned_pop = {
+					limit = {
+						is_mechanical_species = yes
+						NOT = { has_pop_flag = decadent_pop }
+						NOT = { has_job = ae_confused_drone }
+					}
+					set_pop_flag = decadent_pop
+					random_list = {
+						75 = {}
+						25 = {
+							unemploy_pop = yes
+						}
+					}
+				}
+			}
 		}
 	}
 }

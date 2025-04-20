@@ -2,7 +2,7 @@
  
  job_ae_xeno_keeper:0 "Xeno-Keeper"
  job_ae_xeno_keeper_plural:0 "Xeno-Keepers"
- job_ae_xeno_keeper_desc:0 "These zookeepers look after the needs of the Xeno-Wards under their care."
+ job_ae_xeno_keeper_desc:0 "These precursor zookeepers look after the needs of the Xeno-Wards under their care."
  mod_job_ae_xeno_keeper_add:0 "$job_ae_xeno_keeper$ Jobs"
  mod_job_ae_xeno_keeper_add:0 "$job_ae_xeno_keeper$ Jobs" 
  job_ae_xeno_ward:1 "Xeno-Ward"
@@ -20,7 +20,7 @@
  
  job_ae_maintenance_bot:0 "Caretaker"
  job_ae_maintenance_bot_plural:0 "Caretakers"
- job_ae_maintenance_bot_desc:0 "These ancient machines tirelessly maintain and repair the decaying machinery of the worlds on which they reside."
+ job_ae_maintenance_bot_desc:0 "These ancient machines tirelessly maintain and repair the decaying machinery of the world on which they reside."
  mod_job_ae_maintenance_bot_add:0 "$job_ae_maintenance_bot$ Drones"
  
  job_ae_confused_drone:0 "Confused Drone"

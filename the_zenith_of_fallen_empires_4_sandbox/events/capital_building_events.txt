@@ -1,66 +1,66 @@
 ### Palace Events ###
 
 
-namespace = capital_upgrade
+# namespace = capital_upgrade
 
-planet_event = {
-	id = capital_upgrade.1
-	is_triggered_only = yes
-	hide_window = yes
-	# trigger = {
-	# 	OR = {
-	# 		has_building = building_colony_shelter
-	# 		has_building = building_capital
-	# 		has_building = building_major_capital
-	# 		has_building = building_system_capital
-	# 		# has_building = building_hab_capital
-	# 		# has_building = building_hab_major_capital
-	# 		# has_building = building_hab_system_capital
-	# 	}
-	# }
-	immediate = {
-		if = {
-			limit = {
-				has_building = building_colony_shelter
-			}
-			remove_building = building_colony_shelter
-		}
-		if = {
-			limit = {
-				has_building = building_capital
-			}
-			remove_building = building_capital
-		}
-		if = {
-			limit = {
-				has_building = building_major_capital
-			}
-			remove_building = building_major_capital
-		}
-		if = {
-			limit = {
-				has_building = building_system_capital
-			}
-			remove_building = building_system_capital
-		}
-		if = {
-			limit = {
-				has_building = building_hab_capital
-			}
-			remove_building = building_hab_capital
-		}
-		if = {
-			limit = {
-				has_building = building_hab_major_capital
-			}
-			remove_building = building_hab_major_capital
-		}
-		if = {
-			limit = {
-				has_building = building_hab_system_capital
-			}
-			remove_building = building_hab_system_capital
-		}
-		add_building = building_fallen_palace
-	}
-}
+# planet_event = {
+# 	id = capital_upgrade.1
+# 	is_triggered_only = yes
+# 	hide_window = yes
+# 	# trigger = {
+# 	# 	OR = {
+# 	# 		has_building = building_colony_shelter
+# 	# 		has_building = building_capital
+# 	# 		has_building = building_major_capital
+# 	# 		has_building = building_system_capital
+# 	# 		# has_building = building_hab_capital
+# 	# 		# has_building = building_hab_major_capital
+# 	# 		# has_building = building_hab_system_capital
+# 	# 	}
+# 	# }
+# 	immediate = {
+# 		if = {
+# 			limit = {
+# 				has_building = building_colony_shelter
+# 			}
+# 			remove_building = building_colony_shelter
+# 		}
+# 		if = {
+# 			limit = {
+# 				has_building = building_capital
+# 			}
+# 			remove_building = building_capital
+# 		}
+# 		if = {
+# 			limit = {
+# 				has_building = building_major_capital
+# 			}
+# 			remove_building = building_major_capital
+# 		}
+# 		if = {
+# 			limit = {
+# 				has_building = building_system_capital
+# 			}
+# 			remove_building = building_system_capital
+# 		}
+# 		if = {
+# 			limit = {
+# 				has_building = building_hab_capital
+# 			}
+# 			remove_building = building_hab_capital
+# 		}
+# 		if = {
+# 			limit = {
+# 				has_building = building_hab_major_capital
+# 			}
+# 			remove_building = building_hab_major_capital
+# 		}
+# 		if = {
+# 			limit = {
+# 				has_building = building_hab_system_capital
+# 			}
+# 			remove_building = building_hab_system_capital
+# 		}
+# 		add_building = building_fallen_palace
+# 	}
+# }

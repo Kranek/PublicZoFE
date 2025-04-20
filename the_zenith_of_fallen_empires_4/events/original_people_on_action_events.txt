@@ -1,70 +1,302 @@
 #####################################################
 #      		ZoFE Original People On Action Events
 #		  				  By Kolyn
+# 						  Rewritten By Savitar
 #####################################################
 
 namespace = original_people_on_action
 
-### Remove district
+# Add districts for OE
 planet_event = {
 	id = original_people_on_action.1
 	hide_window = yes
 	is_triggered_only = yes
 
+	trigger = {
+		owner = {
+			has_origin = origin_original_people
+		}
+	}
 	immediate = {
+		create_life_seeded_planet = yes
+
+		#Add Genesis Guides Deposit
 		if = {
 			limit = {
-				has_planet_flag = original_people_start
+				owner = { is_guided_sapience_empire = yes }
 			}
-			
-			add_deposit = d_searing_desert
-			add_deposit = d_underwater_vent
-			add_deposit = d_tempestous_mountain
-			
-			add_deposit = d_ore_rich_caverns
-			add_deposit = d_prosperous_mesa
-			add_deposit = d_submerged_ore_veins
-			
-			add_deposit = d_lush_jungle
-			add_deposit = d_teeming_reef
-			if = {
-				limit = { owner = { is_lithoid_empire = yes } }
-				add_deposit = d_rich_mountain
+			add_district_and_planet_size_if_needed_effect = {
+				district = district_farming_uncapped
 			}
-			else = {
-				add_deposit = d_black_soil
+		}
+		#Tactical Cogitators
+		if = {
+			limit = {
+				owner = {
+					has_valid_civic = civic_machine_tactical_algorithms
+				}
 			}
-			random_list = {
-				33 = { add_deposit = d_frozen_gas_lake }
-				33 = { add_deposit = d_prosperous_mesa }
-				33 = { add_deposit = d_fertile_lands }
+			owner = {
+				give_technology = {
+					tech = tech_centralized_command
+					message = no
+				}
+			}
+			add_building = building_military_academy
+		}
+
+		if = {
+			limit = {
+				owner = { is_regular_empire = yes }
 			}
 
-			add_deposit = d_dust_caverns
-			add_deposit = d_bubbling_swamp
-			add_deposit = d_crystalline_caverns
+			# total - 24 jobs
+
+			# 3 jobs
+			while = {
+				count = 4
+				add_district_and_planet_size_if_needed_effect = {
+					district = district_city
+				}
+			}
+
+			while = {
+				count = 2
+				add_district = district_generator
+				add_district = district_industrial
+			}
+
+			# 4 - 6 jobs
+			if = {
+				limit = {
+					owner = {
+						OR = {
+							NOR = {
+								is_lithoid_empire = yes
+								is_individual_machine = yes
+							}
+							has_country_flag = non_lithoid_subspecies
+						}
+					}
+				}
+				while = {
+					count = 2
+					add_district_and_planet_size_if_needed_effect = {
+						district = district_farming_uncapped
+					}
+				}
+				if = {
+					limit = {
+						owner = {
+							has_origin = origin_default
+							is_eager_explorer_empire = no
+							is_individual_machine = no
+						}
+					}
+					add_district_and_planet_size_if_needed_effect = {
+						district = district_farming_uncapped
+					}
+				}
+			}
+			else = {
+				while = {
+					count = 2
+					add_district_and_planet_size_if_needed_effect = {
+						district = district_mining_uncapped
+					}
+				}
+			}
+
+			# 4 jobs
+			while = {
+				count = 2
+				add_district_and_planet_size_if_needed_effect = {
+					district = district_mining_uncapped
+				}
+			}
+
+			# 2 jobs
+			add_building = building_factory_1
+
+			# 4 jobs
+			add_district_and_planet_size_if_needed_effect = {
+				district = district_mining_uncapped
+			}
+			add_district_and_planet_size_if_needed_effect = {
+				district = district_srw_commercial
+			}
+
+			# 2 jobs
+			if = {
+				limit = { owner = { is_megacorp = no } }
+				add_district_and_planet_size_if_needed_effect = {
+					district = district_srw_commercial
+				}
+			}
+
+			# 3 jobs
+			add_building = building_capital
+
+			# 2 jobs
+			if = {
+				limit = { owner = { is_spiritualist = no } }
+				add_building = building_bureaucratic_1
+			}
+			# 2 jobs
+			if = {
+				limit = {
+					owner = {
+						is_spiritualist = yes
+						OR = {
+							has_valid_civic = civic_death_cult
+							has_valid_civic = civic_death_cult_corporate
+						}
+					}
+				}
+				add_building = building_sacrificial_temple_1
+			}
+			# 2 jobs
+			if = {
+				limit = {
+					owner = {
+						is_spiritualist = yes
+						NOT = { has_valid_civic = civic_death_cult }
+					}
+				}
+				add_building = building_temple
+			}
+
+			# 2 jobs
+			if = {
+				limit = {
+					owner = {
+						is_low_tech_start = no
+					}
+				}
+				if = {
+					limit = {
+						owner = {
+							has_valid_civic = civic_reanimated_armies
+						}
+					}
+					add_building = building_dread_encampment
+
+					solar_system = { #Necromancers do not give engineering. So make sure there's some readily-accessible engineering
+						random_system_planet = {
+							limit = {
+								has_deposit_for = shipclass_research_station
+								has_deposit = d_engineering_5
+							}
+							# Total size 15 deposit as the Irreparable Damage is normally a size 5 and non-Shattered Ring starts get an additional two size 6 deposits.
+							add_deposit = d_engineering_10
+						}
+					}
+				}
+				else = {
+					add_building = building_research_lab_1
+				}
+			}
+
+			if = {
+				limit = {
+					owner = {
+						has_valid_civic = civic_permanent_employment
+					}
+				}
+				add_building = building_posthumous_employment_center
+			}
+			# 4-5 jobs
+			if = {
+				limit = {
+					owner = {
+						NOT = { has_valid_civic = civic_agrarian_idyll }
+					}
+				}
+				if = {
+					limit = {
+						owner = {
+							is_spiritualist = no
+							is_pleasure_seeker = yes
+						}
+					}
+					add_building = building_holo_theatres
+					add_district_and_planet_size_if_needed_effect = {
+						district = district_srw_commercial
+					}
+				}
+				else_if = {
+					limit = {
+						owner = {
+							is_spiritualist = yes
+							OR = {
+								has_valid_civic = civic_death_cult
+								has_valid_civic = civic_death_cult_corporate
+							}
+						}
+					}
+					add_building = building_sacrificial_temple_1
+					add_district_and_planet_size_if_needed_effect = {
+						district = district_srw_commercial
+					}
+				}
+				else_if = {
+					limit = {
+						owner = {
+							is_megacorp = no
+							is_spiritualist = yes
+						}
+					}
+					add_building = building_temple
+					add_district_and_planet_size_if_needed_effect = {
+						district = district_srw_commercial
+					}
+				}
+				else_if = { #Aug Bazaar building
+					limit = {
+						owner = {
+							has_valid_civic = civic_augmentation_bazaars
+						}
+					}
+					add_building = building_augmentation_bazaars
+				}
+				else = {
+					add_building = building_holo_theatres
+				}
+			}
 		}
+		generate_start_pops = yes
+		validate_planet_buildings_and_districts = yes
 	}
 }
 
 #Mark Original People
-event = {
+country_event = {
 	id = original_people_on_action.2
 	hide_window = yes
 	is_triggered_only = yes
 	
 	trigger = {
-		any_country = {
-			has_origin = origin_original_people
-		}
+		has_origin = origin_original_people
 	}
 	
 	immediate = {
-		every_country = {
-			limit = {
-				has_origin = origin_original_people
-			}
-			set_country_flag = original_people
-		}
+		set_country_flag = original_people
+		save_global_event_target_as = original_people
+		owner_species = { save_global_event_target_as = original_species }
+	}
+}
+Fires when OE origin is not around
+country_event = {
+	id = original_people_on_action.3
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		has_origin = origin_original_people
+	}
+	
+	immediate = {
+		set_global_flag = original_people_destroyed
+		# clear_global_event_target = original_people
 	}
 }

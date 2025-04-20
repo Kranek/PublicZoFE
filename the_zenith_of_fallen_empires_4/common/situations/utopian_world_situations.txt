@@ -147,7 +147,11 @@ situation_utopian_paradise = {
 	on_progress_complete = {
 		custom_tooltip = utopian_paradise_finish_tooltip
 		hidden_effect = {
-			situation_event = { id = utopian_paradise.5 }
+			owner = {
+				country_event = {
+					id = utopian_paradise.5 
+				}
+			}
 		}
 	}
 	on_start = { }

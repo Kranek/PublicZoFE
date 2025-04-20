@@ -23,6 +23,7 @@ on_monthly_pulse_country = {
 	events = {
 		zofe.14
 		lost_empire.2
+		lost_empire.18
 		original_people.100
 		original_people.200
 		original_people.300
@@ -43,7 +44,6 @@ on_monthly_pulse_country = {
 		zofe_awakening.104
 		zofe_awakening.204
 		zofe_awakening.304
-		
 	}
 }
 
@@ -73,6 +73,7 @@ on_yearly_pulse_country = {
 		zofe_awakening.2
 		zofe_awakening.3
 		zofe_awakening.4
+		automated_industries.1
 	}
 }
 

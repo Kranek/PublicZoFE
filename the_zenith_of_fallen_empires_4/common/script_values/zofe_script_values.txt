@@ -1,0 +1,30 @@
+# num_decadent_pops = {
+# 	base = 0
+# 	complex_trigger_modifier = {
+# 		trigger = count_owned_pop
+# 		trigger_scope = owner
+# 		parameters = {
+# 			limit = {
+# 				OR = {
+# 					has_job = ae_hedonist
+# 					has_job = ae_maintenance_bot
+# 					has_job = ae_confused_drone
+# 				}
+# 			}
+# 		}
+# 		mode = add
+# 	}
+# }
+
+decadence_situation_cost_value = {
+	base = 0
+	add = owner.var_decadent_pops_percent
+	mult = 100
+	min = 1
+}
+
+decadence_situation_progression_value = {
+	base = 0
+	add = owner.var_decadent_pops_percent
+	mult = 10
+}

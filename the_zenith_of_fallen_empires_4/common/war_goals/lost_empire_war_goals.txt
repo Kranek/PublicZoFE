@@ -87,6 +87,10 @@ wg_total_annihilation = {
 				if = {
 					limit = {
 						NOT = { is_same_value = root }
+						is_country_type = default
+						NOT = {
+							has_overlord = root
+						}
 					}
 					add_opinion_modifier = { modifier = opinion_genocidal who = root }
 					add_threat = {
@@ -282,11 +286,13 @@ wg_banish_ascendancy = {
 	war_exhaustion = 0.25
 
 	potential = {
+		is_gestalt = no
 		OR = {
 			is_country_type = ascended_empire
 			is_country_type = awakened_fallen_empire
 		}
 		from = {
+			is_gestalt = no
 			OR = {
 				is_country_type = ascended_empire
 				is_country_type = awakened_fallen_empire

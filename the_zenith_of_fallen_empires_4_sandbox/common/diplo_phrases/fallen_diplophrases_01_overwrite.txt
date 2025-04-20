@@ -1,0 +1,36 @@
+greetings = {
+	01_AWAKENED_EMPIRE_DOW_ACCEPT = {
+		trigger = {
+			is_country_type = ascended_empire
+			is_country_type = awakened_original_empire
+			is_country_type = awakened_fallen_empire
+		}
+	}
+	01_OFFER_TRADE_DEAL_GIFT_ACCEPT_FE = {
+		only_for_gift = yes
+		trigger = {
+			OR = {
+				is_country_type = original_empire
+				is_country_type = lost_empire
+				is_country_type = fallen_empire
+				is_country_type = ascended_empire
+				is_country_type = awakened_original_empire
+				is_country_type = awakened_fallen_empire
+			}
+			is_gestalt = no
+		}
+	}
+	03_INSULT_ACCEPT_FE = {
+		trigger = {
+			is_fallen_empire_machine = no
+			OR = {
+				is_country_type = original_empire
+				is_country_type = lost_empire
+				is_country_type = fallen_empire
+				is_country_type = ascended_empire
+				is_country_type = awakened_original_empire
+				is_country_type = awakened_fallen_empire
+			}
+		}
+	}
+}

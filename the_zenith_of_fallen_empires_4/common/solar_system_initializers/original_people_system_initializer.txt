@@ -72,6 +72,8 @@ original_people_init_01 = {
 		deposit_blockers = none
 		modifiers = none
 
+		flags = { special_start_planet }
+
 		init_effect = {
 			generate_empire_home_planet = yes
 			prevent_anomaly = yes
@@ -251,10 +253,10 @@ original_people_init_02 = {
 		change_orbit = @base_moon_distance
 
 		moon = {
-            count = { min = 0 max = 1 }
-            orbit_angle = { min = 90 max = 270 }
-            orbit_distance = 5
-        }
+			count = { min = 0 max = 1 }
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 5
+		}
 	}
 	
 	change_orbit = 35
@@ -267,10 +269,10 @@ original_people_init_02 = {
 		change_orbit = @base_moon_distance
 
 		moon = {
-            count = { min = 0 max = 1 }
-            orbit_angle = { min = 90 max = 270 }
-            orbit_distance = 5
-        }
+			count = { min = 0 max = 1 }
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 5
+		}
 	}
 
 	change_orbit = 35
@@ -283,10 +285,10 @@ original_people_init_02 = {
 		change_orbit = @base_moon_distance
 
 		moon = {
-            count = { min = 0 max = 1 }
-            orbit_angle = { min = 90 max = 270 }
-            orbit_distance = 5
-        }
+			count = { min = 0 max = 1 }
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 5
+		}
 	}
 }
 
@@ -751,13 +753,13 @@ original_people_init_05 = {
 	flags = { original_people_init_05 }
 	
 	planet = {
-        count = 1
-        class = star
-        orbit_distance = 0
-        orbit_angle = 0
-        size = @standard_max
-        has_ring = no
-    }
+		count = 1
+		class = star
+		orbit_distance = 0
+		orbit_angle = 0
+		size = @standard_max
+		has_ring = no
+	}
 
 	planet = {
 		class = pc_molten

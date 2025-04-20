@@ -1,89 +1,40 @@
 ###Lost Empire Effects
 
 remove_lost_empire_civics = {
-	#Machine Fallen Empire
-	if = {
-		limit = { has_civic = civic_lost_empire_machine_remnants }
-		force_remove_civic = civic_lost_empire_machine_remnants
-	}
-	if = {
-		limit = { has_civic = civic_lost_empire_custodian_directives }
-		force_remove_civic = civic_lost_empire_custodian_directives
-	}
-	#Hive Fallen Empire
-	if = {
-		limit = { has_civic = civic_lost_empire_hive_remnants }
-		force_remove_civic = civic_lost_empire_hive_remnants
-	}
-	if = {
-		limit = { has_civic = civic_lost_empire_hive_sickness }
-		force_remove_civic = civic_lost_empire_hive_sickness
-	}
-
-	if = {
-		limit = { has_civic = civic_lost_empire_sluggish_drones }
-		force_remove_civic = civic_lost_empire_sluggish_drones
-	}
-	if = {
-		limit = { has_civic = civic_lost_empire_antediluvian_mind }
-		force_remove_civic = civic_lost_empire_antediluvian_mind
-	}
-	#Regular Fallen Empire
-	if = {
-		limit = { has_civic = civic_lost_fervor }
-		force_remove_civic = civic_lost_fervor
-	}
-	if = {
-		limit = { has_civic = civic_societal_stagnation }
-		force_remove_civic = civic_societal_stagnation
-	}
-	if = {
-		limit = { has_civic = civic_fallen_power }
-		force_remove_civic = civic_fallen_power
-	}
-	if = {
-		limit = { has_civic = civic_lost_empire_lethargic_leadership }
-		force_remove_civic = civic_lost_empire_lethargic_leadership
-	}
-	if = {
-		limit = { has_civic = civic_lost_empire_empire_in_decline }
-		force_remove_civic = civic_lost_empire_empire_in_decline
-	}
-	#Banished Empires
-	if = {
-		limit = { has_civic = civic_national_humiliation }
-		force_remove_civic = civic_national_humiliation
-	}
-	if = {
-		limit = { has_civic = civic_societal_turmoil }
-		force_remove_civic = civic_societal_turmoil
-	}
-	if = {
-		limit = { has_civic = civic_treaty_bound }
-		force_remove_civic = civic_treaty_bound
+	switch = {
+		trigger = has_civic
+		civic_lost_empire_machine_remnants = {
+			force_remove_civic = civic_lost_empire_machine_remnants
+			force_remove_civic = civic_lost_empire_custodian_directives
+		}
+		civic_lost_empire_hive_remnants = {
+			force_remove_civic = civic_lost_empire_hive_remnants
+			force_remove_civic = civic_lost_empire_hive_sickness
+		}
+		civic_lost_empire_sluggish_drones = {
+			force_remove_civic = civic_lost_empire_sluggish_drones
+			force_remove_civic = civic_lost_empire_antediluvian_mind
+		}
+		civic_lost_empire_lethargic_leadership = {
+			force_remove_civic = civic_lost_empire_lethargic_leadership
+			force_remove_civic = civic_lost_empire_empire_in_decline
+		}
+		civic_societal_turmoil = {
+			force_remove_civic = civic_societal_turmoil
+			force_remove_civic = civic_treaty_bound
+		}
+		
 	}
 }
 
 remove_national_focus_flags = {
-	if = {
-		limit = { has_country_flag = ascended_galactic_superpower }
-		remove_country_flag = ascended_galactic_superpower
-	}
-	if = {
-		limit = { has_country_flag = ascended_beacon_of_prosperity }
-		remove_country_flag = ascended_beacon_of_prosperity
-	}
-	if = {
-		limit = { has_country_flag = ascended_industrial_juggernaut }
-		remove_country_flag = ascended_industrial_juggernaut
-	}
-	if = {
-		limit = { has_country_flag = ascended_world_architect }
-		remove_country_flag = ascended_world_architect
-	}
-	if = {
-		limit = { has_country_flag = ascended_spymaster }
-		remove_country_flag = ascended_spymaster
+	switch = {
+		trigger = has_country_flag
+		ascended_galactic_superpower = { remove_country_flag = ascended_galactic_superpower }
+		ascended_beacon_of_prosperity = { remove_country_flag = ascended_beacon_of_prosperity }
+		ascended_industrial_juggernaut = { remove_country_flag = ascended_industrial_juggernaut }
+		ascended_world_architect = { remove_country_flag = ascended_world_architect }
+		ascended_spymaster = { remove_country_flag = ascended_spymaster }
 	}
 }
 

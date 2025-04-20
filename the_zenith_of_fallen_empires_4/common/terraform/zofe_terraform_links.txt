@@ -70,8 +70,8 @@ terraform_link = {
 }
 
 terraform_link = {
-	from = "pc_arid"
 	to = "pc_gaia"
+	from = "pc_arid"
 	
 	resources = {
 		category = terraforming
@@ -2167,6 +2167,299 @@ terraform_link = {
 
 terraform_link = {
 	from = "pc_shattered"
+	to = "pc_alpine"
+
+	resources = {
+		category = terraforming
+
+		cost = {
+			energy = 62500
+		}
+	}
+
+	duration = 18000
+
+	potential = {
+		exists = owner
+		from = { has_modifier = planet_reconstruction_candidate }
+	}
+
+	condition = {
+		has_technology = "tech_climate_restoration"
+	}
+
+	effect = {
+		from = { remove_modifier = planet_reconstruction_candidate }
+	}
+
+	ai_weight = {
+		weight = 5
+	}
+}
+
+#Broken
+terraform_link = {
+	from = "pc_broken"
+	to = "pc_desert"
+
+	resources = {
+		category = terraforming
+
+		cost = {
+			energy = 62500
+		}
+	}
+
+	duration = 18000
+
+	potential = {
+		exists = owner
+		from = { has_modifier = planet_reconstruction_candidate }
+	}
+
+	condition = {
+		has_technology = "tech_climate_restoration"
+	}
+
+	effect = {
+		from = { remove_modifier = planet_reconstruction_candidate }
+	}
+
+	ai_weight = {
+		weight = 5
+	}
+}
+
+terraform_link = {
+	from = "pc_broken"
+	to = "pc_arid"
+
+	resources = {
+		category = terraforming
+
+		cost = {
+			energy = 62500
+		}
+	}
+
+	duration = 18000
+
+	potential = {
+		exists = owner
+		from = { has_modifier = planet_reconstruction_candidate }
+	}
+
+	condition = {
+		has_technology = "tech_climate_restoration"
+	}
+
+	effect = {
+		from = { remove_modifier = planet_reconstruction_candidate }
+	}
+
+	ai_weight = {
+		weight = 5
+	}
+}
+
+terraform_link = {
+	from = "pc_broken"
+	to = "pc_savannah"
+
+	resources = {
+		category = terraforming
+
+		cost = {
+			energy = 62500
+		}
+	}
+
+	duration = 18000
+
+	potential = {
+		exists = owner
+		from = { has_modifier = planet_reconstruction_candidate }
+	}
+
+	condition = {
+		has_technology = "tech_climate_restoration"
+	}
+
+	effect = {
+		from = { remove_modifier = planet_reconstruction_candidate }
+	}
+
+	ai_weight = {
+		weight = 5
+	}
+}
+
+terraform_link = {
+	from = "pc_broken"
+	to = "pc_continental"
+
+	resources = {
+		category = terraforming
+
+		cost = {
+			energy = 62500
+		}
+	}
+
+	duration = 18000
+
+	potential = {
+		exists = owner
+		from = { has_modifier = planet_reconstruction_candidate }
+	}
+
+	condition = {
+		has_technology = "tech_climate_restoration"
+	}
+
+	effect = {
+		from = { remove_modifier = planet_reconstruction_candidate }
+	}
+
+	ai_weight = {
+		weight = 5
+	}
+}
+
+terraform_link = {
+	from = "pc_broken"
+	to = "pc_tropical"
+
+	resources = {
+		category = terraforming
+
+		cost = {
+			energy = 62500
+		}
+	}
+
+	duration = 18000
+
+	potential = {
+		exists = owner
+		from = { has_modifier = planet_reconstruction_candidate }
+	}
+
+	condition = {
+		has_technology = "tech_climate_restoration"
+	}
+
+	effect = {
+		from = { remove_modifier = planet_reconstruction_candidate }
+	}
+
+	ai_weight = {
+		weight = 5
+	}
+}
+
+terraform_link = {
+	from = "pc_broken"
+	to = "pc_ocean"
+
+	resources = {
+		category = terraforming_ocean
+
+		cost = {
+			energy = 62500
+		}
+	}
+
+	duration = 18000
+
+	potential = {
+		exists = owner
+		from = { has_modifier = planet_reconstruction_candidate }
+	}
+
+	condition = {
+		has_technology = "tech_climate_restoration"
+	}
+
+	effect = {
+		from = { remove_modifier = planet_reconstruction_candidate }
+	}
+
+	ai_weight = {
+		weight = 5
+		modifier = {
+			factor = 4
+			has_trait = trait_aquatic
+		}
+	}
+}
+
+terraform_link = {
+	from = "pc_broken"
+	to = "pc_arctic"
+
+	resources = {
+		category = terraforming
+
+		cost = {
+			energy = 62500
+		}
+	}
+
+	duration = 18000
+
+	potential = {
+		exists = owner
+		from = { has_modifier = planet_reconstruction_candidate }
+	}
+
+	condition = {
+		has_technology = "tech_climate_restoration"
+	}
+
+	effect = {
+		from = { remove_modifier = planet_reconstruction_candidate }
+	}
+
+	ai_weight = {
+		weight = 5
+	}
+}
+
+terraform_link = {
+	from = "pc_broken"
+	to = "pc_tundra"
+
+	resources = {
+		category = terraforming
+
+		cost = {
+			energy = 62500
+		}
+	}
+
+	duration = 18000
+
+	potential = {
+		exists = owner
+		from = { has_modifier = planet_reconstruction_candidate }
+	}
+
+	condition = {
+		has_technology = "tech_climate_restoration"
+	}
+
+	effect = {
+		from = { remove_modifier = planet_reconstruction_candidate }
+	}
+
+	ai_weight = {
+		weight = 5
+	}
+}
+
+terraform_link = {
+	from = "pc_broken"
 	to = "pc_alpine"
 
 	resources = {

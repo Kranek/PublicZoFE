@@ -34,7 +34,7 @@ beacon_of_infinity_system_initializer = {
 		modifiers = none
 		starting_planet = yes
 		
-		flags = { ignore_startup_effect megastructure }
+		flags = { ignore_startup_effect megastructure special_start_planet }
 		
 		init_effect = {
 			prevent_anomaly = yes

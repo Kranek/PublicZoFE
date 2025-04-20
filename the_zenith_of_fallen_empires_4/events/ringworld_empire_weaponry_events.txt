@@ -19,64 +19,49 @@ country_event = {
 	show_sound = event_mystic_reveal
 	
 	desc = {
-		trigger = { 
-			owner = { 
-				NOR = {
-					has_ethic = ethic_fanatic_spiritualist
-					has_ethic = ethic_fanatic_materialist
-					has_ethic = ethic_fanatic_xenophile
-					has_ethic = ethic_fanatic_xenophobe
-					has_ethic = ethic_fanatic_militarist
-					has_ethic = ethic_fanatic_pacifist
-					has_ethic = ethic_fanatic_authoritarian
-					has_ethic = ethic_fanatic_egalitarian
-					has_authority = "auth_hive_mind"
-					has_authority = "auth_machine_intelligence"
+		trigger = {
+			switch = {
+				trigger = has_ethic
+				ethic_fanatic_spiritualist = {
+					text = "ringworld_weaponry.100.desc.spiritualist"
+				}
+				ethic_fanatic_materialist = {
+					text = "ringworld_weaponry.100.desc.materialist"
+				}
+				ethic_fanatic_xenophile = {
+					text = "ringworld_weaponry.100.desc.xenophile"
+				}
+				ethic_fanatic_xenophobe = {
+					text = "ringworld_weaponry.100.desc.xenophobe"
+				}
+				ethic_fanatic_militarist = {
+					text = "ringworld_weaponry.100.desc.militarist"
+				}
+				ethic_fanatic_pacifist = {
+					text = "ringworld_weaponry.100.desc.pacifist"
+				}
+				ethic_fanatic_authoritarian = {
+					text = "ringworld_weaponry.100.desc.authoritarian"
+				}
+				ethic_fanatic_egalitarian = {
+					text = "ringworld_weaponry.100.desc.egalitarian"
+				}
+				ethic_gestalt_consciousness = {
+					switch = {
+						trigger = has_authority
+						auth_hive_mind = {
+							text = "ringworld_weaponry.100.desc.hive"
+						}
+						auth_machine_intelligence = {
+							text = "ringworld_weaponry.100.desc.machine"
+						}
+					}
+				}
+				default = {
+					text = "ringworld_weaponry.100.desc"
 				}
 			}
 		}
-		text = "ringworld_weaponry.100.desc"
-	}
-	
-	desc = {
-		trigger = { owner = { has_ethic = ethic_fanatic_spiritualist } }
-		text = "ringworld_weaponry.100.desc.spiritualist"
-	}
-	desc = {
-		trigger = { owner = { has_ethic = ethic_fanatic_materialist } }
-		text = "ringworld_weaponry.100.desc.materialist"
-	}
-	desc = { 
-		trigger = { owner = { has_ethic = ethic_fanatic_xenophile } }
-		text = "ringworld_weaponry.100.desc.xenophile"
-	}
-	desc = { 
-		trigger = { owner = { has_ethic = ethic_fanatic_xenophobe } }
-		text = "ringworld_weaponry.100.desc.xenophobe"
-	}
-	desc = {
-		trigger = { owner = { has_ethic = ethic_fanatic_militarist } }
-		text = "ringworld_weaponry.100.desc.militarist"
-	}
-	desc = {
-		trigger = { owner = { has_ethic = ethic_fanatic_pacifist } }
-		text = "ringworld_weaponry.100.desc.pacifist"
-	}
-	desc = { 
-		trigger = { owner = { has_ethic = ethic_fanatic_authoritarian } }
-		text = "ringworld_weaponry.100.desc.authoritarian"
-	}
-	desc = { 
-		trigger = { owner = { has_ethic = ethic_fanatic_egalitarian } }
-		text = "ringworld_weaponry.100.desc.egalitarian"
-	}
-	desc = { 
-		trigger = { owner = { has_authority = "auth_hive_mind" } }
-		text = "ringworld_weaponry.100.desc.hive"
-	}
-	desc = { 
-		trigger = { owner = { has_authority = "auth_machine_intelligence" } }
-		text = "ringworld_weaponry.100.desc.machine"
 	}
 
 	fire_only_once = yes

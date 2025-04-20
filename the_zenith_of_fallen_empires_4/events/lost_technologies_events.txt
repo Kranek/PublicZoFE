@@ -202,7 +202,7 @@ country_event = {
 		hidden_effect = {
 			country_event = { id = lost_technologies.1002 }
 		}
-    }
+	}
 	
 	option = {
 		name = "lost_technologies.1001.b"
@@ -235,7 +235,7 @@ country_event = {
 			location = root.capital_scope
 			owner = root
 		}
-    }
+	}
 	
 	option = {
 		name = "lost_technologies.1001.d"

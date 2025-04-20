@@ -1,0 +1,29 @@
+namespace = zofe_situation_event
+
+#Decadence situation 0001 - 0100
+#Checks decadent pops if the situation is active for accurate numbers
+situation_event = {
+	id = zofe_situation_event.0001
+	is_triggered_only = yes
+	hide_window = yes
+
+	immediate = {
+		owner = {
+			export_trigger_value_to_variable = {
+				trigger = pop_percentage
+				parameters = {
+					limit = {
+						OR = {
+							has_job = ae_hedonist
+							has_job = ae_maintenance_bot
+							has_job = ae_confused_drone
+						}
+					}
+				}
+				variable = var_decadent_pops_percent
+			}
+		}
+	}
+}
+
+#Fall of an Ascendancy 0101 - 0200

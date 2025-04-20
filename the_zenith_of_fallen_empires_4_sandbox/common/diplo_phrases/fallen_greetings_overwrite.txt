@@ -1,0 +1,1232 @@
+# FROM = initiator of the diplomatic action; ROOT = recipient of the diplomatic action
+greetings = {
+	# Watchful Regulators
+	WR_ARROGANT_GREETING_01 = {
+		weight = {
+			weight = 100
+		}
+		trigger = {
+			is_zofe_ae = yes
+			has_ethic = ethic_fanatic_materialist
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_arrogant_to = FROM
+				is_imperious_to = FROM
+			}
+		}
+	}
+	WR_BELLIGERENT_GREETING_01 = {
+		weight = {
+			weight = 100
+		}
+		trigger = {
+			is_zofe_ae = yes
+			has_ethic = ethic_fanatic_materialist
+			NOT = { is_at_war_with = FROM }
+			is_belligerent_to = FROM
+		}
+	}
+	WR_CUSTODIAL_GREETING_01 = {
+		weight = {
+			weight = 100
+		}
+		trigger = {
+			is_zofe_ae = yes
+			has_ethic = ethic_fanatic_materialist
+			NOT = { is_at_war_with = FROM }
+			is_custodial_to = FROM
+			is_in_federation_with = FROM
+		}
+	}
+	WR_CUSTODIAL_GREETING_02 = {
+		weight = {
+			weight = 100
+		}
+		trigger = {
+			is_zofe_ae = yes
+			has_ethic = ethic_fanatic_materialist
+			NOT = { is_at_war_with = FROM }
+			is_custodial_to = FROM
+			NOT = { is_in_federation_with = FROM }
+		}
+	}
+	WR_OVERLORD_GREETING_01 = {
+		weight = {
+			weight = 100
+		}
+		trigger = {
+			is_zofe_ae = yes
+			has_ethic = ethic_fanatic_materialist
+			is_overlord_to = FROM
+		}
+	}
+	WR_NEUTRAL_GREETING_01 = {
+		weight = {
+			weight = 100
+		}
+		trigger = {
+			is_zofe_ae = yes
+			has_ethic = ethic_fanatic_materialist
+			is_neutral_to = FROM
+		}
+	}
+	WR_NEUTRAL_GREETING_02 = {
+		weight = {
+			weight = 100
+		}
+		trigger = {
+			is_zofe_ae = yes
+			has_ethic = ethic_fanatic_materialist
+			is_neutral_to = FROM
+		}
+	}
+	# Benevolent Interventionists
+	BI_ARROGANT_GREETING_01 = {
+		weight = {
+			weight = 100
+		}
+		trigger = {
+			is_zofe_ae = yes
+			has_ethic = ethic_fanatic_xenophile
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_arrogant_to = FROM
+				is_imperious_to = FROM
+			}
+		}
+	}
+	BI_BELLIGERENT_GREETING_01 = {
+		weight = {
+			weight = 100
+		}
+		trigger = {
+			is_zofe_ae = yes
+			has_ethic = ethic_fanatic_xenophile
+			NOT = { is_at_war_with = FROM }
+			is_belligerent_to = FROM
+		}
+	}
+	BI_CUSTODIAL_GREETING_01 = {
+		weight = {
+			weight = 100
+		}
+		trigger = {
+			is_zofe_ae = yes
+			has_ethic = ethic_fanatic_xenophile
+			NOT = { is_at_war_with = FROM }
+			is_custodial_to = FROM
+			is_in_federation_with = FROM
+		}
+	}
+	BI_CUSTODIAL_GREETING_02 = {
+		weight = {
+			weight = 100
+		}
+		trigger = {
+			is_zofe_ae = yes
+			has_ethic = ethic_fanatic_xenophile
+			NOT = { is_at_war_with = FROM }
+			is_custodial_to = FROM
+			NOT = { is_in_federation_with = FROM }
+		}
+	}
+	BI_OVERLORD_GREETING_01 = {
+		weight = {
+			weight = 100
+		}
+		trigger = {
+			is_zofe_ae = yes
+			has_ethic = ethic_fanatic_xenophile
+			is_overlord_to = FROM
+			FROM = { is_machine_empire = no }
+		}
+	}
+	BI_MECH_OVERLORD_GREETING_01 = {
+		weight = {
+			weight = 100
+		}
+		trigger = {
+			is_zofe_ae = yes
+			has_ethic = ethic_fanatic_xenophile
+			is_overlord_to = FROM
+			FROM = { is_machine_empire = yes }
+		}
+	}
+	BI_NEUTRAL_GREETING_01 = {
+		weight = {
+			weight = 100
+		}
+		trigger = {
+			is_zofe_ae = yes
+			has_ethic = ethic_fanatic_xenophile
+			is_neutral_to = FROM
+		}
+	}
+	BI_NEUTRAL_GREETING_02 = {
+		weight = {
+			weight = 100
+		}
+		trigger = {
+			is_zofe_ae = yes
+			has_ethic = ethic_fanatic_xenophile
+			is_neutral_to = FROM
+			FROM = { is_gestalt = no }
+		}
+	}
+
+	# Jingoistic Reclaimers
+	JR_ARROGANT_GREETING_01 = {
+		weight = {
+			weight = 100
+		}
+		trigger = {
+			is_zofe_ae = yes
+			has_ethic = ethic_fanatic_xenophobe
+			FROM = { is_machine_empire = no }
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_arrogant_to = FROM
+				is_imperious_to = FROM
+			}
+		}
+	}
+	JR_MECH_ARROGANT_GREETING_01 = {
+		weight = {
+			weight = 100
+		}
+		trigger = {
+			is_zofe_ae = yes
+			has_ethic = ethic_fanatic_xenophobe
+			FROM = {
+				OR = {
+					is_machine_empire = yes
+					is_individual_machine = yes
+				}
+			}
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_arrogant_to = FROM
+				is_imperious_to = FROM
+			}
+		}
+	}
+	JR_BELLIGERENT_GREETING_01 = {
+		weight = {
+			weight = 100
+		}
+		trigger = {
+			is_zofe_ae = yes
+			has_ethic = ethic_fanatic_xenophobe
+			FROM = { is_machine_empire = no }
+			NOT = { is_at_war_with = FROM }
+			is_belligerent_to = FROM
+		}
+	}
+	JR_MECH_BELLIGERENT_GREETING_01 = {
+		weight = {
+			weight = 100
+		}
+		trigger = {
+			is_zofe_ae = yes
+			has_ethic = ethic_fanatic_xenophobe
+			FROM = { is_machine_empire = yes }
+			NOT = { is_at_war_with = FROM }
+			is_belligerent_to = FROM
+		}
+	}
+	JR_OVERLORD_GREETING_01 = {
+		weight = {
+			weight = 100
+		}
+		trigger = {
+			is_zofe_ae = yes
+			has_ethic = ethic_fanatic_xenophobe
+			is_overlord_to = FROM
+		}
+	}
+	JR_FEDERATION_GREETING_01 = {
+		weight = {
+			weight = 100
+		}
+		trigger = {
+			is_zofe_ae = yes
+			has_ethic = ethic_fanatic_xenophobe
+			is_in_federation_with = FROM
+		}
+	}
+	JR_NEUTRAL_GREETING_01 = {
+		weight = {
+			weight = 100
+		}
+		trigger = {
+			is_zofe_ae = yes
+			has_ethic = ethic_fanatic_xenophobe
+			is_neutral_to = FROM
+		}
+	}
+	JR_NEUTRAL_GREETING_02 = {
+		weight = {
+			weight = 100
+		}
+		trigger = {
+			is_zofe_ae = yes
+			has_ethic = ethic_fanatic_xenophobe
+			is_neutral_to = FROM
+		}
+	}
+
+	# Doctrinal Enforcers
+	DE_ARROGANT_GREETING_01 = {
+		weight = {
+			weight = 100
+		}
+		trigger = {
+			is_zofe_ae = yes
+			has_ethic = ethic_fanatic_spiritualist
+			FROM = { is_machine_empire = no }
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_arrogant_to = FROM
+				is_imperious_to = FROM
+			}
+		}
+	}
+	DE_MECH_ARROGANT_GREETING_01 = {
+		weight = {
+			weight = 100
+		}
+		trigger = {
+			is_zofe_ae = yes
+			has_ethic = ethic_fanatic_spiritualist
+			FROM = { is_machine_empire = yes }
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_arrogant_to = FROM
+				is_imperious_to = FROM
+			}
+		}
+	}
+	DE_BELLIGERENT_GREETING_01 = {
+		weight = {
+			weight = 100
+		}
+		trigger = {
+			is_zofe_ae = yes
+			has_ethic = ethic_fanatic_spiritualist
+			FROM = { is_machine_empire = no }
+			NOT = { is_at_war_with = FROM }
+			is_belligerent_to = FROM
+		}
+	}
+	DE_MECH_BELLIGERENT_GREETING_01 = {
+		weight = {
+			weight = 100
+		}
+		trigger = {
+			is_zofe_ae = yes
+			has_ethic = ethic_fanatic_spiritualist
+			FROM = { is_machine_empire = yes }
+			NOT = { is_at_war_with = FROM }
+			is_belligerent_to = FROM
+		}
+	}
+	DE_CUSTODIAL_GREETING_01 = {
+		weight = {
+			weight = 100
+		}
+		trigger = {
+			is_zofe_ae = yes
+			has_ethic = ethic_fanatic_spiritualist
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_custodial_to = FROM
+				is_in_federation_with = FROM
+			}
+		}
+	}
+	DE_OVERLORD_GREETING_01 = {
+		weight = {
+			weight = 100
+		}
+		trigger = {
+			is_zofe_ae = yes
+			has_ethic = ethic_fanatic_spiritualist
+			is_overlord_to = FROM
+		}
+	}
+	DE_NEUTRAL_GREETING_01 = {
+		weight = {
+			weight = 100
+		}
+		trigger = {
+			is_zofe_ae = yes
+			has_ethic = ethic_fanatic_spiritualist
+			is_neutral_to = FROM
+		}
+	}
+	DE_NEUTRAL_GREETING_02 = {
+		weight = {
+			weight = 100
+		}
+		trigger = {
+			is_zofe_ae = yes
+			has_ethic = ethic_fanatic_spiritualist
+			is_neutral_to = FROM
+		}
+	}
+
+	### FALLEN EMPIRE GREETINGS
+	# Fallen Empire (Dismissive Attitude)
+	01_FALLEN_EMPIRE_DISMISSIVE_GREETING = {
+		trigger = {
+			is_zofe_fe = yes
+			NOT = { is_at_war_with = FROM }
+			is_dismissive_to = FROM
+		}
+	}
+	02_FALLEN_EMPIRE_DISMISSIVE_GREETING = {
+		trigger = {
+			is_zofe_fe = yes
+			NOT = { is_at_war_with = FROM }
+			is_dismissive_to = FROM
+		}
+	}
+	03_FALLEN_EMPIRE_DISMISSIVE_GREETING = {
+		trigger = {
+			is_zofe_fe = yes
+			NOT = { is_at_war_with = FROM }
+			is_dismissive_to = FROM
+		}
+	}
+	04_FALLEN_EMPIRE_DISMISSIVE_GREETING = {
+		trigger = {
+			is_zofe_fe = yes
+			NOT = { is_at_war_with = FROM }
+			is_dismissive_to = FROM
+		}
+	}
+	05_FALLEN_EMPIRE_DISMISSIVE_GREETING = {
+		trigger = {
+			is_zofe_fe = yes
+			NOT = { is_at_war_with = FROM }
+			is_dismissive_to = FROM
+		}
+	}
+	06_FALLEN_EMPIRE_DISMISSIVE_GREETING = {
+		trigger = {
+			is_zofe_fe = yes
+			NOT = { is_at_war_with = FROM }
+			is_dismissive_to = FROM
+		}
+	}
+	07_FALLEN_EMPIRE_DISMISSIVE_GREETING = {
+		trigger = {
+			is_zofe_fe = yes
+			NOT = { is_at_war_with = FROM }
+			is_dismissive_to = FROM
+		}
+	}
+	08_FALLEN_EMPIRE_DISMISSIVE_GREETING = {
+		trigger = {
+			is_zofe_fe = yes
+			NOT = { is_at_war_with = FROM }
+			is_dismissive_to = FROM
+		}
+	}
+
+	# Fallen Empire (Patronizing Attitude)
+	01_FALLEN_EMPIRE_PATRONIZING_GREETING = {
+		trigger = {
+			is_zofe_fe = yes
+			NOT = { is_at_war_with = FROM }
+			is_patronizing_to = FROM
+			FROM = { is_machine_empire = no }
+		}
+	}
+	02_FALLEN_EMPIRE_PATRONIZING_GREETING = {
+		trigger = {
+			is_zofe_fe = yes
+			NOT = { is_at_war_with = FROM }
+			is_patronizing_to = FROM
+		}
+	}
+	03_FALLEN_EMPIRE_PATRONIZING_GREETING = {
+		trigger = {
+			is_zofe_fe = yes
+			NOT = { is_at_war_with = FROM }
+			is_patronizing_to = FROM
+			FROM = { is_machine_empire = no }
+		}
+	}
+	04_FALLEN_EMPIRE_PATRONIZING_GREETING = {
+		trigger = {
+			is_zofe_fe = yes
+			NOT = { is_at_war_with = FROM }
+			is_patronizing_to = FROM
+		}
+	}
+	05_FALLEN_EMPIRE_PATRONIZING_GREETING = {
+		trigger = {
+			is_zofe_fe = yes
+			NOT = { is_at_war_with = FROM }
+			is_patronizing_to = FROM
+		}
+	}
+	06_FALLEN_EMPIRE_PATRONIZING_GREETING = {
+		trigger = {
+			is_zofe_fe = yes
+			NOT = { is_at_war_with = FROM }
+			is_patronizing_to = FROM
+			FROM = { is_machine_empire = no }
+		}
+	}
+	07_FALLEN_EMPIRE_PATRONIZING_GREETING = {
+		trigger = {
+			is_zofe_fe = yes
+			NOT = { is_at_war_with = FROM }
+			is_patronizing_to = FROM
+			FROM = { is_machine_empire = no }
+		}
+	}
+	08_FALLEN_EMPIRE_PATRONIZING_GREETING = {
+		trigger = {
+			is_zofe_fe = yes
+			NOT = { is_at_war_with = FROM }
+			is_patronizing_to = FROM
+			FROM = { is_machine_empire = no }
+		}
+	}
+	FALLEN_EMPIRE_MECH_PATRONIZING_GREETING_01 = {
+		trigger = {
+			is_zofe_fe = yes
+			NOT = { is_at_war_with = FROM }
+			is_patronizing_to = FROM
+			FROM = {
+				OR = {
+					is_machine_empire = yes
+					is_individual_machine = yes
+				}
+			}
+		}
+	}
+	FALLEN_EMPIRE_MECH_PATRONIZING_GREETING_02 = {
+		trigger = {
+			is_zofe_fe = yes
+			NOT = { is_at_war_with = FROM }
+			is_patronizing_to = FROM
+			FROM = {
+				OR = {
+					is_machine_empire = yes
+					is_individual_machine = yes
+				}
+			}
+		}
+	}
+	FALLEN_EMPIRE_MECH_PATRONIZING_GREETING_03 = {
+		trigger = {
+			is_zofe_fe = yes
+			NOT = { is_at_war_with = FROM }
+			is_patronizing_to = FROM
+			FROM = {
+				OR = {
+					is_machine_empire = yes
+					is_individual_machine = yes
+				}
+			}
+		}
+	}
+	
+	# Fallen Empire (Angry Attitude)
+	01_FALLEN_EMPIRE_ANGRY_GREETING = {
+		trigger = {
+			is_zofe_fe = yes
+			NOT = { is_at_war_with = FROM }
+			is_angry_to = FROM
+			is_gestalt = no
+			FROM = { is_machine_empire = no }
+		}
+	}
+	02_FALLEN_EMPIRE_ANGRY_GREETING = {
+		trigger = {
+			is_zofe_fe = yes
+			NOT = { is_at_war_with = FROM }
+			is_angry_to = FROM
+			is_gestalt = no
+		}
+	}
+	03_FALLEN_EMPIRE_ANGRY_GREETING = {
+		trigger = {
+			is_zofe_fe = yes
+			NOT = { is_at_war_with = FROM }
+			is_angry_to = FROM
+			is_gestalt = no
+			FROM = { is_machine_empire = no }
+		}
+	}
+	04_FALLEN_EMPIRE_ANGRY_GREETING = {
+		trigger = {
+			is_zofe_fe = yes
+			NOT = { is_at_war_with = FROM }
+			is_angry_to = FROM
+			is_gestalt = no
+		}
+	}
+	05_FALLEN_EMPIRE_ANGRY_GREETING = {
+		trigger = {
+			is_zofe_fe = yes
+			NOT = { is_at_war_with = FROM }
+			is_angry_to = FROM
+			is_gestalt = no
+		}
+	}
+	06_FALLEN_EMPIRE_ANGRY_GREETING = {
+		trigger = {
+			is_zofe_fe = yes
+			NOT = { is_at_war_with = FROM }
+			is_angry_to = FROM
+			is_gestalt = no
+		}
+	}
+	07_FALLEN_EMPIRE_ANGRY_GREETING = {
+		trigger = {
+			is_zofe_fe = yes
+			NOT = { is_at_war_with = FROM }
+			is_angry_to = FROM
+			is_gestalt = no
+		}
+	}
+	08_FALLEN_EMPIRE_ANGRY_GREETING = {
+		trigger = {
+			is_zofe_fe = yes
+			NOT = { is_at_war_with = FROM }
+			is_angry_to = FROM
+			is_gestalt = no
+			FROM = { is_machine_empire = no }
+		}
+	}
+	FALLEN_EMPIRE_MECH_ANGRY_GREETING_01 = {
+		trigger = {
+			is_zofe_fe = yes
+			NOT = { is_at_war_with = FROM }
+			is_angry_to = FROM
+			is_fallen_empire_machine = no
+			FROM = {
+				OR = {
+					is_machine_empire = yes
+					is_individual_machine = yes
+				}
+			}
+		}
+	}
+	FALLEN_EMPIRE_MECH_ANGRY_GREETING_02 = {
+		trigger = {
+			is_zofe_fe = yes
+			NOT = { is_at_war_with = FROM }
+			is_angry_to = FROM
+			is_fallen_empire_machine = no
+			FROM = {
+				OR = {
+					is_machine_empire = yes
+					is_individual_machine = yes
+				}
+			}
+		}
+	}
+	
+	# Fallen Empire (Dismissive Attitude)
+	01_FALLEN_EMPIRE_DISMISSIVE_WAR_GREETING = {
+		trigger = {
+			is_zofe_fe = yes
+			is_at_war_with = FROM
+			is_dismissive_to = FROM
+			FROM = {
+				NOR = {
+					is_machine_empire = yes
+					is_individual_machine = yes
+				}
+			}
+		}
+	}
+	02_FALLEN_EMPIRE_DISMISSIVE_WAR_GREETING = {
+		trigger = {
+			is_zofe_fe = yes
+			is_at_war_with = FROM
+			is_dismissive_to = FROM
+		}
+	}
+	FALLEN_EMPIRE_MECH_DISMISSIVE_WAR_GREETING_01 = {
+		trigger = {
+			is_zofe_fe = yes
+			is_at_war_with = FROM
+			is_dismissive_to = FROM
+			FROM = { is_machine_empire = yes }
+		}
+	}
+	
+	# Fallen Empire (Patronizing Attitude)
+	01_FALLEN_EMPIRE_PATRONIZING_WAR_GREETING = {
+		trigger = {
+			is_zofe_fe = yes
+			is_at_war_with = FROM
+			is_patronizing_to = FROM
+		}
+	}
+	02_FALLEN_EMPIRE_PATRONIZING_WAR_GREETING = {
+		trigger = {
+			is_zofe_fe = yes
+			is_at_war_with = FROM
+			is_patronizing_to = FROM
+			FROM = { is_machine_empire = no }
+		}
+	}
+	FALLEN_EMPIRE_MECH_PATRONIZING_WAR_GREETING_01 = {
+		trigger = {
+			is_zofe_fe = yes
+			is_at_war_with = FROM
+			is_patronizing_to = FROM
+			FROM = { is_machine_empire = yes }
+		}
+	}
+
+	# Fallen Empire (Angry Attitude)
+	01_FALLEN_EMPIRE_ANGRY_WAR_GREETING = {
+		trigger = {
+			is_zofe_fe = yes
+			is_at_war_with = FROM
+			is_angry_to = FROM
+			FROM = { is_machine_empire = no }
+		}
+	}
+	02_FALLEN_EMPIRE_ANGRY_WAR_GREETING = {
+		trigger = {
+			is_zofe_fe = yes
+			is_at_war_with = FROM
+			is_angry_to = FROM
+		}
+	}
+	FALLEN_EMPIRE_MECH_ANGRY_WAR_GREETING_01 = {
+		trigger = {
+			is_zofe_fe = yes
+			is_at_war_with = FROM
+			is_angry_to = FROM
+			FROM = { is_machine_empire = yes }
+		}
+	}
+
+	#AWAKENED EMPIRE GREETINGS
+	# Awakened Fallen Empire war greeting
+	01_AWAKENED_EMPIRE_WAR_GREETING = {
+		trigger = {
+			is_zofe_ae = yes
+			is_gestalt = no
+			is_at_war_with = FROM
+		}
+	}
+	02_AWAKENED_EMPIRE_WAR_GREETING = {
+		trigger = {
+			is_zofe_ae = yes
+			is_gestalt = no
+			is_at_war_with = FROM
+		}
+	}
+
+	#Scion to FE overlord
+	SCION_TO_FE_GREETING_01 = { # great honor to serve
+		weight = {
+			weight = 15
+		}
+		trigger = {
+			exists = overlord
+			overlord = { is_same_value = FROM }
+			NOR = {
+				is_at_war_with = FROM
+				is_disloyal_to = FROM
+			}
+			from = {
+				OR = {
+					is_zofe_fe = yes
+					is_zofe_ae = yes
+				}
+			}
+			root = {
+				any_agreement = {
+					agreement_preset = preset_scion
+				}
+			}
+		}
+	}
+
+	# SCION_TO_FE_GREETING_02 = { # great honor to serve
+	# 	weight = {
+	# 		weight = 15
+	# 	}
+	# 	trigger = {
+	# 		exists = overlord
+	# 		overlord = { is_same_value = FROM }
+	# 		NOT = { is_at_war_with = FROM }
+	# 		NOT = { is_disloyal_to = FROM }
+	# 		from = {
+	# 			OR = {
+	# 				is_zofe_fe = yes
+	# 				is_zofe_ae = yes
+	# 			}
+	# 		}
+	# 		root = {
+	# 			any_agreement = {
+	# 				agreement_preset = preset_scion
+	# 			}
+	# 		}
+	# 	}
+	# }	
+
+	# FE to Scion
+	FE_TO_SCION_GREETING_01 = { # we knew you were special
+		weight = {
+			weight = 100000
+		}
+		trigger = {
+			OR = {
+				is_zofe_fe = yes
+				is_zofe_ae = yes
+			}
+			is_overlord_to = FROM
+			FROM = {
+				#has_origin = origin_scion
+				any_agreement = {
+					agreement_preset = preset_scion
+				}
+			}
+		}
+	}
+	FE_TO_SCION_GREETING_02 = { # additional instructions?
+		weight = {
+			weight = 100000
+		}
+		trigger = {
+			OR = {
+				is_zofe_fe = yes
+				is_zofe_ae = yes
+			}
+			is_overlord_to = FROM
+			FROM = {
+				#has_origin = origin_scion
+				any_agreement = {
+					agreement_preset = preset_scion
+				}
+			}
+		}
+	}
+	FE_TO_SCION_GREETING_03 = { # perhaps someday you'll be great
+		weight = {
+			weight = 100000
+		}
+		trigger = {
+			OR = {
+				is_zofe_fe = yes
+				is_zofe_ae = yes
+			}
+			is_overlord_to = FROM
+			FROM = {
+				#has_origin = origin_scion
+				any_agreement = {
+					agreement_preset = preset_scion
+				}
+			}
+		}
+	}
+	FE_TO_SCION_GREETING_04 = { # you are fortunate...
+		weight = {
+			weight = 100000
+		}
+		trigger = {
+			OR = {
+				is_zofe_fe = yes
+				is_zofe_ae = yes
+			}
+			is_overlord_to = FROM
+			FROM = {
+				#has_origin = origin_scion
+				any_agreement = {
+					agreement_preset = preset_scion
+				}
+			}
+		}
+	}
+	FE_TO_SCION_GREETING_05 = { # I never expected you to get this far
+		weight = {
+			weight = 100000
+		}
+		trigger = {
+			OR = {
+				is_zofe_fe = yes
+				is_zofe_ae = yes
+			}
+			is_overlord_to = FROM
+			FROM = {
+				#has_origin = origin_scion
+				any_agreement = {
+					agreement_preset = preset_scion
+				}
+			}
+		}
+	}
+	FE_TO_SCION_GREETING_06 = { # seeing you here now...
+		weight = {
+			weight = 100000
+		}
+		trigger = {
+			OR = {
+				is_zofe_fe = yes
+				is_zofe_ae = yes
+			}
+			is_overlord_to = FROM
+			FROM = {
+				#has_origin = origin_scion
+				any_agreement = {
+					agreement_preset = preset_scion
+				}
+			}
+		}
+	}
+	FE_TO_SCION_GREETING_07 = { # simpler times
+		weight = {
+			weight = 100000
+		}
+		trigger = {
+			OR = {
+				is_zofe_fe = yes
+				is_zofe_ae = yes
+			}
+			is_overlord_to = FROM
+			FROM = {
+				#has_origin = origin_scion
+				any_agreement = {
+					agreement_preset = preset_scion
+				}
+			}
+		}
+	}
+	FE_TO_SCION_GREETING_08 = { # we're busy right now
+		weight = {
+			weight = 100000
+		}
+		trigger = {
+			OR = {
+				is_zofe_fe = yes
+				is_zofe_ae = yes
+			}
+			is_overlord_to = FROM
+			FROM = {
+				#has_origin = origin_scion
+				any_agreement = {
+					agreement_preset = preset_scion
+				}
+			}
+			is_at_war = yes
+		}
+	}
+
+	# Scion to Scion
+	SCION_TO_SCION_GREETING_01 = { # we're the favorites
+		weight = {
+			weight = 100000
+		}
+		trigger = {
+			any_country = {
+				OR = {
+					is_zofe_fe = yes
+					is_zofe_ae = yes
+				}
+				is_overlord_to = FROM
+				is_overlord_to = ROOT
+			}
+			FROM = {
+				#has_origin = origin_scion
+				any_agreement = {
+					agreement_preset = preset_scion
+				}
+			}
+			#has_origin = origin_scion
+			any_agreement = {
+				agreement_preset = preset_scion
+			}
+		}
+	}
+	SCION_TO_SCION_GREETING_02 = { # inheritance
+		weight = {
+			weight = 100000
+		}
+		trigger = {
+			any_country = {
+				OR = {
+					is_zofe_fe = yes
+					is_zofe_ae = yes
+				}
+				is_overlord_to = FROM
+				is_overlord_to = ROOT
+			}
+			FROM = {
+				#has_origin = origin_scion
+				any_agreement = {
+					agreement_preset = preset_scion
+				}
+			}
+			#has_origin = origin_scion
+			any_agreement = {
+				agreement_preset = preset_scion
+			}
+		}
+	}
+	SCION_TO_SCION_GREETING_03 = { # they like us more than you
+		weight = {
+			weight = 100000
+		}
+		trigger = {
+			any_country = {
+				OR = {
+					is_zofe_fe = yes
+					is_zofe_ae = yes
+				}
+				is_overlord_to = FROM
+				is_overlord_to = ROOT
+			}
+			FROM = {
+				#has_origin = origin_scion
+				any_agreement = {
+					agreement_preset = preset_scion
+				}
+			}
+			#has_origin = origin_scion
+			any_agreement = {
+				agreement_preset = preset_scion
+			}
+		}
+	}
+	SCION_TO_SCION_GREETING_04 = { # did the masters mention us?
+		weight = {
+			weight = 100000
+		}
+		trigger = {
+			any_country = {
+				OR = {
+					is_zofe_fe = yes
+					is_zofe_ae = yes
+				}
+				is_overlord_to = FROM
+				is_overlord_to = ROOT
+			}
+			FROM = {
+				#has_origin = origin_scion
+				any_agreement = {
+					agreement_preset = preset_scion
+				}
+			}
+			#has_origin = origin_scion
+			any_agreement = {
+				agreement_preset = preset_scion
+			}
+		}
+	}
+	SCION_TO_SCION_GREETING_05 = { # we've accepted our role
+		weight = {
+			weight = 100000
+		}
+		trigger = {
+			any_country = {
+				OR = {
+					is_zofe_fe = yes
+					is_zofe_ae = yes
+				}
+				is_overlord_to = FROM
+				is_overlord_to = ROOT
+			}
+			FROM = {
+				#has_origin = origin_scion
+				any_agreement = {
+					agreement_preset = preset_scion
+				}
+			}
+			#has_origin = origin_scion
+			any_agreement = {
+				agreement_preset = preset_scion
+			}
+		}
+	}
+	SCION_TO_SCION_GREETING_06 = { # greetings, fellow Scions
+		weight = {
+			weight = 100000
+		}
+		trigger = {
+			any_country = {
+				OR = {
+					is_zofe_fe = yes
+					is_zofe_ae = yes
+				}
+				is_overlord_to = FROM
+				is_overlord_to = ROOT
+			}
+			FROM = {
+				#has_origin = origin_scion
+				any_agreement = {
+					agreement_preset = preset_scion
+				}
+			}
+			#has_origin = origin_scion
+			any_agreement = {
+				agreement_preset = preset_scion
+			}
+		}
+	}
+
+	# Scion to Other Empire
+	SCION_TO_EMPIRE_GREETING_01 = { # they know what's best
+		weight = {
+			weight = 100000
+		}
+		trigger = {
+			any_country = {
+				OR = {
+					is_zofe_fe = yes
+					is_zofe_ae = yes
+				}
+				NOT = { is_overlord_to = FROM }
+				is_overlord_to = ROOT
+			}
+			#has_origin = origin_scion
+			any_agreement = {
+				agreement_preset = preset_scion
+			}
+			NOT = { is_at_war_with = FROM }
+			from = {
+				NOT = {
+					has_subject = root
+				}
+			}
+		}
+	}
+	SCION_TO_EMPIRE_GREETING_02 = { # our masters have a plan
+		weight = {
+			weight = 100000
+		}
+		trigger = {
+			any_country = {
+				OR = {
+					is_zofe_fe = yes
+					is_zofe_ae = yes
+				}
+				NOT = { is_overlord_to = FROM }
+				is_overlord_to = ROOT
+			}
+			#has_origin = origin_scion
+			any_agreement = {
+				agreement_preset = preset_scion
+			}
+			NOT = { is_at_war_with = FROM }
+			from = {
+				NOT = {
+					has_subject = root
+				}
+			}
+		}
+	}
+	SCION_TO_EMPIRE_GREETING_03 = { # great honor to serve
+		weight = {
+			weight = 100000
+		}
+		trigger = {
+			any_country = {
+				OR = {
+					is_zofe_fe = yes
+					is_zofe_ae = yes
+				}
+				NOT = { is_overlord_to = FROM }
+				is_overlord_to = ROOT
+			}
+			#has_origin = origin_scion
+			any_agreement = {
+				agreement_preset = preset_scion
+			}
+			NOT = { is_at_war_with = FROM }
+			from = {
+				NOT = {
+					has_subject = root
+				}
+			}
+		}
+	}
+	SCION_TO_EMPIRE_GREETING_04 = { # perhaps one day you'll join
+		weight = {
+			weight = 100000
+		}
+		trigger = {
+			any_country = {
+				OR = {
+					is_zofe_fe = yes
+					is_zofe_ae = yes
+				}
+				NOT = { is_overlord_to = FROM }
+				is_overlord_to = ROOT
+			}
+			#has_origin = origin_scion
+			any_agreement = {
+				agreement_preset = preset_scion
+			}
+			NOT = { is_at_war_with = FROM }
+			from = {
+				NOT = {
+					has_subject = root
+				}
+			}
+		}
+	}
+	SCION_TO_EMPIRE_GREETING_05 = { # do you not feel lost?
+		weight = {
+			weight = 100000
+		}
+		trigger = {
+			any_country = {
+				OR = {
+					is_zofe_fe = yes
+					is_zofe_ae = yes
+				}
+				NOT = { is_overlord_to = FROM }
+				is_overlord_to = ROOT
+			}
+			#has_origin = origin_scion
+			any_agreement = {
+				agreement_preset = preset_scion
+			}
+			NOT = { is_at_war_with = FROM }
+			from = {
+				NOT = {
+					has_subject = root
+				}
+			}
+		}
+	}
+	SCION_TO_EMPIRE_GREETING_06 = { # perhaps you'll benefit from wisdom
+		weight = {
+			weight = 100000
+		}
+		trigger = {
+			any_country = {
+				OR = {
+					is_zofe_fe = yes
+					is_zofe_ae = yes
+				}
+				NOT = { is_overlord_to = FROM }
+				is_overlord_to = ROOT
+			}
+			#has_origin = origin_scion
+			any_agreement = {
+				agreement_preset = preset_scion
+			}
+			NOT = { is_at_war_with = FROM }
+			from = {
+				NOT = {
+					has_subject = root
+				}
+			}
+		}
+	}
+}

@@ -25,6 +25,8 @@ random_ringworld_system_initializer = {
 		modifiers = none
 		starting_planet = yes
 		
+		flags = { ignore_startup_effect megastructure special_start_planet }
+
 		init_effect = {
 			change_pc = "pc_shattered_ring_habitable"
 			prevent_anomaly = yes

@@ -19,7 +19,7 @@ empire_init_capital_planet = {
 	}
 }
 
-on_game_start = {
+on_game_start_country = {
 	events = {
 		original_people_on_action.2
 	}
@@ -44,8 +44,25 @@ on_entering_system_first_time = {
 	}
 }
 
-on_monthly_pulse = {
+# on_monthly_pulse = {
+# 	events = {
+# 		original_people.8
+# 	}
+# }
+
+# A war is beginning, executed for every country in the war.
+# Root = Country
+# From = War
+on_war_beginning = {
 	events = {
 		original_people.8
 	}
 }
+
+#This = destroyed country
+#From = optional, destroyer (country)
+# on_country_destroyed = {
+# 	events = {
+# 		original_people_on_action.3
+# 	}
+# }

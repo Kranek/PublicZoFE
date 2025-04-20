@@ -14,20 +14,26 @@ event = {
 	immediate = {
 		if = {
 			limit = {
-				NOT = { any_country = { has_origin = origin_original_people } }
+				# NOT = { any_country = { has_origin = origin_original_people } }
+				NOT = {
+					exists = event_target:original_people
+				}
 			}
 			set_global_flag = original_empire_crisis_1
 		}
 		if = {
 			limit = {
-				any_country = { has_origin = origin_original_people }
+				exists = event_target:original_people
+				# any_country = { has_origin = origin_original_people }
 			}
 			set_global_flag = original_empire_crisis_2
-			random_country = {
-				limit = { has_origin = origin_original_people }
-				save_global_event_target_as = original_people_origin
+			event_target:original_people = {
 				owner_species = { save_global_event_target_as = original_species }
 			}
+			# random_country = {
+			# 	limit = { has_origin = origin_original_people }
+			# 	owner_species = { save_global_event_target_as = original_species }
+			# }
 		}
 	}
 }
@@ -364,7 +370,7 @@ event = {
 						plural = "NAME_ORIGINALS"
 						class = ORIGINAL
 						namelist = ORIGINAL_01
-						portrait = original		
+						portrait = original
 							traits = {
 							trait = trait_original
 							trait = trait_never_weary
@@ -465,7 +471,7 @@ event = {
 							if = {
 								limit = { has_global_flag = original_empire_nightmare_difficulty }
 								add_modifier = {
-									modifier = original_technology_mastery
+									modifier = original_technology_insights_8
 									days = -1
 								}	
 							}
@@ -573,7 +579,7 @@ event = {
 							create_fleet = {
 								name = NAME_DIVINE_RETRIBUTION
 								settings = { 
-#									spawn_debris = yes
+									#spawn_debris = yes
 									is_boss = yes
 								}
 								effect = {
@@ -697,8 +703,8 @@ event = {
 						}
 						species = event_target:original_species
 						type = original_empire
-						name_list = event_target:original_people_origin
-						flag = event_target:original_people_origin
+						name_list = event_target:original_people
+						flag = event_target:original_people
 						effect = {
 							save_global_event_target_as = original_empire
 							set_country_flag = original_empire
@@ -756,7 +762,7 @@ event = {
 							if = {
 								limit = { has_global_flag = original_empire_nightmare_difficulty }
 								add_modifier = {
-									modifier = original_technology_mastery
+									modifier = original_technology_insights_8
 									days = -1
 								}	
 							}

@@ -258,7 +258,7 @@ original_technology_insights_7 = {
 	weapon_original_tech_weapon_fire_rate_mult = 0.80
 }
 
-original_technology_mastery = {
+original_technology_insights_8 = {
 	weapon_original_tech_weapon_damage_mult = 1.0
 	weapon_original_tech_weapon_fire_rate_mult = 1.0
 }

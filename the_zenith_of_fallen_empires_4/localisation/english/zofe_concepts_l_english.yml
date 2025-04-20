@@ -2,7 +2,7 @@
  
  concept_ascended_empire:0 "Ascended Empire"
  concept_ascended_empires:0 "Ascended Empires"
- concept_ascended_empire_desc:0 "Ascended Empires will create their own subjects like ['concept_awakened_empires'] and impose their vision upon the galaxy."
+ concept_ascended_empire_desc:0 "Ascended Empires are powerful civilizations that have achieved the zenith of existence. Like ['concept_awakened_empires'], they are keen on imposing their vision upon the galaxy and will create their own subjects."
 
  concept_default_country:0 "Default Empire"
  concept_default_country_desc:0 "A Default Empire is what the player spawns in when the game starts."

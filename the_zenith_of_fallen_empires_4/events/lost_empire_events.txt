@@ -15,9 +15,8 @@ country_event = {
 		zofe_sandbox = yes
 		is_country_type = ascended_empire
 		ascended_empire_decadence = yes
-		NOT = { has_country_flag = ascended_empire_no_decadence }
 		NOT = { has_country_flag = decadence_ongoing }
-		NOT = { has_country_flag = recent_decadence_situation }
+		NOT = { has_country_flag = ascended_empire_no_decadence }
 	}
 	
 	immediate = {
@@ -53,22 +52,22 @@ country_event = {
 					target = root
 				}
 			}
-			else_if = {
-				limit = {
-					check_variable = {
-						which = var_decadent_pops_percent
-						value < 0.15
-					}
-				}
-				clear_variable = var_decadent_pops_percent
-			}
+			# else_if = {
+			# 	limit = {
+			# 		check_variable = {
+			# 			which = var_decadent_pops_percent
+			# 			value < 0.01
+			# 		}
+			# 	}
+			# 	clear_variable = var_decadent_pops_percent
+			# }
 		}
 		else_if = {
 			limit = {
 				NOT = { has_country_flag = decadence_ascendancy_action_gained }
 				check_variable = {
 					which = var_decadent_pops_percent
-					value >= 0.10
+					value >= 0.1
 				}
 			}
 			if = {
@@ -103,31 +102,29 @@ country_event = {
 	trigger = {
 		zofe_sandbox = yes
 		is_country_type = ascended_empire
-		ascended_empire_min_navy = yes
-		OR = {
-			AND = {
+		# ascended_empire_min_navy = yes
+		switch = {
+			trigger = has_global_flag
+			ascended_empire_min_navy_enabled_1 = {
 				fleet_power < 125000
-				has_global_flag = ascended_empire_min_navy_enabled_1 
 			}
-			AND = {
+			ascended_empire_min_navy_enabled_2 = {
 				fleet_power < 250000
-				has_global_flag = ascended_empire_min_navy_enabled_2
 			}
-			AND = {
+			ascended_empire_min_navy_enabled_3 = {
 				fleet_power < 500000
-				has_global_flag = ascended_empire_min_navy_enabled_3
 			}
-			AND = {
+			ascended_empire_min_navy_enabled_4 = {
 				fleet_power < 750000
-				has_global_flag = ascended_empire_min_navy_enabled_4
 			}
-			AND = {
+			ascended_empire_min_navy_enabled_5 = {
 				fleet_power < 1000000
-				has_global_flag = ascended_empire_min_navy_enabled_5
 			}
-			AND = {
+			ascended_empire_min_navy_enabled_6 = {
 				fleet_power < 2000000
-				has_global_flag = ascended_empire_min_navy_enabled_6
+			}
+			default = {
+				always = no
 			}
 		}
 		NOT = { has_country_flag = descension_ongoing }
@@ -748,7 +745,6 @@ country_event = {
 		custom_tooltip = "all_seeing_machine"
 		add_resource = { unity = 200000 }
 		force_add_civic = civic_all_seeing_machine
-		remove_country_flag = rogue_servitor
 		set_country_flag = ascended_machine
 		if = {
 			limit = { zofe_sandbox = yes }
@@ -908,13 +904,6 @@ country_event = {
 	#We should abandon our ways
 	option = {
 		name = lost_empire.32.f
-		hidden_effect = {
-			remove_country_flag = fanatic_purifiers
-			remove_country_flag = machine_terminator
-			remove_country_flag = rogue_servitor
-			remove_country_flag = machine_assimilator
-			remove_country_flag = hive_devouring_swarm
-		}
 	}
 
 	after = {
@@ -1036,35 +1025,10 @@ country_event = {
 				set_subject_of = {
 					who = none
 				}
-				if = {
-					limit = { is_gestalt = no }
-					change_government = {
-						civics = {
-							civic = civic_lost_empire_lethargic_leadership
-							civic = civic_lost_empire_empire_in_decline
-						}
-					}
-				}
-				if = {
-					limit = { has_valid_civic = civic_machine_servitor }
-					set_country_flag = rogue_servitor
-				}
-				if = {
-					limit = { is_machine_empire = yes }
-					change_government = {
-						civics = {
-							civic = civic_lost_empire_machine_remnants
-							civic = civic_lost_empire_custodian_directives
-						}
-					}
-				}
-				if = {
-					limit = { is_hive_empire = yes }
-					change_government = {
-						civics = {
-							civic = civic_lost_empire_hive_remnants
-							civic = civic_lost_empire_hive_sickness
-						}
+				change_government = {
+					civics = {
+						civic = civic_lost_empire_lethargic_leadership
+						civic = civic_lost_empire_empire_in_decline
 					}
 				}
 			}
@@ -1245,156 +1209,51 @@ country_event = {
 	}
 }
 
-#Ascended Empire gains Hedonist pops
+#Ascended Empire gains Hedonist pops monthly pulse
 country_event = {
 	id = lost_empire.18
 	hide_window = yes
 	
 	trigger = {
 		zofe_sandbox = yes
-		is_country_type = ascended_empire
 		ascended_empire_decadence = yes
-		
-		has_technology = tech_fallen_technologies_1
-		has_technology = tech_fallen_technologies_2
+		is_country_type = ascended_empire
 		NOT = { has_country_flag = ascended_empire_no_decadence }
 		NOT = { has_country_flag = recent_hedonist }
 	}
-	
-	mean_time_to_happen = { days = 1 }
-	
-	immediate = {
-		if = {
-			limit = { is_gestalt = no }
-			if = {
-				limit = { has_modifier = promoted_hedonist }
-				set_timed_country_flag = { flag = recent_hedonist days = 30 }
-			}
-			if = {
-				limit = { has_modifier = suppressed_hedonist }
-				set_timed_country_flag = { flag = recent_hedonist days = 90 }
-			}
-			if = {
-				limit = {
-					NOR = {
-						has_modifier = promoted_hedonist
-						has_modifier = suppressed_hedonist
-					}
-				}
-				set_timed_country_flag = { flag = recent_hedonist days = 60 }
-			}
-			random_list = {
-				50 = { 				
-					random_owned_planet = {
-						limit = {
-							any_owned_pop = {
-								is_sapient = yes
-								has_citizenship_rights = yes
-								is_pop_category = worker
-								is_enslaved = no
-								is_being_purged = no
-								is_robot_pop = no
-								is_being_assimilated = no
-								NOT = { has_pop_flag = decadent_pop }
-								NOT = { has_job = ae_hedonist }
-							}
-						}
-						random_owned_pop = {
-							limit = {
-								is_sapient = yes
-								has_citizenship_rights = yes
-								is_pop_category = worker
-								is_enslaved = no
-								is_being_purged = no
-								is_robot_pop = no
-								is_being_assimilated = no
-								NOT = { has_pop_flag = decadent_pop }
-								NOT = { has_job = ae_hedonist }
-							}
-							set_pop_flag = decadent_pop
-						}
-					}
-				}
-				50 = { 
-					random_owned_planet = {
-						limit = {
-							any_owned_pop = {
-								is_sapient = yes
-								has_citizenship_rights = yes
-								is_unemployed = yes
-								is_enslaved = no
-								is_being_purged = no
-								is_robot_pop = no
-								is_being_assimilated = no
-								NOT = { has_pop_flag = decadent_pop }
-								NOT = { has_job = ae_hedonist }
-							}
-						}
-						random_owned_pop = {
-							limit = {
-								is_sapient = yes
-								has_citizenship_rights = yes
-								is_unemployed = yes
-								is_enslaved = no
-								is_being_purged = no
-								is_robot_pop = no
-								is_being_assimilated = no
-								NOT = { has_pop_flag = decadent_pop }
-								NOT = { has_job = ae_hedonist }
-							}
-							set_pop_flag = decadent_pop
-						}
-					}
-				}
-			}
-		}
-		if = {
-			limit = { is_machine_empire = yes }
-			set_timed_country_flag = { flag = recent_hedonist days = 60 }
-			random_owned_pop = {
-				limit = {
-					is_pop_category = simple_drone
-					NOT = { has_pop_flag = decadent_pop }
-					NOT = { has_job = ae_maintenance_bot }
-				}
-				set_pop_flag = decadent_pop
-			}
-		}
-		if = {
-			limit = { is_hive_empire = yes }
-			set_timed_country_flag = { flag = recent_hedonist days = 60 }
-			random_owned_pop = {
-				limit = {
-					is_pop_category = simple_drone
-					NOT = { has_pop_flag = decadent_pop }
-					NOT = { has_job = ae_confused_drone }
-				}
-				set_pop_flag = decadent_pop
-			}
-		}
-	}
-}
 
-#Checks decadent pops if the situation is active for accurate numbers
-situation_event = {
-	id = lost_empire.100
 	is_triggered_only = yes
-	hide_window = yes
-
+	
 	immediate = {
-		owner = {
-			export_trigger_value_to_variable = {
-				trigger = pop_percentage
-				parameters = {
-					limit = {
-						OR = {
-							has_job = ae_hedonist
-							has_job = ae_maintenance_bot
-							has_job = ae_confused_drone
+		random_list = {
+			50 = {
+
+			}
+			50 = {
+				random_list = {
+					20 = {
+						add_decadent_pop = yes
+					}
+					10 = {
+						while = {
+							count = 2
+							add_decadent_pop = yes
+						}
+					}
+					5 = {
+						while = {
+							count = 3
+							add_decadent_pop = yes
+						}
+					}
+					1 = {
+						while = {
+							count = 4
+							add_decadent_pop = yes
+							
 						}
 					}
 				}
-				variable = var_decadent_pops_percent
 			}
 		}
 	}
@@ -1579,18 +1438,54 @@ country_event = {
 	is_triggered_only = yes
 
 	desc = {
-		text = lost_empire.1000.desc.decadence
 		trigger = {
-			from = {
-				has_situation_flag = decadence_situation
-			}
-		}
-	}
-	desc = {
-		text = lost_empire.1000.desc.descension
-		trigger = {
-			from = {
-				has_situation_flag = descension_situation
+			switch = {
+				trigger = has_authority
+				auth_hive_mind = {
+					switch = {
+						trigger = has_situation_flag
+						decadence_situation = {
+							from = {
+								text = lost_empire.1200.desc.decadence
+							}
+						}
+						descension_situation = {
+							from = {
+								text = lost_empire.1200.desc.descension
+							}
+						}
+					}
+				}
+				auth_machine_intelligence = {
+					switch = {
+						trigger = has_situation_flag
+						decadence_situation = {
+							from = {
+								text = lost_empire.1100.desc.decadence
+							}
+						}
+						descension_situation = {
+							from = {
+								text = lost_empire.1100.desc.descension
+							}
+						}
+					}
+				}
+				default = {
+					switch = {
+						trigger = has_situation_flag
+						decadence_situation = {
+							from = {
+								text = lost_empire.1000.desc.decadence
+							}
+						}
+						descension_situation = {
+							from = {
+								text = lost_empire.1000.desc.descension
+							}
+						}
+					}
+				}
 			}
 		}
 	}
@@ -1621,56 +1516,6 @@ country_event = {
 	
 	option = {
 		name = lost_empire.1000.a
-		if = {
-			limit = {
-				OR = {
-					is_country_type = awakened_fallen_empire
-					is_country_type = fallen_empire
-				}
-				has_ethic = ethic_fanatic_spiritualist
-			}
-			set_graphical_culture = fallen_spiritualist
-		}
-		if = {
-			limit = {
-				OR = {
-					is_country_type = awakened_fallen_empire
-					is_country_type = fallen_empire
-				}
-				has_ethic = ethic_fanatic_materialist
-			}
-			set_graphical_culture = fallen_materialist
-		}
-		if = {
-			limit = {
-				OR = {
-					is_country_type = awakened_fallen_empire
-					is_country_type = fallen_empire
-				}
-				has_ethic = ethic_fanatic_xenophile
-			}
-			set_graphical_culture = fallen_xenophile
-		}
-		if = {
-			limit = {
-				OR = {
-					is_country_type = awakened_fallen_empire
-					is_country_type = fallen_empire
-				}
-				has_ethic = ethic_fanatic_xenophobe
-			}
-			set_graphical_culture = fallen_xenophobe
-		}
-		if = {
-			limit = {
-				OR = {
-					is_country_type = awakened_fallen_empire
-					is_country_type = fallen_empire
-				}
-				is_machine_empire = yes
-			}
-			set_graphical_culture = fallen_machine
-		}
 
 		if = {
 			limit = {
@@ -1691,186 +1536,280 @@ country_event = {
 			}
 		}
 		hidden_effect = {
-			change_government = {
-				civics = {
-					civic = civic_lost_empire_lethargic_leadership
-					civic = civic_lost_empire_empire_in_decline
-				}
-			}
-			if = {
-				limit = {
-					has_ethic = ethic_fanatic_spiritualist
-				}
-				every_owned_pop = { pop_change_ethic = "ethic_spiritualist" }
-			}
-			if = {
-				limit = {
-					has_ethic = ethic_fanatic_materialist
-				}
-				every_owned_pop = { pop_change_ethic = "ethic_materialist" }
-			}
-			if = {
-				limit = {
-					has_ethic = ethic_fanatic_xenophile
-				}
-				every_owned_pop = { pop_change_ethic = "ethic_xenophile" }
-			}
-			if = {
-				limit = {
-					has_ethic = ethic_fanatic_xenophobe
-				}
-				every_owned_pop = { pop_change_ethic = "ethic_xenophobe" }
-			}
-			if = {
-				limit = {
-					has_ethic = ethic_fanatic_militarist
-				}
-				every_owned_pop = { pop_change_ethic = "ethic_militarist" }
-			}
-			if = {
-				limit = {
-					has_ethic = ethic_fanatic_pacifist
-				}
-				every_owned_pop = { pop_change_ethic = "ethic_pacifist" }
-			}
-			if = {
-				limit = {
-					has_ethic = ethic_fanatic_authoritarian
-				}
-				every_owned_pop = { pop_change_ethic = "ethic_authoritarian" }
-			}
-			if = {
-				limit = {
-					has_ethic = ethic_fanatic_egalitarian
-				}
-				every_owned_pop = { pop_change_ethic = "ethic_egalitarian" }
-			}
-			if = {
-				limit = {
-					is_fanatic = yes
-					is_gestalt = no
-				}
-				every_owned_pop = { pop_change_ethic = "ethic_xenophobe" }
-			}
-			if = {
-				limit = {
-					has_ethic = "ethic_spiritualist"
-					OR = {
-						has_ethic = ethic_fanatic_materialist
-						has_ethic = ethic_fanatic_xenophile
-						has_ethic = ethic_fanatic_xenophobe
-						has_ethic = ethic_fanatic_militarist
-						has_ethic = ethic_fanatic_pacifist
-						has_ethic = ethic_fanatic_authoritarian
-						has_ethic = ethic_fanatic_egalitarian
+			switch = {
+				trigger = has_ethic
+				ethic_fanatic_spiritualist = {
+					if = {
+						limit = {
+							OR = {
+								is_country_type = awakened_fallen_empire
+								is_country_type = fallen_empire
+							}
+						}
+						set_graphical_culture = fallen_spiritualist
+					}
+					else = {
+						switch = {
+							trigger = has_ethic
+							ethic_materialist = { country_remove_ethic = ethic_materialist }
+							ethic_authoritarian = { country_remove_ethic = ethic_authoritarian }
+							ethic_egalitarian = { country_remove_ethic = ethic_egalitarian }
+							ethic_militarist = { country_remove_ethic = ethic_militarist }
+							ethic_pacifist = { country_remove_ethic = ethic_pacifist }
+							ethic_xenophile = { country_remove_ethic = ethic_xenophile }
+							ethic_xenophobe = { country_remove_ethic = ethic_xenophobe }
+						}
+						every_owned_pop = { pop_change_ethic = "ethic_spiritualist" }
+						change_government = {
+							civics = {
+								civic = civic_lost_empire_lethargic_leadership
+								civic = civic_lost_empire_empire_in_decline
+							}
+							remove_invalid_civics = yes
+						}
 					}
 				}
-				country_remove_ethic = "ethic_spiritualist"
-			}
-			if = {
-				limit = { 
-					has_ethic = "ethic_materialist"
-					OR = {
-						has_ethic = ethic_fanatic_spiritualist
-						has_ethic = ethic_fanatic_xenophile
-						has_ethic = ethic_fanatic_xenophobe
-						has_ethic = ethic_fanatic_militarist
-						has_ethic = ethic_fanatic_pacifist
-						has_ethic = ethic_fanatic_authoritarian
-						has_ethic = ethic_fanatic_egalitarian
+				ethic_fanatic_materialist = {
+					if = {
+						limit = {
+							OR = {
+								is_country_type = awakened_fallen_empire
+								is_country_type = fallen_empire
+							}
+						}
+						set_graphical_culture = fallen_materialist
+					}
+					else = {
+						switch = {
+							trigger = has_ethic
+							ethic_spiritualist = { country_remove_ethic = ethic_spiritualist }
+							ethic_authoritarian = { country_remove_ethic = ethic_authoritarian }
+							ethic_egalitarian = { country_remove_ethic = ethic_egalitarian }
+							ethic_militarist = { country_remove_ethic = ethic_militarist }
+							ethic_pacifist = { country_remove_ethic = ethic_pacifist }
+							ethic_xenophile = { country_remove_ethic = ethic_xenophile }
+							ethic_xenophobe = { country_remove_ethic = ethic_xenophobe }
+						}
+						every_owned_pop = { pop_change_ethic = "ethic_materialist" }
+						change_government = {
+							civics = {
+								civic = civic_lost_empire_lethargic_leadership
+								civic = civic_lost_empire_empire_in_decline
+							}
+							remove_invalid_civics = yes
+						}
 					}
 				}
-				country_remove_ethic = "ethic_materialist"
-			}
-			if = {
-				limit = { 
-					has_ethic = "ethic_xenophile"
-					OR = {
-						has_ethic = ethic_fanatic_spiritualist
-						has_ethic = ethic_fanatic_materialist
-						has_ethic = ethic_fanatic_xenophobe
-						has_ethic = ethic_fanatic_militarist
-						has_ethic = ethic_fanatic_pacifist
-						has_ethic = ethic_fanatic_authoritarian
-						has_ethic = ethic_fanatic_egalitarian
+				ethic_fanatic_xenophile = {
+					if = {
+						limit = {
+							OR = {
+								is_country_type = awakened_fallen_empire
+								is_country_type = fallen_empire
+							}
+						}
+						set_graphical_culture = fallen_xenophile
+					}
+					else = {
+						switch = {
+							trigger = has_ethic
+							ethic_spiritualist = { country_remove_ethic = ethic_spiritualist }
+							ethic_materialist = { country_remove_ethic = ethic_materialist }
+							ethic_authoritarian = { country_remove_ethic = ethic_authoritarian }
+							ethic_egalitarian = { country_remove_ethic = ethic_egalitarian }
+							ethic_militarist = { country_remove_ethic = ethic_militarist }
+							ethic_pacifist = { country_remove_ethic = ethic_pacifist }
+							ethic_xenophobe = { country_remove_ethic = ethic_xenophobe }
+						}
+						every_owned_pop = { pop_change_ethic = "ethic_xenophile" }
+						change_government = {
+							civics = {
+								civic = civic_lost_empire_lethargic_leadership
+								civic = civic_lost_empire_empire_in_decline
+							}
+							remove_invalid_civics = yes
+						}
 					}
 				}
-				country_remove_ethic = "ethic_xenophile"
-			}
-			if = {
-				limit = { 
-					has_ethic = "ethic_xenophobe"
-					OR = {
-						has_ethic = ethic_fanatic_spiritualist
-						has_ethic = ethic_fanatic_materialist
-						has_ethic = ethic_fanatic_xenophile
-						has_ethic = ethic_fanatic_militarist
-						has_ethic = ethic_fanatic_pacifist
-						has_ethic = ethic_fanatic_authoritarian
-						has_ethic = ethic_fanatic_egalitarian
+				ethic_fanatic_xenophobe = {
+					if = {
+						limit = {
+							OR = {
+								is_country_type = awakened_fallen_empire
+								is_country_type = fallen_empire
+							}
+						}
+						set_graphical_culture = fallen_xenophobe
+					}
+					else = {
+						switch = {
+							trigger = has_ethic
+							ethic_spiritualist = { country_remove_ethic = ethic_spiritualist }
+							ethic_materialist = { country_remove_ethic = ethic_materialist }
+							ethic_authoritarian = { country_remove_ethic = ethic_authoritarian }
+							ethic_egalitarian = { country_remove_ethic = ethic_egalitarian }
+							ethic_militarist = { country_remove_ethic = ethic_militarist }
+							ethic_pacifist = { country_remove_ethic = ethic_pacifist }
+							ethic_xenophile = { country_remove_ethic = ethic_xenophile }
+						}
+						every_owned_pop = { pop_change_ethic = "ethic_xenophobe" }
+						change_government = {
+							civics = {
+								civic = civic_lost_empire_lethargic_leadership
+								civic = civic_lost_empire_empire_in_decline
+							}
+							remove_invalid_civics = yes
+						}
 					}
 				}
-				country_remove_ethic = "ethic_xenophobe"
-			}
-			if = {
-				limit = { 
-					has_ethic = "ethic_militarist"
-					OR = {
-						has_ethic = ethic_fanatic_spiritualist
-						has_ethic = ethic_fanatic_materialist
-						has_ethic = ethic_fanatic_xenophile
-						has_ethic = ethic_fanatic_xenophobe
-						has_ethic = ethic_fanatic_pacifist
-						has_ethic = ethic_fanatic_authoritarian
-						has_ethic = ethic_fanatic_egalitarian
+				ethic_gestalt_consciousness = {
+					if = {
+						limit = {
+							OR = {
+								is_country_type = awakened_fallen_empire
+								is_country_type = fallen_empire
+							}
+							is_machine_empire = yes
+						}
+						set_graphical_culture = fallen_machine
+					}
+					else = {
+						switch = {
+							trigger = has_authority
+							auth_hive_mind = {
+								if = {
+									limit = {
+										has_civic = civic_hive_devouring_swarm
+									}
+									set_country_flag = hive_devouring_swarm 
+								}
+								change_government = {
+									civics = {
+										civic = civic_lost_empire_hive_remnants
+										civic = civic_lost_empire_hive_sickness
+									}
+									remove_invalid_civics = yes
+								}
+							}
+							auth_machine_intelligence = {
+								switch = {
+									trigger = has_civic
+									civic_machine_servitor = { set_country_flag = rogue_servitor }
+									civic_machine_terminator = { set_country_flag = machine_terminator }
+									civic_machine_assimilator = { set_country_flag = machine_assimilator }
+								}
+								change_government = {
+									civics = {
+										civic = civic_lost_empire_machine_remnants
+										civic = civic_lost_empire_custodian_directives
+									}
+									remove_invalid_civics = yes
+								}
+							}
+						}
 					}
 				}
-				country_remove_ethic = "ethic_militarist"
-			}
-			if = {
-				limit = { 
-					has_ethic = "ethic_pacifist"
-					OR = {
-						has_ethic = ethic_fanatic_spiritualist
-						has_ethic = ethic_fanatic_materialist
-						has_ethic = ethic_fanatic_xenophile
-						has_ethic = ethic_fanatic_xenophobe
-						has_ethic = ethic_fanatic_militarist
-						has_ethic = ethic_fanatic_authoritarian
-						has_ethic = ethic_fanatic_egalitarian
+				ethic_fanatic_militarist = {
+					switch = {
+						trigger = has_ethic
+						ethic_spiritualist = { country_remove_ethic = ethic_spiritualist }
+						ethic_materialist = { country_remove_ethic = ethic_materialist }
+						ethic_authoritarian = { country_remove_ethic = ethic_authoritarian }
+						ethic_egalitarian = { country_remove_ethic = ethic_egalitarian }
+						ethic_pacifist = { country_remove_ethic = ethic_pacifist }
+						ethic_xenophile = { country_remove_ethic = ethic_xenophile }
+						ethic_xenophobe = { country_remove_ethic = ethic_xenophobe }
+					}
+					every_owned_pop = { pop_change_ethic = "ethic_militarist" }
+					change_government = {
+						civics = {
+							civic = civic_lost_empire_lethargic_leadership
+							civic = civic_lost_empire_empire_in_decline
+						}
+						remove_invalid_civics = yes
 					}
 				}
-				country_remove_ethic = "ethic_pacifist"
-			}
-			if = {
-				limit = { 
-					has_ethic = "ethic_authoritarian"
-					OR = {
-						has_ethic = ethic_fanatic_spiritualist
-						has_ethic = ethic_fanatic_materialist
-						has_ethic = ethic_fanatic_xenophile
-						has_ethic = ethic_fanatic_xenophobe
-						has_ethic = ethic_fanatic_militarist
-						has_ethic = ethic_fanatic_pacifist
-						has_ethic = ethic_fanatic_egalitarian
+				ethic_fanatic_pacifist = {
+					switch = {
+						trigger = has_ethic
+						ethic_spiritualist = { country_remove_ethic = ethic_spiritualist }
+						ethic_materialist = { country_remove_ethic = ethic_materialist }
+						ethic_authoritarian = { country_remove_ethic = ethic_authoritarian }
+						ethic_egalitarian = { country_remove_ethic = ethic_egalitarian }
+						ethic_militarist = { country_remove_ethic = ethic_militarist }
+						ethic_xenophile = { country_remove_ethic = ethic_xenophile }
+						ethic_xenophobe = { country_remove_ethic = ethic_xenophobe }
+					}
+					every_owned_pop = { pop_change_ethic = "ethic_pacifist" }
+					change_government = {
+						civics = {
+							civic = civic_lost_empire_lethargic_leadership
+							civic = civic_lost_empire_empire_in_decline
+						}
+						remove_invalid_civics = yes
 					}
 				}
-				country_remove_ethic = "ethic_authoritarian"
-			}
-			if = {
-				limit = { 
-					has_ethic = "ethic_egalitarian"
-					OR = {
-						has_ethic = ethic_fanatic_spiritualist
-						has_ethic = ethic_fanatic_materialist
-						has_ethic = ethic_fanatic_xenophile
-						has_ethic = ethic_fanatic_xenophobe
-						has_ethic = ethic_fanatic_militarist
-						has_ethic = ethic_fanatic_pacifist
-						has_ethic = ethic_fanatic_authoritarian
+				ethic_fanatic_authoritarian = {
+					switch = {
+						trigger = has_ethic
+						ethic_spiritualist = { country_remove_ethic = ethic_spiritualist }
+						ethic_materialist = { country_remove_ethic = ethic_materialist }
+						ethic_egalitarian = { country_remove_ethic = ethic_egalitarian }
+						ethic_militarist = { country_remove_ethic = ethic_militarist }
+						ethic_pacifist = { country_remove_ethic = ethic_pacifist }
+						ethic_xenophile = { country_remove_ethic = ethic_xenophile }
+						ethic_xenophobe = { country_remove_ethic = ethic_xenophobe }
+					}
+					every_owned_pop = { pop_change_ethic = "ethic_authoritarian" }
+					change_government = {
+						civics = {
+							civic = civic_lost_empire_lethargic_leadership
+							civic = civic_lost_empire_empire_in_decline
+						}
+						remove_invalid_civics = yes
 					}
 				}
-				country_remove_ethic = "ethic_egalitarian"
+				ethic_fanatic_egalitarian = {
+					switch = {
+						trigger = has_ethic
+						ethic_spiritualist = { country_remove_ethic = ethic_spiritualist }
+						ethic_materialist = { country_remove_ethic = ethic_materialist }
+						ethic_authoritarian = { country_remove_ethic = ethic_authoritarian }
+						ethic_militarist = { country_remove_ethic = ethic_militarist }
+						ethic_pacifist = { country_remove_ethic = ethic_pacifist }
+						ethic_xenophile = { country_remove_ethic = ethic_xenophile }
+						ethic_xenophobe = { country_remove_ethic = ethic_xenophobe }
+					}
+					every_owned_pop = { pop_change_ethic = "ethic_egalitarian" }
+					change_government = {
+						civics = {
+							civic = civic_lost_empire_lethargic_leadership
+							civic = civic_lost_empire_empire_in_decline
+						}
+						remove_invalid_civics = yes
+					}
+				}
+				default = {
+					shift_ethic = ethic_fanatic_xenophobe
+					switch = {
+						trigger = has_ethic
+						ethic_spiritualist = { country_remove_ethic = ethic_spiritualist }
+						ethic_materialist = { country_remove_ethic = ethic_materialist }
+						ethic_authoritarian = { country_remove_ethic = ethic_authoritarian }
+						ethic_egalitarian = { country_remove_ethic = ethic_egalitarian }
+						ethic_militarist = { country_remove_ethic = ethic_militarist }
+						ethic_pacifist = { country_remove_ethic = ethic_pacifist }
+						ethic_xenophile = { country_remove_ethic = ethic_xenophile }
+					}
+					every_owned_pop = { pop_change_ethic = "ethic_xenophobe" }
+					change_government = {
+						civics = {
+							civic = civic_lost_empire_lethargic_leadership
+							civic = civic_lost_empire_empire_in_decline
+						}
+						remove_invalid_civics = yes
+					}
+				}
 			}
 			if = {
 				limit = { zofe_sandbox = yes }
@@ -1915,280 +1854,6 @@ country_event = {
 	}
 }
 
-
-#New Fallen Machine Empire - via Situation
-country_event = {
-	id = lost_empire.1100
-	title = lost_empire.1100.name
-
-	picture = GFX_evt_robot_encounter
-	show_sound = event_planetary_riot
-	location = root
-	
-	is_triggered_only = yes
-
-	desc = {
-		text = lost_empire.1100.desc.decadence
-		trigger = {
-			from = {
-				has_situation_flag = decadence_situation
-			}
-		}
-	}
-	desc = {
-		text = lost_empire.1100.desc.descension
-		trigger = {
-			from = {
-				has_situation_flag = descension_situation
-			}
-		}
-	}
-	
-	immediate = {
-		if = {
-			limit = { zofe_sandbox = yes }
-			check_default_country_energy = yes
-			check_default_country_minerals = yes
-			check_default_country_food = yes
-			check_default_country_consumer_goods = yes
-			check_default_country_alloys = yes
-			check_default_country_unity = yes
-			check_default_country_volatile_motes = yes
-			check_default_country_exotic_gases = yes
-			check_default_country_rare_crystals = yes
-			check_default_country_sr_dark_matter = yes
-			check_default_country_sr_zro = yes
-			check_default_country_sr_living_metal = yes
-			check_default_country_nanites = yes
-			check_default_country_minor_artifacts = yes
-			check_default_country_astral_threads = yes
-			check_default_country_influence = yes
-
-			save_default_country_specimens = yes
-		}
-	}
-	
-	option = {
-		name = lost_empire.1100.a
-		
-		if = {
-			limit = {
-				OR = {
-					is_country_type = awakened_fallen_empire
-					is_country_type = fallen_empire
-				}
-				is_machine_empire = yes
-			}
-			set_graphical_culture = fallen_machine
-		}
-
-		if = {
-			limit = { has_valid_civic = civic_machine_servitor }
-			set_country_flag = rogue_servitor
-		}
-		if = {
-			limit = {
-				has_civic = civic_machine_terminator
-			}
-			set_country_flag = machine_terminator 
-		}
-		if = {
-			limit = {
-				has_civic = civic_machine_assimilator
-			}
-			set_country_flag = machine_assimilator
-		}
-
-
-		set_country_type = lost_empire
-		set_country_flag = lost_empire
-		remove_country_flag = ascended_empire
-
-		every_subject = {
-			set_subject_of = {
-				who = root
-				preset = preset_scion
-			}
-		}
-		hidden_effect = {
-			change_government = {
-				civics = {
-					civic = civic_lost_empire_machine_remnants
-					civic = civic_lost_empire_custodian_directives
-				}
-			}
-			add_ascended_empire_energy = yes
-			add_ascended_empire_minerals = yes
-			add_ascended_empire_food = yes
-			add_ascended_empire_consumer_goods = yes
-			add_ascended_empire_alloys = yes
-			add_ascended_empire_unity = yes
-			add_ascended_empire_volatile_motes = yes
-			add_ascended_empire_exotic_gases = yes
-			add_ascended_empire_rare_crystals = yes
-			add_ascended_empire_sr_dark_matter = yes
-			add_ascended_empire_sr_zro = yes
-			add_ascended_empire_sr_living_metal = yes
-			add_ascended_empire_nanites = yes
-			add_ascended_empire_minor_artifacts = yes
-			add_ascended_empire_astral_threads = yes
-			add_ascended_empire_influence = yes
-
-			add_ascended_empire_specimens = yes
-		}
-		from = {
-			destroy_situation = this
-		}
-		every_country = {					# Notify Players
-			limit = {
-				NOT = { is_same_value = root }
-				is_ai = no			
-			}
-			country_event = { id = lost_empire.200 }
-		}
-	}
-
-	after = {
-		#Starts Lost Empire Situation
-		start_situation = {
-			type = situation_zofe_lost_empire
-			target = root
-		}
-	}
-}
-
-
-#New Fallen Hive Empire - via Situation
-country_event = {
-	id = lost_empire.1200
-	title = lost_empire.1200.name
-
-	picture = GFX_evt_disease_outbreak
-	show_sound = event_planetary_riot
-	location = root
-	
-	is_triggered_only = yes
-
-	desc = {
-		text = lost_empire.1200.desc.decadence
-		trigger = {
-			from = {
-				has_situation_flag = decadence_situation
-			}
-		}
-	}
-	desc = {
-		text = lost_empire.1200.desc.descension
-		trigger = {
-			from = {
-				has_situation_flag = descension_situation
-			}
-		}
-	}
-	
-	immediate = {
-		if = {
-			limit = { zofe_sandbox = yes }
-			check_default_country_energy = yes
-			check_default_country_minerals = yes
-			check_default_country_food = yes
-			check_default_country_consumer_goods = yes
-			check_default_country_alloys = yes
-			check_default_country_unity = yes
-			check_default_country_volatile_motes = yes
-			check_default_country_exotic_gases = yes
-			check_default_country_rare_crystals = yes
-			check_default_country_sr_dark_matter = yes
-			check_default_country_sr_zro = yes
-			check_default_country_sr_living_metal = yes
-			check_default_country_nanites = yes
-			check_default_country_minor_artifacts = yes
-			check_default_country_astral_threads = yes
-			check_default_country_influence = yes
-
-			save_default_country_specimens = yes
-		}
-	}
-	
-	option = {
-		name = lost_empire.1200.a
-		
-		if = {
-			limit = {
-				OR = {
-					is_country_type = awakened_fallen_empire
-					is_country_type = fallen_empire
-				}
-				is_hive_empire = yes
-			}
-			set_graphical_culture = fallen_hive_mind
-		}
-		
-		if = {
-			limit = {
-				has_civic = civic_hive_devouring_swarm
-			}
-			set_country_flag = hive_devouring_swarm 
-		}
-
-		set_country_type = lost_empire
-		set_country_flag = lost_empire
-		remove_country_flag = ascended_empire
-		
-		every_subject = {
-			set_subject_of = {
-				who = root
-				preset = preset_scion
-			}
-		}
-		hidden_effect = {
-			change_government = {
-				civics = {
-					civic = civic_lost_empire_hive_remnants
-					civic = civic_lost_empire_hive_sickness
-				}
-			}
-			add_ascended_empire_energy = yes
-			add_ascended_empire_minerals = yes
-			add_ascended_empire_food = yes
-			add_ascended_empire_consumer_goods = yes
-			add_ascended_empire_alloys = yes
-			add_ascended_empire_unity = yes
-			add_ascended_empire_volatile_motes = yes
-			add_ascended_empire_exotic_gases = yes
-			add_ascended_empire_rare_crystals = yes
-			add_ascended_empire_sr_dark_matter = yes
-			add_ascended_empire_sr_zro = yes
-			add_ascended_empire_sr_living_metal = yes
-			add_ascended_empire_nanites = yes
-			add_ascended_empire_minor_artifacts = yes
-			add_ascended_empire_astral_threads = yes
-			add_ascended_empire_influence = yes
-
-			add_ascended_empire_specimens = yes
-		}
-		from = {
-			destroy_situation = this
-		}
-		every_country = {					# Notify Players
-			limit = {
-				NOT = { is_same_value = root.owner }
-				is_ai = no			
-			}
-			country_event = { id = lost_empire.200 }
-		}
-	}
-
-	after = {
-		#Starts Lost Empire Situation
-		start_situation = {
-			type = situation_zofe_lost_empire
-			target = root
-		}
-	}
-}
-
-
 #New Fallen Empire - via Renounce Ascendancy
 country_event = {
 	id = lost_empire.1001
@@ -2228,84 +1893,6 @@ country_event = {
 		name = lost_empire.1001.a
 		custom_tooltip = fall_of_an_ascendancy
 		hidden_effect = {
-			if = {
-				limit = {
-					OR = {
-						is_country_type = awakened_fallen_empire
-						is_country_type = fallen_empire
-					}
-					has_ethic = ethic_fanatic_spiritualist
-				}
-				set_graphical_culture = fallen_spiritualist
-			}
-			if = {
-				limit = {
-					OR = {
-						is_country_type = awakened_fallen_empire
-						is_country_type = fallen_empire
-					}
-					has_ethic = ethic_fanatic_materialist
-				}
-				set_graphical_culture = fallen_materialist
-			}
-			if = {
-				limit = {
-					OR = {
-						is_country_type = awakened_fallen_empire
-						is_country_type = fallen_empire
-					}
-					has_ethic = ethic_fanatic_xenophile
-				}
-				set_graphical_culture = fallen_xenophile
-			}
-			if = {
-				limit = {
-					OR = {
-						is_country_type = awakened_fallen_empire
-						is_country_type = fallen_empire
-					}
-					has_ethic = ethic_fanatic_xenophobe
-				}
-				set_graphical_culture = fallen_xenophobe
-			}
-			if = {
-				limit = {
-					OR = {
-						is_country_type = awakened_fallen_empire
-						is_country_type = fallen_empire
-					}
-					is_machine_empire = yes
-				}
-				set_graphical_culture = fallen_machine
-			}
-			if = {
-				limit = {
-					has_civic = civic_fanatic_purifiers
-				}
-				set_country_flag = fanatic_purifiers
-			}
-			if = {
-				limit = { has_civic = civic_machine_servitor }
-				set_country_flag = rogue_servitor
-			}
-			if = {
-				limit = {
-					has_civic = civic_machine_terminator
-				}
-				set_country_flag = machine_terminator 
-			}
-			if = {
-				limit = {
-					has_civic = civic_machine_assimilator
-				}
-				set_country_flag = machine_assimilator
-			}
-			if = {
-				limit = {
-					has_civic = civic_hive_devouring_swarm
-				}
-				set_country_flag = hive_devouring_swarm 
-			}
 			set_country_type = lost_empire
 			set_country_flag = lost_empire
 			remove_country_flag = ascended_empire
@@ -2317,195 +1904,279 @@ country_event = {
 				}
 			}
 			hidden_effect = {
-				if = {
-					limit = { is_gestalt = no }
-					change_government = {
-						civics = {
-							civic = civic_lost_empire_lethargic_leadership
-							civic = civic_lost_empire_empire_in_decline
-						}
-						remove_invalid_civics = yes
-					}
-					if = {
-						limit = {
-							is_fanatic = yes
-						}
+				switch = {
+					trigger = has_ethic
+					ethic_fanatic_spiritualist = {
 						if = {
 							limit = {
-								has_ethic = ethic_spiritualist
+								OR = {
+									is_country_type = awakened_fallen_empire
+									is_country_type = fallen_empire
+								}
 							}
-							country_remove_ethic = ethic_spiritualist
+							set_graphical_culture = fallen_spiritualist
 						}
-						else_if = {
-							limit = {
-								has_ethic = ethic_authoritarian
+						else = {
+							switch = {
+								trigger = has_ethic
+								ethic_materialist = { country_remove_ethic = ethic_materialist }
+								ethic_authoritarian = { country_remove_ethic = ethic_authoritarian }
+								ethic_egalitarian = { country_remove_ethic = ethic_egalitarian }
+								ethic_militarist = { country_remove_ethic = ethic_militarist }
+								ethic_pacifist = { country_remove_ethic = ethic_pacifist }
+								ethic_xenophile = { country_remove_ethic = ethic_xenophile }
+								ethic_xenophobe = { country_remove_ethic = ethic_xenophobe }
 							}
-							country_remove_ethic = ethic_authoritarian
-						}
-						else_if = {
-							limit = {
-								has_ethic = ethic_materialist
+							every_owned_pop = { pop_change_ethic = "ethic_spiritualist" }
+							change_government = {
+								civics = {
+									civic = civic_lost_empire_lethargic_leadership
+									civic = civic_lost_empire_empire_in_decline
+								}
+								remove_invalid_civics = yes
 							}
-							country_remove_ethic = ethic_materialist
-						}
-						else_if = {
-							limit = {
-								has_ethic = ethic_militarist
-							}
-							country_remove_ethic = ethic_militarist
-						}
-						else_if = {
-							limit = {
-								has_ethic = ethic_pacifist
-							}
-							country_remove_ethic = ethic_pacifist
-						}
-						else_if = {
-							limit = {
-								has_ethic = ethic_xenophile
-							}
-							country_remove_ethic = ethic_xenophile
-						}
-						else_if = {
-							limit = {
-								has_ethic = ethic_xenophobe
-							}
-							country_remove_ethic = ethic_xenophobe
 						}
 					}
-					else_if = {
-						limit = {
-							is_fanatic = no
+					ethic_fanatic_materialist = {
+						if = {
+							limit = {
+								OR = {
+									is_country_type = awakened_fallen_empire
+									is_country_type = fallen_empire
+								}
+							}
+							set_graphical_culture = fallen_materialist
 						}
+						else = {
+							switch = {
+								trigger = has_ethic
+								ethic_spiritualist = { country_remove_ethic = ethic_spiritualist }
+								ethic_authoritarian = { country_remove_ethic = ethic_authoritarian }
+								ethic_egalitarian = { country_remove_ethic = ethic_egalitarian }
+								ethic_militarist = { country_remove_ethic = ethic_militarist }
+								ethic_pacifist = { country_remove_ethic = ethic_pacifist }
+								ethic_xenophile = { country_remove_ethic = ethic_xenophile }
+								ethic_xenophobe = { country_remove_ethic = ethic_xenophobe }
+							}
+							every_owned_pop = { pop_change_ethic = "ethic_materialist" }
+							change_government = {
+								civics = {
+									civic = civic_lost_empire_lethargic_leadership
+									civic = civic_lost_empire_empire_in_decline
+								}
+								remove_invalid_civics = yes
+							}
+						}
+					}
+					ethic_fanatic_xenophile = {
+						if = {
+							limit = {
+								OR = {
+									is_country_type = awakened_fallen_empire
+									is_country_type = fallen_empire
+								}
+							}
+							set_graphical_culture = fallen_xenophile
+						}
+						else = {
+							switch = {
+								trigger = has_ethic
+								ethic_spiritualist = { country_remove_ethic = ethic_spiritualist }
+								ethic_materialist = { country_remove_ethic = ethic_materialist }
+								ethic_authoritarian = { country_remove_ethic = ethic_authoritarian }
+								ethic_egalitarian = { country_remove_ethic = ethic_egalitarian }
+								ethic_militarist = { country_remove_ethic = ethic_militarist }
+								ethic_pacifist = { country_remove_ethic = ethic_pacifist }
+								ethic_xenophobe = { country_remove_ethic = ethic_xenophobe }
+							}
+							every_owned_pop = { pop_change_ethic = "ethic_xenophile" }
+							change_government = {
+								civics = {
+									civic = civic_lost_empire_lethargic_leadership
+									civic = civic_lost_empire_empire_in_decline
+								}
+								remove_invalid_civics = yes
+							}
+						}
+					}
+					ethic_fanatic_xenophobe = {
+						if = {
+							limit = {
+								OR = {
+									is_country_type = awakened_fallen_empire
+									is_country_type = fallen_empire
+								}
+							}
+							set_graphical_culture = fallen_xenophobe
+						}
+						else = {
+							switch = {
+								trigger = has_ethic
+								ethic_spiritualist = { country_remove_ethic = ethic_spiritualist }
+								ethic_materialist = { country_remove_ethic = ethic_materialist }
+								ethic_authoritarian = { country_remove_ethic = ethic_authoritarian }
+								ethic_egalitarian = { country_remove_ethic = ethic_egalitarian }
+								ethic_militarist = { country_remove_ethic = ethic_militarist }
+								ethic_pacifist = { country_remove_ethic = ethic_pacifist }
+								ethic_xenophile = { country_remove_ethic = ethic_xenophile }
+							}
+							every_owned_pop = { pop_change_ethic = "ethic_xenophobe" }
+							change_government = {
+								civics = {
+									civic = civic_lost_empire_lethargic_leadership
+									civic = civic_lost_empire_empire_in_decline
+								}
+								remove_invalid_civics = yes
+							}
+						}
+					}
+					ethic_gestalt_consciousness = {
+						if = {
+							limit = {
+								OR = {
+									is_country_type = awakened_fallen_empire
+									is_country_type = fallen_empire
+								}
+								is_machine_empire = yes
+							}
+							set_graphical_culture = fallen_machine
+						}
+						else = {
+							switch = {
+								trigger = has_authority
+								auth_hive_mind = {
+									if = {
+										limit = {
+											has_civic = civic_hive_devouring_swarm
+										}
+										set_country_flag = hive_devouring_swarm 
+									}
+									change_government = {
+										civics = {
+											civic = civic_lost_empire_hive_remnants
+											civic = civic_lost_empire_hive_sickness
+										}
+										remove_invalid_civics = yes
+									}
+								}
+								auth_machine_intelligence = {
+									switch = {
+										trigger = has_civic
+										civic_machine_servitor = { set_country_flag = rogue_servitor }
+										civic_machine_terminator = { set_country_flag = machine_terminator }
+										civic_machine_assimilator = { set_country_flag = machine_assimilator }
+									}
+									change_government = {
+										civics = {
+											civic = civic_lost_empire_machine_remnants
+											civic = civic_lost_empire_custodian_directives
+										}
+										remove_invalid_civics = yes
+									}
+								}
+							}
+						}
+					}
+					ethic_fanatic_militarist = {
+						switch = {
+							trigger = has_ethic
+							ethic_spiritualist = { country_remove_ethic = ethic_spiritualist }
+							ethic_materialist = { country_remove_ethic = ethic_materialist }
+							ethic_authoritarian = { country_remove_ethic = ethic_authoritarian }
+							ethic_egalitarian = { country_remove_ethic = ethic_egalitarian }
+							ethic_pacifist = { country_remove_ethic = ethic_pacifist }
+							ethic_xenophile = { country_remove_ethic = ethic_xenophile }
+							ethic_xenophobe = { country_remove_ethic = ethic_xenophobe }
+						}
+						every_owned_pop = { pop_change_ethic = "ethic_militarist" }
+						change_government = {
+							civics = {
+								civic = civic_lost_empire_lethargic_leadership
+								civic = civic_lost_empire_empire_in_decline
+							}
+							remove_invalid_civics = yes
+						}
+					}
+					ethic_fanatic_pacifist = {
+						switch = {
+							trigger = has_ethic
+							ethic_spiritualist = { country_remove_ethic = ethic_spiritualist }
+							ethic_materialist = { country_remove_ethic = ethic_materialist }
+							ethic_authoritarian = { country_remove_ethic = ethic_authoritarian }
+							ethic_egalitarian = { country_remove_ethic = ethic_egalitarian }
+							ethic_militarist = { country_remove_ethic = ethic_militarist }
+							ethic_xenophile = { country_remove_ethic = ethic_xenophile }
+							ethic_xenophobe = { country_remove_ethic = ethic_xenophobe }
+						}
+						every_owned_pop = { pop_change_ethic = "ethic_pacifist" }
+						change_government = {
+							civics = {
+								civic = civic_lost_empire_lethargic_leadership
+								civic = civic_lost_empire_empire_in_decline
+							}
+							remove_invalid_civics = yes
+						}
+					}
+					ethic_fanatic_authoritarian = {
+						switch = {
+							trigger = has_ethic
+							ethic_spiritualist = { country_remove_ethic = ethic_spiritualist }
+							ethic_materialist = { country_remove_ethic = ethic_materialist }
+							ethic_egalitarian = { country_remove_ethic = ethic_egalitarian }
+							ethic_militarist = { country_remove_ethic = ethic_militarist }
+							ethic_pacifist = { country_remove_ethic = ethic_pacifist }
+							ethic_xenophile = { country_remove_ethic = ethic_xenophile }
+							ethic_xenophobe = { country_remove_ethic = ethic_xenophobe }
+						}
+						every_owned_pop = { pop_change_ethic = "ethic_authoritarian" }
+						change_government = {
+							civics = {
+								civic = civic_lost_empire_lethargic_leadership
+								civic = civic_lost_empire_empire_in_decline
+							}
+							remove_invalid_civics = yes
+						}
+					}
+					ethic_fanatic_egalitarian = {
+						switch = {
+							trigger = has_ethic
+							ethic_spiritualist = { country_remove_ethic = ethic_spiritualist }
+							ethic_materialist = { country_remove_ethic = ethic_materialist }
+							ethic_authoritarian = { country_remove_ethic = ethic_authoritarian }
+							ethic_militarist = { country_remove_ethic = ethic_militarist }
+							ethic_pacifist = { country_remove_ethic = ethic_pacifist }
+							ethic_xenophile = { country_remove_ethic = ethic_xenophile }
+							ethic_xenophobe = { country_remove_ethic = ethic_xenophobe }
+						}
+						every_owned_pop = { pop_change_ethic = "ethic_egalitarian" }
+						change_government = {
+							civics = {
+								civic = civic_lost_empire_lethargic_leadership
+								civic = civic_lost_empire_empire_in_decline
+							}
+							remove_invalid_civics = yes
+						}
+					}
+					default = {
 						shift_ethic = ethic_fanatic_xenophobe
-						if = {
-							limit = {
-								has_ethic = ethic_spiritualist
+						switch = {
+							trigger = has_ethic
+							ethic_spiritualist = { country_remove_ethic = ethic_spiritualist }
+							ethic_materialist = { country_remove_ethic = ethic_materialist }
+							ethic_authoritarian = { country_remove_ethic = ethic_authoritarian }
+							ethic_egalitarian = { country_remove_ethic = ethic_egalitarian }
+							ethic_militarist = { country_remove_ethic = ethic_militarist }
+							ethic_pacifist = { country_remove_ethic = ethic_pacifist }
+							ethic_xenophile = { country_remove_ethic = ethic_xenophile }
+						}
+						every_owned_pop = { pop_change_ethic = "ethic_xenophobe" }
+						change_government = {
+							civics = {
+								civic = civic_lost_empire_lethargic_leadership
+								civic = civic_lost_empire_empire_in_decline
 							}
-							country_remove_ethic = ethic_spiritualist
+							remove_invalid_civics = yes
 						}
-						else_if = {
-							limit = {
-								has_ethic = ethic_authoritarian
-							}
-							country_remove_ethic = ethic_authoritarian
-						}
-						else_if = {
-							limit = {
-								has_ethic = ethic_materialist
-							}
-							country_remove_ethic = ethic_materialist
-						}
-						else_if = {
-							limit = {
-								has_ethic = ethic_militarist
-							}
-							country_remove_ethic = ethic_militarist
-						}
-						else_if = {
-							limit = {
-								has_ethic = ethic_pacifist
-							}
-							country_remove_ethic = ethic_pacifist
-						}
-						else_if = {
-							limit = {
-								has_ethic = ethic_xenophile
-							}
-							country_remove_ethic = ethic_xenophile
-						}
-						else_if = {
-							limit = {
-								has_ethic = ethic_xenophobe
-							}
-							country_remove_ethic = ethic_xenophobe
-						}
-					}
-					every_owned_pop = {
-						if = {
-							limit = {
-								root = {
-									has_ethic = ethic_fanatic_authoritarian
-								}
-							}
-							pop_change_ethic = ethic_fanatic_authoritarian
-						}
-						else_if = {
-							limit = {
-								root = {
-									has_ethic = ethic_fanatic_egalitarian
-								}
-							}
-							pop_change_ethic = ethic_fanatic_egalitarian
-						}
-						else_if = {
-							limit = {
-								root = {
-									has_ethic = ethic_fanatic_materialist
-								}
-							}
-							pop_change_ethic = ethic_fanatic_materialist
-						}
-						else_if = {
-							limit = {
-								root = {
-									has_ethic = ethic_fanatic_spiritualist
-								}
-							}
-							pop_change_ethic = ethic_fanatic_spiritualist
-						}
-						else_if = {
-							limit = {
-								root = {
-									has_ethic = ethic_fanatic_militarist
-								}
-							}
-							pop_change_ethic = ethic_fanatic_militarist
-						}
-						else_if = {
-							limit = {
-								root = {
-									has_ethic = ethic_fanatic_pacifist
-								}
-							}
-							pop_change_ethic = ethic_fanatic_pacifist
-						}
-						else_if = {
-							limit = {
-								root = {
-									has_ethic = ethic_fanatic_xenophile
-								}
-							}
-							pop_change_ethic = ethic_fanatic_xenophile
-						}
-						else_if = {
-							limit = {
-								root = {
-									has_ethic = ethic_fanatic_xenophobe
-								}
-							}
-							pop_change_ethic = ethic_fanatic_xenophobe
-						}
-					}
-				}
-				else_if = {
-					limit = { is_machine_empire = yes }
-					change_government = {
-						civics = {
-							civic = civic_lost_empire_machine_remnants
-							civic = civic_lost_empire_custodian_directives
-						}
-						remove_invalid_civics = yes
-					}
-				}
-				else_if = {
-					limit = { is_hive_empire = yes }
-					change_government = {
-						civics = {
-							civic = civic_lost_empire_hive_remnants
-							civic = civic_lost_empire_hive_sickness
-						}
-						remove_invalid_civics = yes
 					}
 				}
 				add_ascended_empire_energy = yes
@@ -2584,236 +2255,235 @@ country_event = {
 	
 	option = {
 		name = lost_empire.1002.a
-		if = {
-			limit = {
-				OR = {
-					is_country_type = awakened_fallen_empire
-					is_country_type = fallen_empire
-				}
-				has_ethic = ethic_fanatic_spiritualist
-			}
-			set_graphical_culture = fallen_spiritualist
-		}
-		if = {
-			limit = {
-				OR = {
-					is_country_type = awakened_fallen_empire
-					is_country_type = fallen_empire
-				}
-				has_ethic = ethic_fanatic_materialist
-			}
-			set_graphical_culture = fallen_materialist
-		}
-		if = {
-			limit = {
-				OR = {
-					is_country_type = awakened_fallen_empire
-					is_country_type = fallen_empire
-				}
-				has_ethic = ethic_fanatic_xenophile
-			}
-			set_graphical_culture = fallen_xenophile
-		}
-		if = {
-			limit = {
-				OR = {
-					is_country_type = awakened_fallen_empire
-					is_country_type = fallen_empire
-				}
-				has_ethic = ethic_fanatic_xenophobe
-			}
-			set_graphical_culture = fallen_xenophobe
-		}
-		if = {
-			limit = {
-				OR = {
-					is_country_type = awakened_fallen_empire
-					is_country_type = fallen_empire
-				}
-				is_machine_empire = yes
-			}
-			set_graphical_culture = fallen_machine
-		}
 		set_country_type = lost_empire
 		set_country_flag = lost_empire
-		if = {
-			limit = { has_country_flag = ascended_empire }
-			remove_country_flag = ascended_empire
-		}
-		if = {
-			limit = { has_valid_civic = civic_machine_servitor }
-			set_country_flag = rogue_servitor
-		}
+		remove_country_flag = ascended_empire
 		hidden_effect = {
-			change_government = {
-				civics = {
-					# civic = civic_national_humiliation
-					civic = civic_societal_turmoil
-					civic = civic_treaty_bound
-				}
-				remove_invalid_civics = yes
-			}
-			if = {
-				limit = { is_gestalt = no }
-				if = {
-					limit = {
-						is_fanatic = yes
-					}
+			switch = {
+				trigger = has_ethic
+				ethic_fanatic_spiritualist = {
 					if = {
 						limit = {
-							has_ethic = ethic_spiritualist
+							OR = {
+								is_country_type = awakened_fallen_empire
+								is_country_type = fallen_empire
+							}
 						}
-						country_remove_ethic = ethic_spiritualist
+						set_graphical_culture = fallen_spiritualist
 					}
-					else_if = {
-						limit = {
-							has_ethic = ethic_authoritarian
+					else = {
+						switch = {
+							trigger = has_ethic
+							ethic_materialist = { country_remove_ethic = ethic_materialist }
+							ethic_authoritarian = { country_remove_ethic = ethic_authoritarian }
+							ethic_egalitarian = { country_remove_ethic = ethic_egalitarian }
+							ethic_militarist = { country_remove_ethic = ethic_militarist }
+							ethic_pacifist = { country_remove_ethic = ethic_pacifist }
+							ethic_xenophile = { country_remove_ethic = ethic_xenophile }
+							ethic_xenophobe = { country_remove_ethic = ethic_xenophobe }
 						}
-						country_remove_ethic = ethic_authoritarian
-					}
-					else_if = {
-						limit = {
-							has_ethic = ethic_materialist
+						every_owned_pop = { pop_change_ethic = "ethic_spiritualist" }
+						change_government = {
+							civics = {
+								civic = civic_societal_turmoil
+								civic = civic_treaty_bound
+							}
+							remove_invalid_civics = yes
 						}
-						country_remove_ethic = ethic_materialist
-					}
-					else_if = {
-						limit = {
-							has_ethic = ethic_militarist
-						}
-						country_remove_ethic = ethic_militarist
-					}
-					else_if = {
-						limit = {
-							has_ethic = ethic_pacifist
-						}
-						country_remove_ethic = ethic_pacifist
-					}
-					else_if = {
-						limit = {
-							has_ethic = ethic_xenophile
-						}
-						country_remove_ethic = ethic_xenophile
-					}
-					else_if = {
-						limit = {
-							has_ethic = ethic_xenophobe
-						}
-						country_remove_ethic = ethic_xenophobe
 					}
 				}
-				else_if = {
-					limit = {
-						is_fanatic = no
+				ethic_fanatic_materialist = {
+					if = {
+						limit = {
+							OR = {
+								is_country_type = awakened_fallen_empire
+								is_country_type = fallen_empire
+							}
+						}
+						set_graphical_culture = fallen_materialist
 					}
+					else = {
+						switch = {
+							trigger = has_ethic
+							ethic_spiritualist = { country_remove_ethic = ethic_spiritualist }
+							ethic_authoritarian = { country_remove_ethic = ethic_authoritarian }
+							ethic_egalitarian = { country_remove_ethic = ethic_egalitarian }
+							ethic_militarist = { country_remove_ethic = ethic_militarist }
+							ethic_pacifist = { country_remove_ethic = ethic_pacifist }
+							ethic_xenophile = { country_remove_ethic = ethic_xenophile }
+							ethic_xenophobe = { country_remove_ethic = ethic_xenophobe }
+						}
+						every_owned_pop = { pop_change_ethic = "ethic_materialist" }
+						change_government = {
+							civics = {
+								civic = civic_societal_turmoil
+								civic = civic_treaty_bound
+							}
+							remove_invalid_civics = yes
+						}
+					}
+				}
+				ethic_fanatic_xenophile = {
+					if = {
+						limit = {
+							OR = {
+								is_country_type = awakened_fallen_empire
+								is_country_type = fallen_empire
+							}
+						}
+						set_graphical_culture = fallen_xenophile
+					}
+					else = {
+						switch = {
+							trigger = has_ethic
+							ethic_spiritualist = { country_remove_ethic = ethic_spiritualist }
+							ethic_materialist = { country_remove_ethic = ethic_materialist }
+							ethic_authoritarian = { country_remove_ethic = ethic_authoritarian }
+							ethic_egalitarian = { country_remove_ethic = ethic_egalitarian }
+							ethic_militarist = { country_remove_ethic = ethic_militarist }
+							ethic_pacifist = { country_remove_ethic = ethic_pacifist }
+							ethic_xenophobe = { country_remove_ethic = ethic_xenophobe }
+						}
+						every_owned_pop = { pop_change_ethic = "ethic_xenophile" }
+						change_government = {
+							civics = {
+								civic = civic_societal_turmoil
+								civic = civic_treaty_bound
+							}
+							remove_invalid_civics = yes
+						}
+					}
+				}
+				ethic_fanatic_xenophobe = {
+					if = {
+						limit = {
+							OR = {
+								is_country_type = awakened_fallen_empire
+								is_country_type = fallen_empire
+							}
+						}
+						set_graphical_culture = fallen_xenophobe
+					}
+					else = {
+						switch = {
+							trigger = has_ethic
+							ethic_spiritualist = { country_remove_ethic = ethic_spiritualist }
+							ethic_materialist = { country_remove_ethic = ethic_materialist }
+							ethic_authoritarian = { country_remove_ethic = ethic_authoritarian }
+							ethic_egalitarian = { country_remove_ethic = ethic_egalitarian }
+							ethic_militarist = { country_remove_ethic = ethic_militarist }
+							ethic_pacifist = { country_remove_ethic = ethic_pacifist }
+							ethic_xenophile = { country_remove_ethic = ethic_xenophile }
+						}
+						every_owned_pop = { pop_change_ethic = "ethic_xenophobe" }
+						change_government = {
+							civics = {
+								civic = civic_societal_turmoil
+								civic = civic_treaty_bound
+							}
+							remove_invalid_civics = yes
+						}
+					}
+				}
+				ethic_fanatic_militarist = {
+					switch = {
+						trigger = has_ethic
+						ethic_spiritualist = { country_remove_ethic = ethic_spiritualist }
+						ethic_materialist = { country_remove_ethic = ethic_materialist }
+						ethic_authoritarian = { country_remove_ethic = ethic_authoritarian }
+						ethic_egalitarian = { country_remove_ethic = ethic_egalitarian }
+						ethic_pacifist = { country_remove_ethic = ethic_pacifist }
+						ethic_xenophile = { country_remove_ethic = ethic_xenophile }
+						ethic_xenophobe = { country_remove_ethic = ethic_xenophobe }
+					}
+					every_owned_pop = { pop_change_ethic = "ethic_militarist" }
+					change_government = {
+						civics = {
+							civic = civic_societal_turmoil
+							civic = civic_treaty_bound
+						}
+						remove_invalid_civics = yes
+					}
+				}
+				ethic_fanatic_pacifist = {
+					switch = {
+						trigger = has_ethic
+						ethic_spiritualist = { country_remove_ethic = ethic_spiritualist }
+						ethic_materialist = { country_remove_ethic = ethic_materialist }
+						ethic_authoritarian = { country_remove_ethic = ethic_authoritarian }
+						ethic_egalitarian = { country_remove_ethic = ethic_egalitarian }
+						ethic_militarist = { country_remove_ethic = ethic_militarist }
+						ethic_xenophile = { country_remove_ethic = ethic_xenophile }
+						ethic_xenophobe = { country_remove_ethic = ethic_xenophobe }
+					}
+					every_owned_pop = { pop_change_ethic = "ethic_pacifist" }
+					change_government = {
+						civics = {
+							civic = civic_societal_turmoil
+							civic = civic_treaty_bound
+						}
+						remove_invalid_civics = yes
+					}
+				}
+				ethic_fanatic_authoritarian = {
+					switch = {
+						trigger = has_ethic
+						ethic_spiritualist = { country_remove_ethic = ethic_spiritualist }
+						ethic_materialist = { country_remove_ethic = ethic_materialist }
+						ethic_egalitarian = { country_remove_ethic = ethic_egalitarian }
+						ethic_militarist = { country_remove_ethic = ethic_militarist }
+						ethic_pacifist = { country_remove_ethic = ethic_pacifist }
+						ethic_xenophile = { country_remove_ethic = ethic_xenophile }
+						ethic_xenophobe = { country_remove_ethic = ethic_xenophobe }
+					}
+					every_owned_pop = { pop_change_ethic = "ethic_authoritarian" }
+					change_government = {
+						civics = {
+							civic = civic_societal_turmoil
+							civic = civic_treaty_bound
+						}
+						remove_invalid_civics = yes
+					}
+				}
+				ethic_fanatic_egalitarian = {
+					switch = {
+						trigger = has_ethic
+						ethic_spiritualist = { country_remove_ethic = ethic_spiritualist }
+						ethic_materialist = { country_remove_ethic = ethic_materialist }
+						ethic_authoritarian = { country_remove_ethic = ethic_authoritarian }
+						ethic_militarist = { country_remove_ethic = ethic_militarist }
+						ethic_pacifist = { country_remove_ethic = ethic_pacifist }
+						ethic_xenophile = { country_remove_ethic = ethic_xenophile }
+						ethic_xenophobe = { country_remove_ethic = ethic_xenophobe }
+					}
+					every_owned_pop = { pop_change_ethic = "ethic_egalitarian" }
+					change_government = {
+						civics = {
+							civic = civic_societal_turmoil
+							civic = civic_treaty_bound
+						}
+						remove_invalid_civics = yes
+					}
+				}
+				default = {
 					shift_ethic = ethic_fanatic_xenophobe
-					if = {
-						limit = {
-							has_ethic = ethic_spiritualist
-						}
-						country_remove_ethic = ethic_spiritualist
+					switch = {
+						trigger = has_ethic
+						ethic_spiritualist = { country_remove_ethic = ethic_spiritualist }
+						ethic_materialist = { country_remove_ethic = ethic_materialist }
+						ethic_authoritarian = { country_remove_ethic = ethic_authoritarian }
+						ethic_egalitarian = { country_remove_ethic = ethic_egalitarian }
+						ethic_militarist = { country_remove_ethic = ethic_militarist }
+						ethic_pacifist = { country_remove_ethic = ethic_pacifist }
+						ethic_xenophile = { country_remove_ethic = ethic_xenophile }
 					}
-					else_if = {
-						limit = {
-							has_ethic = ethic_authoritarian
+					every_owned_pop = { pop_change_ethic = "ethic_xenophobe" }
+					change_government = {
+						civics = {
+							civic = civic_societal_turmoil
+							civic = civic_treaty_bound
 						}
-						country_remove_ethic = ethic_authoritarian
-					}
-					else_if = {
-						limit = {
-							has_ethic = ethic_materialist
-						}
-						country_remove_ethic = ethic_materialist
-					}
-					else_if = {
-						limit = {
-							has_ethic = ethic_militarist
-						}
-						country_remove_ethic = ethic_militarist
-					}
-					else_if = {
-						limit = {
-							has_ethic = ethic_pacifist
-						}
-						country_remove_ethic = ethic_pacifist
-					}
-					else_if = {
-						limit = {
-							has_ethic = ethic_xenophile
-						}
-						country_remove_ethic = ethic_xenophile
-					}
-					else_if = {
-						limit = {
-							has_ethic = ethic_xenophobe
-						}
-						country_remove_ethic = ethic_xenophobe
-					}
-				}
-				every_owned_pop = {
-					if = {
-						limit = {
-							root = {
-								has_ethic = ethic_fanatic_authoritarian
-							}
-						}
-						pop_change_ethic = ethic_fanatic_authoritarian
-					}
-					else_if = {
-						limit = {
-							root = {
-								has_ethic = ethic_fanatic_egalitarian
-							}
-						}
-						pop_change_ethic = ethic_fanatic_egalitarian
-					}
-					else_if = {
-						limit = {
-							root = {
-								has_ethic = ethic_fanatic_materialist
-							}
-						}
-						pop_change_ethic = ethic_fanatic_materialist
-					}
-					else_if = {
-						limit = {
-							root = {
-								has_ethic = ethic_fanatic_spiritualist
-							}
-						}
-						pop_change_ethic = ethic_fanatic_spiritualist
-					}
-					else_if = {
-						limit = {
-							root = {
-								has_ethic = ethic_fanatic_militarist
-							}
-						}
-						pop_change_ethic = ethic_fanatic_militarist
-					}
-					else_if = {
-						limit = {
-							root = {
-								has_ethic = ethic_fanatic_pacifist
-							}
-						}
-						pop_change_ethic = ethic_fanatic_pacifist
-					}
-					else_if = {
-						limit = {
-							root = {
-								has_ethic = ethic_fanatic_xenophile
-							}
-						}
-						pop_change_ethic = ethic_fanatic_xenophile
-					}
-					else_if = {
-						limit = {
-							root = {
-								has_ethic = ethic_fanatic_xenophobe
-							}
-						}
-						pop_change_ethic = ethic_fanatic_xenophobe
+						remove_invalid_civics = yes
 					}
 				}
 			}

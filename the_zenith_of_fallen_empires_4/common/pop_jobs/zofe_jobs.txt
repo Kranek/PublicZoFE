@@ -17,12 +17,15 @@ ae_hedonist = {
 		owner = {
 			is_zofe_country_type = yes
 			is_gestalt = no
-			NOT = { has_country_flag = ascended_empire_no_decadence }
-			is_robot_empire = no
+			NOT = {
+				has_tradition = tr_virtuality_adopt
+			}
+			# is_robot_empire = no
 		}
-		is_same_species = owner
+		# is_same_species = owner
+		has_citizenship_rights = yes
 		can_think = yes
-		is_organic_species = yes
+		# is_organic_species = yes
 		OR = {
 			has_pop_flag = decadent_pop
 			planet = {
@@ -37,8 +40,19 @@ ae_hedonist = {
 			unity = 2
 		}
 		upkeep = {
+			trigger = {
+				is_organic_species = yes
+			}
 			food = 1
 			consumer_goods = 1
+		}
+		upkeep = {
+			trigger = {
+				is_organic_species = no
+			}
+			consumer_goods = 1
+			alloys = 1
+			energy = 2
 		}
 	}
 	
@@ -75,12 +89,11 @@ ae_maintenance_bot = {
 
 	possible = {
 		ascended_empire_decadence = yes
-		owner = { 
+		owner = {
 			is_zofe_country_type = yes
 			is_machine_empire = yes
-			NOT = { has_country_flag = ascended_empire_no_decadence }
 		}
-		is_same_species = owner
+		# is_same_species = owner
 		is_mechanical_species = yes
 		OR = {
 			has_pop_flag = decadent_pop
@@ -133,7 +146,6 @@ ae_confused_drone = {
 		owner = { 
 			is_zofe_country_type = yes
 			is_hive_empire = yes
-			NOT = { has_country_flag = ascended_empire_no_decadence }
 		}
 		is_same_species = owner
 		OR = {

@@ -1,0 +1,32 @@
+# Change log of 19/04/2025
+
+## ZoFE 4.2.3 Patch
+
+Notes
+
+Fixes
+* Vanilla
+ - Fixed Broken Worlds not being allowed for terraforming into other classes.
+ - Fixed missing ethics from the make lost empire effect.
+ - Fixed wrong ethic used for pops upon running the make lost empire effect.
+ - Fixed Fall of an Ascendancy situation using non-gestalt modifiers for gestalt empires.
+
+
+Game Content and Changes
+* Vanilla
+ - Added scripted localization for machine Decadence situation.
+ - Optimized event code with performance in mind.
+ - Optimized situation code for the Decadence situation.
+ - Decadence situation approach cost is now based on the amount of decadent pops you have.
+ - The Decadence situation now takes your decadent pop % into account in a much more performance friendly way.
+ - The Decadence and Fall of an Ascendancy situation approaches are locked for 720 days after picking an approach.
+ - Fall of an Ascendancy situation code optimized.
+ - Twilight of a Fallen Empire situation renamed to Twilight of an Empire.
+ - Twilight of an Empire situation progression now takes into account the amount of decadent pops you have.
+ - Twilight of an Empire situation progression now uses + increases only instead of multiplicative increases.
+ - Non-gestalt machine empires can now have Hedonists as well.
+ - Every species you own can become a hedonist if they have citizenship rights.
+ - You can no longer banish gestalt empires.
+
+* Sandbox
+ - Moved some diplo phrases to Sandbox.

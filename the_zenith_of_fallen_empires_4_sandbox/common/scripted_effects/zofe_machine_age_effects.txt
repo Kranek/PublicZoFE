@@ -24,47 +24,16 @@ make_lost_empire = {
 			limit = {
 				is_fanatic = yes
 			}
-			if = {
-				limit = {
-					has_ethic = ethic_spiritualist
-				}
-				country_remove_ethic = ethic_spiritualist
-			}
-			else_if = {
-				limit = {
-					has_ethic = ethic_authoritarian
-				}
-				country_remove_ethic = ethic_authoritarian
-			}
-			else_if = {
-				limit = {
-					has_ethic = ethic_materialist
-				}
-				country_remove_ethic = ethic_materialist
-			}
-			else_if = {
-				limit = {
-					has_ethic = ethic_militarist
-				}
-				country_remove_ethic = ethic_militarist
-			}
-			else_if = {
-				limit = {
-					has_ethic = ethic_pacifist
-				}
-				country_remove_ethic = ethic_pacifist
-			}
-			else_if = {
-				limit = {
-					has_ethic = ethic_xenophile
-				}
-				country_remove_ethic = ethic_xenophile
-			}
-			else_if = {
-				limit = {
-					has_ethic = ethic_xenophobe
-				}
-				country_remove_ethic = ethic_xenophobe
+			switch = {
+				trigger = has_ethic
+				ethic_spiritualist = { country_remove_ethic = ethic_spiritualist }
+				ethic_materialist = { country_remove_ethic = ethic_materialist }
+				ethic_authoritarian = { country_remove_ethic = ethic_authoritarian }
+				ethic_egalitarian = { country_remove_ethic = ethic_egalitarian }
+				ethic_militarist = { country_remove_ethic = ethic_militarist }
+				ethic_pacifist = { country_remove_ethic = ethic_pacifist }
+				ethic_xenophile = { country_remove_ethic = ethic_xenophile }
+				ethic_xenophobe = { country_remove_ethic = ethic_xenophobe }
 			}
 		}
 		else_if = {
@@ -72,47 +41,16 @@ make_lost_empire = {
 				is_fanatic = no
 			}
 			shift_ethic = ethic_fanatic_xenophobe
-			if = {
-				limit = {
-					has_ethic = ethic_spiritualist
-				}
-				country_remove_ethic = ethic_spiritualist
-			}
-			else_if = {
-				limit = {
-					has_ethic = ethic_authoritarian
-				}
-				country_remove_ethic = ethic_authoritarian
-			}
-			else_if = {
-				limit = {
-					has_ethic = ethic_materialist
-				}
-				country_remove_ethic = ethic_materialist
-			}
-			else_if = {
-				limit = {
-					has_ethic = ethic_militarist
-				}
-				country_remove_ethic = ethic_militarist
-			}
-			else_if = {
-				limit = {
-					has_ethic = ethic_pacifist
-				}
-				country_remove_ethic = ethic_pacifist
-			}
-			else_if = {
-				limit = {
-					has_ethic = ethic_xenophile
-				}
-				country_remove_ethic = ethic_xenophile
-			}
-			else_if = {
-				limit = {
-					has_ethic = ethic_xenophobe
-				}
-				country_remove_ethic = ethic_xenophobe
+			switch = {
+				trigger = has_ethic
+				ethic_spiritualist = { country_remove_ethic = ethic_spiritualist }
+				ethic_materialist = { country_remove_ethic = ethic_materialist }
+				ethic_authoritarian = { country_remove_ethic = ethic_authoritarian }
+				ethic_egalitarian = { country_remove_ethic = ethic_egalitarian }
+				ethic_militarist = { country_remove_ethic = ethic_militarist }
+				ethic_pacifist = { country_remove_ethic = ethic_pacifist }
+				ethic_xenophile = { country_remove_ethic = ethic_xenophile }
+				ethic_xenophobe = { country_remove_ethic = ethic_xenophobe }
 			}
 		}
 	}
@@ -147,53 +85,48 @@ make_lost_empire = {
 
 	if = {
 		limit = { is_gestalt = no }
-		if = {
-			limit = { has_ethic = ethic_fanatic_xenophobe }
-			set_graphical_culture = fallen_xenophobe
-			set_city_graphical_culture = fallen_xenophobe
-			room_name_override = "fallen_xenophobe_room"
-		}
-		else_if = {
-			limit = { has_ethic = ethic_fanatic_xenophile }
-			set_graphical_culture = fallen_xenophile
-			set_city_graphical_culture = fallen_xenophile
-			room_name_override = "fallen_xenophile_room"
-		}
-		else_if = {
-			limit = { has_ethic = ethic_fanatic_pacifist }
-			set_graphical_culture = fallen_pacifist
-			set_city_graphical_culture = fallen_pacifist
-			room_name_override = "fallen_pacifist_room"
-		}
-		else_if = {
-			limit = { has_ethic = ethic_fanatic_militarist }
-			set_graphical_culture = fallen_militarist
-			set_city_graphical_culture = fallen_militarist
-			room_name_override = "fallen_militarist_room"
-		}
-		else_if = {
-			limit = { has_ethic = ethic_fanatic_authoritarian }
-			set_graphical_culture = fallen_authoritarian
-			set_city_graphical_culture = fallen_authoritarian
-			room_name_override = "fallen_authoritarian_room"
-		}
-		else_if = {
-			limit = { has_ethic = ethic_fanatic_egalitarian }
-			set_graphical_culture = fallen_egalitarian_02
-			set_city_graphical_culture = fallen_egalitarian_02
-			room_name_override = "fallen_egalitarian_02_room"
-		}
-		else_if = {
-			limit = { has_ethic = ethic_fanatic_spiritualist }
-			set_graphical_culture = fallen_spiritualist
-			set_city_graphical_culture = fallen_spiritualist
-			room_name_override = "fallen_spiritualist_room"
-		}
-		else_if = {
-			limit = { has_ethic = ethic_fanatic_materialist }
-			set_graphical_culture = fallen_materialist
-			set_city_graphical_culture = fallen_materialist
-			room_name_override = "fallen_materialist_room"
+		switch = {
+			trigger = has_ethic
+			ethic_fanatic_xenophobe = {
+				set_graphical_culture = fallen_xenophobe
+				set_city_graphical_culture = fallen_xenophobe
+				room_name_override = "fallen_xenophobe_room"
+			}
+			ethic_fanatic_xenophile = {
+				set_graphical_culture = fallen_xenophile
+				set_city_graphical_culture = fallen_xenophile
+				room_name_override = "fallen_xenophile_room"
+			}
+			ethic_fanatic_pacifist = {
+				set_graphical_culture = fallen_pacifist
+				set_city_graphical_culture = fallen_pacifist
+				room_name_override = "fallen_pacifist_room"
+			}
+			ethic_fanatic_militarist = {
+				set_graphical_culture = fallen_militarist
+				set_city_graphical_culture = fallen_militarist
+				room_name_override = "fallen_militarist_room"
+			}
+			ethic_fanatic_authoritarian = {
+				set_graphical_culture = fallen_authoritarian
+				set_city_graphical_culture = fallen_authoritarian
+				room_name_override = "fallen_authoritarian_room"
+			}
+			ethic_fanatic_egalitarian = {
+				set_graphical_culture = fallen_egalitarian_02
+				set_city_graphical_culture = fallen_egalitarian_02
+				room_name_override = "fallen_egalitarian_02_room"
+			}
+			ethic_fanatic_spiritualist = {
+				set_graphical_culture = fallen_spiritualist
+				set_city_graphical_culture = fallen_spiritualist
+				room_name_override = "fallen_spiritualist_room"
+			}
+			ethic_fanatic_materialist = {
+				set_graphical_culture = fallen_materialist
+				set_city_graphical_culture = fallen_materialist
+				room_name_override = "fallen_materialist_room"
+			}
 		}
 	}
 	else_if = {
@@ -342,79 +275,107 @@ make_lost_empire = {
 		clear_blockers = yes
 	}
 
-	every_owned_pop = {
-		limit = {
-			is_same_species = root.species
-			is_unemployed = yes
+	if = {
+		limit = { is_gestalt = no }
+		switch = {
+			trigger = has_ethic
+			ethic_fanatic_xenophobe = {
+				every_owned_pop = {
+					limit = {
+						is_same_species = root.species
+						is_unemployed = yes
+					}
+					clear_pop_category = yes
+					set_pop_flag = decadent_pop
+					pop_change_ethic = ethic_xenophobe
+				}
+			}
+			ethic_fanatic_xenophile = {
+				every_owned_pop = {
+					limit = {
+						is_same_species = root.species
+						is_unemployed = yes
+					}
+					clear_pop_category = yes
+					set_pop_flag = decadent_pop
+					pop_change_ethic = ethic_xenophile
+				}
+			}
+			ethic_fanatic_pacifist = {
+				every_owned_pop = {
+					limit = {
+						is_same_species = root.species
+						is_unemployed = yes
+					}
+					clear_pop_category = yes
+					set_pop_flag = decadent_pop
+					pop_change_ethic = ethic_pacifist
+				}
+			}
+			ethic_fanatic_militarist = {
+				every_owned_pop = {
+					limit = {
+						is_same_species = root.species
+						is_unemployed = yes
+					}
+					clear_pop_category = yes
+					set_pop_flag = decadent_pop
+					pop_change_ethic = ethic_militarist
+				}
+			}
+			ethic_fanatic_authoritarian = {
+				every_owned_pop = {
+					limit = {
+						is_same_species = root.species
+						is_unemployed = yes
+					}
+					clear_pop_category = yes
+					set_pop_flag = decadent_pop
+					pop_change_ethic = ethic_authoritarian
+				}
+			}
+			ethic_fanatic_egalitarian = {
+				every_owned_pop = {
+					limit = {
+						is_same_species = root.species
+						is_unemployed = yes
+					}
+					clear_pop_category = yes
+					set_pop_flag = decadent_pop
+					pop_change_ethic = ethic_pacifist
+				}
+			}
+			ethic_fanatic_spiritualist = {
+				every_owned_pop = {
+					limit = {
+						is_same_species = root.species
+						is_unemployed = yes
+					}
+					clear_pop_category = yes
+					set_pop_flag = decadent_pop
+					pop_change_ethic = ethic_spiritualist
+				}
+			}
+			ethic_fanatic_materialist = {
+				every_owned_pop = {
+					limit = {
+						is_same_species = root.species
+						is_unemployed = yes
+					}
+					clear_pop_category = yes
+					set_pop_flag = decadent_pop
+					pop_change_ethic = ethic_materialist
+				}
+			}
 		}
-		clear_pop_category = yes
-		set_pop_flag = decadent_pop
-		if = {
-			limit = { is_gestalt = no }
-			if = {
-				limit = {
-					root = {
-						has_ethic = ethic_fanatic_authoritarian
-					}
-				}
-				pop_change_ethic = ethic_fanatic_authoritarian
+	}
+	else = {
+		every_owned_pop = {
+			limit = {
+				is_unemployed = yes
 			}
-			else_if = {
-				limit = {
-					root = {
-						has_ethic = ethic_fanatic_egalitarian
-					}
-				}
-				pop_change_ethic = ethic_fanatic_egalitarian
-			}
-			else_if = {
-				limit = {
-					root = {
-						has_ethic = ethic_fanatic_materialist
-					}
-				}
-				pop_change_ethic = ethic_fanatic_materialist
-			}
-			else_if = {
-				limit = {
-					root = {
-						has_ethic = ethic_fanatic_spiritualist
-					}
-				}
-				pop_change_ethic = ethic_fanatic_spiritualist
-			}
-			else_if = {
-				limit = {
-					root = {
-						has_ethic = ethic_fanatic_militarist
-					}
-				}
-				pop_change_ethic = ethic_fanatic_militarist
-			}
-			else_if = {
-				limit = {
-					root = {
-						has_ethic = ethic_fanatic_pacifist
-					}
-				}
-				pop_change_ethic = ethic_fanatic_pacifist
-			}
-			else_if = {
-				limit = {
-					root = {
-						has_ethic = ethic_fanatic_xenophile
-					}
-				}
-				pop_change_ethic = ethic_fanatic_xenophile
-			}
-			else_if = {
-				limit = {
-					root = {
-						has_ethic = ethic_fanatic_xenophobe
-					}
-				}
-				pop_change_ethic = ethic_fanatic_xenophobe
-			}
+			clear_pop_category = yes
+			set_pop_flag = decadent_pop
 		}
 	}
 }
@@ -423,71 +384,57 @@ create_lost_empire_world = {
 	remove_all_buildings = yes
 	remove_all_districts = yes
 	set_planet_flag = fallen_empire_world
-	if = {
-		limit = {
-			is_urban_planet = no
-			is_ringworld = no
-		}
-		while = {
-			limit = {
-				free_district_slots > 0
+	switch = {
+		trigger = is_planet_class
+
+		pc_city = {
+			while = {
+				limit = {
+					free_district_slots > 0
+				}
+				add_district = district_arcology_housing
 			}
-			add_district = district_city
 		}
-	}
-	else_if = {
-		limit = {
-			is_planet_class = pc_city
-		}
-		while = {
-			limit = {
-				free_district_slots > 0
+		pc_ringworld_habitable = {
+			while = {
+				limit = {
+					free_district_slots > 0
+				} 
+				add_district = district_rw_city
 			}
-			add_district = district_arcology_housing
 		}
-	}
-	else_if = {
-		limit = {
-			is_planet_class = pc_ringworld_habitable
-		}
-		while = {
-			limit = {
-				free_district_slots > 0
-			} 
-			add_district = district_rw_city
-		}
-	}
-	else_if = {
-		limit = {
-			is_planet_class = pc_habitat
-		}
-		while = {
-			limit = {
-				free_district_slots > 0
+		pc_habitat = {
+			while = {
+				limit = {
+					free_district_slots > 0
+				}
+				add_district = district_hab_housing
 			}
-			add_district = district_hab_housing
 		}
-	}
-	else_if = {
-		limit = {
-			is_planet_class = pc_hive
-		}
-		while = {
-			limit = {
-				free_district_slots > 0
+		pc_hive = {
+			while = {
+				limit = {
+					free_district_slots > 0
+				}
+				add_district = district_hive
 			}
-			add_district = district_hive
 		}
-	}
-	else_if = {
-		limit = {
-			is_planet_class = pc_machine
-		}
-		while = {
-			limit = {
-				free_district_slots > 0
+		pc_machine = {
+			while = {
+				limit = {
+					free_district_slots > 0
+				}
+				add_district = district_nexus
 			}
-			add_district = district_nexus
+		}
+
+		default = {
+			while = {
+				limit = {
+					free_district_slots > 0
+				}
+				add_district = district_city
+			}
 		}
 	}
 

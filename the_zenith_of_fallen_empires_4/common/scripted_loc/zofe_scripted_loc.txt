@@ -360,6 +360,51 @@ defined_text = {
 		localization_key = situation_zofe_decadence_machine_monthly_change_tooltip
 	}
 }
+defined_text = {
+	name = ZofeDecadenceApproachLow
+	text = {
+		trigger = { owner = { is_gestalt = no } }
+		localization_key = approach_decadence_low_priority_base
+	}
+	text = {
+		trigger = { owner = { is_hive_empire = yes } }
+		localization_key = approach_decadence_machine_low_priority
+	}
+	text = {
+		trigger = { owner = { is_machine_empire = yes } }
+		localization_key = approach_decadence_machine_low_priority
+	}
+}
+defined_text = {
+	name = ZofeDecadenceApproachMod
+	text = {
+		trigger = { owner = { is_gestalt = no } }
+		localization_key = approach_decadence_moderate_priority_base
+	}
+	text = {
+		trigger = { owner = { is_hive_empire = yes } }
+		localization_key = approach_decadence_machine_moderate_priority
+	}
+	text = {
+		trigger = { owner = { is_machine_empire = yes } }
+		localization_key = approach_decadence_machine_moderate_priority
+	}
+}
+defined_text = {
+	name = ZofeDecadenceApproachHigh
+	text = {
+		trigger = { owner = { is_gestalt = no } }
+		localization_key = approach_decadence_high_priority_base
+	}
+	text = {
+		trigger = { owner = { is_hive_empire = yes } }
+		localization_key = approach_decadence_machine_high_priority
+	}
+	text = {
+		trigger = { owner = { is_machine_empire = yes } }
+		localization_key = approach_decadence_machine_high_priority
+	}
+}
 
 # defined_text = {
 # 	name = AscensionPerkGalacticAscendancyTitle

@@ -315,7 +315,9 @@ has_a_ae_tech = {
 }
 
 has_all_tech_for_utopian_worlds = {
-	is_virtual_empire = no
+	NOT = {
+		has_tradition = tr_virtuality_adopt
+	}
 	OR = {
 		is_ascended_empire = yes
 		is_lost_empire = yes

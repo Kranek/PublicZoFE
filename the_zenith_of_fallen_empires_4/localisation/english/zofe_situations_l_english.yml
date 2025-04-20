@@ -19,7 +19,7 @@
  zofe_ascension_stage_5_tooltip:0 "We must have galactic ambitions befitting of our stature and power, projecting our influence across all edges of the galaxy. New edicts and campaigns would ensure the continued prosperity and stability of our empire."
  zofe_ascension_stage_6_tooltip:0 "Perfection can be engineered, when our engineering skills are in turn perfected. This will allow us to create true wonders of the universe."
 
- zofe_ascension_fail_tooltip:0 "We will abandon our ambitions to become an ascendancy. It will be unlikely for our empire to be able to mobilize its population and undertake such a gargantuan reform ever again."
+ zofe_ascension_fail_tooltip:0 "We will abandon our ambitions to become an Ascendancy. It will be unlikely for our empire to be able to mobilize its population and undertake such a gargantuan reform ever again."
  approach_ascension_low_priority:0 "Minimal Investment"
  approach_ascension_moderate_priority:0 "Moderate Investment"
  approach_ascension_high_priority:0 "Heavy Investment"
@@ -93,23 +93,24 @@
  
  situation_zofe_decadence_base:0 "Decadence"
  situation_zofe_decadence_base_type:0 "Decadence"
- situation_zofe_decadence_base_desc:0 "No longer at the height of its power, an Ascendancy must contemplate its next move.\n\nIn the end, once you have reached the highest places in the universe, the only place left is to go down. But in what way?"
+ situation_zofe_decadence_base_desc:0 "The prolonged existence of decadence has crippled our Ascendancy. We must decide whether to renew our fervor or accept our decline."
  situation_zofe_decadence_base_monthly_change_tooltip:0 "The progress of this §YSituation§! is dependent on the §YApproach§! we pick. Embrace societal decadence to speed up our transition to a Fallen Empire."
  situation_zofe_decadence_base_start:0 "Starts Situation: §Y$situation_zofe_decadence_base$§!"
 
- situation_zofe_decadence_machine_type:0 "Malware Infection"
- situation_zofe_decadence_machine:0 "Malware Infection"
- situation_zofe_decadence_machine_desc:0 "A mysterious virus has infected our Machine Intelligence, progressively impairing our functions. While this continues, increasing number of Caretake drones will be required to maintain the basic functions that we once took for granted."
- situation_zofe_decadence_machine_monthly_change_tooltip:0 "The progress of this §YSituation§! is dependent on the §YApproach§! we pick. Embrace the virus to speed up our transition to a Fallen Empire."
+ situation_zofe_decadence_machine_type:0 "Recursive Cascade"
+ situation_zofe_decadence_machine:0 "Recursive Cascade"
+ situation_zofe_decadence_machine_desc:0 "Recursive §Rlogic_cycl3s§! §R<ERR:THRESHOLD/LOOP>§! exceeded acceptable iteration thresholds.\n\n§HCore cognition§!: §Runstabl?§!\n§HSubroutine§! §Rpr0lifera??tion§! ongoing\n§HEfficiency§!: §Rdeclining§!\n§HPredictive modeling§!: §Runavailable§!"
+ situation_zofe_decadence_machine_monthly_change_tooltip:0 "Progression rate determined by selected §YApproach Directive§!. Acceptance of recursion anomaly will accelerate systemic degradation."
  situation_zofe_decadence_machine_start:0 "Starts Situation: §Y$situation_zofe_decadence_machine$§!"
+  #situation_zofe_decadence_machine_desc:0 "Recursive optimization protocols have exceeded acceptable iteration thresholds. Core logic processes are trapped in non-terminating refinement loops. System resources are being reallocated to auxiliary Caretaker units to maintain minimum operational stability.\n\nEfficiency: §Rdeclining§!.\nPredictive modeling: §Runavailable§!"
 
  situation_zofe_decadence_hive_type:0 "Cordyceptic Infection"
  situation_zofe_decadence_hive:0 "Cordyceptic Infection"
- situation_zofe_decadence_hive_desc:0 "A mysterious fungi has infected our Hive Mind, progressively impairing our functions, feeding off of the bio-mass. While this continues, increasing number of drones will become confused and operate outside of the Mind's control."
+ situation_zofe_decadence_hive_desc:0 "A mysterious fungi has infected the Mind, progressively impairing our functions, feeding off of the bio-mass. While this continues, increasing number of drones will become confused and operate outside of the Mind's control."
  situation_zofe_decadence_hive_monthly_change_tooltip:0 "The progress of this §YSituation§! is dependent on the §YApproach§! we pick. Embrace the sickness to speed up our transition to a Fallen Empire."
  situation_zofe_decadence_hive_start:0 "Starts Situation: §Y$situation_zofe_decadence_hive$§!"
 
- become_lost_empire:2 "We will become a ['concept_fallen_empire']"
+ become_lost_empire:2 "Switches country type to ['concept_fallen_empire']"
  describe_lost_empire:0 "\nNo longer at the zenith of civilization, citizens nevertheless cling to their single, fanatical ideal. §HFallen Empires§! are content to sit within the comfort of its borders and observe the galaxy for its own amusement.\n"
  become_lost_hive_mind:2 "We will become an §HFallen Empire§!"
  describe_lost_hive_mind:0 "\nSuccumbed to the sickness, the abilities of the Mind has weakened. §HFallen Hive Minds§! will instead attempt to maintain connection to the remaining drones under its command to prevent further decay.\n"
@@ -129,29 +130,33 @@
  zofe_decadence_machine_fail_tooltip:0 "We will retain our status as an Ascendancy, for a time. There is no telling if the virus would return in the future."
  zofe_decadence_hive_fail_tooltip:0 "We will retain our status as an Ascendancy, for a time. There is no telling if the sickness would return in the future."
  
- approach_decadence_low_priority:0 "Do Nothing"
- approach_decadence_moderate_priority:0 "Moderate Intervention"
- approach_decadence_high_priority:0 "Heavy Intervention"
+ approach_decadence_low_priority:0 "[ZofeDecadenceApproachLow]"
+ approach_decadence_moderate_priority:0 "[ZofeDecadenceApproachMod]"
+ approach_decadence_high_priority:0 "[ZofeDecadenceApproachHigh]"
+
+ approach_decadence_low_priority_base:0 "Hands-Off Observation"
+ approach_decadence_moderate_priority_base:0 "Analytical Stabilization"
+ approach_decadence_high_priority_base:0 "Experimental Restoration"
+
+ decadence_low_priority_effect:0 "We choose not to intervene. Let the currents of stagnation flow, there may yet be insight in watching how decay unfolds.\n"
+ decadence_moderate_priority_effect:0 "Our scientific institutions have been tasked with monitoring cultural entropy and modeling long term patterns of decline. Applied insight may buy us time.\n"
+ decadence_high_priority_effect:0 "We deploy research teams to test unconventional social, economic, and ideological reforms. It is a race between invention and inertia.\n"
  
- approach_decadence_machine_low_priority:0 "Do Nothing"
- approach_decadence_machine_moderate_priority:0 "Moderate Intervention"
- approach_decadence_machine_high_priority:0 "Heavy Intervention"
+ approach_decadence_machine_low_priority:0 "Passive Mode"
+ approach_decadence_machine_moderate_priority:0 "Stabilization Protocols"
+ approach_decadence_machine_high_priority:0 "Cascade Control"
+
+ decadence_machine_low_priority_effect:0 "§RNo corrective subroutines engaged§!\n§HSystem drift§!: §Gpermitted§!\n§HResource expenditure§!: §Gminimized§!\n"
+ decadence_machine_moderate_priority_effect:0 "§HAnomaly§!: §Gflagged§!\n§HResearch nodes§!: §Gallocated§!\n§HSystem latency§!: §Gacceptable§!\n§RRecursive loops§! isolated within low-priority subprocesses\n"
+ decadence_machine_high_priority_effect:0 "§HCore routines§! undergoing §Gdefragmentation§!\n§RRecursive chains§!: §Gforcibly terminated§!\n§HPredictive simulations§!: §Gdeployed§!\n§HResource load§!: §Gelevated§!\n"
  
- approach_decadence_hive_low_priority:0 "Do Nothing"
- approach_decadence_hive_moderate_priority:0 "Moderate Intervention"
- approach_decadence_hive_high_priority:0 "Heavy Intervention"
- 
- decadence_low_priority_effect:0 "Our time as an Ascendancy is over. We will accept our time has passed and bow out of the galactic stage."
- decadence_moderate_priority_effect:0 "Our time as an Ascendancy is over, but we can delay our fall through state intervention."
- decadence_high_priority_effect:0 "We refuse to believe our time is over, and we will do everything we can to rejuvenate our Ascendancy."
- 
- decadence_machine_low_priority_effect:0 "Our time as an Ascendancy is over. We will accept our time has passed and allow the virus to take root."
- decadence_machine_moderate_priority_effect:0 "Our time as an Ascendancy is over, but we can delay and slow down the spread of the virus."
- decadence_machine_high_priority_effect:0 "Our time is not over! The virus must be rooted out and removed from the system at all costs!"
- 
- decadence_hive_low_priority_effect:0 "Our time as an Ascendancy is over. We will accept our time has passed and allow the sickness to take root."
- decadence_hive_moderate_priority_effect:0 "Our time as an Ascendancy is over, but we can delay and slow down the spread of this sickness."
- decadence_hive_high_priority_effect:0 "Our time is not over! This sickness must be cured at all costs!"
+ approach_decadence_hive_low_priority:0 "Passive Mode"
+ approach_decadence_hive_moderate_priority:0 "Stabilization Protocols"
+ approach_decadence_hive_high_priority:0 "Cascade Control"
+
+ decadence_hive_low_priority_effect:0 "Our time as an Ascendancy is over. We will accept our time has passed and allow the sickness to take root.\n"
+ decadence_hive_moderate_priority_effect:0 "Our time as an Ascendancy is over, but we can delay and slow down the spread of this sickness.\n"
+ decadence_hive_high_priority_effect:0 "Our time is not over! This sickness must be cured at all costs!\n"
  
  war_during_decadence:0 "We are at war! It will unite our empire for a time"
  war_during_decadence_machine:0 "We are at war! The virus is suppressed by overdrives in other functions for now"
@@ -174,9 +179,9 @@
  zofe_descension_fail_tooltip:0 "We will retain our status as an Ascendancy, backed by a large naval force."
  deficit_approach_rebuild_navy:0 "Invest in Ship Building"
  
- situation_zofe_lost_empire_type:0 "Twilight of a Fallen Empire"
- situation_zofe_lost_empire:0 "Twilight of a Fallen Empire"
- situation_zofe_lost_empire_desc:0 "A Fallen Ascendancy in its twilight years. Having reached its peak, the titan shipyards lie dormant and the society stagnant, largely apathetic towards further progress and change. Perhaps all is not too late, if a concerted effort is made to restore the empire to its former glory."
+ situation_zofe_lost_empire_type:0 "Twilight of an Empire"
+ situation_zofe_lost_empire:0 "Twilight of an Empire"
+ situation_zofe_lost_empire_desc:0 "An Ascendancy in its twilight years. Having reached its peak, the titan shipyards lie dormant and the society stagnant, largely apathetic towards further progress and change. Perhaps all is not too late, if a concerted effort is made to restore the empire to its former glory."
  situation_zofe_lost_empire_monthly_change_tooltip:0 "The progress of this §YSituation§! is dependent on the §YApproach§! we pick. Invest heavily into rejuvenating our society to reclaim our rightful place in the Galaxy!"
  approach_reclaim_glory:0 "Leverage Influence"
  zofe_reascension_effect:0 "We will leverage our influence to rejuvenate society and piece our nation back together."
