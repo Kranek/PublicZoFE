@@ -3,7 +3,8 @@
 agenda_zofe_ascension_theory = {
 	agenda_cost = @base_tradition_agenda_cost
 	allow = {
-		has_technology = tech_galactic_administration
+		has_technology = tech_mega_engineering
+		has_technology = tech_dark_matter_power_core
 	}
 	potential = {
 		NOR = {

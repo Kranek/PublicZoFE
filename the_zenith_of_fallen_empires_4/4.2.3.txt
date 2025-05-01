@@ -1,4 +1,4 @@
-# Change log of 19/04/2025
+# Change log of 20/04/2025
 
 ## ZoFE 4.2.3 Patch
 
@@ -10,7 +10,6 @@ Fixes
  - Fixed missing ethics from the make lost empire effect.
  - Fixed wrong ethic used for pops upon running the make lost empire effect.
  - Fixed Fall of an Ascendancy situation using non-gestalt modifiers for gestalt empires.
-
 
 Game Content and Changes
 * Vanilla
@@ -27,6 +26,7 @@ Game Content and Changes
  - Non-gestalt machine empires can now have Hedonists as well.
  - Every species you own can become a hedonist if they have citizenship rights.
  - You can no longer banish gestalt empires.
+ - Partial virtual empires can have utopian worlds.
 
 * Sandbox
  - Moved some diplo phrases to Sandbox.

@@ -16,7 +16,7 @@ country_event = {
 		is_country_type = ascended_empire
 		ascended_empire_decadence = yes
 		NOT = { has_country_flag = decadence_ongoing }
-		NOT = { has_country_flag = ascended_empire_no_decadence }
+		NOT = { has_country_flag = no_decadent_pops }
 	}
 	
 	immediate = {
@@ -191,9 +191,26 @@ country_event = {
 		remove_national_focus_flags = yes
 		remove_country_flag = lost_empire
 		set_country_flag = ascended_empire
-		set_timed_country_flag = {
-			flag = ascended_empire_no_decadence
-			years = 20
+		switch = {
+			trigger = has_global_flag
+			ascended_empire_decadence_enabled_1 = {
+				set_timed_country_flag = { flag = no_decadent_pops years = 20 }
+			}
+			ascended_empire_decadence_enabled_2 = {
+				set_timed_country_flag = { flag = no_decadent_pops years = 40 }
+			}
+			ascended_empire_decadence_enabled_3 = {
+				set_timed_country_flag = { flag = no_decadent_pops years = 60 }
+			}
+			ascended_empire_decadence_enabled_4 = {
+				set_timed_country_flag = { flag = no_decadent_pops years = 80 }
+			}
+			ascended_empire_decadence_enabled_5 = {
+				set_timed_country_flag = { flag = no_decadent_pops years = 100 }
+			}
+			default = {
+				
+			}
 		}
 	}
 	option = {
@@ -1217,8 +1234,11 @@ country_event = {
 	trigger = {
 		zofe_sandbox = yes
 		ascended_empire_decadence = yes
-		is_country_type = ascended_empire
-		NOT = { has_country_flag = ascended_empire_no_decadence }
+		OR = {
+			is_country_type = ascended_empire
+			is_country_type = lost_empire
+		}
+		NOT = { has_country_flag = no_decadent_pops }
 		NOT = { has_country_flag = recent_hedonist }
 	}
 
@@ -1226,8 +1246,11 @@ country_event = {
 	
 	immediate = {
 		random_list = {
-			50 = {
-
+			25 = {
+				modifier = {
+					factor = 2
+					has_modifier = suppressed_hedonist
+				}
 			}
 			50 = {
 				random_list = {
@@ -1241,12 +1264,20 @@ country_event = {
 						}
 					}
 					5 = {
+						modifier = {
+							factor = 5
+							has_modifier = promoted_hedonist
+						}
 						while = {
 							count = 3
 							add_decadent_pop = yes
 						}
 					}
 					1 = {
+						modifier = {
+							factor = 10
+							has_modifier = promoted_hedonist
+						}
 						while = {
 							count = 4
 							add_decadent_pop = yes
@@ -1288,7 +1319,7 @@ country_event = {
 # 		zofe_sandbox = yes
 # 		is_country_type = ascended_empire
 # 		ascended_empire_decadence = yes
-# 		NOT = { has_country_flag = ascended_empire_no_decadence }
+# 		NOT = { has_country_flag = no_decadent_pops }
 # 		NOT = { has_country_flag = decadence_ongoing }
 # 		NOT = { has_country_flag = recent_decadence_situation }
 # 		NOT = { has_country_flag = decadence_ascendancy_action_gained }

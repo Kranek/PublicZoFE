@@ -2331,7 +2331,7 @@ country_event = {
 			set_global_flag = galactic_ascendancy_ap_enabled_5
 			set_global_flag = ai_ascension_enabled
 			set_global_flag = subject_ascension_disabled
-			set_global_flag = ascended_empire_decadence_enabled_3
+			set_global_flag = ascended_empire_decadence_enabled_5
 			set_global_flag = zofe_return_of_the_original_empire_enabled
 			set_global_flag = ascended_empire_min_navy_enabled_3
 			
@@ -2371,7 +2371,7 @@ country_event = {
 			set_global_flag = galactic_ascendancy_ap_enabled_5
 			set_global_flag = ai_ascension_enabled
 			set_global_flag = subject_ascension_enabled
-			set_global_flag = ascended_empire_decadence_enabled_3
+			set_global_flag = ascended_empire_decadence_enabled_5
 			set_global_flag = zofe_return_of_the_original_empire_enabled
 			set_global_flag = ascended_empire_min_navy_disabled
 			
@@ -2411,7 +2411,7 @@ country_event = {
 			set_global_flag = galactic_ascendancy_ap_enabled_3
 			set_global_flag = ai_ascension_enabled
 			set_global_flag = subject_ascension_disabled
-			set_global_flag = ascended_empire_decadence_enabled_2
+			set_global_flag = ascended_empire_decadence_enabled_3
 			set_global_flag = zofe_return_of_the_original_empire_enabled
 			set_global_flag = ascended_empire_min_navy_enabled_2
 			
@@ -2451,7 +2451,7 @@ country_event = {
 			set_global_flag = galactic_ascendancy_ap_enabled_3
 			set_global_flag = ai_ascension_enabled_1
 			set_global_flag = subject_ascension_disabled
-			set_global_flag = ascended_empire_decadence_enabled_2
+			set_global_flag = ascended_empire_decadence_enabled_4
 			set_global_flag = zofe_return_of_the_original_empire_enabled
 			set_global_flag = ascended_empire_min_navy_enabled_3
 			
@@ -2491,7 +2491,7 @@ country_event = {
 			set_global_flag = galactic_ascendancy_ap_enabled_3
 			set_global_flag = ai_ascension_enabled
 			set_global_flag = subject_ascension_disabled
-			set_global_flag = ascended_empire_decadence_enabled_4
+			set_global_flag = ascended_empire_decadence_enabled_5
 			set_global_flag = zofe_return_of_the_original_empire_enabled
 			set_global_flag = ascended_empire_min_navy_disabled
 			
@@ -2531,7 +2531,7 @@ country_event = {
 			set_global_flag = galactic_ascendancy_ap_enabled_5
 			set_global_flag = ai_ascension_enabled
 			set_global_flag = subject_ascension_enabled
-			set_global_flag = ascended_empire_decadence_enabled_1
+			set_global_flag = ascended_empire_decadence_enabled_5
 			set_global_flag = zofe_return_of_the_original_empire_enabled
 			set_global_flag = ascended_empire_min_navy_disabled
 			

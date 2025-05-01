@@ -4,7 +4,7 @@
 artifact_dark_matter_power_research = {
 	resources = {
 		category = artifact_actions
-		cost = { minor_artifacts = 1500 }
+		cost = { minor_artifacts = 500 }
 	}
 	
 	ai_weight = {

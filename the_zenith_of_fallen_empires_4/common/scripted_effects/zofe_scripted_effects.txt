@@ -1374,8 +1374,12 @@ add_decadent_pop = {
 				}
 				set_pop_flag = decadent_pop
 				random_list = {
-					75 = {}
-					25 = {
+					60 = {}
+					30 = {
+						modifier = {
+							subtract = 15
+							is_pop_category = specialist
+						}
 						unemploy_pop = yes
 					}
 				}
@@ -1395,8 +1399,12 @@ add_decadent_pop = {
 					}
 					set_pop_flag = decadent_pop
 					random_list = {
-						75 = {}
-						25 = {
+						60 = {}
+						30 = {
+							modifier = {
+								subtract = 15
+								is_pop_category = complex_drone
+							}
 							unemploy_pop = yes
 						}
 					}
@@ -1411,8 +1419,12 @@ add_decadent_pop = {
 					}
 					set_pop_flag = decadent_pop
 					random_list = {
-						75 = {}
-						25 = {
+						60 = {}
+						30 = {
+							modifier = {
+								subtract = 15
+								is_pop_category = complex_drone
+							}
 							unemploy_pop = yes
 						}
 					}

@@ -658,7 +658,7 @@ country_event = {
 			}
 		}	
 		set_country_flag = dark_matter_power_arfifacts
-		custom_tooltip = "dark_matter_power_arfifacts_tooltip"
+		# custom_tooltip = "dark_matter_power_arfifacts_tooltip"
 		hidden_effect = {
 			every_country = {					# Notify Players
 				limit = {

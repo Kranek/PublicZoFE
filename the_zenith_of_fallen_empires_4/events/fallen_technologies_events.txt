@@ -154,25 +154,26 @@ country_event = {
 		set_timed_country_flag = { flag = new_ascended_empire years = 10 }
 		
 		#Decadence Flags
-		if = {
-			limit = { has_global_flag = ascended_empire_decadence_enabled_1 }
-			set_timed_country_flag = { flag = ascended_empire_no_decadence years = 100 }
-		}
-		if = {
-			limit = { has_global_flag = ascended_empire_decadence_enabled_2 }
-			set_timed_country_flag = { flag = ascended_empire_no_decadence years = 150 }
-		}
-		if = {
-			limit = { has_global_flag = ascended_empire_decadence_enabled_3 }
-			set_timed_country_flag = { flag = ascended_empire_no_decadence years = 200 }
-		}
-		if = {
-			limit = { has_global_flag = ascended_empire_decadence_enabled_4 }
-			set_timed_country_flag = { flag = ascended_empire_no_decadence years = 250 }
-		}
-		if = {
-			limit = { has_global_flag = ascended_empire_decadence_enabled_5 }
-			set_timed_country_flag = { flag = ascended_empire_no_decadence years = 300 }
+		switch = {
+			trigger = has_global_flag
+			ascended_empire_decadence_enabled_1 = {
+				set_timed_country_flag = { flag = no_decadent_pops years = 20 }
+			}
+			ascended_empire_decadence_enabled_2 = {
+				set_timed_country_flag = { flag = no_decadent_pops years = 40 }
+			}
+			ascended_empire_decadence_enabled_3 = {
+				set_timed_country_flag = { flag = no_decadent_pops years = 60 }
+			}
+			ascended_empire_decadence_enabled_4 = {
+				set_timed_country_flag = { flag = no_decadent_pops years = 80 }
+			}
+			ascended_empire_decadence_enabled_5 = {
+				set_timed_country_flag = { flag = no_decadent_pops years = 100 }
+			}
+			default = {
+
+			}
 		}
 	}
 
@@ -605,25 +606,26 @@ country_event = {
 		set_timed_country_flag = { flag = new_ascended_empire years = 10 }
 		
 		#Decadence Flags
-		if = {
-			limit = { has_global_flag = ascended_empire_decadence_enabled_1 }
-			set_timed_country_flag = { flag = ascended_empire_no_decadence years = 100 }
-		}
-		if = {
-			limit = { has_global_flag = ascended_empire_decadence_enabled_2 }
-			set_timed_country_flag = { flag = ascended_empire_no_decadence years = 150 }
-		}
-		if = {
-			limit = { has_global_flag = ascended_empire_decadence_enabled_3 }
-			set_timed_country_flag = { flag = ascended_empire_no_decadence years = 200 }
-		}
-		if = {
-			limit = { has_global_flag = ascended_empire_decadence_enabled_4 }
-			set_timed_country_flag = { flag = ascended_empire_no_decadence years = 250 }
-		}
-		if = {
-			limit = { has_global_flag = ascended_empire_decadence_enabled_5 }
-			set_timed_country_flag = { flag = ascended_empire_no_decadence years = 300 }
+		switch = {
+			trigger = has_global_flag
+			ascended_empire_decadence_enabled_1 = {
+				set_timed_country_flag = { flag = no_decadent_pops years = 20 }
+			}
+			ascended_empire_decadence_enabled_2 = {
+				set_timed_country_flag = { flag = no_decadent_pops years = 40 }
+			}
+			ascended_empire_decadence_enabled_3 = {
+				set_timed_country_flag = { flag = no_decadent_pops years = 60 }
+			}
+			ascended_empire_decadence_enabled_4 = {
+				set_timed_country_flag = { flag = no_decadent_pops years = 80 }
+			}
+			ascended_empire_decadence_enabled_5 = {
+				set_timed_country_flag = { flag = no_decadent_pops years = 100 }
+			}
+			default = {
+				
+			}
 		}
 	}
 
